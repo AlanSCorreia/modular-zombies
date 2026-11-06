@@ -14,8 +14,9 @@
 - **Velocidade:** **sim, o estilo atual atrasa** — não pelos docs/CI, mas pela
   arquitetura de runtime. Cada item novo (2 slots, barricadas, IA) exige mexer
   em vários pontos ao mesmo tempo.
-- **Atualização:** 2 slots implementados (`SLOTS_OK`) e softlock do Bunker 13
-  corrigido (`SOFTLOCK_OK`); factory/mãos completas continuam pendentes.
+- **Atualização:** 2 slots implementados (`SLOTS_OK`), softlock do Bunker 13
+  corrigido (`SOFTLOCK_OK`) e `MapContext`/`Interactable` tipados; harness do
+  `GameRoot` e factory/mãos continuam pendentes.
 
 ## Boas práticas presentes
 
@@ -74,8 +75,8 @@ mortos. Isso é **softlock**, não só performance.
 
 ## O que eu faria primeiro
 
-1. **`MapContext` tipado + `Interactable`** — dono único do estado de porta;
-   remove `Dictionary` mágico e o `door_open` global.
+1. **`MapContext` tipado + `Interactable`** — feito: estado de porta em
+   `DoorState.open`, enum no lugar de strings e sem `door_open` global.
 2. **`WeaponSlots` + `ViewmodelFactory`** — dois controllers pré-instanciados,
    rig filho da arma, `moving_parts`/`viewmodel`/`reload` do JSON. É o caminho
    para 2 slots e MP5.

@@ -85,6 +85,16 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `a99f691` `feat: load authored map geometry from GLB`
 - `4019c1c` `docs: record authored map geometry migration`
 
+**MapContext e Interactable (issue #4) — concluído**
+- `MapContext` tipado (`doors`/`wallbuys`/`perks`/`box`/`barricades`/`spawns`/`lights`).
+- `Interactable` com enum `Kind`; `DoorState.open` é o único estado de porta.
+- Removido `door_open` global e strings `"kind"` dos consumidores
+  (`PlayerController`, `GameRoot`, `MapSceneBuilder`).
+- `MapNav` recebe `Dictionary[String, DoorState]`.
+- Testes `BUNKER13_OK`, `MAP_OK`, `INTERACT_OK` verdes.
+- Issue #4 fechada; issue #5 aberta para extrair o harness.
+- Commit `031268a` `refactor: type map context and interactables`.
+
 **Softlock do Bunker 13 (issue #3) — concluído**
 - Ondas só em salas alcançáveis; `zombie_count` total respeitado (3/3/2).
 - `MapNav` com BFS de salas/portas; zumbi segue waypoints e idles se não há
@@ -128,8 +138,8 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   screenshot do menu.
 
 **Próximo item (KANBAN)**
-- `MapContext` tipado + `Interactable` (issue #4); depois, extrair o harness de
-  `GameRoot` para `tests/`.
+- Extrair o harness de `GameRoot` para `tests/` (issue #5); depois, pool/cache
+  de tracers, áudio e animações.
 
 **Registro confirmado**
 - GitHub: #2 fechada; #3 aberta à época (hoje fechada — ver bloco “Softlock do

@@ -85,7 +85,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.35 | Separar âncoras/interactables da geometria (feito) | P0 |
 | ETAPA3.36 | Exportar GLB do mapa e carregar no Godot (feito) | P0 |
 | ETAPA3.37 | Teste que impede geração de modelo 3D em runtime (feito) | P1 |
-| ETAPA3.38 | `MapContext` tipado + `Interactable` (porta/barricada) | P0 |
+| ETAPA3.38 | `MapContext` tipado + `Interactable` (porta/barricada) (feito) | P0 |
 | ETAPA3.39 | `WeaponSlots` + `ViewmodelFactory` (slots feitos; factory/mãos pendentes) | P0 |
 | ETAPA3.40 | Corrigir softlock do Bunker 13 + spawns/navmesh alcançáveis (feito) | P0 |
 | ETAPA3.41 | Extrair harness de teste do `GameRoot` para `tests/` | P1 |
