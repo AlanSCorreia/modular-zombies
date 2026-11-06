@@ -18,7 +18,9 @@ geometria não nasce de `BoxMesh`/`MeshInstance3D` em GDScript.
 - A geometria estática do mapa deve ser autoral (`.blend` ou `.tscn`).
 - O JSON do mapa guarda apenas **âncoras e gameplay**: portas, spawns,
   wallbuys, perks, caixa, barricadas e pontos de interesse.
-- `SliceBuilder`/`Bunker13Builder` são **legado temporário** até a migração.
+- `SliceBuilder`/`Bunker13Builder` ficam em `src/maps/legacy/` e são usados
+  **apenas** por `tools/export_map.gd` para gerar o GLB inicial. O runtime carrega
+  o GLB e só cria colisão, áreas e labels.
 
 ## Pipeline
 
@@ -42,10 +44,18 @@ blender -b --python source/blender/scripts/make_overview.py
 
 ## Estado
 
-- Fontes `.blend`: Glock 17, MP5, M870, AK-74, Wunder, pistol e zumbi.
+- Fontes `.blend`: Glock 17, MP5, M870, AK-74, Wunder, pistol, zumbi, slice e
+  Bunker 13.
 - `source/blender/overview.blend` mostra todos os modelos lado a lado.
-- **Dívida:** a geometria do mapa ainda é construída em runtime. A migração
-  para cena autoral é P0 da Etapa 3.
+- Geometria do mapa autoral em `assets/models/maps/<id>/<id>.glb`; o runtime
+  carrega o GLB e gera colisão a partir dos AABBs (física, não geometria visual).
+- Builders de runtime foram removidos do registry; os antigos ficam em
+  `src/maps/legacy/` apenas para exportação.
+
+## Nomes que o runtime procura
+
+`Door_<id>`, `WallBuy_<id>`, `Perk_<id>`, `Box`, `Lid`, `Barricade_<id>` e
+`Plank_*`. Renomear esses nós no Blender quebra a interação.
 
 ## Regras
 

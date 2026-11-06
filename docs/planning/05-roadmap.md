@@ -55,12 +55,10 @@ asset quebradas; nenhum `if map_id` no núcleo e nenhum conteúdo em `.tres`.
 
 **Já entregue na Etapa 3 — Gameplay:** `--map <id>`, `MapBuilderRegistry` (builder no
 JSON), interações de porta/wallbuy/perk/caixa, smoke `MAP_OK` do Bunker 13,
-Blender + fontes `.blend` de todas as armas e do zumbi.
+Blender + fontes `.blend` de todas as armas e do zumbi, e geometria autoral dos
+mapas (GLB + `.blend`).
 
 **Pendente**
-- Migrar a geometria do mapa para cena autoral (`.blend`/GLB); builders atuais
-  são legado temporário.
-- Separar âncoras/interactables da geometria no JSON.
 - 2 slots de arma e troca.
 - `HandsRig`/`ViewmodelFactory` com mãos compartilhadas.
 - **MP5 de ponta a ponta antes de remodelar as outras armas.**
@@ -70,7 +68,7 @@ Blender + fontes `.blend` de todas as armas e do zumbi.
 - `RoundManager`/economia completos e efeitos.
 - Testes de explosivos/faca e loop completo.
 
-**Pré-requisito de saída:** geometria do mapa autoral (ETAPA3.34–36).
+**Pré-requisito atendido:** geometria do mapa autoral (ETAPA3.34–36).
 
 **Aceite:** Bunker 13 jogável com geometria autoral; armas em JSON + `HandsRig`;
 faca, explosivos e barricadas funcionando.

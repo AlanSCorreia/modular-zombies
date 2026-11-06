@@ -12,16 +12,17 @@ serviços e ferramentas de autoria.
 ## Estado atual: Etapa 2 — Conteúdo concluída
 
 - Vertical slice jogável (sala, porta, zumbi, Glock, HUD).
-- **Bunker 13 completo em JSON + `Bunker13Builder`** (4 salas, 4 portas,
+- **Bunker 13 completo em JSON + geometria autoral** (4 salas, 4 portas,
   4 wallbuys, 3 perks, caixa, 9 barricadas e 9 spawns).
 - 5 armas em JSON, loader/validador, testes `BUNKER13_OK`.
 - Modelos reorganizados em `assets/models/<categoria>/<id>/`.
-- **Fontes `.blend` de todas as armas e do zumbi** em `source/blender/`.
+- **Fontes `.blend` de todas as armas, do zumbi e dos mapas** em `source/blender/`.
 - Git, CI, plugin `bunker_tools` e bench.
 
 Etapa 3 — Gameplay em andamento: o Bunker 13 já abre com `--map map.bunker13`; faltam
 janelas, barricadas, faca, explosivos, mãos separadas e 2 slots. A geometria do
-mapa ainda é runtime; a migração para cena autoral é a próxima dívida P0.
+mapa já é autoral (GLB/`.blend`); os builders antigos ficam em `src/maps/legacy/`
+apenas para exportação.
 
 ## Decisões-chave
 

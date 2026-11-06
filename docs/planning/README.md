@@ -9,9 +9,11 @@
 - A v2 é uma **reescrita do runtime**, não uma refatoração incremental.
 - **Etapa 1 — Preparação concluída:** Git, CI, importação, scaffold, vertical slice jogável.
 - Etapa atual: **Etapa 2 — Conteúdo concluída; Etapa 3 — Gameplay em andamento** (barricadas/faca/explosivos).
-- Vertical slice jogável + Bunker 13 em JSON/`Bunker13Builder`; testes `SLICE_OK` e `BUNKER13_OK`.
+- Vertical slice jogável + Bunker 13 em JSON com geometria autoral (GLB/`.blend`);
+  testes `SLICE_OK`, `BUNKER13_OK` e `MAP_OK`.
 - Barricadas estão planejadas para a Etapa 3 — Gameplay (`13-barricades.md`).
-- Modelos reorganizados; fontes `.blend` já existem em `source/blender/`.
+- Modelos reorganizados; fontes `.blend` de armas, zumbi e mapas em
+  `source/blender/`.
 - **Execução:** issues/milestones no GitHub; `KANBAN.md` é o snapshot local.
   Decisões em `19-decision-log.md` e avanços em `20-work-log.md`.
 - **Sincronização:** subagente `doc-keeper`.

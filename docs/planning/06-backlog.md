@@ -42,8 +42,8 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 
 ## Etapa 3 — Gameplay
 
-> Pré-requisito de saída: ETAPA3.34–36 (geometria autoral). A Etapa 4 só começa
-> depois do aceite da Etapa 3.
+> Atendido: ETAPA3.34–36 (geometria autoral). A Etapa 4 só começa depois do
+> aceite da Etapa 3.
 
 | ID | Tarefa | Pri |
 |---|---|---|
@@ -78,10 +78,10 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.31 | Spawns vinculados a `barricade.spawn_position` | P0 |
 | ETAPA3.32 | Corrigir falsos positivos do teste integrado | P0 |
 | ETAPA3.33 | Reforçar `ContentValidator` (schema, IDs, hands, áudio) | P1 |
-| ETAPA3.34 | Migrar geometria do mapa para cena autoral (GLB/`.tscn`) | P0 |
-| ETAPA3.35 | Separar âncoras/interactables da geometria | P0 |
-| ETAPA3.36 | Exportar GLB do mapa e carregar no Godot | P0 |
-| ETAPA3.37 | Teste que impede geração de modelo 3D em runtime | P1 |
+| ETAPA3.34 | Migrar geometria do mapa para cena autoral (GLB/`.tscn`) (feito) | P0 |
+| ETAPA3.35 | Separar âncoras/interactables da geometria (feito) | P0 |
+| ETAPA3.36 | Exportar GLB do mapa e carregar no Godot (feito) | P0 |
+| ETAPA3.37 | Teste que impede geração de modelo 3D em runtime (feito) | P1 |
 | ETAPA3.15 | Testes de explosivos e faca | P0 |
 | ETAPA3.16 | Teste integrado do loop | P0 |
 

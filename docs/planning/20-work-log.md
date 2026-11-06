@@ -32,8 +32,17 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `d548c78` prefixo `Etapa N`
 - `b3efc49` Blender + fontes `.blend` + regra de assets
 
+**Migração de geometria (issue #1)**
+- `SliceBuilder`/`Bunker13Builder` movidos para `src/maps/legacy/` (export-only).
+- `tools/export_map.gd` gerou `slice.glb` e `bunker13.glb`; fontes `.blend` em
+  `source/blender/maps/`.
+- `MapSceneBuilder` carrega o GLB e cria colisão/áreas/labels; JSON só guarda
+  âncoras.
+- Teste de CI impede `BoxMesh`/`MeshInstance3D` no builder runtime.
+- Issue #1 fechada; issue #2 aberta para os 2 slots.
+
 **Próximo item (KANBAN)**
-- Migrar a geometria do mapa para cena autoral (GLB/`.tscn`).
+- `WeaponController` 2 slots.
 
 ## 2026-11-05 — Etapas 1 e 2 (Preparação/Conteúdo)
 

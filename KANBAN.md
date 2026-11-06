@@ -41,7 +41,7 @@
 ## Próximo item
 
 - **Etapa ativa:** 3 — Gameplay.
-- **Agora (Doing):** migrar a geometria do mapa para cena autoral.
+- **Agora (Doing):** `WeaponController` 2 slots.
 - **Depois:** topo de `Ready` da etapa ativa quando o `Doing` estiver vazio.
 - **Próxima etapa:** 4 — Interações, somente após o aceite da Etapa 3.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
@@ -138,7 +138,7 @@ faca, explosivos e barricadas funcionando.
 - [ ] Estatísticas de sessão
 
 ### Ready
-- [ ] `WeaponController` 2 slots
+- [ ] `WeaponController` projectile/melee
 - [ ] `WeaponController` projectile/melee
 - [ ] `ExplosionSystem` (raio, LOS, falloff, impulso, cadeia)
 - [ ] Granada (G), lança-foguete e barris explosivos
@@ -166,12 +166,13 @@ faca, explosivos e barricadas funcionando.
 - [ ] `Effects` (sangue, decais, tracers, cápsulas)
 
 ### Doing
-- [ ] Migrar geometria do mapa para cena autoral (GLB/`.tscn`) — [#1](https://github.com/AlanSCorreia/modular-zombies/issues/1)
+- [ ] `WeaponController` 2 slots — [#2](https://github.com/AlanSCorreia/modular-zombies/issues/2)
 
 ### Review/Test
 - [x] Slice: tiro, recarga, zumbi, morte e porta
 - [x] Revisão de linha de base (3 subagentes)
 - [x] Smoke do Bunker 13 + compras (`MAP_OK`)
+- [x] Bunker 13 e slice carregam GLB autoral
 - [ ] Rodada 1 → 2 e game over completos
 
 ### Done
@@ -186,6 +187,7 @@ faca, explosivos e barricadas funcionando.
 - [x] Interações base: porta, wallbuy, perk e caixa
 - [x] `WeaponController` com áudio/escala do JSON
 - [x] Smoke `MAP_OK` do Bunker 13 no CI
+- [x] Migração da geometria do mapa para GLB autoral (issue #1)
 - [x] Blender 4.5 LTS + `blender.sh`
 - [x] Fontes `.blend` das 5 armas + zumbi + pistol
 - [x] `source/blender/overview.blend` e scripts de importação

@@ -42,6 +42,14 @@
 **Estado atual:** `LOGIC_OK`, `CONTENT_OK`, `BUNKER13_OK`, `MAP_OK`, `SLICE_OK`.
 **Bench:** 42–61 FPS, 135 draw calls, 66 MB (vsync/foco).
 
+## Testes de geometria
+
+- `src/maps/map_scene_builder.gd` não pode criar `BoxMesh`/`MeshInstance3D`
+  (gate no CI).
+- Todo mapa tem `scene` existente e `builder: "scene"`.
+- Bunker 13 carrega >20 meshes e >20 corpos de colisão.
+- `MAP_OK` cobre carga do GLB e compras.
+
 ## Testes de arma
 
 - Conteúdo: schema, stats, cena, mãos, `GripSocket`, partes móveis.

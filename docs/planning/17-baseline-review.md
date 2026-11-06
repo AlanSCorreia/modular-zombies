@@ -19,8 +19,9 @@
 - `GameRoot` usa `map.enemy_id` e `map.zombie_count`.
 - `WeaponController` lê `audio` e `scale` do JSON.
 - CI ganhou o smoke do Bunker 13 (`MAP_OK`) com compras.
-- Blender + fontes `.blend` de todos os modelos; a geometria do mapa ainda é
-  runtime e agora é a dívida P0.
+- Blender + fontes `.blend` de todos os modelos.
+- Geometria do mapa migrada para GLB autoral; builders antigos em
+  `src/maps/legacy/` apenas para exportação.
 - Continuam abertos: janelas/barricadas/IA, `hands.glb`, 2 slots e o teste de
   integração com falsos positivos.
 

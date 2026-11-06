@@ -136,6 +136,6 @@ source/
 ## Migração
 
 **Status:** modelos reorganizados em `assets/models/<categoria>/<id>/` e fontes
-`.blend` de todas as armas e do zumbi em `source/blender/`. `./blender.sh` abre
-a visão geral. Falta `hands.glb` e a migração da geometria do mapa para cena
-autoral. Nada de conteúdo em `.tres`. Ver `18-authored-assets.md`.
+`.blend` de todas as armas, do zumbi e dos mapas em `source/blender/`.
+`./blender.sh` abre a visão geral. Falta `hands.glb`. A geometria do mapa já é
+autoral (GLB/`.blend`). Nada de conteúdo em `.tres`. Ver `18-authored-assets.md`.
