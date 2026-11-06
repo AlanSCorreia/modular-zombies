@@ -50,7 +50,7 @@
 - [x] Conteúdo JSON + loader + validador
 - [x] Vertical slice: sala, porta, zumbi, Glock, HUD
 - [x] CI local (`tests/ci.sh`) e bench (`tests/bench.sh`)
-- [x] Bench: 61 FPS, 135 draw calls, 66 MB
+- [x] Bench: 42–61 FPS, 135 draw calls, 66 MB
 
 ---
 

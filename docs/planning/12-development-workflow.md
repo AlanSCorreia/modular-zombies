@@ -37,8 +37,8 @@ testável:
 | Draw calls | ≤ 500 |
 | Memória | ≤ 1 GB |
 
-Medição atual do slice: **60 FPS, 16,5 ms, 135 draw calls, 66 MB** (vsync).
-Registrar o bench a cada mudança grande.
+Medição atual do slice: **42–61 FPS, 135 draw calls, 66 MB** (varia com
+vsync/foco da janela). Registrar o bench a cada mudança grande.
 
 ## Definition of Ready
 

@@ -40,7 +40,7 @@
 ```
 
 **Estado atual:** `LOGIC_OK`, `CONTENT_OK`, `SLICE_OK`.
-**Bench:** 60 FPS, 16,5 ms, 135 draw calls, 66 MB.
+**Bench:** 42–61 FPS, 135 draw calls, 66 MB (vsync/foco).
 
 ## Validador de conteúdo
 
