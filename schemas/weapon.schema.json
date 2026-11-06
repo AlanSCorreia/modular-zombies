@@ -10,6 +10,13 @@
     "name": { "type": "string", "minLength": 1 },
     "type": { "type": "string", "enum": ["hitscan", "projectile", "melee"] },
     "scene": { "type": "string", "minLength": 1 },
-    "stats": { "type": "object" }
+    "hands": { "type": "string" },
+    "grip_profile": { "type": "string" },
+    "animation_set": { "type": "string" },
+    "moving_parts": { "type": "array", "items": { "type": "string" } },
+    "viewmodel": { "type": "object" },
+    "stats": { "type": "object" },
+    "reload": { "type": "object" },
+    "audio": { "type": "object" }
   }
 }

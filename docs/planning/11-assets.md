@@ -79,6 +79,7 @@ source/
 - Partes móveis nomeadas (`Slide`, `Magazine`, `Trigger`, `Pump`) e pivôs
   corretos para animação.
 - `GripSocket`/`grip_profile` para encaixar as mãos compartilhadas.
+- Pipeline de armas: `14-weapon-workflow.md`.
 - Barricadas: tábua reutilizável em `models/props/barricade_plank.glb`; textura
   wood em `textures/world`; lascas em `vfx/impacts`.
 

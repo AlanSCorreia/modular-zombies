@@ -18,7 +18,7 @@
 |---|---|
 | R0 | Importa; docs/Kanban aprovados; Git/CI prontos |
 | R1 | Bunker 13 por JSON; assets organizados; 0 refs quebradas |
-| R2 | Loop jogável; explosivos, faca e barricadas testados |
+| R2 | Loop jogável; explosivos, faca, barricadas e workflow de arma testados |
 | R3 | Interações, UI e áudio do plano |
 | R4 | Criar/validar/testar mapa no editor |
 | R5 | Música + main quest de 3 passos; grafo válido |
@@ -41,6 +41,15 @@
 
 **Estado atual:** `LOGIC_OK`, `CONTENT_OK`, `SLICE_OK`.
 **Bench:** 42–61 FPS, 135 draw calls, 66 MB (vsync/foco).
+
+## Testes de arma
+
+- Conteúdo: schema, stats, cena, mãos, `GripSocket`, partes móveis.
+- Asset: GLB importa, escala/origem/eixos, `Muzzle`/`EjectPort`.
+- Animações: `fire`, `fire_last`, `reload_chambered`, `reload_empty`.
+- Integração: tiro, headshot, recarga com/sem bala no cano, 2 slots.
+- Visual: arma + mãos na tela; muzzle flash e recuo.
+- Aceite do workflow: uma **segunda arma** criada sem código especial.
 
 ## Testes de barricada
 

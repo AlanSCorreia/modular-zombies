@@ -40,6 +40,7 @@ O board operacional é `../../KANBAN.md`.
 - Bunker 13 completo em JSON.
 - 5 armas + faca/explosivos + barricadas definidos em JSON.
 - Schemas completos e validação de assets (paths/importação).
+- Template de arma + schema completo (`14-weapon-workflow.md`).
 - Reorganização de assets para a árvore híbrida.
 - Testes de definições e conteúdo completo.
 
@@ -54,6 +55,7 @@ asset quebradas; nenhum `if map_id` no núcleo e nenhum conteúdo em `.tres`.
 **Pendente**
 - 2 slots de arma e troca.
 - `HandsRig`/`ViewmodelFactory` com mãos compartilhadas.
+- Validar o workflow com uma segunda arma.
 - Faca (V, corte diagonal) e explosivos (granadas, foguete, barris).
 - `BarricadeSystem`: hold F, tábuas, arranque e entrada do zumbi.
 - `RoundManager`/economia completos e efeitos.

@@ -115,6 +115,7 @@
 - [ ] JSON de faca, granada, foguete, barris, traps e barricadas
 - [ ] Pipeline Blender de armas/mãos (todas as armas + mãos separadas)
 - [ ] Validação de assets (paths + importação)
+- [ ] Template de arma + schema completo
 - [ ] Testes de definições e validação
 
 ### Doing
@@ -156,6 +157,7 @@
 - [ ] Faca GLB + mãos compartilhadas + `knife_slash`
 - [ ] `HandsRig` + cache de mãos + `grip_profile`
 - [ ] `ViewmodelFactory` (armas GLB + mãos compartilhadas)
+- [ ] Validar workflow com uma segunda arma
 - [ ] `RoundManager` (estado, spawn, escalonamento)
 - [ ] `Economy` (pontos, compra, bônus)
 - [ ] `Effects` (sangue, decais, tracers, cápsulas)

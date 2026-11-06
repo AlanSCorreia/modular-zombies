@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "kind": "weapon",
+  "id": "weapon.example",
+  "name": "EXEMPLO",
+  "type": "hitscan",
+  "scene": "res://assets/models/weapons/example/example.glb",
+  "hands": "res://assets/models/hands/hands.glb",
+  "grip_profile": "rifle",
+  "animation_set": "res://assets/animations/viewmodels/example.tres",
+  "moving_parts": ["Slide", "Magazine", "Trigger"],
+  "viewmodel": {
+    "position": [0.18, -0.19, -0.55],
+    "rotation": [0.0, 0.08, 0.0],
+    "scale": 0.8,
+    "muzzle": "Muzzle",
+    "grip_socket": "GripSocket"
+  },
+  "stats": {
+    "damage": 34,
+    "head_multiplier": 2.0,
+    "rpm": 600,
+    "mag": 30,
+    "reserve": 180,
+    "spread": 0.013,
+    "range": 120,
+    "reload_chambered": 2.0,
+    "reload_empty": 2.4
+  },
+  "reload": { "strategy": "magazine" },
+  "audio": { "fire": "gun_rifle", "reload": "reload", "empty": "reload" }
+}

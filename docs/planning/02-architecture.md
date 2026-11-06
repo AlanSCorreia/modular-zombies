@@ -49,7 +49,8 @@ EventBus (sinais) ◄──► HUD / Áudio / VFX / Save
 
 ## Armas e mãos (v2)
 
-**Todas as armas serão modeladas no Blender.** A Glock 17 é apenas a primeira
+**Todas as armas serão modeladas no Blender.** Workflow completo em
+`14-weapon-workflow.md`. A Glock 17 é apenas a primeira
 `WeaponDefinition`, não um caso especial. As **mãos são um asset separado,
 compartilhado e reutilizado** por todas as armas.
 

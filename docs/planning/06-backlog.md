@@ -39,6 +39,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | R1.9 | Validação de assets (paths/importação) | P0 |
 | R1.10 | Testes de schema/validação | P0 |
 | R1.11 | Reorganizar assets e mover `.blend` para `source/` | P0 |
+| R1.12 | Template de arma + schema completo | P0 |
 
 ## R2 — Loop de gameplay
 
@@ -62,6 +63,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | R2.18 | `BarricadeSystem` + hold F + pontos | P0 |
 | R2.19 | IA de zumbi: arrancar, entrar e fila por janela | P0 |
 | R2.20 | Testes de barricada (reparo, interrupção, breach) | P0 |
+| R2.21 | Validar workflow com uma segunda arma | P0 |
 | R2.15 | Testes de explosivos e faca | P0 |
 | R2.16 | Teste integrado do loop | P0 |
 

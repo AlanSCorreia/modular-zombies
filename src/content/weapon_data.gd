@@ -9,7 +9,10 @@ var hands := ""
 var grip_profile := ""
 var animation_set := ""
 var moving_parts: Array[String] = []
+var viewmodel: Dictionary = {}
 var stats: Dictionary = {}
+var reload: Dictionary = {}
+var audio: Dictionary = {}
 
 static func from_dict(d: Dictionary) -> WeaponData:
 	var w := WeaponData.new()
@@ -23,4 +26,7 @@ static func from_dict(d: Dictionary) -> WeaponData:
 	for p in d.get("moving_parts", []):
 		w.moving_parts.append(String(p))
 	w.stats = d.get("stats", {})
+	w.viewmodel = d.get("viewmodel", {})
+	w.reload = d.get("reload", {})
+	w.audio = d.get("audio", {})
 	return w

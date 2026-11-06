@@ -30,6 +30,12 @@ Ainda não é o Bunker 13 completo; barricadas e o loop serão expandidos em R1�
 - **Explosivos** (granadas, foguetes, traps, barris) e **faca (V)** fazem parte do combate.
 - Assets: `assets/` (GLB/PNG/OGG/TTF), `source/blender/` (`.blend`), `content/` (JSON).
 
+## Criar uma arma
+
+Siga `docs/planning/14-weapon-workflow.md` e o template
+`templates/weapon/weapon.json`. Resumo: referência → Blender (arma sem mãos) →
+GLB → JSON → animações → validação → testes.
+
 ## Conteúdo e assets
 
 ```text
