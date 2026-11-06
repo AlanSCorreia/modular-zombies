@@ -44,8 +44,9 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 
 > Atendido: ETAPA3.34–36 (geometria autoral). A Etapa 4 só começa depois do
 > aceite da Etapa 3.
-> Ordem de execução: ETAPA3.40 (softlock, issue #3) primeiro; depois ETAPA3.38
-> (`MapContext`/`Interactable`), independentemente da numeração.
+> Ordem de execução: ETAPA3.40 (softlock, issue #3) concluída; agora ETAPA3.38
+> (`MapContext`/`Interactable`, issue #4) e, em seguida, ETAPA3.41 (extrair o
+> harness de `GameRoot` para `tests/`).
 
 | ID | Tarefa | Pri |
 |---|---|---|

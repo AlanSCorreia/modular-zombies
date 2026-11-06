@@ -3,6 +3,37 @@
 Registro cronológico curto do que foi feito, testes e commits. O plano vivo
 continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 
+## 2026-11-06 — Softlock do Bunker 13 fechado (issue #3)
+
+**Feito**
+- Ondas só em salas alcançáveis, respeitando `zombie_count` (3/3/2); `only_a`
+  no teste confirma que nenhum spawn inalcançável é usado.
+- `MapNav` (BFS de salas/portas) usado por `GameRoot._reachable_spawns`;
+  zumbi segue waypoints e faz idle quando não há caminho, sem atravessar porta
+  fechada (`closed_blocked`).
+- Economia validada no teste: 8 kills → 980 pontos; `door1` (750) abre o
+  caminho (`open_path`).
+- Gate `SOFTLOCK_OK` adicionado ao `tests/ci.sh`.
+
+**Testes (2026-11-06, rodados nesta sincronização)**
+- `./tests/ci.sh` verde: `LOGIC_OK`, `CONTENT_OK`, `BUNKER13_OK`, `MAP_OK`,
+  `SOFTLOCK_OK`, `PAUSE_OK`, `INTERACT_OK`, `SLOTS_OK`, `SLICE_OK`, `CI_OK`.
+- `SOFTLOCK_TEST initial=3 only_a=true closed_blocked=true spawned=8
+  points_before=980 complete=true open_path=true`.
+- Ruído não fatal mantido: `ObjectDB instances leaked` e `resources still in
+  use` no exit headless.
+
+**Commits**
+- `ce62eb5` `fix: prevent Bunker 13 softlock with reachable waves`
+- `d61b2bd` `docs: record softlock fix and next MapContext`
+
+**Estado do board**
+- KANBAN: softlock apenas em **Done** (duplicata em Review/Test removida);
+  **Doing** vazio; topo de **Ready** = `MapContext` tipado + `Interactable`
+  (issue #4); depois extrair o harness (`ETAPA3.41`).
+- GitHub: #3 fechada; #4 aberta com `etapa:3`, `prio:P0`, `area:gameplay` e
+  milestone Etapa 3.
+
 ## 2026-11-06 — Etapa 3 (Gameplay) em andamento
 
 **Feito**
@@ -71,10 +102,11 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - Wallbuys e caixa usam `add_weapon`: não duplicam arma; com slots cheios,
   substituem o slot ativo.
 - Teste `SLOTS_OK` no CI (troca, munição preservada e sem duplicata).
-- Issue #2 fechada; issue #3 aberta para o softlock do Bunker 13.
-- KANBAN: 2 slots apenas em **Done** (removida a duplicata em Review/Test);
-  **Doing** vazio; topo de **Ready** segue com o softlock (issue #3) e depois
-  `MapContext` tipado.
+- Issue #2 fechada; issue #3 aberta para o softlock do Bunker 13 (estado à
+  época — hoje fechada).
+- KANBAN na época: 2 slots apenas em **Done** (removida a duplicata em
+  Review/Test); **Doing** vazio; topo de **Ready** com o softlock (issue #3) e
+  depois `MapContext` tipado. Hoje o topo é `MapContext`.
 - Commits: `e51f172` `feat: add two weapon slots` e `97055ec`
   `docs: record two-slot implementation`.
 
@@ -100,7 +132,8 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   `GameRoot` para `tests/`.
 
 **Registro confirmado**
-- GitHub: #2 fechada; #3 aberta com `etapa:3`, `prio:P0`, `area:gameplay` e
+- GitHub: #2 fechada; #3 aberta à época (hoje fechada — ver bloco “Softlock do
+  Bunker 13 fechado” no topo) com `etapa:3`, `prio:P0`, `area:gameplay` e
   milestone Etapa 3.
 - Estratégia de slots registrada como D-015 em `19-decision-log.md`.
 
