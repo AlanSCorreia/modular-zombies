@@ -150,6 +150,8 @@
 - [ ] JSON de faca, granada, foguete, barris e traps
 - [ ] Mãos separadas (`hands.glb`) + `GripSocket`
 - [ ] Bunker 13 jogável (spawns, portas, barricadas)
+- [ ] `--map <id>` no GameRoot
+- [ ] Teste visual do Bunker 13
 - [ ] IA de zumbi: arrancar tábua, fila e entrada com 0
 - [ ] Testes de barricada (reparo, interrupção, breach)
 - [ ] Faca GLB + mãos compartilhadas + `knife_slash`

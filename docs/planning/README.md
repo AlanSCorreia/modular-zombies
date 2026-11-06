@@ -45,6 +45,7 @@
 | `12-development-workflow.md` | Git, CI, vertical slice e orçamento de performance |
 | `13-barricades.md` | Mecânica de barricadas, hold F, zumbis e pontos |
 | `14-weapon-workflow.md` | Pipeline completo de criação de armas |
+| `15-r1-review.md` | Achados e recomendações após R1 |
 
 ## Como usar
 

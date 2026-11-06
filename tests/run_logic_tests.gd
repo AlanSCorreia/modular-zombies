@@ -22,6 +22,12 @@ func _init() -> void:
 	check(reg.errors.is_empty(), "conteúdo sem erros")
 	check(reg.maps.size() == 2, "2 mapas carregados")
 	check(reg.weapons.size() == 5, "5 armas carregadas")
+	for wid in ["weapon.glock17", "weapon.mp5", "weapon.m870", "weapon.ak74", "weapon.wunder"]:
+		var w: WeaponData = reg.get_weapon(wid)
+		check(w != null, "arma " + wid)
+		if w != null:
+			check(w.grip_profile != "", wid + " tem grip")
+			check(FileAccess.file_exists(w.scene), wid + " cena existe")
 	check(map != null, "mapa slice carregado")
 	check(bunker != null, "mapa Bunker 13 carregado")
 	check(weapon != null, "arma carregada")

@@ -62,6 +62,8 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary)
 			errors.append("weapon %s: id/name vazios" % id)
 		if w.scene == "" or not FileAccess.file_exists(w.scene):
 			errors.append("weapon %s: cena inexistente (%s)" % [id, w.scene])
+		if w.grip_profile == "":
+			errors.append("weapon %s: grip_profile ausente" % id)
 		for key in ["damage", "rpm", "mag", "reserve", "reload_chambered"]:
 			if not w.stats.has(key):
 				errors.append("weapon %s: stat '%s' ausente" % [id, key])

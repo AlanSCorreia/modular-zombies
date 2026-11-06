@@ -66,6 +66,8 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | R2.22 | JSON de faca, granada, foguete, barris e traps | P0 |
 | R2.23 | Mãos separadas (`hands.glb`) + `GripSocket` | P0 |
 | R2.24 | Bunker 13 jogável (spawns, portas, barricadas) | P0 |
+| R2.25 | `--map <id>` no GameRoot | P0 |
+| R2.26 | Teste visual do Bunker 13 | P1 |
 | R2.15 | Testes de explosivos e faca | P0 |
 | R2.16 | Teste integrado do loop | P0 |
 
