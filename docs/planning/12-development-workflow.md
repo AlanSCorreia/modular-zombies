@@ -6,7 +6,7 @@
 - `.gitignore`: `.godot/`, `build/`, logs.
 - Commits pequenos e temáticos (`feat:`, `fix:`, `docs:`, `test:`).
 - Commitar assets junto do JSON que os referencia.
-- Tag de marco ao fechar fase (`R0`, `R1`, ...).
+- Tag de marco ao fechar fase (`Preparação`, `Conteúdo`, ...).
 - Nunca commitar `.godot/` nem builds.
 
 ## Agentes de desenvolvimento
@@ -32,7 +32,7 @@ testável:
 
 - Slice atual: uma sala, porta comprável, zumbi, Glock e HUD.
 - Próximo: conteúdo completo do Bunker 13 e mecânicas únicas.
-- Ferramentas de mapa só depois de R1–R3 estáveis.
+- Ferramentas de mapa só depois de Conteúdo–Interações estáveis.
 
 ## Orçamento de performance
 
@@ -74,9 +74,9 @@ vsync/foco da janela). Registrar o bench a cada mudança grande.
 - Exportar GLB para `assets/` via script; validar escala/pivôs.
 - Nenhum asset de terceiros sem licença em `CREDITS.md`.
 
-## Próximos passos (R1 concluído)
+## Próximos passos (Conteúdo concluído)
 
-1. Barricadas, faca, explosivos e 2 slots (R2).
-2. Mãos separadas (`hands.glb`) e Bunker 13 jogável (R2).
-3. UI/áudio de combate (R3).
-4. Ferramentas de mapa (R4).
+1. Barricadas, faca, explosivos e 2 slots (Gameplay).
+2. Mãos separadas (`hands.glb`) e Bunker 13 jogável (Gameplay).
+3. UI/áudio de combate (Interações).
+4. Ferramentas de mapa (Ferramentas).

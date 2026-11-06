@@ -1,8 +1,8 @@
-# Revisão R1 — achados e recomendações
+# Revisão de Conteúdo — achados e recomendações
 
 ## Estado
 
-- R1 concluído: assets de modelos reorganizados, 2 mapas, 5 armas, Bunker 13
+- Conteúdo concluído: assets de modelos reorganizados, 2 mapas, 5 armas, Bunker 13
   em JSON + `Bunker13Builder`.
 - Testes: `LOGIC_OK`, `CONTENT_OK`, `BUNKER13_OK`, `SLICE_OK`, `CI_OK`.
 - O **slice continua sendo o alvo jogável**. O Bunker 13 é construído e
@@ -11,10 +11,10 @@
 ## Achados
 
 1. **Bunker 13 não é jogável ainda.** O builder monta geometria/interactables;
-   spawns, portas e barricadas genéricos ficam para R2.
+   spawns, portas e barricadas genéricos ficam para Gameplay.
 2. **Só a Glock está integrada.** MP5/M870/AK/Wunder têm GLB + JSON, mas sem
    mãos separadas, animações e viewmodel em jogo.
-3. **Glock ainda tem mãos embutidas.** Migração para `hands.glb` é R2.
+3. **Glock ainda tem mãos embutidas.** Migração para `hands.glb` é da fase de Gameplay.
 4. **Geometria duplicada.** `SliceBuilder` e `Bunker13Builder` repetem helpers
    de caixa/parede; extrair um `BoxBuilder` reduz drift.
 5. **`GameRoot` fixa `map.slice`.** Falta seletor/CLI `--map` para testar
@@ -26,7 +26,7 @@
 8. **`source/blender` sem `.blend`.** Só os GLBs exportados estão versionados;
    a fonte editável ainda falta.
 9. **Barricadas são visuais no builder.** Não há buraco de janela nem lógica de
-   tábuas/reparo (R2).
+   tábuas/reparo (Gameplay).
 
 ## Recomendações
 
@@ -40,16 +40,16 @@
 ### P1
 - Extrair `BoxBuilder`/helpers comuns dos dois builders.
 - Validar nós móveis e animações no `ContentValidator`.
-- Implementar barricadas/hold F no Bunker 13 (R2).
+- Implementar barricadas/hold F no Bunker 13 (Gameplay).
 - Versionar `.blend` fonte em `source/blender`.
 
 ### P2
 - Props/atmosfera completos do Bunker 13.
-- Ferramentas de autoria (R4).
-- Save/load de barricadas e progresso (R7).
+- Ferramentas de autoria (Ferramentas).
+- Save/load de barricadas e progresso (Produção).
 
 ## Decisão
 
-**Não promover Bunker 13 a mapa principal até R2/R3.** O slice permanece o
+**Não promover Bunker 13 a mapa principal até Gameplay/INTERACT.** O slice permanece o
 golden path jogável; o Bunker 13 entra quando spawns, portas e barricadas
 estiverem genéricos e testados.

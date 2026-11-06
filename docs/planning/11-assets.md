@@ -137,4 +137,4 @@ source/
 
 **Status:** modelos já reorganizados em `assets/models/<categoria>/<id>/`.
 Faltam as mãos separadas (`hands.glb`) e as fontes `.blend` em `source/`
-(R2). Nada de conteúdo em `.tres`.
+(Gameplay). Nada de conteúdo em `.tres`.

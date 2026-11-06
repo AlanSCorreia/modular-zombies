@@ -126,8 +126,8 @@ como nos CoDs, com dano, alcance curto e feedback.
 
 | Fase | Entrega |
 |---|---|
-| R1 | JSON de explosivos/melee + validator |
-| R2 | `ExplosionSystem`, granada, lança-foguete, barris, faca |
-| R3 | Traps, props explosivos no mapa, VFX/SFX/HUD |
-| R6 | Variantes (faca melhorada, explosivos wonder) |
-| R7 | Pools e orçamento de performance |
+| Conteúdo | JSON de explosivos/melee + validator |
+| Gameplay | `ExplosionSystem`, granada, lança-foguete, barris, faca |
+| Interações | Traps, props explosivos no mapa, VFX/SFX/HUD |
+| Escala | Variantes (faca melhorada, explosivos wonder) |
+| Produção | Pools e orçamento de performance |

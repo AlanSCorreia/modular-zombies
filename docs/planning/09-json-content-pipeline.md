@@ -201,7 +201,7 @@ Editor/CI
 - Validador no dock e no CI.
 - Playtest carrega o JSON selecionado.
 
-## Migração (R1)
+## Migração (Conteúdo)
 
 1. Definir os schemas JSON.
 2. Implementar `ContentRegistry` + `SchemaValidator` + `ContentValidator`.

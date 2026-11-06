@@ -7,18 +7,18 @@ O board operacional é `../../KANBAN.md`.
 
 ## Visão geral
 
-| Fase | Nome | Objetivo | Status | Tamanho |
+| ID | Fase | Objetivo | Status | Tamanho |
 |---|---|---|---|---|
-| R0 | Preparação | Arquivar v1, scaffold v2, docs e Kanban | **Concluído** | S |
-| R1 | Core + conteúdo | Definições, registry, validador, Bunker 13 em JSON | **Concluído** | M |
-| R2 | Loop de gameplay | Player, armas, zumbis, barricadas, rodadas, economia | **Em andamento** | L |
-| R3 | Interações/UI/áudio | Portas, compras, caixa, perks, HUD, menus, som | Backlog | M |
-| R4 | Ferramentas de mapa | Criar/validar/testar mapas no editor | Backlog | M |
-| R5 | Quests/Easter Eggs | QuestSystem, música, mecânica única, debug | Backlog | L |
-| R6 | Escala de conteúdo | 2º mapa, armas novas, wonder weapon, inimigo | Backlog | L |
-| R7 | Produção | Save, settings, export, pools, CI, performance | Backlog | L |
+| `prep` | Preparação | Arquivar v1, scaffold v2, docs e Kanban | **Concluído** | S |
+| `content` | Conteúdo | Definições, registry, validador, Bunker 13 em JSON | **Concluído** | M |
+| `gameplay` | Gameplay | Player, armas, zumbis, barricadas, rodadas, economia | **Em andamento** | L |
+| `interact` | Interações | Portas, compras, caixa, perks, HUD, menus, som | Backlog | M |
+| `tools` | Ferramentas | Criar/validar/testar mapas no editor | Backlog | M |
+| `quests` | Quests | QuestSystem, música, mecânica única, debug | Backlog | L |
+| `scale` | Escala | 2º mapa, armas novas, wonder weapon, inimigo | Backlog | L |
+| `prod` | Produção | Save, settings, export, pools, CI, performance | Backlog | L |
 
-## R0 — Preparação (concluído — P0)
+## Preparação (concluído — P0)
 
 **Entregáveis**
 - v1 arquivada (histórico, não é fonte de verdade).
@@ -31,7 +31,7 @@ O board operacional é `../../KANBAN.md`.
 
 **Aceite:** projeto importa; docs/árvore aprovados; `git` inicializado; `ci.sh` verde.
 
-## R1 — Core + conteúdo (concluído)
+## Conteúdo (concluído)
 
 **Entregue**
 - Loader JSON + `ContentValidator`.
@@ -42,15 +42,15 @@ O board operacional é `../../KANBAN.md`.
 - Modelos reorganizados em `assets/models/<categoria>/<id>/`.
 - Testes `CONTENT_OK`, `LOGIC_OK` e `BUNKER13_OK`.
 
-**Passa para R2:** mãos separadas, JSON de faca/explosivos, gameplay completo
+**Passa para Gameplay:** mãos separadas, JSON de faca/explosivos, gameplay completo
 do Bunker 13, 2 slots e barricadas funcionais.
 
 **Aceite:** Bunker 13 carrega 100% por JSON; validador 0 erros; 0 refs de
 asset quebradas; nenhum `if map_id` no núcleo e nenhum conteúdo em `.tres`.
 
-## R2 — Loop de gameplay (em andamento)
+## Gameplay (em andamento)
 
-**Já entregue no P0:** `PlayerController`, `WeaponController` (Glock/hitscan),
+**Já entregue na Preparação:** `PlayerController`, `WeaponController` (Glock/hitscan),
 `ZombieEnemy`, HUD e loop mínimo (tiro, recarga, porta, morte).
 
 **Pendente**
@@ -66,7 +66,7 @@ asset quebradas; nenhum `if map_id` no núcleo e nenhum conteúdo em `.tres`.
 **Aceite:** Bunker 13 jogável; armas em JSON + `HandsRig`; faca, explosivos e
 barricadas funcionando.
 
-## R3 — Interações, UI e áudio
+## Interações
 
 **Entregáveis**
 - `InteractionSystem` tipado (`Interactable`).
@@ -81,7 +81,7 @@ barricadas funcionando.
 
 **Aceite:** interações, UI e áudio do plano + explosivos/faca (checklist).
 
-## R4 — Ferramentas de mapa
+## Ferramentas de mapa
 
 **Entregáveis**
 - Launcher “Bunker 13 v2 — Editor”.
@@ -92,7 +92,7 @@ barricadas funcionando.
 
 **Aceite:** criar/duplicar/validar/testar um mapa sem tocar no núcleo.
 
-## R5 — Quests e Easter Eggs
+## Quests e Easter Eggs
 
 **Entregáveis**
 - `QuestSystem` + `QuestStep`/`Reward`.
@@ -104,7 +104,7 @@ barricadas funcionando.
 
 **Aceite:** música secreta + main quest de 3 passos jogáveis.
 
-## R6 — Escala de conteúdo
+## Escala de conteúdo
 
 **Entregáveis**
 - Segundo mapa com 2 mecânicas únicas.
@@ -115,7 +115,7 @@ barricadas funcionando.
 
 **Aceite:** novo mapa/arma sem alterar o núcleo; validador e testes verdes.
 
-## R7 — Produção
+## Produção
 
 **Entregáveis**
 - Save/load versionado.
@@ -152,7 +152,7 @@ barricadas funcionando.
 |---|---|---|
 | Reescrita longa | Alto | Fatias verticais jogáveis |
 | Perder polish | Alto | Paridade checklist |
-| Ferramenta antes da base | Médio | R4 só após R3 |
+| Ferramenta antes da base | Médio | Ferramentas só após Interações |
 | Conteúdo inválido | Alto | Validador + CI |
 | Performance em iGPU | Médio | Orçamento por mapa |
 | Escopo crescer | Alto | Não-objetivos e Kanban |

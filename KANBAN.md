@@ -24,37 +24,23 @@
 
 ## Visão geral
 
-| Fase | Nome | Status | Foco atual |
+| ID | Fase | Status | Foco atual |
 |---|---|---|---|
-| R0 | Preparação | **Concluído** | — |
-| R1 | Core + conteúdo | **Concluído** | — |
-| R2 | Loop de gameplay | **Em andamento** | Harness + Bunker 13 jogável; depois barricadas |
-| R3 | Interações/UI/áudio | Backlog | — |
-| R4 | Ferramentas de mapa | Backlog | — |
-| R5 | Quests/Easter Eggs | Backlog | — |
-| R6 | Escala de conteúdo | Backlog | — |
-| R7 | Produção | Backlog | — |
+| `prep` | Preparação | **Concluído** | — |
+| `content` | Conteúdo | **Concluído** | — |
+| `gameplay` | Gameplay | **Em andamento** | Harness + Bunker 13 jogável; depois barricadas |
+| `interact` | Interações | Backlog | — |
+| `tools` | Ferramentas de mapa | Backlog | — |
+| `quests` | Quests e Easter Eggs | Backlog | — |
+| `scale` | Escala de conteúdo | Backlog | — |
+| `prod` | Produção | Backlog | — |
 
-> **Status:** P0 e R1 concluídos. Bunker 13 carrega por JSON (`BUNKER13_OK`);
-> o foco agora é R2 (barricadas, faca, explosivos e loop completo).
-
----
-
-# P0 — Bootstrap (concluído)
-
-### Done
-- [x] Git + `.gitignore` + commit inicial
-- [x] Commit do slice + tag P0
-- [x] `Sfx`, `GameRoot`, plugin `bunker_tools`
-- [x] Importação validada no Godot
-- [x] Conteúdo JSON + loader + validador
-- [x] Vertical slice: sala, porta, zumbi, Glock, HUD
-- [x] CI local (`tests/ci.sh`) e bench (`tests/bench.sh`)
-- [x] Bench: 42–61 FPS, 135 draw calls, 66 MB
+> **Status:** Preparação e Conteúdo concluídos. Bunker 13 carrega por JSON (`BUNKER13_OK`);
+> o foco agora é Gameplay (barricadas, faca, explosivos e loop completo).
 
 ---
 
-# R0 — Preparação
+# Preparação
 
 **Objetivo:** arquivar a v1, criar a v2 e validar a base.  
 **Aceite:** projeto v2 abre no Godot; assets presentes; regras de escopo aprovadas.
@@ -79,18 +65,20 @@
 - [x] Criar este Kanban
 - [x] Copiar docs de planejamento para a v2
 - [x] Criar `README.md` da v2
-- [x] Atualizar docs v2 com decisões atuais (R0–R7, rewrite, C#, tools, JSON, explosivos/faca)
+- [x] Atualizar docs v2 com decisões atuais (Preparação–Produção, rewrite, C#, tools, JSON, explosivos/faca)
 - [x] Definir JSON como fonte de conteúdo
 - [x] Definir árvore de assets (`assets/`, `source/`, `content/`, `schemas/`)
-- [x] Revisar arquitetura e aprovar fases R1–R7
+- [x] Revisar arquitetura e aprovar fases Conteúdo–Produção
 - [x] Definir que a v1 é apenas histórica
 - [x] Criar `Sfx` e `GameRoot`
 - [x] Plugin `bunker_tools` (dock)
 - [x] Validar importação e autoloads no Godot
-- [x] Git + `.gitignore`
-- [x] CI local
+- [x] Git + `.gitignore` + commit inicial
+- [x] CI local (`tests/ci.sh`) e bench (`tests/bench.sh`)
+- [x] Conteúdo JSON + loader + validador
+- [x] Commit do slice + tag `P0`
 - [x] Vertical slice jogável
-- [x] Bench + orçamento de performance
+- [x] Bench: 42–61 FPS, 135 draw calls, 66 MB
 - [x] Launcher “Bunker 13 v2 — Editor”
 - [x] Inventário de assets e convenção de IDs
 
@@ -99,7 +87,7 @@
 
 ---
 
-# R1 — Core + conteúdo
+# Conteúdo
 
 **Objetivo:** mapa e conteúdo em JSON; sem `if map_id` no núcleo.  
 **Aceite:** Bunker 13 carrega por JSON; validador sem erros; zero conteúdo em `.tres`; 0 refs de asset quebradas.
@@ -131,7 +119,7 @@
 
 ---
 
-# R2 — Loop de gameplay
+# Gameplay
 
 **Objetivo:** loop completo + combate com explosivos e faca.  
 **Aceite:** Bunker 13 jogável; armas usam JSON + `HandsRig`; faca, explosivos e barricadas funcionando.
@@ -192,7 +180,7 @@
 
 ---
 
-# R3 — Interações, UI e áudio
+# Interações
 
 **Objetivo:** conteúdo e apresentação completos.  
 **Aceite:** portas, wallbuys, caixa, perks, explosivos/faca, HUD, pause e áudio funcionando.
@@ -228,7 +216,7 @@
 
 ---
 
-# R4 — Ferramentas de mapa
+# Ferramentas de mapa
 
 **Objetivo:** criar, validar e testar mapas no editor.  
 **Aceite:** mapa novo criado/duplicado/validado/testado sem tocar no núcleo.
@@ -262,7 +250,7 @@
 
 ---
 
-# R5 — Quests e Easter Eggs
+# Quests e Easter Eggs
 
 **Objetivo:** autorar segredos sem código no núcleo.  
 **Aceite:** música secreta + main quest de 3 passos jogáveis.
@@ -299,7 +287,7 @@
 
 ---
 
-# R6 — Escala de conteúdo
+# Escala de conteúdo
 
 **Objetivo:** provar que o framework escala.  
 **Aceite:** 2º mapa + arma nova sem mudar o núcleo.
@@ -331,7 +319,7 @@
 
 ---
 
-# R7 — Produção
+# Produção
 
 **Objetivo:** versão distribuível e estável.  
 **Aceite:** build standalone, FPS ≥ 40 na iGPU, zero softlocks.

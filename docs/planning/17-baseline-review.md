@@ -1,7 +1,7 @@
-# Revisão de linha de base — R2
+# Revisão de linha de base — Gameplay
 
 **Data:** 2026-11-06  
-**Escopo:** estado após R1 (repo limpo e publicado), antes de iniciar R2.  
+**Escopo:** estado após Conteúdo (repo limpo e publicado), antes de iniciar Gameplay.  
 **Método:** três subagentes somente leitura (`explorer`, `test-reviewer` e
 `content-checker`) + CI local.
 
@@ -12,7 +12,7 @@
 - **Mas o loop real ainda é o slice hardcoded.** O Bunker 13 é geometria +
   metadados; não é jogável de ponta a ponta.
 
-## P0 — bloqueiam R2
+## P0 — bloqueiam o Gameplay
 
 | # | Achado | Evidência | Ação |
 |---|---|---|---|
@@ -26,7 +26,7 @@
 | 8 | Não há 2 slots: um único `WeaponController`; `weapon_changed` nunca é emitido. | `src/gameplay/player/player_controller.gd:60-64`; `src/core/event_bus.gd:14` | Inventário de 2 slots |
 | 9 | O teste de integração tem falsos positivos: pontos por acerto, spawn incondicional e reload forçado. | `src/gameplay/game_root.gd:176-202` | Testar morte, kill, porta e recarga reais |
 
-## P1 — dívida que atrapalha R2
+## P1 — dívida que atrapalha o Gameplay
 
 - Builders duplicados: `SliceBuilder` vs `Bunker13Builder`
   (`src/maps/slice/slice_builder.gd:23-54` vs `src/maps/bunker13/builder.gd:37-74`);
@@ -68,10 +68,10 @@
 ## Decisão
 
 - A base de conteúdo está **OK**; a arquitetura de gameplay **não está pronta**
-  para R2.
+  para Gameplay.
 - **Não começar por MP5:** ela depende de `hands.glb` e de um viewmodel
   data-driven.
-- Primeiro item de R2: harness de testes + `--map` + generalização mínima do
+- Primeiro item de Gameplay: harness de testes + `--map` + generalização mínima do
   `GameRoot`.
 - A revisão confirma o item já registrado ("Bunker 13 jogável") e promove o
   harness de testes a P0.

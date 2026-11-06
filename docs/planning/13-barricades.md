@@ -93,8 +93,8 @@ spawn fora → aproxima → arranca tábua → ... → 0 tábuas → climb → d
 
 | Fase | Entrega |
 |---|---|
-| R1 | Schema e dados JSON de barricadas |
-| R2 | `BarricadeSystem`, hold F, tear/climb, pontos |
-| R3 | HUD/progresso, áudio/VFX, authoring no editor |
-| R5 | Barricadas em quests/mecânicas de mapa |
-| R7 | Save/load do estado das tábuas |
+| Conteúdo | Schema e dados JSON de barricadas |
+| Gameplay | `BarricadeSystem`, hold F, tear/climb, pontos |
+| Interações | HUD/progresso, áudio/VFX, authoring no editor |
+| Quests | Barricadas em quests/mecânicas de mapa |
+| Produção | Save/load do estado das tábuas |

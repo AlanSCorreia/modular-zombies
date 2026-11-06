@@ -16,14 +16,14 @@
 
 | Fase | Portão |
 |---|---|
-| R0 | Importa; docs/Kanban aprovados; Git/CI prontos |
-| R1 | Bunker 13 por JSON; assets organizados; 0 refs quebradas |
-| R2 | Loop jogável; explosivos, faca, barricadas e workflow de arma testados |
-| R3 | Interações, UI e áudio do plano |
-| R4 | Criar/validar/testar mapa no editor |
-| R5 | Música + main quest de 3 passos; grafo válido |
-| R6 | 2º mapa/armas sem mudar núcleo |
-| R7 | Build exportado; FPS ≥ 40; zero softlocks |
+| Preparação | Importa; docs/Kanban aprovados; Git/CI prontos |
+| Conteúdo | Bunker 13 por JSON; assets organizados; 0 refs quebradas |
+| Gameplay | Loop jogável; explosivos, faca, barricadas e workflow de arma testados |
+| Interações | Interações, UI e áudio do plano |
+| Ferramentas | Criar/validar/testar mapa no editor |
+| Quests | Música + main quest de 3 passos; grafo válido |
+| Escala | 2º mapa/armas sem mudar núcleo |
+| Produção | Build exportado; FPS ≥ 40; zero softlocks |
 
 ## Comandos
 

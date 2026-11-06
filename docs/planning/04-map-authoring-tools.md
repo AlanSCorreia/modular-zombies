@@ -2,8 +2,8 @@
 
 ## Estado na v2
 
-**Planejado para R4; ainda não implementado.** O plugin `bunker_tools` não
-existe no scaffold atual. A ordem é: R1 (dados) → R2–R3 (loop/UI) → R4 (tools).
+**Planejado para Ferramentas; ainda não implementado.** O plugin `bunker_tools` não
+existe no scaffold atual. A ordem é: Conteúdo (dados) → Gameplay–Interações (loop/UI) → Ferramentas (tools).
 
 ## Objetivo
 
@@ -74,12 +74,12 @@ addons/bunker_tools/
 - Templates e content browser.
 - **Aceite:** mapa jogável montado só pelo editor.
 
-### Fase C — Quests (R5)
+### Fase C — Quests
 - Grafo de Easter Eggs, triggers e recompensas.
 - Debug overlay e validação de grafo.
 - **Aceite:** criar uma música secreta e uma main quest de 3 passos.
 
-### Fase D — Escala (R6/R7)
+### Fase D — Escala
 - Docs para autores, lint no CI, exportação.
 - **Aceite:** segundo mapa e nova arma sem mudança no núcleo.
 

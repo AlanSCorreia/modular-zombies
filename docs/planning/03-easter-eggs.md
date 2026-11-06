@@ -99,10 +99,10 @@ reutilizáveis. O erro é hardcodar cada mapa no núcleo.
 - Testar solo e co-op quando aplicável.
 - RNG controlado e documentado.
 
-## Aplicação na v2 (R5)
+## Aplicação na v2 (Quests)
 
 - O catálogo acima é referência de **padrões**, não uma lista de cópias.
-- A v2 implementará o framework em R5, não os eggs individualmente.
+- A v2 implementará o framework em Quests, não os eggs individualmente.
 - Primeiro egg de teste: **3 rádios no Bunker 13** → música + pontos.
 - Mecânica única de mapa: `Bunker13PowerMechanic` (interruptor de energia).
 - Tudo validado por `QuestValidator` (IDs, ciclos, passos órfãos e softlocks).

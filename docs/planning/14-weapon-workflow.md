@@ -101,5 +101,5 @@ Blender → GLB `glock17.glb` → JSON `glock17.json` → animações no
 `WeaponController` → testes.
 
 > Estado atual: a Glock do slice ainda usa mãos embutidas e offsets no
-> controller. A migração para `hands.glb` + JSON completo é R2; todas as armas
+> controller. A migração para `hands.glb` + JSON completo é Gameplay; todas as armas
 > novas já seguem o workflow acima.

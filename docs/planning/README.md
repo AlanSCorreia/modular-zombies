@@ -1,17 +1,17 @@
 # Planejamento — Bunker 13 v2
 
 > **Execução:** o board operacional é [`../../KANBAN.md`](../../KANBAN.md)
-> (fases R0–R7). Este diretório guarda a estratégia de longo prazo.
+> (fases Preparação–Produção). Este diretório guarda a estratégia de longo prazo.
 
 ## Estado atual
 
 - A v1 é um protótipo histórico arquivado em `../../../zombie-fps-legacy`; não é fonte de verdade.
 - A v2 é uma **reescrita do runtime**, não uma refatoração incremental.
-- **P0 concluído:** Git, CI, importação, scaffold, vertical slice jogável.
-- Fase atual: **R1 concluído; R2 em andamento** (barricadas/faca/explosivos).
+- **Preparação concluída:** Git, CI, importação, scaffold, vertical slice jogável.
+- Fase atual: **Conteúdo concluído; Gameplay em andamento** (barricadas/faca/explosivos).
 - Vertical slice jogável + Bunker 13 em JSON/`Bunker13Builder`; testes `SLICE_OK` e `BUNKER13_OK`.
-- Barricadas estão planejadas para R2 (`13-barricades.md`).
-- Modelos reorganizados; mãos separadas e fontes `.blend` ficam em R2.
+- Barricadas estão planejadas para a fase de Gameplay (`13-barricades.md`).
+- Modelos reorganizados; mãos separadas e fontes `.blend` ficam para a fase de Gameplay.
 
 ## Decisões atuais
 
@@ -20,7 +20,7 @@
    definidos em `.json`, validados e convertidos em DTOs tipados.
 3. **Serviços + EventBus**: `RoundManager`, `Economy`, `InteractionSystem`,
    `QuestSystem`, `MapMechanic`, `ExplosionSystem`, `MeleeController`.
-4. **Ferramentas de mapa** no editor Godot (R4), editando JSON.
+4. **Ferramentas de mapa** no editor Godot (fase Ferramentas), editando JSON.
 5. **GDScript**: C# não é adotado sem profiling que comprove gargalo de CPU
    (ver ADR).
 6. **Kanban controla o escopo**; docs controlam a estratégia.
@@ -34,8 +34,8 @@
 | `01-product-vision.md` | Objetivo, estratégia de rewrite, pilares e métricas |
 | `02-architecture.md` | v1 vs v2, contratos, migração e riscos |
 | `03-easter-eggs.md` | Pesquisa, mecânicas genéricas e modelo de quests |
-| `04-map-authoring-tools.md` | Ferramentas de mapa (R4/R5) |
-| `05-roadmap.md` | Fases R0–R7, entregáveis e aceite |
+| `04-map-authoring-tools.md` | Ferramentas de mapa (Ferramentas/Quests) |
+| `05-roadmap.md` | Fases Preparação–Produção, entregáveis e aceite |
 | `06-backlog.md` | Épicos e tarefas por fase |
 | `07-adr/0001-gdscript-vs-csharp.md` | Decisão de linguagem |
 | `08-testing-strategy.md` | Pirâmide, portões, golden path e CI |
@@ -45,9 +45,9 @@
 | `12-development-workflow.md` | Git, CI, vertical slice e orçamento de performance |
 | `13-barricades.md` | Mecânica de barricadas, hold F, zumbis e pontos |
 | `14-weapon-workflow.md` | Pipeline completo de criação de armas |
-| `15-r1-review.md` | Achados e recomendações após R1 |
+| `15-content-review.md` | Achados e recomendações após Conteúdo |
 | `16-development-agents.md` | Subagentes de exploração, revisão e validação |
-| `17-baseline-review.md` | Revisão de base antes de R2 e ordem recomendada |
+| `17-baseline-review.md` | Revisão de base antes de Gameplay e ordem recomendada |
 
 ## Como usar
 

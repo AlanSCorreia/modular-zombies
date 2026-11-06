@@ -9,7 +9,7 @@ serviços e ferramentas de autoria.
 - **Estratégia e decisões:** [`docs/planning/`](docs/planning/)
 - **Legado histórico:** `../zombie-fps-legacy` (não usar como referência de implementação)
 
-## Estado atual — R1 concluído
+## Estado atual — Conteúdo concluído
 
 - Vertical slice jogável (sala, porta, zumbi, Glock, HUD).
 - **Bunker 13 completo em JSON + `Bunker13Builder`** (4 salas, 4 portas,
@@ -18,7 +18,7 @@ serviços e ferramentas de autoria.
 - Modelos reorganizados em `assets/models/<categoria>/<id>/`.
 - Git, CI, plugin `bunker_tools` e bench.
 
-R2 em andamento: barricadas, faca, explosivos, mãos separadas e 2 slots.
+Gameplay em andamento: barricadas, faca, explosivos, mãos separadas e 2 slots.
 
 ## Decisões-chave
 
@@ -52,14 +52,14 @@ source/blender/ .blend e scripts (fora do import do Godot)
 
 | Fase | Status |
 |---|---|
-| R0 Preparação | Concluído |
-| R1 Core + conteúdo | Em andamento |
-| R2 Loop de gameplay | Parcial (slice) |
-| R3 Interações/UI/áudio | Backlog |
-| R4 Ferramentas de mapa | Backlog |
-| R5 Quests/Easter Eggs | Backlog |
-| R6 Escala | Backlog |
-| R7 Produção | Backlog |
+| Preparação (`prep`) | Concluído |
+| Conteúdo (`content`) | Concluído |
+| Gameplay (`gameplay`) | Em andamento |
+| Interações (`interact`) | Backlog |
+| Ferramentas (`tools`) | Backlog |
+| Quests (`quests`) | Backlog |
+| Escala (`scale`) | Backlog |
+| Produção (`prod`) | Backlog |
 
 ## Executar
 
@@ -75,7 +75,7 @@ Atalhos: **Bunker 13 v2** e **Bunker 13 v2 — Editor**.
 WASD mover • Shift correr • Space pular • Mouse mirar/atirar
 R recarregar • F interagir • Clique em INICIAR para capturar o mouse.
 
-> Barricadas, faca (V), granadas e explosivos ainda não estão neste slice; entram em R2.
+> Barricadas, faca (V), granadas e explosivos ainda não estão neste slice; entram na fase de Gameplay.
 
 ## Testes
 

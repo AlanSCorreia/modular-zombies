@@ -17,15 +17,15 @@ stringly typed. A v2 **reescreve o runtime** para eliminar esses limites.
 | Glock como caso especial no viewmodel | Todas as armas iguais + mãos compartilhadas |
 | Strings de estado | Enums/state machines |
 | Testes dentro do jogo | `tests/` + harness |
-| Navmesh rebake em runtime | Variantes pré-bakeadas (R7) |
+| Navmesh rebake em runtime | Variantes pré-bakeadas (Produção) |
 
-## Estado atual (P0 concluído)
+## Estado atual (Preparação concluída)
 
 Já existe: `project.godot`, `main.tscn`, `Events`, `Content`, `Sfx`, `GameRoot`,
 `PlayerController`, `WeaponController` (Glock), `ZombieEnemy`, `SliceHUD`,
 loader/validador JSON, plugin `bunker_tools`, CI local e vertical slice jogável.
 
-Pendente para R1/R2: Bunker 13 completo em JSON, reorganização de assets,
+Pendente para Conteúdo/Gameplay: Bunker 13 completo em JSON, reorganização de assets,
 5 armas, faca, explosivos, barricadas, rodadas/economia completas e UI/áudio finais.
 
 ## Arquitetura alvo
@@ -257,14 +257,14 @@ source/
 
 | Etapa | Entrega |
 |---|---|
-| R0 | Scaffold, docs, Kanban, importação validada |
-| R1 | JSON schemas + loader + validador + Bunker 13 em dados |
-| R2 | Player, armas, faca, explosivos, zumbis, barricadas, rodadas |
-| R3 | Interações, HUD e áudio |
-| R4 | Ferramentas de mapa no editor |
-| R5 | QuestSystem + Easter Eggs |
-| R6 | 2º mapa + armas novas |
-| R7 | Save, settings, export, performance |
+| Preparação | Scaffold, docs, Kanban, importação validada |
+| Conteúdo | JSON schemas + loader + validador + Bunker 13 em dados |
+| Gameplay | Player, armas, faca, explosivos, zumbis, barricadas, rodadas |
+| Interações | Interações, HUD e áudio |
+| Ferramentas | Ferramentas de mapa no editor |
+| Quests | QuestSystem + Easter Eggs |
+| Escala | 2º mapa + armas novas |
+| Produção | Save, settings, export, performance |
 
 ## Decisão de linguagem
 
@@ -278,7 +278,7 @@ profiling. Ver `07-adr/0001-gdscript-vs-csharp.md`.
 |---|---|
 | Perder polish na reescrita | Paridade checklist antes da troca |
 | Refatoração longa | Fatias verticais jogáveis |
-| Ferramenta antes da base | R4 só após R1–R3 |
+| Ferramenta antes da base | Ferramentas só após Conteúdo–Interações |
 | Quest complexa | Framework de passos + script de escape |
 | Conteúdo inválido | Validador + CI |
 | Performance | Orçamento por mapa e profiling |
