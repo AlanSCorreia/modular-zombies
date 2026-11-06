@@ -44,12 +44,13 @@
 
 ### Done
 - [x] Git + `.gitignore` + commit inicial
+- [x] Commit do slice + tag P0
 - [x] `Sfx`, `GameRoot`, plugin `bunker_tools`
 - [x] Importação validada no Godot
 - [x] Conteúdo JSON + loader + validador
 - [x] Vertical slice: sala, porta, zumbi, Glock, HUD
 - [x] CI local (`tests/ci.sh`) e bench (`tests/bench.sh`)
-- [x] Bench: 60 FPS, 135 draw calls, 66 MB
+- [x] Bench: 61 FPS, 135 draw calls, 66 MB
 
 ---
 
@@ -59,11 +60,10 @@
 **Aceite:** projeto v2 abre no Godot; assets presentes; regras de escopo aprovadas.
 
 ### Backlog
-- [ ] Levantar inventário de assets reaproveitáveis
-- [ ] Definir convenção de IDs (`map.*`, `weapon.*`, `quest.*`)
+- *(vazio)*
 
 ### Ready
-- [ ] Criar launcher “Bunker 13 v2 — Editor”
+- *(vazio)*
 
 ### Doing
 - *(vazio)*
@@ -91,6 +91,8 @@
 - [x] CI local
 - [x] Vertical slice jogável
 - [x] Bench + orçamento de performance
+- [x] Launcher “Bunker 13 v2 — Editor”
+- [x] Inventário de assets e convenção de IDs
 
 ### Blocked
 - *(vazio)*
@@ -135,7 +137,7 @@
 
 # R2 — Loop de gameplay
 
-**Objetivo:** paridade do loop + combate com explosivos e faca.  
+**Objetivo:** loop completo + combate com explosivos e faca.  
 **Aceite:** Bunker 13 jogável; armas usam JSON + `HandsRig`; faca e explosivos funcionando.
 
 ### Backlog
@@ -176,7 +178,7 @@
 
 # R3 — Interações, UI e áudio
 
-**Objetivo:** paridade de conteúdo e apresentação.  
+**Objetivo:** conteúdo e apresentação completos.  
 **Aceite:** portas, wallbuys, caixa, perks, explosivos/faca, HUD, pause e áudio funcionando.
 
 ### Backlog

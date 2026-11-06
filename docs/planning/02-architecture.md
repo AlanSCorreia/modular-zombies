@@ -241,7 +241,7 @@ source/
 | R0 | Scaffold, docs, Kanban, importação validada |
 | R1 | JSON schemas + loader + validador + Bunker 13 em dados |
 | R2 | Player, armas, faca, explosivos, zumbis, rodadas, economia |
-| R3 | Interações, HUD, áudio, paridade |
+| R3 | Interações, HUD e áudio |
 | R4 | Ferramentas de mapa no editor |
 | R5 | QuestSystem + Easter Eggs |
 | R6 | 2º mapa + armas novas |

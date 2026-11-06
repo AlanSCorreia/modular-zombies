@@ -37,7 +37,7 @@
 | `05-roadmap.md` | Fases R0–R7, entregáveis e aceite |
 | `06-backlog.md` | Épicos e tarefas por fase |
 | `07-adr/0001-gdscript-vs-csharp.md` | Decisão de linguagem |
-| `08-testing-strategy.md` | Pirâmide, portões e paridade v1 → v2 |
+| `08-testing-strategy.md` | Pirâmide, portões, golden path e CI |
 | `09-json-content-pipeline.md` | JSON canônico, schemas, loader e validador |
 | `10-combat-systems.md` | Explosivos, granadas, foguetes, barris e faca |
 | `11-assets.md` | Árvore de assets, convenções, importação e licenças |

@@ -33,47 +33,33 @@ O board operacional é `../../KANBAN.md`.
 
 ## R1 — Core + conteúdo (em andamento)
 
-**Já entregue no P0:** JSON loader/validator, `MapData`/`WeaponData`/`EnemyData`, slice JSON.
+**Já entregue no P0:** loader JSON, `ContentValidator`, DTOs base
+(`MapData`, `WeaponData`, `EnemyData`) e JSON do slice.
 
 **Pendente**
-
-**Pendências**
-- `MapDefinition`, `DoorDefinition`, `WallBuyDefinition`, `SpawnDefinition`,
-  `BoxDefinition`, `PerkDefinition`, `MechanicDefinition`.
-- `WeaponDefinition`, `EnemyDefinition`, `QuestDefinition`, `QuestStep`,
-  `RewardDefinition`.
-- `ContentRegistry` com varredura e IDs.
-- `ContentValidator` (referências, IDs, ciclos).
-- `Bunker13Builder` lendo `MapDefinition`.
-- JSON do Bunker 13, das 5 armas, da faca e dos explosivos.
-- Pipeline Blender de armas/mãos + `GripSocket` por classe.
-- JSON schema/loader/validator (schema_version, IDs e referências).
-- Assets reorganizados em `assets/` e fontes em `source/`; paths validados.
-- Testes de definições e validação.
+- Bunker 13 completo em JSON.
+- 5 armas + faca/explosivos definidos em JSON.
+- Schemas completos e validação de assets (paths/importação).
+- Reorganização de assets para a árvore híbrida.
+- Testes de definições e conteúdo completo.
 
 **Aceite:** Bunker 13 carrega 100% por JSON; validador 0 erros; 0 refs de
 asset quebradas; nenhum `if map_id` no núcleo e nenhum conteúdo em `.tres`.
 
 ## R2 — Loop de gameplay (parcial — slice)
 
-**Já entregue no P0:** `PlayerController`, `WeaponController` (Glock), `ZombieEnemy`, HUD, loop mínimo.
+**Já entregue no P0:** `PlayerController`, `WeaponController` (Glock/hitscan),
+`ZombieEnemy`, HUD e loop mínimo (tiro, recarga, porta, morte).
 
 **Pendente**
+- 2 slots de arma e troca.
+- `HandsRig`/`ViewmodelFactory` com mãos compartilhadas.
+- Faca (V, corte diagonal) e explosivos (granadas, foguete, barris).
+- `RoundManager`/economia completos e efeitos.
+- Testes de explosivos/faca e loop completo.
 
-**Pendências**
-- `PlayerController` (movimento, vida, câmera, interação).
-- `WeaponController` (2 slots, tiro, recarga, troca).
-- `ExplosionSystem`, granadas, lança-foguete e barris explosivos.
-- `MeleeController` + faca (V, corte diagonal, cooldown e lunge).
-- `ViewmodelFactory` (armas GLB + mãos compartilhadas + animações).
-- `ZombieEnemy` com `EnemyDefinition` e animação `Climb`.
-- `RoundManager` (estado, spawn, escalonamento).
-- `Economy` (pontos, compra, bônus).
-- `Effects` (sangue, decais, tracers, cápsulas).
-- Teste integrado do loop.
-
-**Aceite:** Bunker 13 jogável do início ao game over; todas as armas usam
-`WeaponDefinition` (JSON) e o mesmo `HandsRig`; faca e explosivos funcionando.
+**Aceite:** Bunker 13 jogável; armas em JSON + `HandsRig`; faca e explosivos
+funcionando.
 
 ## R3 — Interações, UI e áudio
 
@@ -87,7 +73,7 @@ asset quebradas; nenhum `if map_id` no núcleo e nenhum conteúdo em `.tres`.
 - Prompts, hitmarker, vinheta e feedback de pontos.
 - Teste de interação e UI.
 
-**Aceite:** paridade funcional com a v1 + explosivos/faca (checklist).
+**Aceite:** interações, UI e áudio do plano + explosivos/faca (checklist).
 
 ## R4 — Ferramentas de mapa
 
@@ -143,7 +129,7 @@ asset quebradas; nenhum `if map_id` no núcleo e nenhum conteúdo em `.tres`.
 | Docs | Atualizar `docs/planning/` e Kanban ao fechar fase |
 | Performance | Medir antes/depois de mudanças grandes |
 | Conteúdo | Nenhum asset sem licença em `CREDITS.md` |
-| Paridade | Checklist v1 → v2 antes da troca de launcher |
+| Aceite | Golden path + `ci.sh` verde por fase |
 
 ## Definição de pronto
 

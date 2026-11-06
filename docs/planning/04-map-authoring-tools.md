@@ -3,7 +3,7 @@
 ## Estado na v2
 
 **Planejado para R4; ainda não implementado.** O plugin `bunker_tools` não
-existe no scaffold atual. A ordem é: R1 (dados) → R2–R3 (paridade) → R4 (tools).
+existe no scaffold atual. A ordem é: R1 (dados) → R2–R3 (loop/UI) → R4 (tools).
 
 ## Objetivo
 

@@ -223,7 +223,7 @@ func _run_bench() -> void:
 	await get_tree().create_timer(3.0).timeout
 	var fps := Engine.get_frames_per_second()
 	var proc := Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0
-	var draw := Performance.get_monitor(Performance.RENDER_TOTAL_DRAW_CALLS_IN_FRAME)
+	var draw := RenderingServer.get_rendering_info(RenderingServer.RENDERING_INFO_TOTAL_DRAW_CALLS_IN_FRAME)
 	var mem := Performance.get_monitor(Performance.MEMORY_STATIC) / 1048576.0
 	print("BENCH fps=%.1f process_ms=%.2f draw_calls=%d memory_mb=%.1f" % [fps, proc, int(draw), mem])
 	get_tree().quit(0)

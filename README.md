@@ -64,6 +64,13 @@ source/blender/ .blend e scripts (fora do import do Godot)
 
 Atalhos: **Bunker 13 v2** e **Bunker 13 v2 — Editor**.
 
+## Controles
+
+WASD mover • Shift correr • Space pular • Mouse mirar/atirar
+R recarregar • F interagir • Clique em INICIAR para capturar o mouse.
+
+> A faca (V), granadas e explosivos ainda não estão neste slice; entram em R2.
+
 ## Testes
 
 ```bash

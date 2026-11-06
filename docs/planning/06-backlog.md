@@ -3,7 +3,7 @@
 Legenda: **P0** bloqueante, **P1** próxima entrega, **P2** depois.  
 Este backlog é estratégico; o status real fica no `KANBAN.md`.
 
-> **P0 entregue:** R0.1–R0.8, R0.11–R0.14; R1.1–R1.4 parcialmente (slice);
+> **P0 entregue:** R0 completo (R0.1–R0.14); R1.1–R1.4 parcialmente (slice);
 > R2.1–R2.5 parcialmente. O restante segue para R1/R2.
 
 ## R0 — Preparação
