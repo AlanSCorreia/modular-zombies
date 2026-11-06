@@ -98,7 +98,7 @@ Atalhos: **Bunker 13 v2** e **Bunker 13 v2 — Editor**.
 ## Controles
 
 WASD mover • Shift correr • Space pular • Mouse mirar/atirar
-R recarregar • F interagir • Clique em INICIAR para capturar o mouse.
+R recarregar • F interagir • ESC pausar • Clique em INICIAR para capturar o mouse.
 
 > Barricadas, faca (V), granadas e explosivos ainda não estão neste slice; entram na Etapa 3 — Gameplay.
 

@@ -173,6 +173,7 @@ faca, explosivos e barricadas funcionando.
 - [x] Revisão de linha de base (3 subagentes)
 - [x] Smoke do Bunker 13 + compras (`MAP_OK`)
 - [x] Bunker 13 e slice carregam GLB autoral
+- [x] Mouse look, ESC/pause e F na porta
 - [ ] Rodada 1 → 2 e game over completos
 
 ### Done
@@ -191,6 +192,7 @@ faca, explosivos e barricadas funcionando.
 - [x] Blender 4.5 LTS + `blender.sh`
 - [x] Fontes `.blend` das 5 armas + zumbi + pistol + mapas (slice, Bunker 13)
 - [x] `source/blender/overview.blend` e scripts de importação
+- [x] Correções de input/UI: mouse look, pause com ESC e F na porta
 
 ### Blocked
 - [ ] MP5 de ponta a ponta — depende de `hands.glb` + `ViewmodelFactory`

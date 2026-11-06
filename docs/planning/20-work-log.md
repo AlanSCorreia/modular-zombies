@@ -54,6 +54,19 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `a99f691` `feat: load authored map geometry from GLB`
 - `4019c1c` `docs: record authored map geometry migration`
 
+**Correções de input/UI (2026-11-06)**
+- Mouse look restaurado: controles decorativos do HUD (`crosshair`, `hitmarker`,
+  `damage`, `prompt`) agora usam `MOUSE_FILTER_IGNORE`; eles consumiam o mouse
+  capturado.
+- Pause com ESC: overlay `PAUSADO` com `CONTINUAR`/`REINICIAR`, mouse liberado
+  ao pausar e recapturado ao voltar.
+- Interação F validada com raycast real na porta + injeção de tecla; abre a
+  porta e gasta os pontos.
+- Testes novos no CI: `PAUSE_OK` e `INTERACT_OK`.
+- Commit `8edc408` `fix: restore mouse look and add pause menu`.
+- `--mouse-test` (display) validou rotação da câmera; `--pause-shot` gerou o
+  screenshot do menu.
+
 **Próximo item (KANBAN)**
 - `WeaponController` 2 slots (issue #2); depois, topo de `Ready`
   (`WeaponController` projectile/melee).
