@@ -8,6 +8,9 @@
   `content/**/*.json`.
 - `.tres`/`.tscn` apenas para assets de engine; `.glb` e texturas em `assets/`.
 - Fontes Blender em `source/blender/` (com `.gdignore`).
+- **Nenhum modelo 3D é gerado em runtime.** Todo modelo tem `.blend` fonte em
+  `source/blender/` e GLB em `assets/models/`; o código só posiciona e anima.
+- `./blender.sh` abre a visão geral; edite o `.blend` e reexporte o GLB.
 - Todas as armas compartilham o mesmo `hands.glb`; mãos por arma são proibidas.
 
 ## Comandos

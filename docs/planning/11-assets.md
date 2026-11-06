@@ -135,6 +135,7 @@ source/
 
 ## Migração
 
-**Status:** modelos já reorganizados em `assets/models/<categoria>/<id>/`.
-Faltam as mãos separadas (`hands.glb`) e as fontes `.blend` em `source/`
-(Gameplay). Nada de conteúdo em `.tres`.
+**Status:** modelos reorganizados em `assets/models/<categoria>/<id>/` e fontes
+`.blend` de todas as armas e do zumbi em `source/blender/`. `./blender.sh` abre
+a visão geral. Falta `hands.glb` e a migração da geometria do mapa para cena
+autoral. Nada de conteúdo em `.tres`. Ver `18-authored-assets.md`.

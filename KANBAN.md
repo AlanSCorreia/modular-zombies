@@ -28,7 +28,7 @@
 |---|---|---|---|
 | `etapa1` | Etapa 1 — Preparação | **Concluído** | — |
 | `etapa2` | Etapa 2 — Conteúdo | **Concluído** | — |
-| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Bunker 13: janelas, barricadas e IA |
+| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Geometria autoral do mapa |
 | `etapa4` | Etapa 4 — Interações | Backlog | — |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | Backlog | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | Backlog | — |
@@ -129,6 +129,7 @@
 - [ ] Estatísticas de sessão
 
 ### Ready
+- [ ] Migrar geometria do mapa para cena autoral (GLB/`.tscn`)
 - [ ] `WeaponController` 2 slots
 - [ ] `WeaponController` projectile/melee
 - [ ] `ExplosionSystem` (raio, LOS, falloff, impulso, cadeia)
@@ -148,7 +149,6 @@
 - [ ] IA de zumbi: arrancar tábua, fila e entrada com 0
 - [ ] Testes de barricada (reparo, interrupção, breach)
 - [ ] `BoxBuilder`/helpers comuns
-- [ ] `.blend` fonte em `source/blender`
 - [ ] Faca GLB + mãos compartilhadas + `knife_slash`
 - [ ] `HandsRig` + cache de mãos + `grip_profile`
 - [ ] `ViewmodelFactory` (armas GLB + mãos compartilhadas)
@@ -158,7 +158,7 @@
 - [ ] `Effects` (sangue, decais, tracers, cápsulas)
 
 ### Doing
-- [ ] Bunker 13: janelas, barricadas e IA `tear/climb`
+- [ ] Migrar geometria do mapa para cena autoral (GLB/`.tscn`)
 
 ### Review/Test
 - [x] Slice: tiro, recarga, zumbi, morte e porta
@@ -178,6 +178,9 @@
 - [x] Interações base: porta, wallbuy, perk e caixa
 - [x] `WeaponController` com áudio/escala do JSON
 - [x] Smoke `MAP_OK` do Bunker 13 no CI
+- [x] Blender 4.5 LTS + `blender.sh`
+- [x] Fontes `.blend` das 5 armas + zumbi + pistol
+- [x] `source/blender/overview.blend` e scripts de importação
 
 ### Blocked
 - [ ] MP5 de ponta a ponta — depende de `hands.glb` + `ViewmodelFactory`

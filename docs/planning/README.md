@@ -48,6 +48,7 @@
 | `15-content-review.md` | Achados e recomendações após a Etapa 2 — Conteúdo |
 | `16-development-agents.md` | Subagentes de exploração, revisão e validação |
 | `17-baseline-review.md` | Revisão de base antes da Etapa 3 — Gameplay |
+| `18-authored-assets.md` | Regra de assets autorais e pipeline Blender → GLB |
 
 ## Como usar
 

@@ -97,7 +97,8 @@ content/weapons/<id>.json
 ## Exemplo: Glock 17
 
 O pipeline da Glock foi: referência (202/186/114 mm) → modelagem procedural no
-Blender → GLB `glock17.glb` → JSON `glock17.json` → animações no
+Blender (`./blender.sh source/blender/weapons/glock17/glock17.blend`) → GLB
+`glock17.glb` → JSON `glock17.json` → animações no
 `WeaponController` → testes.
 
 > Estado atual: a Glock do slice ainda usa mãos embutidas e offsets no

@@ -197,6 +197,7 @@ assets/
     weapons/<id>/<id>.glb
     hands/hands.glb
     enemies/<id>/<id>.glb
+    maps/<id>/<id>.glb
     props/<id>/<id>.glb
   textures/
     world/<set>/{diff,nor,rough,ao}.png
@@ -227,10 +228,14 @@ source/
     weapons/*.blend
     hands/*.blend
     enemies/*.blend
+    maps/*.blend
     scripts/*.py
 ```
 
 - **GLB é o formato de entrega**; `.blend` fica em `source/` com `.gdignore`.
+- **Nenhum modelo 3D é gerado em runtime.** Mapas usam geometria autoral
+  (GLB/`.tscn`); o JSON guarda apenas âncoras e interactables.
+- `./blender.sh` abre a visão geral; fontes em `source/blender/`.
 - **Animações**: por padrão embutidas no GLB; `.tres` só para composição/override
   (viewmodels, bibliotecas compartilhadas).
 - **Texturas**: um conjunto PBR por material; o material `.tres` referencia.
@@ -252,6 +257,8 @@ source/
 7. Explosivos usam `ExplosiveDefinition` JSON; faca usa `MeleeDefinition` JSON (`10-combat-systems.md`).
 8. Barricadas são dados do mapa (`13-barricades.md`).
 9. Assets de engine usam `.tres`/`.tscn`; conteúdo de jogo usa JSON.
+10. Modelo 3D é autoral: `.blend` → GLB. Runtime não cria geometria; só
+    posiciona, anima e conecta gameplay.
 
 ## Estratégia de reescrita
 

@@ -17,8 +17,10 @@
 - `--map <id>` + `MapBuilderRegistry`: o builder agora vem do JSON.
 - Interações base implementadas: porta, wallbuy, perk e caixa.
 - `GameRoot` usa `map.enemy_id` e `map.zombie_count`.
-- `WeaponController` lê `audio` e `etapa7` do JSON.
+- `WeaponController` lê `audio` e `scale` do JSON.
 - CI ganhou o smoke do Bunker 13 (`MAP_OK`) com compras.
+- Blender + fontes `.blend` de todos os modelos; a geometria do mapa ainda é
+  runtime e agora é a dívida P0.
 - Continuam abertos: janelas/barricadas/IA, `hands.glb`, 2 slots e o teste de
   integração com falsos positivos.
 
@@ -63,7 +65,9 @@
   (`src/maps/bunker13/builder.gd:238-239`), então não é determinístico.
 - `assets/models/weapons/pistol/pistol.glb` órfão; `wunder.json` não é
   referenciado por mapa ou caixa.
-- `source/blender` sem `.blend`; validação de nós móveis/animações incompleta.
+- **Resolvido:** fontes `.blend` criadas para as 5 armas, zumbi e pistol, com
+  `overview.blend`. Falta migrar a geometria do mapa para cena autoral.
+- Validação de nós móveis/animações ainda incompleta.
 
 ## Ordem recomendada
 

@@ -69,12 +69,16 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.25 | `--map <id>` no GameRoot | P0 |
 | ETAPA3.26 | Teste visual do Bunker 13 | P1 |
 | ETAPA3.27 | Extrair `BoxBuilder`/helpers comuns | P1 |
-| ETAPA3.28 | Versionar `.blend` fonte em `source/blender` | P1 |
+| ETAPA3.28 | Versionar `.blend` fonte em `source/blender` (feito) | P1 |
 | ETAPA3.29 | `InteractionSystem` genérico (porta/wallbuy/perk/caixa/barricada) | P0 |
 | ETAPA3.30 | Abrir vãos de janela + reposicionar barricadas | P0 |
 | ETAPA3.31 | Spawns vinculados a `barricade.spawn_position` | P0 |
 | ETAPA3.32 | Corrigir falsos positivos do teste integrado | P0 |
 | ETAPA3.33 | Reforçar `ContentValidator` (schema, IDs, hands, áudio) | P1 |
+| ETAPA3.34 | Migrar geometria do mapa para cena autoral (GLB/`.tscn`) | P0 |
+| ETAPA3.35 | Separar âncoras/interactables da geometria | P0 |
+| ETAPA3.36 | Exportar GLB do mapa e carregar no Godot | P0 |
+| ETAPA3.37 | Teste que impede geração de modelo 3D em runtime | P1 |
 | ETAPA3.15 | Testes de explosivos e faca | P0 |
 | ETAPA3.16 | Teste integrado do loop | P0 |
 

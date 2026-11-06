@@ -83,9 +83,9 @@ reutilizáveis. O erro é hardcodar cada mapa no núcleo.
 
 | Egg clássico | Como vira dados |
 |---|---|
-| Música secreta (3 objetos) | JSON de quest tipo `music` + 3 passos `etapa4` + reward `music` |
-| Rádio/cifra | Passo `etapa4` + reward `lore` |
-| Wonder weapon build | 3 passos `collect` + 1 `etapa4` + reward `weapon` |
+| Música secreta (3 objetos) | JSON de quest tipo `music` + 3 passos `interact` + reward `music` |
+| Rádio/cifra | Passo `interact` + reward `lore` |
+| Wonder weapon build | 3 passos `collect` + 1 `interact` + reward `weapon` |
 | Main quest | Grafo de 5–15 passos + `boss` + reward `ending` |
 | Perk grátis | Passo `puzzle`/`sequence` + reward `perk` |
 | Co-op | `requires_coop` + passos com múltiplos jogadores |

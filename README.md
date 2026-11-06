@@ -16,10 +16,12 @@ serviços e ferramentas de autoria.
   4 wallbuys, 3 perks, caixa, 9 barricadas e 9 spawns).
 - 5 armas em JSON, loader/validador, testes `BUNKER13_OK`.
 - Modelos reorganizados em `assets/models/<categoria>/<id>/`.
+- **Fontes `.blend` de todas as armas e do zumbi** em `source/blender/`.
 - Git, CI, plugin `bunker_tools` e bench.
 
 Etapa 3 — Gameplay em andamento: o Bunker 13 já abre com `--map map.bunker13`; faltam
-janelas, barricadas, faca, explosivos, mãos separadas e 2 slots.
+janelas, barricadas, faca, explosivos, mãos separadas e 2 slots. A geometria do
+mapa ainda é runtime; a migração para cena autoral é a próxima dívida P0.
 
 ## Decisões-chave
 
@@ -36,6 +38,17 @@ janelas, barricadas, faca, explosivos, mãos separadas e 2 slots.
 Siga `docs/planning/14-weapon-workflow.md` e o template
 `templates/weapon/weapon.json`. Resumo: referência → Blender (arma sem mãos) →
 GLB → JSON → animações → validação → testes.
+
+## Blender
+
+```bash
+./blender.sh                                              # visão geral
+./blender.sh source/blender/weapons/glock17/glock17.blend # modelo específico
+```
+
+Fontes em `source/blender/`; GLBs em `assets/models/`. **Nenhum modelo 3D é
+gerado em runtime** — o código só posiciona e anima. Detalhes em
+`docs/planning/18-authored-assets.md`.
 
 ## Conteúdo e assets
 

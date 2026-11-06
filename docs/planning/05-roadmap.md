@@ -54,13 +54,17 @@ asset quebradas; nenhum `if map_id` no núcleo e nenhum conteúdo em `.tres`.
 `ZombieEnemy`, HUD e loop mínimo (tiro, recarga, porta, morte).
 
 **Já entregue na Etapa 3 — Gameplay:** `--map <id>`, `MapBuilderRegistry` (builder no
-JSON), interações de porta/wallbuy/perk/caixa e smoke `MAP_OK` do Bunker 13.
+JSON), interações de porta/wallbuy/perk/caixa, smoke `MAP_OK` do Bunker 13,
+Blender + fontes `.blend` de todas as armas e do zumbi.
 
 **Pendente**
+- Migrar a geometria do mapa para cena autoral (`.blend`/GLB); builders atuais
+  são legado temporário.
+- Separar âncoras/interactables da geometria no JSON.
 - 2 slots de arma e troca.
 - `HandsRig`/`ViewmodelFactory` com mãos compartilhadas.
 - **MP5 de ponta a ponta antes de remodelar as outras armas.**
-- `BoxBuilder` compartilhado e fontes `.blend` versionadas.
+- `BoxBuilder` compartilhado.
 - Faca (V, corte diagonal) e explosivos (granadas, foguete, barris).
 - `BarricadeSystem`: hold F, tábuas, arranque e entrada do zumbi.
 - `RoundManager`/economia completos e efeitos.

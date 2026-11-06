@@ -2,3 +2,5 @@
 build/
 *.tmp
 *.log
+*.blend1
+*.blend2
