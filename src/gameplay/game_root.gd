@@ -47,6 +47,8 @@ func _ready() -> void:
 	hud.set_map_name(map.name)
 	hud.start_requested.connect(_start)
 	hud.restart_requested.connect(_restart)
+	hud.pause_toggled.connect(_on_pause_toggled)
+	hud.resume_requested.connect(_resume)
 
 	player.setup_weapon(weapon_data)
 
@@ -63,6 +65,14 @@ func _ready() -> void:
 		_run_test.call_deferred()
 	elif "--smoke" in args:
 		_run_smoke.call_deferred()
+	elif "--pause-test" in args:
+		_run_pause_test.call_deferred()
+	elif "--pause-shot" in args:
+		_run_pause_shot.call_deferred()
+	elif "--mouse-test" in args:
+		_run_mouse_test.call_deferred()
+	elif "--interaction-test" in args:
+		_run_interaction_test.call_deferred()
 	elif "--shot" in args:
 		_run_shot.call_deferred()
 	elif "--ui" in args:
@@ -111,11 +121,33 @@ func _start() -> void:
 	if started:
 		return
 	started = true
+	get_tree().paused = false
+	hud.hide_pause()
 	hud.hide_start()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	player.can_control = true
 	_spawn_initial()
 	Events.banner.emit(map.name.to_upper(), "SOBREVIVA E ABRA AS PORTAS", 2.5)
+
+func _on_pause_toggled() -> void:
+	if not started or player == null or player.is_dead:
+		return
+	if get_tree().paused:
+		_resume()
+	else:
+		_pause()
+
+func _pause() -> void:
+	if _complete or player == null or player.is_dead:
+		return
+	get_tree().paused = true
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	hud.show_pause()
+
+func _resume() -> void:
+	get_tree().paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	hud.hide_pause()
 
 func _spawn_initial() -> void:
 	var total := mini(map.zombie_count, map.zombie_spawns.size())
@@ -231,15 +263,94 @@ func _buy_box() -> void:
 	Events.banner.emit("CAIXA MISTERIOSA", w.name, 2.0)
 
 func _on_player_died() -> void:
+	get_tree().paused = false
+	hud.hide_pause()
 	hud.show_gameover()
 
 func _restart() -> void:
+	get_tree().paused = false
+	hud.hide_pause()
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	get_tree().reload_current_scene()
 
 func _unhandled_input(event: InputEvent) -> void:
 	if _complete and event is InputEventKey and event.pressed and event.keycode == KEY_R:
 		_restart()
+
+func _run_pause_test() -> void:
+	_start()
+	await get_tree().create_timer(0.2).timeout
+	var filters_ok := hud.mouse_filters_ok()
+	var esc := InputEventKey.new()
+	esc.keycode = KEY_ESCAPE
+	esc.pressed = true
+	Input.parse_input_event(esc)
+	await get_tree().create_timer(0.1).timeout
+	var paused_ok: bool = get_tree().paused and hud.is_pause_visible()
+	var esc2 := InputEventKey.new()
+	esc2.keycode = KEY_ESCAPE
+	esc2.pressed = true
+	Input.parse_input_event(esc2)
+	await get_tree().create_timer(0.1).timeout
+	var resumed_ok: bool = not get_tree().paused and not hud.is_pause_visible()
+	var ok: bool = filters_ok and paused_ok and resumed_ok
+	print("PAUSE_TEST filters=%s paused=%s resumed=%s" % [str(filters_ok), str(paused_ok), str(resumed_ok)])
+	print("PAUSE_OK" if ok else "PAUSE_FAIL")
+	get_tree().quit(0 if ok else 1)
+
+func _run_mouse_test() -> void:
+	_start()
+	await get_tree().create_timer(0.2).timeout
+	if DisplayServer.get_name() == "headless":
+		print("MOUSE_SKIP headless")
+		get_tree().quit(0)
+		return
+	var before := player.rotation.y
+	var ev := InputEventMouseMotion.new()
+	ev.relative = Vector2(160, 0)
+	Input.parse_input_event(ev)
+	await get_tree().create_timer(0.2).timeout
+	var after := player.rotation.y
+	var ok: bool = absf(after - before) > 0.0001
+	print("MOUSE_TEST mode=%d before=%.4f after=%.4f ok=%s" % [Input.mouse_mode, before, after, str(ok)])
+	print("MOUSE_OK" if ok else "MOUSE_FAIL")
+	get_tree().quit(0 if ok else 1)
+
+func _run_interaction_test() -> void:
+	_start()
+	await get_tree().create_timer(0.2).timeout
+	player.position = Vector3(-1.6, 0.1, 0.0)
+	player.look_at(Vector3(0.0, player.position.y, 0.0), Vector3.UP)
+	player.interact_ray.force_raycast_update()
+	var hit := player.interact_ray.is_colliding()
+	var meta_ok := false
+	if hit:
+		var col = player.interact_ray.get_collider()
+		meta_ok = col != null and col.has_meta("interact")
+	var press := InputEventKey.new()
+	press.keycode = KEY_F
+	press.physical_keycode = KEY_F
+	press.pressed = true
+	Input.parse_input_event(press)
+	await get_tree().create_timer(0.2).timeout
+	var release := InputEventKey.new()
+	release.keycode = KEY_F
+	release.physical_keycode = KEY_F
+	release.pressed = false
+	Input.parse_input_event(release)
+	var ok: bool = hit and meta_ok and door_open
+	print("INTERACT_TEST hit=%s meta=%s door=%s" % [str(hit), str(meta_ok), str(door_open)])
+	print("INTERACT_OK" if ok else "INTERACT_FAIL")
+	get_tree().quit(0 if ok else 1)
+
+func _run_pause_shot() -> void:
+	_start()
+	await get_tree().create_timer(0.5).timeout
+	hud.pause_toggled.emit()
+	await get_tree().create_timer(0.3).timeout
+	await RenderingServer.frame_post_draw
+	get_viewport().get_texture().get_image().save_png("/tmp/opencode/pause_bunker13.png")
+	get_tree().quit(0)
 
 func _run_smoke() -> void:
 	_start()

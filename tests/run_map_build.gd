@@ -36,6 +36,12 @@ func _init() -> void:
 	check(ctx.barricades.size() == 9, "9 barricadas")
 	check(ctx.spawns.size() == 9, "9 spawns")
 	check(ctx.lights.size() == 8, "8 luzes")
+	for did in ctx.doors:
+		var info: Dictionary = ctx.doors[did]
+		check(info.body != null, "porta %s tem colisão" % did)
+		check(info.body.has_meta("interact"), "porta %s interagível" % did)
+	for wid in ctx.wallbuys:
+		check(ctx.wallbuys[wid].area.has_meta("interact"), "wallbuy %s interagível" % wid)
 	check(root.find_child("MapGeometry", false, false) != null, "cena autoral carregada")
 	var meshes := root.find_children("*", "MeshInstance3D", true, false)
 	check(meshes.size() > 20, "geometria autoral carregada")

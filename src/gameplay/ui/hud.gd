@@ -3,6 +3,8 @@ extends CanvasLayer
 
 signal start_requested
 signal restart_requested
+signal resume_requested
+signal pause_toggled
 
 const COL_TEXT := Color(0.86, 0.84, 0.76)
 const COL_DIM := Color(0.55, 0.54, 0.48)
@@ -32,9 +34,11 @@ var _damage: ColorRect
 var _damage_alpha := 0.0
 var _start: Control
 var _over: Control
+var _pause: Control
 
 func _ready() -> void:
 	layer = 10
+	process_mode = Node.PROCESS_MODE_ALWAYS
 	_font_big = load("res://assets/fonts/Oswald.ttf")
 	_font_small = load("res://assets/fonts/Rajdhani-SemiBold.ttf")
 	_font_title = load("res://assets/fonts/SpecialElite.ttf")
@@ -77,9 +81,11 @@ func _build() -> void:
 
 	_crosshair = Control.new()
 	_crosshair.set_anchors_preset(Control.PRESET_CENTER)
+	_crosshair.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	root.add_child(_crosshair)
 	for off in [Vector2(0, -9), Vector2(0, 9), Vector2(-9, 0), Vector2(9, 0)]:
 		var r := ColorRect.new()
+		r.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		r.color = Color(0.92, 0.9, 0.84, 0.85)
 		r.size = Vector2(2, 7) if off.x == 0 else Vector2(7, 2)
 		r.position = off - r.size * 0.5
@@ -87,10 +93,12 @@ func _build() -> void:
 
 	_hitmarker = Control.new()
 	_hitmarker.set_anchors_preset(Control.PRESET_CENTER)
+	_hitmarker.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_hitmarker.modulate.a = 0.0
 	root.add_child(_hitmarker)
 	for p in [Vector2(-11, -11), Vector2(11, -11), Vector2(-11, 11), Vector2(11, 11)]:
 		var r := ColorRect.new()
+		r.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		r.color = Color(0.95, 0.95, 0.9)
 		r.size = Vector2(9, 2)
 		r.position = p
@@ -105,10 +113,12 @@ func _build() -> void:
 	_place(_health_label, Vector2(0, 1), Vector2(30, -48), Vector2(100, 40))
 	root.add_child(_health_label)
 	var bg := ColorRect.new()
+	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	bg.color = Color(0.05, 0.05, 0.05, 0.8)
 	_place(bg, Vector2(0, 1), Vector2(100, -40), Vector2(180, 10))
 	root.add_child(bg)
 	_health_bar = ColorRect.new()
+	_health_bar.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_health_bar.color = Color(0.62, 0.62, 0.55)
 	_place(_health_bar, Vector2(0, 1), Vector2(100, -40), Vector2(180, 10))
 	root.add_child(_health_bar)
@@ -140,6 +150,7 @@ func _build() -> void:
 	root.add_child(_round)
 
 	_prompt_box = PanelContainer.new()
+	_prompt_box.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_place(_prompt_box, Vector2(0.5, 1), Vector2(-280, -180), Vector2(560, 44))
 	var sb := StyleBoxFlat.new()
 	sb.bg_color = Color(0.03, 0.03, 0.03, 0.75)
@@ -166,20 +177,31 @@ func _build() -> void:
 
 	_damage = ColorRect.new()
 	_damage.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_damage.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_damage.color = Color(0.45, 0.0, 0.0, 0.0)
 	root.add_child(_damage)
 
-	_start = _overlay("BUNKER 13", "WASD mover • SHIFT correr • MOUSE atirar\nR recarregar • F interagir", "INICIAR", true)
-	_over = _overlay("VOCÊ MORREU", "O bunker guarda mais um corpo.", "REINICIAR", false)
+	_start = _overlay("BUNKER 13", "WASD mover • SHIFT correr • MOUSE atirar\nR recarregar • F interagir • ESC pausar", [
+		["INICIAR", func(): start_requested.emit()],
+	])
+	_over = _overlay("VOCÊ MORREU", "O bunker guarda mais um corpo.", [
+		["REINICIAR", func(): restart_requested.emit()],
+	])
 	_over.visible = false
+	_pause = _overlay("PAUSADO", "ESC para continuar", [
+		["CONTINUAR", func(): resume_requested.emit()],
+		["REINICIAR", func(): restart_requested.emit()],
+	], 0.98)
+	_pause.visible = false
 
-func _overlay(title: String, sub: String, button: String, is_start: bool) -> Control:
+func _overlay(title: String, sub: String, buttons: Array, bg_alpha := 0.88) -> Control:
 	var c := Control.new()
 	c.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	c.mouse_filter = Control.MOUSE_FILTER_STOP
 	add_child(c)
 	var bg := ColorRect.new()
-	bg.color = Color(0.01, 0.012, 0.012, 0.88)
+	bg.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	bg.color = Color(0.01, 0.012, 0.012, bg_alpha)
 	bg.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	c.add_child(bg)
 	var center := CenterContainer.new()
@@ -195,25 +217,43 @@ func _overlay(title: String, sub: String, button: String, is_start: bool) -> Con
 	var s := _mk(sub, 20, COL_DIM, _font_small)
 	s.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	vb.add_child(s)
-	var b := Button.new()
-	b.text = button
-	b.custom_minimum_size = Vector2(300, 52)
-	b.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
-	b.add_theme_font_override("font", _font_big)
-	b.add_theme_font_size_override("font_size", 26)
-	var sb := StyleBoxFlat.new()
-	sb.bg_color = Color(0.06, 0.065, 0.06, 0.95)
-	sb.border_color = Color(0.65, 0.25, 0.15, 0.9)
-	sb.set_border_width_all(1)
-	b.add_theme_stylebox_override("normal", sb)
-	b.pressed.connect(func():
-		if is_start:
-			start_requested.emit()
-		else:
-			restart_requested.emit()
-	)
-	vb.add_child(b)
+	for entry in buttons:
+		var b := Button.new()
+		b.text = String(entry[0])
+		b.custom_minimum_size = Vector2(300, 52)
+		b.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
+		b.add_theme_font_override("font", _font_big)
+		b.add_theme_font_size_override("font_size", 26)
+		var sb := StyleBoxFlat.new()
+		sb.bg_color = Color(0.06, 0.065, 0.06, 0.95)
+		sb.border_color = Color(0.65, 0.25, 0.15, 0.9)
+		sb.set_border_width_all(1)
+		b.add_theme_stylebox_override("normal", sb)
+		var cb: Callable = entry[1]
+		b.pressed.connect(cb)
+		vb.add_child(b)
 	return c
+
+func show_pause() -> void:
+	_pause.visible = true
+
+func hide_pause() -> void:
+	_pause.visible = false
+
+func is_pause_visible() -> bool:
+	return _pause.visible
+
+
+func mouse_filters_ok() -> bool:
+	return _crosshair.mouse_filter == Control.MOUSE_FILTER_IGNORE \
+		and _hitmarker.mouse_filter == Control.MOUSE_FILTER_IGNORE \
+		and _damage.mouse_filter == Control.MOUSE_FILTER_IGNORE \
+		and _prompt_box.mouse_filter == Control.MOUSE_FILTER_IGNORE
+
+func _input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
+		pause_toggled.emit()
+		get_viewport().set_input_as_handled()
 
 func _process(delta: float) -> void:
 	_hit_alpha = maxf(0.0, _hit_alpha - delta * 5.0)
@@ -261,12 +301,18 @@ func set_map_name(map_name: String) -> void:
 	_round.text = map_name.to_upper()
 
 func show_start() -> void:
+	if _start == null:
+		return
 	_start.visible = true
 	_over.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 
 func hide_start() -> void:
+	if _start == null:
+		return
 	_start.visible = false
+	_start.queue_free()
+	_start = null
 
 func show_gameover() -> void:
 	_over.visible = true
