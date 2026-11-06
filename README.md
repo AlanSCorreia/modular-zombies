@@ -18,7 +18,7 @@ Vertical slice jogável:
 - `Events`, `Sfx`, `GameRoot`, plugin `bunker_tools` e CI local.
 - Git inicializado; v1 é apenas legado.
 
-Ainda não é o Bunker 13 completo; o loop será expandido em R1–R3.
+Ainda não é o Bunker 13 completo; barricadas e o loop serão expandidos em R1–R3.
 
 ## Decisões-chave
 
@@ -69,7 +69,7 @@ Atalhos: **Bunker 13 v2** e **Bunker 13 v2 — Editor**.
 WASD mover • Shift correr • Space pular • Mouse mirar/atirar
 R recarregar • F interagir • Clique em INICIAR para capturar o mouse.
 
-> A faca (V), granadas e explosivos ainda não estão neste slice; entram em R2.
+> Barricadas, faca (V), granadas e explosivos ainda não estão neste slice; entram em R2.
 
 ## Testes
 

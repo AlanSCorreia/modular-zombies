@@ -34,7 +34,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | R1.4 | DTOs tipados (`MapDefinition`, `WeaponDefinition`, `ExplosiveDefinition`, `MeleeDefinition`) | P0 |
 | R1.5 | `Bunker13Builder` lendo `MapDefinition` | P0 |
 | R1.6 | Converter Bunker 13 + 5 armas para JSON | P0 |
-| R1.7 | JSON de faca, granada, foguete, barris e traps | P0 |
+| R1.7 | JSON de faca, granada, foguete, barris, traps e barricadas | P0 |
 | R1.8 | Pipeline Blender de armas/mãos + `GripSocket` | P0 |
 | R1.9 | Validação de assets (paths/importação) | P0 |
 | R1.10 | Testes de schema/validação | P0 |
@@ -58,6 +58,10 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | R2.12 | Barris explosivos ao receber tiro | P0 |
 | R2.13 | `MeleeController` (V, corte diagonal, lunge, cooldown) | P0 |
 | R2.14 | Faca GLB + mãos compartilhadas + animação `knife_slash` | P0 |
+| R2.17 | `Barricade` + estado das tábuas | P0 |
+| R2.18 | `BarricadeSystem` + hold F + pontos | P0 |
+| R2.19 | IA de zumbi: arrancar, entrar e fila por janela | P0 |
+| R2.20 | Testes de barricada (reparo, interrupção, breach) | P0 |
 | R2.15 | Testes de explosivos e faca | P0 |
 | R2.16 | Teste integrado do loop | P0 |
 
@@ -72,7 +76,8 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | R3.5 | Props explosivos no JSON do mapa | P0 |
 | R3.6 | HUD/menu/pause/game over | P0 |
 | R3.7 | HUD de equipamento (granadas) | P1 |
-| R3.8 | Áudio/VFX de explosão e faca | P0 |
+| R3.8 | Áudio/VFX de explosão, faca e barricada | P0 |
+| R3.11 | HUD de progresso de reparo de barricada | P1 |
 | R3.9 | Prompts/hitmarker/vinheta | P1 |
 | R3.10 | Testes de interação/UI/combate | P0 |
 
@@ -124,4 +129,5 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | R7.6 | CI + validador | P0 |
 | R7.7 | Soak test 30 min | P1 |
 | R7.8 | Auditoria de licenças/assets | P1 |
-| R7.9 | Checklist de release | P1 |
+| R7.9 | Save/load do estado das barricadas | P1 |
+| R7.10 | Checklist de release | P1 |

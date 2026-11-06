@@ -38,7 +38,7 @@ O board operacional é `../../KANBAN.md`.
 
 **Pendente**
 - Bunker 13 completo em JSON.
-- 5 armas + faca/explosivos definidos em JSON.
+- 5 armas + faca/explosivos + barricadas definidos em JSON.
 - Schemas completos e validação de assets (paths/importação).
 - Reorganização de assets para a árvore híbrida.
 - Testes de definições e conteúdo completo.
@@ -55,17 +55,19 @@ asset quebradas; nenhum `if map_id` no núcleo e nenhum conteúdo em `.tres`.
 - 2 slots de arma e troca.
 - `HandsRig`/`ViewmodelFactory` com mãos compartilhadas.
 - Faca (V, corte diagonal) e explosivos (granadas, foguete, barris).
+- `BarricadeSystem`: hold F, tábuas, arranque e entrada do zumbi.
 - `RoundManager`/economia completos e efeitos.
 - Testes de explosivos/faca e loop completo.
 
-**Aceite:** Bunker 13 jogável; armas em JSON + `HandsRig`; faca e explosivos
-funcionando.
+**Aceite:** Bunker 13 jogável; armas em JSON + `HandsRig`; faca, explosivos e
+barricadas funcionando.
 
 ## R3 — Interações, UI e áudio
 
 **Entregáveis**
 - `InteractionSystem` tipado (`Interactable`).
 - Portas, wallbuys, caixa e perks.
+- HUD/progresso de reparo, áudio e VFX de barricada.
 - Traps explosivas e props explosivos vindos do JSON do mapa.
 - HUD, menu, pause, game over.
 - Áudio 2D/3D, música, mixagem e VFX de explosão/faca.

@@ -14,7 +14,7 @@ sem editar código do núcleo.
 
 1. Abrir o projeto pelo atalho **Bunker 13 — Editor**.
 2. Criar mapa a partir de um template.
-3. Preencher portas, wallbuys, spawns, perks, caixa e modificadores.
+3. Preencher portas, wallbuys, spawns, perks, caixa, barricadas e modificadores.
 4. Adicionar props explosivos (`explosive_props`) e traps.
 5. Posicionar marcadores na cena 3D.
 6. Montar Easter Eggs no grafo de passos.
@@ -29,9 +29,9 @@ sem editar código do núcleo.
 | Launcher do editor | Atalho e `editor.sh` com `--editor --path` |
 | Plugin `bunker_tools` | Registro do plugin e docks |
 | `Map JSON` + editor | Editar dados do mapa |
-| Marcadores 3D | Posicionar portas, spawns, wallbuys e áreas |
+| Marcadores 3D | Posicionar portas, spawns, wallbuys, barricadas e áreas |
 | Templates | Bunker, corredor, arena, mapa vazio |
-| Validador | JSON schema, IDs, referências, ciclos, softlocks |
+| Validador | JSON schema, IDs, referências, barricadas e softlocks |
 | Playtest | Rodar o mapa selecionado |
 | Content browser | Listar/criar mapas, armas, inimigos e perks |
 | Quest graph | GraphEdit com passos e conexões |

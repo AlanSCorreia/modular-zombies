@@ -18,7 +18,7 @@
 |---|---|
 | R0 | Importa; docs/Kanban aprovados; Git/CI prontos |
 | R1 | Bunker 13 por JSON; assets organizados; 0 refs quebradas |
-| R2 | Loop jogável; explosivos e faca testados |
+| R2 | Loop jogável; explosivos, faca e barricadas testados |
 | R3 | Interações, UI e áudio do plano |
 | R4 | Criar/validar/testar mapa no editor |
 | R5 | Música + main quest de 3 passos; grafo válido |
@@ -41,6 +41,14 @@
 
 **Estado atual:** `LOGIC_OK`, `CONTENT_OK`, `SLICE_OK`.
 **Bench:** 42–61 FPS, 135 draw calls, 66 MB (vsync/foco).
+
+## Testes de barricada
+
+- Unidade: clamp 0..max, pontos, tempo de reparo/arranque.
+- Integração: reparar 6 tábuas → +60 pontos; zumbi arranca até 0 e entra.
+- Interrupção: soltar F/dano cancela sem consumir tábua.
+- Conteúdo: barricada com ID único, room válido e spawn válido.
+- Performance: 8 barricadas + 20 zumbis.
 
 ## Validador de conteúdo
 
@@ -79,6 +87,8 @@ Antes de expandir conteúdo:
 - [ ] Atirar e recarregar (com e sem bala no cano).
 - [ ] Matar o zumbi e ganhar pontos.
 - [ ] Abrir a porta e spawnar o segundo zumbi.
+- [ ] Reparar uma barricada com hold F e ganhar pontos.
+- [ ] Ver o zumbi arrancar tábuas e entrar com 0.
 - [ ] HUD/health/ammo/pontos corretos.
 - [ ] Game over e restart.
 - [ ] `ci.sh` verde e bench dentro do orçamento.

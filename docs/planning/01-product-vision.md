@@ -32,7 +32,7 @@ texturas e áudio em `assets/`, fontes em `source/`.
 |---|---|
 | R0 | Preparação, scaffold, docs e Kanban |
 | R1 | JSON schemas, loader, validador, assets organizados e Bunker 13 em JSON |
-| R2 | Loop: player, armas, faca, explosivos, zumbis, rodadas, economia |
+| R2 | Loop: player, armas, faca, explosivos, zumbis, barricadas, rodadas, economia |
 | R3 | Interações, traps/props explosivos, HUD, menus e áudio |
 | R4 | Ferramentas de mapa no editor |
 | R5 | Quests/Easter Eggs |

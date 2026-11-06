@@ -152,6 +152,13 @@ source/blender/scripts/*.py
   "name": "Bunker 13",
   "player_spawn": [0, 0.1, 12],
   "doors": [{"id": "door1", "cost": 750, "position": [0, 1.25, 5]}],
+  "barricades": [
+    {
+      "id": "win_A1", "room": "A", "position": [-5.5, 1.4, 6.0],
+      "rotation_y": 3.14159, "max_planks": 6, "repair_time": 0.8,
+      "repair_points": 10, "spawn_position": [-5.5, 0.1, 7.4]
+    }
+  ],
   "explosive_props": [
     {
       "id": "barrel_1",
@@ -182,6 +189,7 @@ Editor/CI
 - Erros apontam arquivo, campo e ID.
 - Valida existência/importação de `res://` (GLB, texturas, áudio, `.tres`).
 - Valida materiais/animações referenciados por armas e VFX.
+- Valida barricadas: IDs, room, position/spawn e max_planks > 0.
 - O jogo não inicia com conteúdo inválido.
 - Hot reload de JSON em desenvolvimento (editor).
 

@@ -112,7 +112,7 @@
 ### Ready
 - [ ] `Bunker13Builder` lendo `MapDefinition`
 - [ ] Converter Bunker 13 + 5 armas para JSON
-- [ ] JSON de faca, granada, foguete, barris e traps
+- [ ] JSON de faca, granada, foguete, barris, traps e barricadas
 - [ ] Pipeline Blender de armas/mãos (todas as armas + mãos separadas)
 - [ ] Validação de assets (paths + importação)
 - [ ] Testes de definições e validação
@@ -138,7 +138,7 @@
 # R2 — Loop de gameplay
 
 **Objetivo:** loop completo + combate com explosivos e faca.  
-**Aceite:** Bunker 13 jogável; armas usam JSON + `HandsRig`; faca e explosivos funcionando.
+**Aceite:** Bunker 13 jogável; armas usam JSON + `HandsRig`; faca, explosivos e barricadas funcionando.
 
 ### Backlog
 - [ ] Perk “Gatilho Duplo” com definição
@@ -150,6 +150,9 @@
 - [ ] `ExplosionSystem` (raio, LOS, falloff, impulso, cadeia)
 - [ ] Granada (G), lança-foguete e barris explosivos
 - [ ] `MeleeController` (V, corte diagonal, lunge, cooldown)
+- [ ] `Barricade` + `BarricadeSystem` (tábuas, hold F, pontos)
+- [ ] IA de zumbi: arrancar tábua, fila e entrada com 0
+- [ ] Testes de barricada (reparo, interrupção, breach)
 - [ ] Faca GLB + mãos compartilhadas + `knife_slash`
 - [ ] `HandsRig` + cache de mãos + `grip_profile`
 - [ ] `ViewmodelFactory` (armas GLB + mãos compartilhadas)
@@ -189,7 +192,8 @@
 - [ ] `InteractionSystem` tipado
 - [ ] Portas, wallbuys, caixa e perks
 - [ ] Traps explosivas e props explosivos do JSON do mapa
-- [ ] VFX/SFX de explosão/faca e HUD de granadas
+- [ ] VFX/SFX de explosão/faca/barricada e HUD de granadas
+- [ ] HUD de progresso de reparo de barricada
 - [ ] HUD/menu/pause/game over
 - [ ] Áudio 2D/3D e música
 - [ ] Vinheta, hitmarker e prompts

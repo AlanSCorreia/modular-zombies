@@ -10,6 +10,7 @@
 - **P0 concluído:** Git, CI, importação, scaffold, vertical slice jogável.
 - Fase atual: **R0 concluído; R1 em andamento** (loader/validador JSON e slice).
 - Vertical slice: uma sala, porta, zumbi, Glock e HUD; testes `SLICE_OK`.
+- Barricadas estão planejadas para R2 (`13-barricades.md`).
 - Os assets ainda estão na árvore antiga; a reorganização está em R1.
 
 ## Decisões atuais
@@ -42,6 +43,7 @@
 | `10-combat-systems.md` | Explosivos, granadas, foguetes, barris e faca |
 | `11-assets.md` | Árvore de assets, convenções, importação e licenças |
 | `12-development-workflow.md` | Git, CI, vertical slice e orçamento de performance |
+| `13-barricades.md` | Mecânica de barricadas, hold F, zumbis e pontos |
 
 ## Como usar
 

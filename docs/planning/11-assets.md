@@ -79,6 +79,8 @@ source/
 - Partes móveis nomeadas (`Slide`, `Magazine`, `Trigger`, `Pump`) e pivôs
   corretos para animação.
 - `GripSocket`/`grip_profile` para encaixar as mãos compartilhadas.
+- Barricadas: tábua reutilizável em `models/props/barricade_plank.glb`; textura
+  wood em `textures/world`; lascas em `vfx/impacts`.
 
 ### Texturas
 - Um conjunto PBR por material: `{diff,nor,rough,ao}.png`.
@@ -99,6 +101,7 @@ source/
 - Música/loops em OGG; efeitos curtos em OGG/WAV.
 - `default_bus_layout.tres` em `assets/audio`.
 - Variações/eventos lógicos podem ficar em `content/audio/events.json`.
+- Barricada: `foley/wood_break_*`, `foley/wood_repair_*` e impactos.
 - 3D para mundo; 2D para HUD/arma do player.
 
 ### Imagens e UI

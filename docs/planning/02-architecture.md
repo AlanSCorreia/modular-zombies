@@ -26,7 +26,7 @@ Já existe: `project.godot`, `main.tscn`, `Events`, `Content`, `Sfx`, `GameRoot`
 loader/validador JSON, plugin `bunker_tools`, CI local e vertical slice jogável.
 
 Pendente para R1/R2: Bunker 13 completo em JSON, reorganização de assets,
-5 armas, faca, explosivos, rodadas/economia completas e UI/áudio finais.
+5 armas, faca, explosivos, barricadas, rodadas/economia completas e UI/áudio finais.
 
 ## Arquitetura alvo
 
@@ -37,6 +37,7 @@ ContentRegistry
  │                    ├─ EconomyService
  │                    ├─ SpawnService
  │                    ├─ InteractionSystem
+ │                    ├─ BarricadeSystem
  │                    ├─ QuestSystem
  │                    └─ MapMechanic[] (nós específicos)
  ├─ WeaponDefinition ─► WeaponFactory ─► WeaponController
@@ -118,7 +119,23 @@ var spawns: Array[SpawnDefinition]
 var perks: Array[PerkDefinition]
 var box: BoxDefinition
 var mechanics: Array[MapMechanicDefinition]
+var barricades: Array[BarricadeData]
 var quests: Array[QuestDefinition]
+```
+
+```gdscript
+class_name BarricadeData extends RefCounted   # DTO de runtime (fonte: JSON)
+var id: StringName
+var room: StringName
+var position: Vector3
+var rotation_y: float
+var max_planks := 6
+var repair_time := 0.8
+var repair_points := 10
+var tear_time_base := 2.2
+var tear_time_round_scale := 0.08
+var spawn_position: Vector3
+var climb_time := 0.9
 ```
 
 ```gdscript
@@ -232,7 +249,8 @@ source/
 5. Interação é componente tipado.
 6. Todo conteúdo é JSON e passa pelo validador antes do playtest.
 7. Explosivos usam `ExplosiveDefinition` JSON; faca usa `MeleeDefinition` JSON (`10-combat-systems.md`).
-8. Assets de engine usam `.tres`/`.tscn`; conteúdo de jogo usa JSON.
+8. Barricadas são dados do mapa (`13-barricades.md`).
+9. Assets de engine usam `.tres`/`.tscn`; conteúdo de jogo usa JSON.
 
 ## Estratégia de reescrita
 
@@ -240,7 +258,7 @@ source/
 |---|---|
 | R0 | Scaffold, docs, Kanban, importação validada |
 | R1 | JSON schemas + loader + validador + Bunker 13 em dados |
-| R2 | Player, armas, faca, explosivos, zumbis, rodadas, economia |
+| R2 | Player, armas, faca, explosivos, zumbis, barricadas, rodadas |
 | R3 | Interações, HUD e áudio |
 | R4 | Ferramentas de mapa no editor |
 | R5 | QuestSystem + Easter Eggs |
