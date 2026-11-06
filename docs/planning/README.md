@@ -46,6 +46,7 @@
 | `13-barricades.md` | Mecânica de barricadas, hold F, zumbis e pontos |
 | `14-weapon-workflow.md` | Pipeline completo de criação de armas |
 | `15-r1-review.md` | Achados e recomendações após R1 |
+| `16-development-agents.md` | Subagentes de exploração, revisão e validação |
 
 ## Como usar
 

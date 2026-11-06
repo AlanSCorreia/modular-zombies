@@ -9,6 +9,13 @@
 - Tag de marco ao fechar fase (`R0`, `R1`, ...).
 - Nunca commitar `.godot/` nem builds.
 
+## Agentes de desenvolvimento
+
+Subagentes do OpenCode com escopo fechado ficam em `.opencode/agents/`:
+`explorer` (somente leitura), `test-reviewer` (revisão + testes) e
+`content-checker` (validação de JSON/assets). Detalhes e limites em
+[`16-development-agents.md`](16-development-agents.md).
+
 ## CI local
 
 ```bash
