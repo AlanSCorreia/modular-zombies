@@ -59,6 +59,8 @@ Blender + fontes `.blend` de todas as armas e do zumbi, geometria autoral dos
 mapas (GLB + `.blend`) e **2 slots de arma** com troca.
 
 **Pendente**
+- Corrigir o softlock do Bunker 13 (issue #3, P0).
+- `MapContext` tipado + `Interactable`.
 - `HandsRig`/`ViewmodelFactory` com mãos compartilhadas.
 - **MP5 de ponta a ponta antes de remodelar as outras armas.**
 - `BoxBuilder` compartilhado.

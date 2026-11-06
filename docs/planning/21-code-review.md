@@ -36,9 +36,10 @@
    contrato entre builder e gameplay não é tipado; `kind` aparece no builder,
    no prompt e na compra. `door_open` global duplica o estado de cada porta.
 3. **`WeaponController` específico da Glock** (`weapon_controller.gd`):
-   `moving_parts`, `viewmodel`, `reload` e `hands` do JSON são ignorados;
-   `equip_weapon` recria GLB/animações e deixa o holder na câmera (vazamento).
-   Isso é o principal bloqueio de 2 slots e MP5.
+   `moving_parts`, `viewmodel` e `hands` do JSON ainda são ignorados e a
+   animação é montada para a Glock. O 2 slots foi resolvido com dois controllers
+   independentes (`set_active`/`dispose`/`refill`), mas `ViewmodelFactory`/
+   `HandsRig` continuam pendentes — o MP5 segue bloqueado por isso.
 4. **HUD 100% em código** (`hud.gd:76-235`): ajuste visual exige rodar o jogo;
    foi a causa do bug de mouse (controles consumindo o cursor).
 5. **Sem composição de cena**: `main.tscn` só tem `GameRoot`; player, HUD,

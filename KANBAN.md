@@ -36,8 +36,8 @@
 | `etapa8` | Etapa 8 — Produção | Backlog | — |
 
 > **Status:** Etapas 1 e 2 concluídas. Geometria autoral (GLB) e 2 slots
-> concluídos (issues #1 e #2); o foco agora é corrigir o softlock do Bunker 13
-> e tipar o `MapContext`.
+> concluídos e testados (issues #1 e #2 fechadas); o foco agora é corrigir o
+> softlock do Bunker 13 (issue #3) e tipar o `MapContext`.
 
 ## Próximo item
 
@@ -181,7 +181,6 @@ faca, explosivos e barricadas funcionando.
 - [x] Smoke do Bunker 13 + compras (`MAP_OK`)
 - [x] Bunker 13 e slice carregam GLB autoral
 - [x] Mouse look, ESC/pause e F na porta
-- [x] 2 slots: troca, munição e HUD (`SLOTS_OK`)
 - [ ] Rodada 1 → 2 e game over completos
 
 ### Done
@@ -201,7 +200,7 @@ faca, explosivos e barricadas funcionando.
 - [x] Fontes `.blend` das 5 armas + zumbi + pistol + mapas (slice, Bunker 13)
 - [x] `source/blender/overview.blend` e scripts de importação
 - [x] Correções de input/UI: mouse look, pause com ESC e F na porta
-- [x] `WeaponController` 2 slots (issue #2)
+- [x] `WeaponController` 2 slots: troca, munição e HUD (`SLOTS_OK`, issue #2)
 
 ### Blocked
 - [ ] MP5 de ponta a ponta — depende de `hands.glb` + `ViewmodelFactory`

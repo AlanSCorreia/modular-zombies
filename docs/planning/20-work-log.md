@@ -64,7 +64,15 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   substituem o slot ativo.
 - Teste `SLOTS_OK` no CI (troca, munição preservada e sem duplicata).
 - Issue #2 fechada; issue #3 aberta para o softlock do Bunker 13.
-- Commit `e51f172` `feat: add two weapon slots`.
+- KANBAN: 2 slots apenas em **Done** (removida a duplicata em Review/Test);
+  **Doing** vazio; topo de **Ready** segue com o softlock (issue #3) e depois
+  `MapContext` tipado.
+- Commits: `e51f172` `feat: add two weapon slots` e `97055ec`
+  `docs: record two-slot implementation`.
+
+**CI do bloco (2026-11-06)**
+- `./tests/ci.sh` verde: `LOGIC_OK`, `CONTENT_OK`, `BUNKER13_OK`, `MAP_OK`,
+  `PAUSE_OK`, `INTERACT_OK`, `SLOTS_OK`, `SLICE_OK`, `CI_OK`.
 
 **Correções de input/UI (2026-11-06)**
 - Mouse look restaurado: controles decorativos do HUD (`crosshair`, `hitmarker`,
@@ -82,6 +90,11 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 **Próximo item (KANBAN)**
 - Corrigir softlock do Bunker 13 + spawns alcançáveis (issue #3); depois,
   `MapContext` tipado + `Interactable`.
+
+**Registro confirmado**
+- GitHub: #2 fechada; #3 aberta com `etapa:3`, `prio:P0`, `area:gameplay` e
+  milestone Etapa 3.
+- Estratégia de slots registrada como D-015 em `19-decision-log.md`.
 
 ## 2026-11-05 — Etapas 1 e 2 (Preparação/Conteúdo)
 
