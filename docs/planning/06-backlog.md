@@ -44,9 +44,9 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 
 > Atendido: ETAPA3.34–36 (geometria autoral). A Etapa 4 só começa depois do
 > aceite da Etapa 3.
-> Ordem de execução: ETAPA3.40 (softlock, issue #3) e ETAPA3.38
-> (`MapContext`/`Interactable`, issue #4) concluídas; agora ETAPA3.41 (extrair o
-> harness de `GameRoot` para `tests/`, issue #5).
+> Ordem de execução: ETAPA3.40 (softlock, issue #3), ETAPA3.38
+> (`MapContext`/`Interactable`, issue #4) e ETAPA3.41 (harness em `tests/`,
+> issue #5) concluídas; agora ETAPA3.42 (pool/cache, issue #6).
 
 | ID | Tarefa | Pri |
 |---|---|---|
@@ -89,7 +89,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.39 | `WeaponSlots` + `ViewmodelFactory` (slots feitos; factory/mãos pendentes) | P0 |
 | ETAPA3.40 | Corrigir softlock do Bunker 13 + spawns/navmesh alcançáveis (feito) | P0 |
 | ETAPA3.41 | Extrair harness de teste do `GameRoot` para `tests/` (feito) | P1 |
-| ETAPA3.42 | Pool/cache de tracers, áudio e animações | P1 |
+| ETAPA3.42 | Pool/cache de tracers, áudio e animações (issue #6) | P1 |
 | ETAPA3.43 | HUD em `.tscn` | P1 |
 | ETAPA3.44 | `RoundManager`/`Economy` fora do `GameRoot` | P1 |
 | ETAPA3.45 | InputMap + validação de áudio/partes no validador | P2 |

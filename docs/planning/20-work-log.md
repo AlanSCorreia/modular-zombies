@@ -3,6 +3,34 @@
 Registro cronológico curto do que foi feito, testes e commits. O plano vivo
 continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 
+## 2026-11-06 — Harness de integração extraído (issue #5)
+
+**Feito**
+- `tests/test_runner.tscn` roda como cena principal e instancia `main.tscn`;
+  casos via `--case slice|smoke|softlock|pause|interaction|slots|ui|shot|bench|mouse|pause_shot`.
+- `GameRoot` perdeu os `_run_*`, o despacho por flags e ~250 linhas de harness;
+  mantém apenas a API de jogo.
+- CI e `bench.sh` passaram a usar a cena de teste; gates preservados.
+- Decisão registrada como D-018 em `19-decision-log.md`.
+
+**Testes (2026-11-06, reportado pelo bloco de execução)**
+- `./tests/ci.sh` verde: `LOGIC_OK`, `CONTENT_OK`, `BUNKER13_OK`, `MAP_OK`,
+  `SOFTLOCK_OK`, `PAUSE_OK`, `INTERACT_OK`, `SLOTS_OK`, `SLICE_OK`, `CI_OK`.
+- O doc-keeper não reexecutou o CI nesta sincronização: o tool `shell` foi
+  bloqueado por permissão (`Permission denied: shell`). Pendência de reverificação.
+- Ruído não fatal conhecido: `ObjectDB instances leaked` e `resources still in
+  use` no exit headless.
+
+**Commits**
+- `f03abc8` `refactor: extract integration harness from GameRoot`
+- `aaef364` `docs: record harness extraction`
+
+**Estado do board**
+- KANBAN: harness apenas em **Done**; **Doing** vazio; topo de **Ready** =
+  pool/cache de tracers/áudio/animações (issue #6); etapa ativa 3.
+- GitHub: #5 fechada (`etapa:3`, `prio:P1`, `area:infra`, milestone Etapa 3);
+  #6 aberta (`etapa:3`, `prio:P1`, `area:gameplay`, milestone Etapa 3).
+
 ## 2026-11-06 — `MapContext` tipado + `Interactable` (issue #4)
 
 **Feito**
@@ -119,7 +147,8 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   mantém só a API de jogo.
 - CI e `bench.sh` usam a cena de teste; gates preservados.
 - Issue #5 fechada; issue #6 aberta (pool/cache).
-- Commit `f03abc8` `refactor: extract integration harness from GameRoot`.
+- Commit `f03abc8` `refactor: extract integration harness from GameRoot`
+  e `aaef364` `docs: record harness extraction` (bloco completo no topo do log).
 
 **MapContext e Interactable (issue #4) — concluído**
 - Ver bloco no topo do log; substituído por registro próprio com CI e hashes.
