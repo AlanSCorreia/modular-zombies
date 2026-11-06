@@ -12,17 +12,27 @@
 - **Mas o loop real ainda é o slice hardcoded.** O Bunker 13 é geometria +
   metadados; não é jogável de ponta a ponta.
 
+## Atualização pós-revisão
+
+- `--map <id>` + `MapBuilderRegistry`: o builder agora vem do JSON.
+- Interações base implementadas: porta, wallbuy, perk e caixa.
+- `GameRoot` usa `map.enemy_id` e `map.zombie_count`.
+- `WeaponController` lê `audio` e `scale` do JSON.
+- CI ganhou o smoke do Bunker 13 (`MAP_OK`) com compras.
+- Continuam abertos: janelas/barricadas/IA, `hands.glb`, 2 slots e o teste de
+  integração com falsos positivos.
+
 ## P0 — bloqueiam o Gameplay
 
 | # | Achado | Evidência | Ação |
 |---|---|---|---|
 | 1 | O teste do Bunker 13 não podia falhar: `check()` só imprimia e o script sempre saía com `quit(0)`. | `tests/run_map_build.gd:3-7,30-31` | **Corrigido:** contador, `FAIL` em stderr e `quit(1)` |
-| 2 | `GameRoot` fixa `map.slice` e `SliceBuilder`; não existe `--map`. | `src/gameplay/game_root.gd:23,30` | `--map <id>` + builder/GameRoot genéricos |
-| 3 | A interação só trata `door1`; wallbuy, perk, caixa e barricada não funcionam. | `src/gameplay/game_root.gd:139-163` | `InteractionSystem` por tipo |
+| 2 | `GameRoot` fixa `map.slice` e `SliceBuilder`; não existe `--map`. | `src/gameplay/game_root.gd:23,30` | **Corrigido:** `--map` + `MapBuilderRegistry` |
+| 3 | A interação só trata `door1`; wallbuy, perk, caixa e barricada não funcionam. | `src/gameplay/game_root.gd:139-163` | **Parcial:** porta/wallbuy/perk/caixa; falta barricada |
 | 4 | O perímetro do Bunker 13 não tem vãos de janela; as barricadas são tábuas sem colisão e ficam ~0,18 m dentro da parede. | `src/maps/bunker13/builder.gd:144-148,229-241`; `content/maps/bunker13.json:34-42` | Abrir janelas e reposicionar barricadas |
 | 5 | Não existe `Barricade`/`BarricadeSystem`, hold F, reparo, tear ou climb. | `BarricadeData` sem consumidor | Implementar o sistema |
-| 6 | O zumbi só persegue e ataca; não há estados de janela. `zombie_count` e `spawn_position` são ignorados. | `src/gameplay/enemies/zombie_enemy.gd:93-126`; `src/maps/bunker13/builder.gd:20` | IA `approach/tear/climb` |
-| 7 | `hands.glb` não existe. `hands`, `viewmodel`, `audio` e `moving_parts` do JSON são ignorados. | `src/gameplay/player/weapon_controller.gd:37-58,143` | `HandsRig`/`ViewmodelFactory` data-driven |
+| 6 | O zumbi só persegue e ataca; não há estados de janela. `zombie_count` já é usado, mas `spawn_position` é ignorado. | `src/gameplay/enemies/zombie_enemy.gd:93-126`; `src/maps/bunker13/builder.gd:20` | IA `approach/tear/climb` |
+| 7 | `hands.glb` não existe. `hands`, `viewmodel` e `moving_parts` do JSON são ignorados. | `src/gameplay/player/weapon_controller.gd:37-58,143` | **Parcial:** áudio/escala vêm do JSON; faltam hands e viewmodel completo |
 | 8 | Não há 2 slots: um único `WeaponController`; `weapon_changed` nunca é emitido. | `src/gameplay/player/player_controller.gd:60-64`; `src/core/event_bus.gd:14` | Inventário de 2 slots |
 | 9 | O teste de integração tem falsos positivos: pontos por acerto, spawn incondicional e reload forçado. | `src/gameplay/game_root.gd:176-202` | Testar morte, kill, porta e recarga reais |
 

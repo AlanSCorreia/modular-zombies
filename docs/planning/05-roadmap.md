@@ -18,7 +18,7 @@ O board operacional é `../../KANBAN.md`.
 | `scale` | Escala | 2º mapa, armas novas, wonder weapon, inimigo | Backlog | L |
 | `prod` | Produção | Save, settings, export, pools, CI, performance | Backlog | L |
 
-## Preparação (concluído — P0)
+## Preparação (concluído — tag `prep`)
 
 **Entregáveis**
 - v1 arquivada (histórico, não é fonte de verdade).
@@ -52,6 +52,9 @@ asset quebradas; nenhum `if map_id` no núcleo e nenhum conteúdo em `.tres`.
 
 **Já entregue na Preparação:** `PlayerController`, `WeaponController` (Glock/hitscan),
 `ZombieEnemy`, HUD e loop mínimo (tiro, recarga, porta, morte).
+
+**Já entregue no Gameplay:** `--map <id>`, `MapBuilderRegistry` (builder no
+JSON), interações de porta/wallbuy/perk/caixa e smoke `MAP_OK` do Bunker 13.
 
 **Pendente**
 - 2 slots de arma e troca.

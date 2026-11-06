@@ -28,7 +28,7 @@
 |---|---|---|---|
 | `prep` | Preparação | **Concluído** | — |
 | `content` | Conteúdo | **Concluído** | — |
-| `gameplay` | Gameplay | **Em andamento** | Harness + Bunker 13 jogável; depois barricadas |
+| `gameplay` | Gameplay | **Em andamento** | Bunker 13: janelas, barricadas e IA |
 | `interact` | Interações | Backlog | — |
 | `tools` | Ferramentas de mapa | Backlog | — |
 | `quests` | Quests e Easter Eggs | Backlog | — |
@@ -76,7 +76,7 @@
 - [x] Git + `.gitignore` + commit inicial
 - [x] CI local (`tests/ci.sh`) e bench (`tests/bench.sh`)
 - [x] Conteúdo JSON + loader + validador
-- [x] Commit do slice + tag `P0`
+- [x] Commit do slice + tag `prep`
 - [x] Vertical slice jogável
 - [x] Bench: 42–61 FPS, 135 draw calls, 66 MB
 - [x] Launcher “Bunker 13 v2 — Editor”
@@ -137,11 +137,9 @@
 - [ ] `Barricade` + `BarricadeSystem` (tábuas, hold F, pontos)
 - [ ] JSON de faca, granada, foguete, barris e traps
 - [ ] Mãos separadas (`hands.glb`) + `GripSocket`
-- [ ] Bunker 13 jogável (spawns, portas, barricadas)
-- [ ] `--map <id>` no GameRoot
+- [ ] Bunker 13 jogável com janelas e barricadas
 - [ ] Teste visual do Bunker 13
 - [ ] Abrir vãos de janela no perímetro do Bunker 13
-- [ ] `InteractionSystem` genérico (porta/wallbuy/perk/caixa/barricada)
 - [ ] HUD de reparo de barricada
 - [ ] Spawns vinculados a `barricade.spawn_position`
 - [ ] Corrigir teste de integração (morte, kill, porta, reload)
@@ -160,11 +158,12 @@
 - [ ] `Effects` (sangue, decais, tracers, cápsulas)
 
 ### Doing
-- [ ] Harness de testes + `--map`/GameRoot genérico (P0 da revisão de base)
+- [ ] Bunker 13: janelas, barricadas e IA `tear/climb`
 
 ### Review/Test
 - [x] Slice: tiro, recarga, zumbi, morte e porta
 - [x] Revisão de linha de base (3 subagentes)
+- [x] Smoke do Bunker 13 + compras (`MAP_OK`)
 - [ ] Rodada 1 → 2 e game over completos
 
 ### Done
@@ -174,6 +173,11 @@
 - [x] HUD base
 - [x] Loop mínimo do slice
 - [x] Harness do Bunker 13 com falha real (contador + `quit(1)`)
+- [x] `--map <id>` + `MapBuilderRegistry` (builder no JSON)
+- [x] `GameRoot` data-driven (mapa, inimigo e builder)
+- [x] Interações base: porta, wallbuy, perk e caixa
+- [x] `WeaponController` com áudio/escala do JSON
+- [x] Smoke `MAP_OK` do Bunker 13 no CI
 
 ### Blocked
 - [ ] MP5 de ponta a ponta — depende de `hands.glb` + `ViewmodelFactory`

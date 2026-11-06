@@ -18,7 +18,8 @@ serviços e ferramentas de autoria.
 - Modelos reorganizados em `assets/models/<categoria>/<id>/`.
 - Git, CI, plugin `bunker_tools` e bench.
 
-Gameplay em andamento: barricadas, faca, explosivos, mãos separadas e 2 slots.
+Gameplay em andamento: o Bunker 13 já abre com `--map map.bunker13`; faltam
+janelas, barricadas, faca, explosivos, mãos separadas e 2 slots.
 
 ## Decisões-chave
 
@@ -64,8 +65,9 @@ source/blender/ .blend e scripts (fora do import do Godot)
 ## Executar
 
 ```bash
-./run.sh          # jogo
-./editor.sh       # editor Godot
+./run.sh                         # jogo (slice)
+./run.sh -- --map map.bunker13   # Bunker 13
+./editor.sh                      # editor Godot
 ```
 
 Atalhos: **Bunker 13 v2** e **Bunker 13 v2 — Editor**.
@@ -80,6 +82,6 @@ R recarregar • F interagir • Clique em INICIAR para capturar o mouse.
 ## Testes
 
 ```bash
-./tests/ci.sh
+./tests/ci.sh     # LOGIC_OK, CONTENT_OK, BUNKER13_OK, MAP_OK, SLICE_OK
 ./tests/bench.sh
 ```
