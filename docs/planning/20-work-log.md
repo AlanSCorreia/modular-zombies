@@ -54,6 +54,14 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `a99f691` `feat: load authored map geometry from GLB`
 - `4019c1c` `docs: record authored map geometry migration`
 
+**Softlock do Bunker 13 (issue #3) — concluído**
+- Ondas só em salas alcançáveis; `zombie_count` total respeitado (3/3/2).
+- `MapNav` com BFS de salas/portas; zumbi segue waypoints e idles se não há
+  caminho, sem atravessar portas fechadas.
+- Economia validada: 8 kills geram 980 pontos; `door1` (750) libera o caminho.
+- Teste `SOFTLOCK_OK` no CI; issue #3 fechada; issue #4 aberta (`MapContext`).
+- Commit `ce62eb5` `fix: prevent Bunker 13 softlock with reachable waves`.
+
 **2 slots (issue #2) — concluído**
 - `PlayerController` com dois `WeaponController` independentes; troca por `1`/`2`,
   scroll e `switch_slot`.
@@ -88,8 +96,8 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   screenshot do menu.
 
 **Próximo item (KANBAN)**
-- Corrigir softlock do Bunker 13 + spawns alcançáveis (issue #3); depois,
-  `MapContext` tipado + `Interactable`.
+- `MapContext` tipado + `Interactable` (issue #4); depois, extrair o harness de
+  `GameRoot` para `tests/`.
 
 **Registro confirmado**
 - GitHub: #2 fechada; #3 aberta com `etapa:3`, `prio:P0`, `area:gameplay` e

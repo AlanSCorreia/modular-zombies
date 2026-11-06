@@ -23,7 +23,7 @@
 
 - Godot: `$HOME/.local/opt/godot/Godot_v4.7.2-stable_linux.x86_64`
   (ou `GODOT_BIN`).
-- CI esperado: `LOGIC_OK`, `CONTENT_OK`, `BUNKER13_OK`, `MAP_OK`, `PAUSE_OK`, `INTERACT_OK`, `SLOTS_OK`, `SLICE_OK`, `CI_OK`.
+- CI esperado: `LOGIC_OK`, `CONTENT_OK`, `BUNKER13_OK`, `MAP_OK`, `SOFTLOCK_OK`, `PAUSE_OK`, `INTERACT_OK`, `SLOTS_OK`, `SLICE_OK`, `CI_OK`.
 
 ## Regras
 

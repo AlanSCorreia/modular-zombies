@@ -5,6 +5,7 @@ Decisões estruturais longas também viram ADR em `07-adr/`.
 
 | ID | Data | Decisão | Motivo / consequência |
 |---|---|---|---|
+| D-016 | 2026-11-06 | **Navegação por BFS de salas/portas** em vez de navmesh para os zumbis; ondas só em salas alcançáveis. | 4 salas retangulares: BFS é determinístico, barato e impede pathing por portas fechadas; navmesh fica para mapas irregulares. |
 | D-015 | 2026-11-06 | **2 slots:** dois `WeaponController` independentes; arma comprada ocupa slot vazio, arma repetida troca e reabastece, slots cheios substituem o slot ativo. | Preserva munição/recarga por arma e evita duplicatas; wallbuy/caixa seguem a mesma regra. |
 | D-014 | 2026-11-06 | **Mapas autorais em GLB:** runtime carrega `assets/models/maps/<id>/<id>.glb` e cria apenas colisão/áreas/labels. Builders antigos ficam em `src/maps/legacy/` para exportação. | Cumpre a regra de assets autorais e permite editar o mapa no Blender. |
 | D-013 | 2026-11-06 | **Organização híbrida:** docs duráveis no repo; execução (issues/milestones) no GitHub; `KANBAN.md` é snapshot. O subagente `doc-keeper` mantém a consistência. | Dá histórico/notificações no GitHub sem perder o acesso offline dos agentes; evita duplicar status. |

@@ -14,8 +14,8 @@
 - **Velocidade:** **sim, o estilo atual atrasa** — não pelos docs/CI, mas pela
   arquitetura de runtime. Cada item novo (2 slots, barricadas, IA) exige mexer
   em vários pontos ao mesmo tempo.
-- **Atualização:** 2 slots implementados (`SLOTS_OK`); a factory/mãos completas
-  continuam pendentes. Softlock do Bunker 13 segue como issue #3.
+- **Atualização:** 2 slots implementados (`SLOTS_OK`) e softlock do Bunker 13
+  corrigido (`SOFTLOCK_OK`); factory/mãos completas continuam pendentes.
 
 ## Boas práticas presentes
 
@@ -81,8 +81,8 @@ mortos. Isso é **softlock**, não só performance.
    para 2 slots e MP5.
 3. **Extrair o harness de `GameRoot`** para `tests/` e trocar sleeps/contagens
    por invariantes; libera a cena de produção.
-4. **Corrigir o softlock**: spawns alcançáveis, onda por sala/barricada e
-   `NavigationAgent3D`/navmesh; custo baixo, impacto alto.
+4. **Corrigir o softlock**: feito com ondas em salas alcançáveis e BFS de
+   salas/portas (`SOFTLOCK_OK`). Navmesh fica para mapas irregulares.
 5. **Cache/pool rápido**: tracer, áudio, animações; emitir prompt só na mudança;
    um `StaticBody3D` por sala/grupo.
 6. **HUD em `.tscn`**, `RoundManager`/`Economy` fora do `GameRoot`, InputMap e
