@@ -19,6 +19,7 @@
 ./run.sh          # jogar
 ./editor.sh       # abrir no editor
 ./tests/ci.sh     # CI completo
+./run.sh res://tests/test_runner.tscn -- --case slice   # integração headless
 ```
 
 - Godot: `$HOME/.local/opt/godot/Godot_v4.7.2-stable_linux.x86_64`

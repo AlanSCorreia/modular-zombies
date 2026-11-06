@@ -57,11 +57,10 @@ asset quebradas; nenhum `if map_id` no núcleo e nenhum conteúdo em `.tres`.
 JSON), interações de porta/wallbuy/perk/caixa, smoke `MAP_OK` do Bunker 13,
 Blender + fontes `.blend` de todas as armas e do zumbi, geometria autoral dos
 mapas (GLB + `.blend`), **2 slots de arma** com troca, correção do softlock do
-Bunker 13 (ondas alcançáveis + BFS salas/portas) e `MapContext`/`Interactable`
-tipados.
+Bunker 13 (ondas alcançáveis + BFS salas/portas), `MapContext`/`Interactable`
+tipados e harness extraído para `tests/`.
 
 **Pendente**
-- Extrair o harness de `GameRoot` para `tests/`.
 - `HandsRig`/`ViewmodelFactory` com mãos compartilhadas.
 - **MP5 de ponta a ponta antes de remodelar as outras armas.**
 - `BoxBuilder` compartilhado.

@@ -31,8 +31,9 @@
 ## Dívidas que mais atrasam
 
 1. **`GameRoot` monolítico** (`src/gameplay/game_root.gd`): economia, spawn,
-   portas, compras, pausa, testes e handlers no mesmo arquivo; ~175 linhas de
-   harness de teste dentro da cena de produção.
+   portas, compras, pausa e handlers no mesmo arquivo. O harness de teste já foi
+   extraído para `tests/test_runner.tscn` (issue #5); a orquestração continua
+   concentrada.
 2. **`ctx: Dictionary` com strings mágicas** (`game_root.gd:9,179-186`): o
    contrato entre builder e gameplay não é tipado; `kind` aparece no builder,
    no prompt e na compra. `door_open` global duplica o estado de cada porta.
@@ -80,8 +81,8 @@ mortos. Isso é **softlock**, não só performance.
 2. **`WeaponSlots` + `ViewmodelFactory`** — dois controllers pré-instanciados,
    rig filho da arma, `moving_parts`/`viewmodel`/`reload` do JSON. É o caminho
    para 2 slots e MP5.
-3. **Extrair o harness de `GameRoot`** para `tests/` e trocar sleeps/contagens
-   por invariantes; libera a cena de produção.
+3. **Extrair o harness de `GameRoot`** — feito em `tests/test_runner.tscn`;
+   restam sleeps/contagens residuais e invariantes mais fortes.
 4. **Corrigir o softlock**: feito com ondas em salas alcançáveis e BFS de
    salas/portas (`SOFTLOCK_OK`). Navmesh fica para mapas irregulares.
 5. **Cache/pool rápido**: tracer, áudio, animações; emitir prompt só na mudança;

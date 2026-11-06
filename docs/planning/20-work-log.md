@@ -112,6 +112,15 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `a99f691` `feat: load authored map geometry from GLB`
 - `4019c1c` `docs: record authored map geometry migration`
 
+**Harness extraído de `GameRoot` (issue #5) — concluído**
+- `tests/test_runner.tscn` roda como cena principal e instancia `main.tscn`;
+  casos via `--case slice|smoke|softlock|pause|interaction|slots|ui|shot|bench|mouse|pause_shot`.
+- `GameRoot` perdeu os `_run_*`, o despacho por flags e ~250 linhas de harness;
+  mantém só a API de jogo.
+- CI e `bench.sh` usam a cena de teste; gates preservados.
+- Issue #5 fechada; issue #6 aberta (pool/cache).
+- Commit `f03abc8` `refactor: extract integration harness from GameRoot`.
+
 **MapContext e Interactable (issue #4) — concluído**
 - Ver bloco no topo do log; substituído por registro próprio com CI e hashes.
 
@@ -158,8 +167,7 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   screenshot do menu.
 
 **Próximo item (KANBAN)**
-- Extrair o harness de `GameRoot` para `tests/` (issue #5); depois, pool/cache
-  de tracers, áudio e animações.
+- Pool/cache de tracers, áudio e animações (issue #6); depois, HUD em `.tscn`.
 
 **Registro confirmado**
 - GitHub: #2 fechada; #3 aberta à época (hoje fechada — ver bloco “Softlock do

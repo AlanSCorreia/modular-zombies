@@ -34,9 +34,10 @@
 # Performance
 ./tests/bench.sh
 
-# Visual
-./run.sh -- --ui     # tela inicial
-./run.sh -- --shot   # gameplay
+# Visual e integração (cena de teste)
+./run.sh res://tests/test_runner.tscn -- --case ui     # tela inicial
+./run.sh res://tests/test_runner.tscn -- --case shot   # gameplay
+./run.sh res://tests/test_runner.tscn -- --case smoke --map map.bunker13
 ```
 
 **Estado atual:** `LOGIC_OK`, `CONTENT_OK`, `BUNKER13_OK`, `MAP_OK`,

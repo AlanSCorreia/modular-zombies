@@ -28,7 +28,7 @@
 |---|---|---|---|
 | `etapa1` | Etapa 1 — Preparação | **Concluído** | — |
 | `etapa2` | Etapa 2 — Conteúdo | **Concluído** | — |
-| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Harness de testes fora do `GameRoot` |
+| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Pool/cache de tracers, áudio e animações |
 | `etapa4` | Etapa 4 — Interações | Backlog | — |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | Backlog | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | Backlog | — |
@@ -36,15 +36,15 @@
 | `etapa8` | Etapa 8 — Produção | Backlog | — |
 
 > **Status:** Etapas 1 e 2 concluídas. Geometria autoral (GLB), 2 slots,
-> softlock e `MapContext`/`Interactable` concluídos (issues #1–#4 fechadas); o
-> foco agora é extrair o harness de `GameRoot` (issue #5).
+> softlock, `MapContext`/`Interactable` e harness extraído concluídos (issues
+> #1–#5 fechadas); o foco agora é pool/cache de tracers/áudio/animações.
 
 ## Próximo item
 
 - **Etapa ativa:** 3 — Gameplay.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** extrair harness de `GameRoot` para `tests/` (issue #5).
-- **Depois:** pool/cache de tracers, áudio e animações.
+- **Próximo:** pool/cache de tracers, áudio e animações (issue #6).
+- **Depois:** HUD em `.tscn`.
 - **Próxima etapa:** 4 — Interações, somente após o aceite da Etapa 3.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -140,8 +140,7 @@ faca, explosivos e barricadas funcionando.
 - [ ] Estatísticas de sessão
 
 ### Ready
-- [ ] Extrair harness de `GameRoot` para `tests/` (P1) — [#5](https://github.com/AlanSCorreia/modular-zombies/issues/5)
-- [ ] Pool/cache de tracers, áudio e animações (P1)
+- [ ] Pool/cache de tracers, áudio e animações (P1) — [#6](https://github.com/AlanSCorreia/modular-zombies/issues/6)
 - [ ] HUD em `.tscn` (P1)
 - [ ] `RoundManager`/`Economy` fora do `GameRoot` (P1)
 - [ ] `WeaponController` projectile/melee
@@ -201,6 +200,7 @@ faca, explosivos e barricadas funcionando.
 - [x] `WeaponController` 2 slots: troca, munição e HUD (`SLOTS_OK`, issue #2)
 - [x] Softlock do Bunker 13 + ondas alcançáveis + BFS salas/portas (issue #3)
 - [x] `MapContext` tipado + `Interactable` com enum (issue #4)
+- [x] Harness de integração extraído para `tests/test_runner.tscn` (issue #5)
 
 ### Blocked
 - [ ] MP5 de ponta a ponta — depende de `hands.glb` + `ViewmodelFactory`

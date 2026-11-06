@@ -88,7 +88,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.38 | `MapContext` tipado + `Interactable` (porta/barricada) (feito) | P0 |
 | ETAPA3.39 | `WeaponSlots` + `ViewmodelFactory` (slots feitos; factory/mãos pendentes) | P0 |
 | ETAPA3.40 | Corrigir softlock do Bunker 13 + spawns/navmesh alcançáveis (feito) | P0 |
-| ETAPA3.41 | Extrair harness de teste do `GameRoot` para `tests/` | P1 |
+| ETAPA3.41 | Extrair harness de teste do `GameRoot` para `tests/` (feito) | P1 |
 | ETAPA3.42 | Pool/cache de tracers, áudio e animações | P1 |
 | ETAPA3.43 | HUD em `.tscn` | P1 |
 | ETAPA3.44 | `RoundManager`/`Economy` fora do `GameRoot` | P1 |
