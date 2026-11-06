@@ -2,7 +2,7 @@
 description: Revisa mudanças e regressões do Bunker 13 v2; pode escrever apenas em tests/
 mode: subagent
 color: "#ff9f43"
-steps: 20
+steps: 28
 permissions:
   - action: edit
     resource: "*"

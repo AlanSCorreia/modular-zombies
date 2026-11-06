@@ -2,7 +2,7 @@
 description: Valida JSON, schemas, referências de assets e consistência dos mapas do Bunker 13 v2
 mode: subagent
 color: "#2ed573"
-steps: 18
+steps: 28
 permissions:
   - action: edit
     resource: "*"

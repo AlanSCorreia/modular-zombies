@@ -2,7 +2,7 @@
 description: Explora código, cenas, assets e JSON do Bunker 13 v2 sem alterar arquivos
 mode: subagent
 color: "#4ea1ff"
-steps: 16
+steps: 28
 permissions:
   - action: edit
     resource: "*"

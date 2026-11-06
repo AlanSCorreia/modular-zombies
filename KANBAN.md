@@ -28,7 +28,7 @@
 |---|---|---|---|
 | R0 | Preparação | **Concluído** | — |
 | R1 | Core + conteúdo | **Concluído** | — |
-| R2 | Loop de gameplay | **Em andamento** | Barricadas, faca, explosivos e 2 slots |
+| R2 | Loop de gameplay | **Em andamento** | Harness + Bunker 13 jogável; depois barricadas |
 | R3 | Interações/UI/áudio | Backlog | — |
 | R4 | Ferramentas de mapa | Backlog | — |
 | R5 | Quests/Easter Eggs | Backlog | — |
@@ -152,6 +152,13 @@
 - [ ] Bunker 13 jogável (spawns, portas, barricadas)
 - [ ] `--map <id>` no GameRoot
 - [ ] Teste visual do Bunker 13
+- [ ] Abrir vãos de janela no perímetro do Bunker 13
+- [ ] `InteractionSystem` genérico (porta/wallbuy/perk/caixa/barricada)
+- [ ] HUD de reparo de barricada
+- [ ] Spawns vinculados a `barricade.spawn_position`
+- [ ] Corrigir teste de integração (morte, kill, porta, reload)
+- [ ] Reforçar `ContentValidator` (schema, IDs, hands, áudio, moving_parts)
+- [ ] Substituir `get_child(0)` por referência tipada
 - [ ] IA de zumbi: arrancar tábua, fila e entrada com 0
 - [ ] Testes de barricada (reparo, interrupção, breach)
 - [ ] `BoxBuilder`/helpers comuns
@@ -165,10 +172,11 @@
 - [ ] `Effects` (sangue, decais, tracers, cápsulas)
 
 ### Doing
-- [ ] MP5 de ponta a ponta (workflow de arma)
+- [ ] Harness de testes + `--map`/GameRoot genérico (P0 da revisão de base)
 
 ### Review/Test
 - [x] Slice: tiro, recarga, zumbi, morte e porta
+- [x] Revisão de linha de base (3 subagentes)
 - [ ] Rodada 1 → 2 e game over completos
 
 ### Done
@@ -177,9 +185,10 @@
 - [x] `ZombieEnemy` base
 - [x] HUD base
 - [x] Loop mínimo do slice
+- [x] Harness do Bunker 13 com falha real (contador + `quit(1)`)
 
 ### Blocked
-- *(vazio)*
+- [ ] MP5 de ponta a ponta — depende de `hands.glb` + `ViewmodelFactory`
 
 ---
 

@@ -47,6 +47,7 @@
 | `14-weapon-workflow.md` | Pipeline completo de criação de armas |
 | `15-r1-review.md` | Achados e recomendações após R1 |
 | `16-development-agents.md` | Subagentes de exploração, revisão e validação |
+| `17-baseline-review.md` | Revisão de base antes de R2 e ordem recomendada |
 
 ## Como usar
 

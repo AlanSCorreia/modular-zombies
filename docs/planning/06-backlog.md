@@ -70,6 +70,11 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | R2.26 | Teste visual do Bunker 13 | P1 |
 | R2.27 | Extrair `BoxBuilder`/helpers comuns | P1 |
 | R2.28 | Versionar `.blend` fonte em `source/blender` | P1 |
+| R2.29 | `InteractionSystem` genérico (porta/wallbuy/perk/caixa/barricada) | P0 |
+| R2.30 | Abrir vãos de janela + reposicionar barricadas | P0 |
+| R2.31 | Spawns vinculados a `barricade.spawn_position` | P0 |
+| R2.32 | Corrigir falsos positivos do teste integrado | P0 |
+| R2.33 | Reforçar `ContentValidator` (schema, IDs, hands, áudio) | P1 |
 | R2.15 | Testes de explosivos e faca | P0 |
 | R2.16 | Teste integrado do loop | P0 |
 
