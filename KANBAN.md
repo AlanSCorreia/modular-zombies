@@ -28,21 +28,22 @@
 |---|---|---|---|
 | `etapa1` | Etapa 1 — Preparação | **Concluído** | — |
 | `etapa2` | Etapa 2 — Conteúdo | **Concluído** | — |
-| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Geometria autoral do mapa |
+| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | `WeaponController` 2 slots |
 | `etapa4` | Etapa 4 — Interações | Backlog | — |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | Backlog | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | Backlog | — |
 | `etapa7` | Etapa 7 — Escala de conteúdo | Backlog | — |
 | `etapa8` | Etapa 8 — Produção | Backlog | — |
 
-> **Status:** Etapas 1 e 2 concluídas. Bunker 13 carrega por JSON (`BUNKER13_OK`);
-> o foco agora é a Etapa 3 — Gameplay.
+> **Status:** Etapas 1 e 2 concluídas. Bunker 13 carrega por JSON (`BUNKER13_OK`)
+> e a geometria autoral (GLB) está concluída (issue #1, D-014); o foco agora é
+> armas e combate da Etapa 3 — Gameplay.
 
 ## Próximo item
 
 - **Etapa ativa:** 3 — Gameplay.
 - **Agora (Doing):** `WeaponController` 2 slots.
-- **Depois:** topo de `Ready` da etapa ativa quando o `Doing` estiver vazio.
+- **Depois:** `WeaponController` projectile/melee (topo de `Ready` da etapa ativa).
 - **Próxima etapa:** 4 — Interações, somente após o aceite da Etapa 3.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -139,7 +140,6 @@ faca, explosivos e barricadas funcionando.
 
 ### Ready
 - [ ] `WeaponController` projectile/melee
-- [ ] `WeaponController` projectile/melee
 - [ ] `ExplosionSystem` (raio, LOS, falloff, impulso, cadeia)
 - [ ] Granada (G), lança-foguete e barris explosivos
 - [ ] `MeleeController` (V, corte diagonal, lunge, cooldown)
@@ -189,7 +189,7 @@ faca, explosivos e barricadas funcionando.
 - [x] Smoke `MAP_OK` do Bunker 13 no CI
 - [x] Migração da geometria do mapa para GLB autoral (issue #1)
 - [x] Blender 4.5 LTS + `blender.sh`
-- [x] Fontes `.blend` das 5 armas + zumbi + pistol
+- [x] Fontes `.blend` das 5 armas + zumbi + pistol + mapas (slice, Bunker 13)
 - [x] `source/blender/overview.blend` e scripts de importação
 
 ### Blocked

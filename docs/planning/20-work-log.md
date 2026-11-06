@@ -32,17 +32,31 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `d548c78` prefixo `Etapa N`
 - `b3efc49` Blender + fontes `.blend` + regra de assets
 
-**Migração de geometria (issue #1)**
+**Migração de geometria (issue #1) — concluída**
 - `SliceBuilder`/`Bunker13Builder` movidos para `src/maps/legacy/` (export-only).
 - `tools/export_map.gd` gerou `slice.glb` e `bunker13.glb`; fontes `.blend` em
-  `source/blender/maps/`.
+  `source/blender/maps/` (`slice`, `bunker13`).
 - `MapSceneBuilder` carrega o GLB e cria colisão/áreas/labels; JSON só guarda
-  âncoras.
+  âncoras (`builder: "scene"`, `scene: ...`).
 - Teste de CI impede `BoxMesh`/`MeshInstance3D` no builder runtime.
-- Issue #1 fechada; issue #2 aberta para os 2 slots.
+- Decisão registrada como D-014 em `19-decision-log.md`.
+- KANBAN: migração em **Done**; `WeaponController` 2 slots segue em **Doing**.
+- Issue #1 fechada como completed (`etapa:3`, `prio:P0`, `area:assets`,
+  milestone Etapa 3); issue #2 aberta (`etapa:3`, `prio:P0`, `area:gameplay`,
+  milestone Etapa 3).
+
+**Testes de fechamento (2026-11-06)**
+- `./tests/ci.sh` verde: `LOGIC_OK`, `CONTENT_OK`, `BUNKER13_OK`, `MAP_OK`,
+  `SLICE_OK`, `CI_OK` (inclui `== geometria runtime ==` ok).
+- Avisos não fatais: `ObjectDB`/resources em uso no exit dos testes headless.
+
+**Commits da migração**
+- `a99f691` `feat: load authored map geometry from GLB`
+- `4019c1c` `docs: record authored map geometry migration`
 
 **Próximo item (KANBAN)**
-- `WeaponController` 2 slots.
+- `WeaponController` 2 slots (issue #2); depois, topo de `Ready`
+  (`WeaponController` projectile/melee).
 
 ## 2026-11-05 — Etapas 1 e 2 (Preparação/Conteúdo)
 

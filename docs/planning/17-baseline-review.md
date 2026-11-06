@@ -24,6 +24,9 @@
   `src/maps/legacy/` apenas para exportação.
 - Continuam abertos: janelas/barricadas/IA, `hands.glb`, 2 slots e o teste de
   integração com falsos positivos.
+- **Nota de leitura:** os caminhos citados nas tabelas P0/P1 abaixo são do
+  estado pré-migração; hoje os builders estão em `src/maps/legacy/` e o runtime
+  usa `src/maps/map_scene_builder.gd`.
 
 ## P0 — bloqueiam a Etapa 3 — Gameplay
 
@@ -66,8 +69,9 @@
   (`src/maps/bunker13/builder.gd:238-239`), então não é determinístico.
 - `assets/models/weapons/pistol/pistol.glb` órfão; `wunder.json` não é
   referenciado por mapa ou caixa.
-- **Resolvido:** fontes `.blend` criadas para as 5 armas, zumbi e pistol, com
-  `overview.blend`. Falta migrar a geometria do mapa para cena autoral.
+- **Resolvido (2026-11-06):** fontes `.blend` criadas para as 5 armas, zumbi,
+  pistol e mapas, com `overview.blend`; geometria do mapa migrada para GLB
+  autoral (issue #1, D-014).
 - Validação de nós móveis/animações ainda incompleta.
 
 ## Ordem recomendada

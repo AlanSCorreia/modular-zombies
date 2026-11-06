@@ -8,7 +8,7 @@
 - A v1 é um protótipo histórico arquivado em `../../../zombie-fps-legacy`; não é fonte de verdade.
 - A v2 é uma **reescrita do runtime**, não uma refatoração incremental.
 - **Etapa 1 — Preparação concluída:** Git, CI, importação, scaffold, vertical slice jogável.
-- Etapa atual: **Etapa 2 — Conteúdo concluída; Etapa 3 — Gameplay em andamento** (barricadas/faca/explosivos).
+- Etapa atual: **Etapa 2 — Conteúdo concluída; Etapa 3 — Gameplay em andamento** (2 slots, mãos, barricadas, faca/explosivos).
 - Vertical slice jogável + Bunker 13 em JSON com geometria autoral (GLB/`.blend`);
   testes `SLICE_OK`, `BUNKER13_OK` e `MAP_OK`.
 - Barricadas estão planejadas para a Etapa 3 — Gameplay (`13-barricades.md`).
