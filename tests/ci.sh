@@ -28,6 +28,9 @@ echo "== mapa Bunker 13 =="
 echo "== smoke Bunker 13 =="
 "$GODOT" --headless --path . -- --map map.bunker13 --smoke
 
+echo "== softlock Bunker 13 =="
+"$GODOT" --headless --path . -- --map map.bunker13 --softlock-test
+
 echo "== pause =="
 "$GODOT" --headless --path . -- --pause-test
 

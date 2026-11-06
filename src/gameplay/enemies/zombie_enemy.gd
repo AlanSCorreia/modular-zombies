@@ -3,20 +3,25 @@ extends CharacterBody3D
 
 var data: EnemyData
 var target: PlayerController
+var nav: MapNav
 var health := 100.0
 var is_dead := false
 var model: Node3D
 var anim: AnimationPlayer
 var audio: AudioStreamPlayer3D
 
+var _path: Array[Vector3] = []
+var _path_timer := 0.0
+
 var _attack_cd := 0.0
 var _growl_cd := 3.0
 var _override := false
 var _scale := 0.4
 
-func setup(p_data: EnemyData, p_target: PlayerController) -> void:
+func setup(p_data: EnemyData, p_target: PlayerController, p_nav: MapNav = null) -> void:
 	data = p_data
 	target = p_target
+	nav = p_nav
 	health = data.health
 	speed = data.speed
 	damage = data.damage
@@ -103,10 +108,22 @@ func _physics_process(delta: float) -> void:
 			audio.pitch_scale = randf_range(0.8, 1.1)
 			audio.play()
 
-	var flat := target.global_position - global_position
+	var move_target := target.global_position
+	if nav != null:
+		_path_timer -= delta
+		if _path_timer <= 0.0 or _path.is_empty():
+			_path_timer = 0.5
+			_path = nav.path(global_position, target.global_position)
+		while not _path.is_empty():
+			var wp := _path[0]
+			if Vector2(wp.x - global_position.x, wp.z - global_position.z).length() >= 0.45:
+				break
+			_path.pop_front()
+		move_target = _path[0] if not _path.is_empty() else global_position
+
+	var flat := move_target - global_position
 	flat.y = 0.0
-	var dist := flat.length()
-	var dir := flat.normalized() if dist > 0.01 else Vector3.ZERO
+	var dir := flat.normalized() if flat.length() > 0.01 else Vector3.ZERO
 	var desired := dir * speed
 	velocity.x = lerpf(velocity.x, desired.x, clampf(5.0 * delta, 0.0, 1.0))
 	velocity.z = lerpf(velocity.z, desired.z, clampf(5.0 * delta, 0.0, 1.0))
@@ -122,7 +139,10 @@ func _physics_process(delta: float) -> void:
 		_play("Walk")
 		anim.speed_scale = clampf(speed / 1.5, 0.6, 1.8)
 
-	if dist < float(data.attack_range) and _attack_cd <= 0.0:
+	var to_player := target.global_position - global_position
+	to_player.y = 0.0
+	var can_reach := nav == null or not _path.is_empty()
+	if can_reach and to_player.length() < float(data.attack_range) and _attack_cd <= 0.0:
 		_attack()
 
 func _attack() -> void:

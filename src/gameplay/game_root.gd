@@ -7,6 +7,7 @@ var enemy_data: EnemyData
 var player: PlayerController
 var hud: SliceHUD
 var ctx: Dictionary
+var nav: MapNav
 var zombies: Array[ZombieEnemy] = []
 var points := 0
 var started := false
@@ -14,6 +15,7 @@ var door_open := false
 var spawned := 0
 var owned_perks: Array[String] = []
 var _complete := false
+var _wave_pending := false
 
 func _ready() -> void:
 	randomize()
@@ -35,6 +37,8 @@ func _ready() -> void:
 		push_error("Builder inválido para o mapa %s: %s" % [map.id, map.builder])
 		return
 	ctx = builder.build(self, map)
+	nav = MapNav.new()
+	nav.setup(map, ctx.doors)
 
 	player = PlayerController.new()
 	player.name = "Player"
@@ -75,6 +79,8 @@ func _ready() -> void:
 		_run_interaction_test.call_deferred()
 	elif "--slots-test" in args:
 		_run_slots_test.call_deferred()
+	elif "--softlock-test" in args:
+		_run_softlock_test.call_deferred()
 	elif "--shot" in args:
 		_run_shot.call_deferred()
 	elif "--ui" in args:
@@ -128,7 +134,7 @@ func _start() -> void:
 	hud.hide_start()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	player.can_control = true
-	_spawn_initial()
+	_spawn_wave()
 	Events.banner.emit(map.name.to_upper(), "SOBREVIVA E ABRA AS PORTAS", 2.5)
 
 func _on_pause_toggled() -> void:
@@ -151,14 +157,37 @@ func _resume() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	hud.hide_pause()
 
-func _spawn_initial() -> void:
-	var total := mini(map.zombie_count, map.zombie_spawns.size())
+func _reachable_spawns() -> Array[SpawnData]:
+	if nav == null:
+		return map.zombie_spawns.duplicate()
+	var rooms := nav.reachable_rooms()
+	var out: Array[SpawnData] = []
+	for s in map.zombie_spawns:
+		if rooms.has(s.room):
+			out.append(s)
+	if out.is_empty():
+		return map.zombie_spawns.duplicate()
+	return out
+
+func _spawn_wave() -> void:
+	_wave_pending = false
+	if map == null or enemy_data == null or player == null or player.is_dead:
+		return
+	var pending := map.zombie_count - spawned
+	if pending <= 0:
+		return
+	var available := _reachable_spawns()
+	if available.is_empty():
+		return
+	var total := mini(pending, mini(3, available.size()))
+	var base := spawned
 	for i in range(total):
-		_spawn_at(map.zombie_spawns[i].position)
+		var s: SpawnData = available[(base + i) % available.size()]
+		_spawn_at(s.position)
 
 func _spawn_at(pos: Vector3) -> void:
 	var z := ZombieEnemy.new()
-	z.setup(enemy_data, player)
+	z.setup(enemy_data, player, nav)
 	z.position = pos
 	add_child(z)
 	zombies.append(z)
@@ -169,9 +198,14 @@ func _on_zombie_killed(z: ZombieEnemy, headshot: bool) -> void:
 	points += 100 if headshot else 50
 	Events.points_changed.emit(points)
 	Events.banner.emit("ZUMBI ELIMINADO", "+%d PONTOS" % (100 if headshot else 50), 1.2)
-	if zombies.is_empty() and not _complete:
-		_complete = true
-		Events.banner.emit("ÁREA LIMPA", "PRESSIONE R PARA REINICIAR", 5.0)
+	if zombies.is_empty():
+		if spawned < map.zombie_count:
+			if not _wave_pending:
+				_wave_pending = true
+				get_tree().create_timer(0.6, false).timeout.connect(_spawn_wave)
+		elif not _complete:
+			_complete = true
+			Events.banner.emit("ÁREA LIMPA", "PRESSIONE R PARA REINICIAR", 5.0)
 
 func _on_zombie_hit(_z: ZombieEnemy, _damage: float, _head: bool, _pos: Vector3) -> void:
 	points += 10
@@ -343,6 +377,49 @@ func _run_interaction_test() -> void:
 	var ok: bool = hit and meta_ok and door_open
 	print("INTERACT_TEST hit=%s meta=%s door=%s" % [str(hit), str(meta_ok), str(door_open)])
 	print("INTERACT_OK" if ok else "INTERACT_FAIL")
+	get_tree().quit(0 if ok else 1)
+
+func _spawn_pos_in_room(room: String) -> Vector3:
+	for s in map.zombie_spawns:
+		if s.room == room:
+			return s.position
+	return map.player_spawn
+
+func _run_softlock_test() -> void:
+	_start()
+	await get_tree().create_timer(0.2).timeout
+	player.health = 100000.0
+	var initial_count := zombies.size()
+	var only_a := true
+	for z in zombies:
+		if nav.room_at(z.global_position) != "A":
+			only_a = false
+	var closed_blocked := nav.path(_spawn_pos_in_room("B"), map.player_spawn).is_empty()
+
+	var guard := 0
+	while spawned < map.zombie_count and guard < 20:
+		for z in zombies.duplicate():
+			z.take_damage(100000.0, false, z.global_position)
+		await get_tree().create_timer(0.8).timeout
+		guard += 1
+	for z in zombies.duplicate():
+		z.take_damage(100000.0, false, z.global_position)
+	await get_tree().create_timer(0.8).timeout
+
+	var all_spawned := spawned >= map.zombie_count
+	var complete_ok := _complete
+	var points_before := points
+	var points_ok := points_before >= 750
+	_buy_door("door1")
+	var open_path := nav.path(_spawn_pos_in_room("B"), map.player_spawn)
+	var open_ok := not open_path.is_empty()
+	var ok: bool = initial_count == 3 and only_a and closed_blocked \
+		and all_spawned and complete_ok and points_ok and open_ok
+	print("SOFTLOCK_TEST initial=%d only_a=%s closed_blocked=%s spawned=%d points_before=%d complete=%s open_path=%s" % [
+		initial_count, str(only_a), str(closed_blocked), spawned, points_before,
+		str(complete_ok), str(open_ok),
+	])
+	print("SOFTLOCK_OK" if ok else "SOFTLOCK_FAIL")
 	get_tree().quit(0 if ok else 1)
 
 func _run_slots_test() -> void:
