@@ -2,9 +2,16 @@ extends Node
 
 ## Gerenciador de áudio: efeitos 2D/3D, música ambiente e stingers originais.
 
+const POOL_2D := 12
+const POOL_3D := 16
+
 var _streams: Dictionary = {}
 var _music: AudioStreamPlayer
 var _heart: AudioStreamPlayer
+var _pool_2d: Array[AudioStreamPlayer] = []
+var _pool_3d: Array[AudioStreamPlayer3D] = []
+var _pool_2d_idx := 0
+var _pool_3d_idx := 0
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -62,6 +69,18 @@ func _ready() -> void:
 	_streams["zombie_attack"] = zg
 	_streams["zombie_death"] = zg
 
+	for i in range(POOL_2D):
+		var p := AudioStreamPlayer.new()
+		add_child(p)
+		_pool_2d.append(p)
+	for i in range(POOL_3D):
+		var p := AudioStreamPlayer3D.new()
+		p.unit_size = 8.0
+		p.max_distance = 45.0
+		p.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
+		add_child(p)
+		_pool_3d.append(p)
+
 	_music = AudioStreamPlayer.new()
 	_music.name = "AmbientMusic"
 	var amb: AudioStreamOggVorbis = load("res://assets/audio/music/ambient_drone.ogg")
@@ -79,18 +98,40 @@ func _ready() -> void:
 func set_music_volume(db: float) -> void:
 	_music.volume_db = db
 
+func _acquire_2d() -> AudioStreamPlayer:
+	for i in range(_pool_2d.size()):
+		var idx := (_pool_2d_idx + i) % _pool_2d.size()
+		var p := _pool_2d[idx]
+		if not p.playing:
+			_pool_2d_idx = (idx + 1) % _pool_2d.size()
+			return p
+	var p := _pool_2d[_pool_2d_idx]
+	_pool_2d_idx = (_pool_2d_idx + 1) % _pool_2d.size()
+	p.stop()
+	return p
+
+func _acquire_3d() -> AudioStreamPlayer3D:
+	for i in range(_pool_3d.size()):
+		var idx := (_pool_3d_idx + i) % _pool_3d.size()
+		var p := _pool_3d[idx]
+		if not p.playing:
+			_pool_3d_idx = (idx + 1) % _pool_3d.size()
+			return p
+	var p := _pool_3d[_pool_3d_idx]
+	_pool_3d_idx = (_pool_3d_idx + 1) % _pool_3d.size()
+	p.stop()
+	return p
+
 func play(key: String, volume_db: float = 0.0, pitch: float = 1.0, pitch_var: float = 0.0) -> void:
 	if not _streams.has(key):
 		return
 	var arr: Array = _streams[key]
 	if arr.is_empty():
 		return
-	var p := AudioStreamPlayer.new()
+	var p := _acquire_2d()
 	p.stream = arr[randi() % arr.size()]
 	p.volume_db = volume_db
 	p.pitch_scale = maxf(0.05, pitch + randf_range(-pitch_var, pitch_var))
-	add_child(p)
-	p.finished.connect(p.queue_free)
 	p.play()
 
 func play_3d(key: String, world_pos: Vector3, volume_db: float = 0.0, pitch: float = 1.0, pitch_var: float = 0.05) -> void:
@@ -99,16 +140,11 @@ func play_3d(key: String, world_pos: Vector3, volume_db: float = 0.0, pitch: flo
 	var arr: Array = _streams[key]
 	if arr.is_empty():
 		return
-	var p := AudioStreamPlayer3D.new()
+	var p := _acquire_3d()
 	p.stream = arr[randi() % arr.size()]
 	p.volume_db = volume_db
 	p.pitch_scale = maxf(0.05, pitch + randf_range(-pitch_var, pitch_var))
-	p.unit_size = 8.0
-	p.max_distance = 45.0
-	p.attenuation_model = AudioStreamPlayer3D.ATTENUATION_INVERSE_DISTANCE
-	add_child(p)
 	p.global_position = world_pos
-	p.finished.connect(p.queue_free)
 	p.play()
 
 func get_random(key: String):
@@ -131,3 +167,13 @@ func play_music(key: String, volume_db: float = -6.0) -> void:
 
 func heartbeat() -> void:
 	_heart.play()
+
+func _exit_tree() -> void:
+	if _music != null:
+		_music.stop()
+	if _heart != null:
+		_heart.stop()
+	for p in _pool_2d:
+		p.stop()
+	for p in _pool_3d:
+		p.stop()

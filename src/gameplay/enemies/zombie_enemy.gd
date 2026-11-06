@@ -1,6 +1,9 @@
 class_name ZombieEnemy
 extends CharacterBody3D
 
+static var _scene_cache: Dictionary = {}
+static var _stripped: Dictionary = {}
+
 var data: EnemyData
 var target: PlayerController
 var nav: MapNav
@@ -12,6 +15,8 @@ var audio: AudioStreamPlayer3D
 
 var _path: Array[Vector3] = []
 var _path_timer := 0.0
+var _anim_map: Dictionary = {}
+var _anim_state := ""
 
 var _attack_cd := 0.0
 var _growl_cd := 3.0
@@ -54,16 +59,30 @@ func _ready() -> void:
 func _build_model() -> void:
 	if data == null or data.scene == "":
 		return
-	var packed: PackedScene = load(data.scene)
+	var packed: PackedScene = _scene_cache.get(data.scene, null)
 	if packed == null:
-		return
+		packed = load(data.scene)
+		if packed == null:
+			return
+		_scene_cache[data.scene] = packed
 	model = packed.instantiate()
 	model.scale = Vector3.ONE * _scale
 	add_child(model)
 	anim = model.find_child("AnimationPlayer", true, false)
 	if anim != null:
-		_strip_root_motion()
+		_build_anim_map()
+		if not _stripped.has(data.scene):
+			_strip_root_motion()
+			_stripped[data.scene] = true
 		_play("Walk")
+
+func _build_anim_map() -> void:
+	_anim_map.clear()
+	for a in anim.get_animation_list():
+		_anim_map[a] = a
+		var idx := a.rfind("|")
+		if idx >= 0:
+			_anim_map[a.substr(idx + 1)] = a
 
 func _strip_root_motion() -> void:
 	if anim == null:
@@ -87,13 +106,14 @@ func _strip_root_motion() -> void:
 				v.z = base.z
 				a.track_set_key_value(i, k, v)
 
-func _play(name: String) -> void:
-	if anim == null:
+func _play(nm: String) -> void:
+	if anim == null or nm == _anim_state:
 		return
-	for a in anim.get_animation_list():
-		if a == name or a.ends_with("|" + name):
-			anim.play(a)
-			return
+	var actual: String = _anim_map.get(nm, "")
+	_anim_state = nm
+	if actual == "":
+		return
+	anim.play(actual)
 
 func _physics_process(delta: float) -> void:
 	if is_dead or target == null or target.is_dead:

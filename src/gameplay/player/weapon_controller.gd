@@ -1,6 +1,9 @@
 class_name WeaponController
 extends Node
 
+static var _tracer_mesh: BoxMesh
+static var _tracer_mat: StandardMaterial3D
+
 var data: WeaponData
 var camera: Camera3D
 var player: PlayerController
@@ -228,12 +231,16 @@ func _update_ammo() -> void:
 func _tracer(from: Vector3, to: Vector3) -> void:
 	if from.distance_to(to) < 0.5:
 		return
-	var mi := MeshInstance3D.new()
-	var bm := BoxMesh.new()
+	if _tracer_mesh == null:
+		_tracer_mesh = BoxMesh.new()
+		_tracer_mesh.size = Vector3(0.01, 0.01, 1.0)
+	if _tracer_mat == null:
+		_tracer_mat = MatLib.emissive(Color(1.0, 0.82, 0.45), 2.0)
 	var dist := from.distance_to(to)
-	bm.size = Vector3(0.01, 0.01, dist)
-	mi.mesh = bm
-	mi.material_override = MatLib.emissive(Color(1.0, 0.82, 0.45), 2.0)
+	var mi := MeshInstance3D.new()
+	mi.mesh = _tracer_mesh
+	mi.material_override = _tracer_mat
+	mi.scale = Vector3(1.0, 1.0, dist)
 	mi.position = (from + to) * 0.5
 	var parent := player.get_parent()
 	if parent == null:
