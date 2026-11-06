@@ -3,6 +3,33 @@
 Registro cronológico curto do que foi feito, testes e commits. O plano vivo
 continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 
+## 2026-11-06 — `MapContext` tipado + `Interactable` (issue #4)
+
+**Feito**
+- `MapContext` tipado (`doors`/`wallbuys`/`perks`/`box`/`barricades`/`spawns`/`lights`).
+- `Interactable` com enum `Kind`; `DoorState.open` é o único estado de porta.
+- Removido `door_open` global e strings `"kind"` dos consumidores
+  (`PlayerController`, `GameRoot`, `MapSceneBuilder`).
+- `MapNav` recebe `Dictionary[String, DoorState]`.
+- Decisão registrada como D-017 em `19-decision-log.md`.
+
+**Testes (2026-11-06, rodados nesta sincronização)**
+- `./tests/ci.sh` verde: `LOGIC_OK`, `CONTENT_OK`, `BUNKER13_OK`, `MAP_OK`,
+  `SOFTLOCK_OK`, `PAUSE_OK`, `INTERACT_OK`, `SLOTS_OK`, `SLICE_OK`, `CI_OK`.
+- Gates do bloco: `MAP_OK`, `INTERACT_OK`, `BUNKER13_OK`.
+- Ruído não fatal mantido: `ObjectDB instances leaked` e `resources still in
+  use` no exit headless.
+
+**Commits**
+- `031268a` `refactor: type map context and interactables`
+- `1ed5b7e` `docs: record typed map context`
+
+**Estado do board**
+- KANBAN: item apenas em **Done**; **Doing** vazio; topo de **Ready** =
+  extrair harness de `GameRoot` para `tests/` (issue #5); etapa ativa 3.
+- GitHub: #4 fechada (`etapa:3`, `prio:P0`, `area:gameplay`, milestone Etapa 3);
+  #5 aberta (`etapa:3`, `prio:P1`, `area:infra`, milestone Etapa 3).
+
 ## 2026-11-06 — Softlock do Bunker 13 fechado (issue #3)
 
 **Feito**
@@ -86,14 +113,7 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `4019c1c` `docs: record authored map geometry migration`
 
 **MapContext e Interactable (issue #4) — concluído**
-- `MapContext` tipado (`doors`/`wallbuys`/`perks`/`box`/`barricades`/`spawns`/`lights`).
-- `Interactable` com enum `Kind`; `DoorState.open` é o único estado de porta.
-- Removido `door_open` global e strings `"kind"` dos consumidores
-  (`PlayerController`, `GameRoot`, `MapSceneBuilder`).
-- `MapNav` recebe `Dictionary[String, DoorState]`.
-- Testes `BUNKER13_OK`, `MAP_OK`, `INTERACT_OK` verdes.
-- Issue #4 fechada; issue #5 aberta para extrair o harness.
-- Commit `031268a` `refactor: type map context and interactables`.
+- Ver bloco no topo do log; substituído por registro próprio com CI e hashes.
 
 **Softlock do Bunker 13 (issue #3) — concluído**
 - Ondas só em salas alcançáveis; `zombie_count` total respeitado (3/3/2).

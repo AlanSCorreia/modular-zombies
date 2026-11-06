@@ -179,7 +179,6 @@ faca, explosivos e barricadas funcionando.
 - [x] Smoke do Bunker 13 + compras (`MAP_OK`)
 - [x] Bunker 13 e slice carregam GLB autoral
 - [x] Mouse look, ESC/pause e F na porta
-- [x] `MapContext`/`Interactable` tipados (`MAP_OK`, `INTERACT_OK`)
 - [ ] Rodada 1 → 2 e game over completos
 
 ### Done
