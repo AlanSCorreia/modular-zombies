@@ -202,22 +202,23 @@ func _update_interaction() -> void:
 	if interact_ray.is_colliding():
 		var col := interact_ray.get_collider()
 		if col != null and col.has_meta("interact"):
-			var data: Dictionary = col.get_meta("interact")
-			var text := ""
-			match String(data.get("kind", "")):
-				"door":
-					text = "[F] %s — %d" % [data.get("name", "ABRIR"), int(data.get("cost", 0))]
-				"wallbuy", "perk":
-					text = "[F] COMPRAR %s — %d" % [data.get("name", ""), int(data.get("cost", 0))]
-				"box":
-					text = "[F] ABRIR CAIXA — %d" % int(data.get("cost", 0))
-			Events.prompt_changed.emit(text, not text.is_empty())
-			if text != "":
-				var f := Input.is_physical_key_pressed(KEY_F)
-				if f and not _f_down:
-					Events.interacted.emit(String(data.get("id", "")), self)
-				_f_down = f
-				return
+			var data := col.get_meta("interact") as Interactable
+			if data != null:
+				var text := ""
+				match data.kind:
+					Interactable.Kind.DOOR:
+						text = "[F] %s — %d" % [data.name, data.cost]
+					Interactable.Kind.WALLBUY, Interactable.Kind.PERK:
+						text = "[F] COMPRAR %s — %d" % [data.name, data.cost]
+					Interactable.Kind.BOX:
+						text = "[F] ABRIR CAIXA — %d" % data.cost
+				Events.prompt_changed.emit(text, not text.is_empty())
+				if text != "":
+					var f := Input.is_physical_key_pressed(KEY_F)
+					if f and not _f_down:
+						Events.interacted.emit(data.id, self)
+					_f_down = f
+					return
 	Events.prompt_changed.emit("", false)
 	_f_down = Input.is_physical_key_pressed(KEY_F)
 

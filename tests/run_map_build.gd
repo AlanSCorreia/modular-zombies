@@ -28,16 +28,16 @@ func _init() -> void:
 		reg.free()
 		quit(1)
 		return
-	var ctx: Dictionary = builder.build(root, map)
+	var ctx: MapContext = builder.build(root, map)
 	check(ctx.doors.size() == 4, "4 portas")
 	check(ctx.wallbuys.size() == 4, "4 wallbuys")
 	check(ctx.perks.size() == 3, "3 perks")
-	check(not ctx.box.is_empty(), "caixa misteriosa")
+	check(ctx.box != null, "caixa misteriosa")
 	check(ctx.barricades.size() == 9, "9 barricadas")
 	check(ctx.spawns.size() == 9, "9 spawns")
 	check(ctx.lights.size() == 8, "8 luzes")
 	for did in ctx.doors:
-		var info: Dictionary = ctx.doors[did]
+		var info: DoorState = ctx.doors[did]
 		check(info.body != null, "porta %s tem colisão" % did)
 		check(info.body.has_meta("interact"), "porta %s interagível" % did)
 	for wid in ctx.wallbuys:

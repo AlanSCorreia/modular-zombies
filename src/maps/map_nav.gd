@@ -5,11 +5,11 @@ extends RefCounted
 ## Serve para spawns alcançáveis e para os zumbis não tentarem atravessar portas.
 
 var map: MapData
-var doors: Dictionary
+var doors: Dictionary[String, DoorState] = {}
 var start_room := ""
 var edges: Dictionary = {}
 
-func setup(p_map: MapData, p_doors: Dictionary) -> void:
+func setup(p_map: MapData, p_doors: Dictionary[String, DoorState]) -> void:
 	map = p_map
 	doors = p_doors
 	start_room = room_at(map.player_spawn)
@@ -93,8 +93,8 @@ func _add_edge(a: String, b: String, door_id: String, point: Vector3) -> void:
 	edges[a].append({ "room": b, "door": door_id, "point": point })
 
 func _is_open(door_id: String) -> bool:
-	var info: Dictionary = doors.get(door_id, {})
-	return bool(info.get("open", false))
+	var door: DoorState = doors.get(door_id, null)
+	return door != null and door.open
 
 func _contains(rect: Rect2, p: Vector2) -> bool:
 	return p.x >= rect.position.x - 0.05 and p.x <= rect.end.x + 0.05 \

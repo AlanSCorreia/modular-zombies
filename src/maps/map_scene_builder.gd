@@ -7,28 +7,23 @@ extends RefCounted
 var map: MapData
 var root: Node3D
 var map_root: Node3D
-var doors: Dictionary = {}
-var wallbuys: Dictionary = {}
-var perks: Dictionary = {}
-var box: Dictionary = {}
-var barricades: Dictionary = {}
-var spawns: Array[SpawnData] = []
-var lights: Array[OmniLight3D] = []
+var ctx: MapContext
 
-func build(parent: Node3D, data: MapData) -> Dictionary:
+func build(parent: Node3D, data: MapData) -> MapContext:
 	root = parent
 	map = data
-	spawns = data.zombie_spawns.duplicate()
+	ctx = MapContext.new()
+	ctx.spawns = data.zombie_spawns.duplicate()
 
 	var packed: PackedScene = load(data.scene)
 	if packed == null:
 		push_error("Cena do mapa não encontrada: " + data.scene)
-		return _empty_context()
+		return ctx
 
 	map_root = packed.instantiate() as Node3D
 	if map_root == null:
 		push_error("Cena do mapa não é Node3D: " + data.scene)
-		return _empty_context()
+		return ctx
 	map_root.name = "MapGeometry"
 	root.add_child(map_root)
 
@@ -39,27 +34,7 @@ func build(parent: Node3D, data: MapData) -> Dictionary:
 	_build_box()
 	_build_barricades()
 	_collect_lights()
-
-	return {
-		"doors": doors,
-		"wallbuys": wallbuys,
-		"perks": perks,
-		"box": box,
-		"barricades": barricades,
-		"spawns": spawns,
-		"lights": lights,
-	}
-
-func _empty_context() -> Dictionary:
-	return {
-		"doors": {},
-		"wallbuys": {},
-		"perks": {},
-		"box": {},
-		"barricades": {},
-		"spawns": spawns,
-		"lights": lights,
-	}
+	return ctx
 
 func _build_collision(node: Node) -> void:
 	for child in node.get_children():
@@ -103,13 +78,18 @@ func _build_doors() -> void:
 		var body := node.get_node_or_null("Collision") as StaticBody3D
 		if body == null:
 			body = _add_collision(node)
+		var door := DoorState.new()
+		door.id = d.id
+		door.name = d.name
+		door.cost = d.cost
+		door.room = d.room
+		door.data = d
+		door.node = node
+		door.body = body
+		door.label = _label(node, "%s\n%d" % [d.name, d.cost], Vector3(0, 0.25, 0), 54)
 		if body != null:
-			body.set_meta("interact", {
-				"kind": "door", "id": d.id, "cost": d.cost,
-				"name": d.name, "room": d.room, "node": node,
-			})
-		var label := _label(node, "%s\n%d" % [d.name, d.cost], Vector3(0, 0.25, 0), 54)
-		doors[d.id] = { "data": d, "node": node, "body": body, "label": label, "open": false }
+			body.set_meta("interact", door)
+		ctx.doors[d.id] = door
 
 func _build_wallbuys() -> void:
 	for wb in map.wallbuys:
@@ -117,12 +97,16 @@ func _build_wallbuys() -> void:
 		if holder == null:
 			push_warning("Wallbuy sem geometria: " + wb.id)
 			continue
-		_label(holder, "%s\n%d" % [wb.name, wb.cost], Vector3(0, -0.52, 0.04), 46)
-		var area := _area(holder, Vector3(0, 0.1, 0.55), Vector3(1.7, 1.8, 1.1), {
-			"kind": "wallbuy", "id": wb.id, "weapon": wb.weapon_id,
-			"cost": wb.cost, "name": wb.name,
-		})
-		wallbuys[wb.id] = { "data": wb, "node": holder, "area": area }
+		var item := Interactable.new()
+		item.kind = Interactable.Kind.WALLBUY
+		item.id = wb.id
+		item.name = wb.name
+		item.cost = wb.cost
+		item.weapon_id = wb.weapon_id
+		item.node = holder
+		item.label = _label(holder, "%s\n%d" % [wb.name, wb.cost], Vector3(0, -0.52, 0.04), 46)
+		item.area = _area(holder, Vector3(0, 0.1, 0.55), Vector3(1.7, 1.8, 1.1), item)
+		ctx.wallbuys[wb.id] = item
 
 func _build_perks() -> void:
 	for p in map.perks:
@@ -135,12 +119,16 @@ func _build_perks() -> void:
 			col = Color(0.2, 0.85, 0.35)
 		elif p.effect == "tap":
 			col = Color(0.95, 0.65, 0.12)
-		_label(holder, "%s\n%d" % [p.name, p.cost], Vector3(0, 0.62, 0.36), 40, col)
-		var area := _area(holder, Vector3(0, 0.9, 0.85), Vector3(1.8, 2.0, 1.3), {
-			"kind": "perk", "id": p.id, "cost": p.cost, "name": p.name,
-			"effect": p.effect,
-		})
-		perks[p.id] = { "data": p, "node": holder, "area": area }
+		var item := Interactable.new()
+		item.kind = Interactable.Kind.PERK
+		item.id = p.id
+		item.name = p.name
+		item.cost = p.cost
+		item.effect = p.effect
+		item.node = holder
+		item.label = _label(holder, "%s\n%d" % [p.name, p.cost], Vector3(0, 0.62, 0.36), 40, col)
+		item.area = _area(holder, Vector3(0, 0.9, 0.85), Vector3(1.8, 2.0, 1.3), item)
+		ctx.perks[p.id] = item
 
 func _build_box() -> void:
 	if map.box == null:
@@ -149,31 +137,41 @@ func _build_box() -> void:
 	if holder == null:
 		push_warning("Caixa sem geometria")
 		return
-	var lid := holder.get_node_or_null("Lid")
-	_label(holder, "?", Vector3(0, 0.62, 0.52), 120, Color(0.25, 0.85, 0.95))
-	var area := _area(holder, Vector3(0, 0.6, 0.85), Vector3(2.0, 1.6, 1.4), {
-		"kind": "box", "id": "box", "cost": map.box.cost, "name": "CAIXA MISTERIOSA",
-	})
-	box = { "data": map.box, "node": holder, "lid": lid, "area": area }
+	var b := BoxState.new()
+	b.id = "box"
+	b.name = "CAIXA MISTERIOSA"
+	b.cost = map.box.cost
+	b.data = map.box
+	b.node = holder
+	b.lid = holder.get_node_or_null("Lid")
+	b.label = _label(holder, "?", Vector3(0, 0.62, 0.52), 120, Color(0.25, 0.85, 0.95))
+	b.area = _area(holder, Vector3(0, 0.6, 0.85), Vector3(2.0, 1.6, 1.4), b)
+	ctx.box = b
 
 func _build_barricades() -> void:
-	for b in map.barricades:
-		var holder := map_root.find_child("Barricade_" + b.id, true, false) as Node3D
+	for data in map.barricades:
+		var holder := map_root.find_child("Barricade_" + data.id, true, false) as Node3D
 		if holder == null:
-			push_warning("Barricada sem geometria: " + b.id)
+			push_warning("Barricada sem geometria: " + data.id)
 			continue
 		var planks: Array[MeshInstance3D] = []
 		for child in holder.get_children():
 			if child is MeshInstance3D and String(child.name).begins_with("Plank"):
 				planks.append(child)
-		barricades[b.id] = { "data": b, "node": holder, "planks": planks }
+		var b := BarricadeState.new()
+		b.id = data.id
+		b.name = data.id
+		b.data = data
+		b.node = holder
+		b.planks = planks
+		ctx.barricades[data.id] = b
 
 func _collect_lights() -> void:
 	for child in map_root.get_children():
 		if child is OmniLight3D:
-			lights.append(child)
+			ctx.lights.append(child)
 
-func _area(parent: Node3D, pos: Vector3, size: Vector3, meta: Dictionary) -> Area3D:
+func _area(parent: Node3D, pos: Vector3, size: Vector3, meta: Interactable) -> Area3D:
 	var a := Area3D.new()
 	a.position = pos
 	a.collision_layer = 8

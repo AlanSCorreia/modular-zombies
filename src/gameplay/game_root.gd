@@ -6,12 +6,11 @@ var weapon_data: WeaponData
 var enemy_data: EnemyData
 var player: PlayerController
 var hud: SliceHUD
-var ctx: Dictionary
+var ctx: MapContext
 var nav: MapNav
 var zombies: Array[ZombieEnemy] = []
 var points := 0
 var started := false
-var door_open := false
 var spawned := 0
 var owned_perks: Array[String] = []
 var _complete := false
@@ -218,7 +217,7 @@ func _on_interacted(id: String, _who: Node) -> void:
 		_buy_wallbuy(id)
 	elif ctx.perks.has(id):
 		_buy_perk(id)
-	elif id == "box":
+	elif ctx.box != null and id == ctx.box.id:
 		_buy_box()
 
 func _can_pay(cost: int) -> bool:
@@ -232,60 +231,56 @@ func _spend(cost: int) -> void:
 	Events.points_changed.emit(points)
 
 func _buy_door(id: String) -> void:
-	var info: Dictionary = ctx.doors.get(id, {})
-	if info.is_empty() or bool(info.get("open", false)):
+	var door: DoorState = ctx.doors.get(id, null)
+	if door == null or door.open:
 		return
-	var d: DoorData = info.data
-	if not _can_pay(d.cost):
+	if not _can_pay(door.cost):
 		return
-	_spend(d.cost)
-	info["open"] = true
-	door_open = true
-	var node: Node3D = info.node
-	var body: Node = info.body
+	_spend(door.cost)
+	door.open = true
+	var node: Node3D = door.node
+	var body: Node = door.body
 	if body != null:
 		body.queue_free()
-	var label: Node = info.get("label", null)
+	var label: Node = door.label
 	if label != null:
 		label.queue_free()
 	var tw := create_tween()
 	tw.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tw.tween_property(node, "position:y", node.position.y + 2.8, 0.7)
-	Events.banner.emit("SETOR %s ABERTO" % d.room, "", 1.5)
+	Events.banner.emit("SETOR %s ABERTO" % door.room, "", 1.5)
 
 func _buy_wallbuy(id: String) -> void:
-	var info: Dictionary = ctx.wallbuys.get(id, {})
-	if info.is_empty():
+	var item: Interactable = ctx.wallbuys.get(id, null)
+	if item == null:
 		return
-	var wb: WallBuyData = info.data
-	var w: WeaponData = Content.get_weapon(wb.weapon_id)
+	var w: WeaponData = Content.get_weapon(item.weapon_id)
 	if w == null:
-		Events.banner.emit("ARMA INDISPONÍVEL", wb.name, 1.5)
+		Events.banner.emit("ARMA INDISPONÍVEL", item.name, 1.5)
 		return
-	if not _can_pay(wb.cost):
+	if not _can_pay(item.cost):
 		return
-	_spend(wb.cost)
+	_spend(item.cost)
 	player.add_weapon(w)
 	Events.banner.emit(w.name, "COMPRADO", 1.5)
 
 func _buy_perk(id: String) -> void:
-	var info: Dictionary = ctx.perks.get(id, {})
-	if info.is_empty():
+	var item: Interactable = ctx.perks.get(id, null)
+	if item == null:
 		return
-	var p: PerkData = info.data
 	if owned_perks.has(id):
-		Events.banner.emit(p.name, "JÁ ADQUIRIDO", 1.2)
+		Events.banner.emit(item.name, "JÁ ADQUIRIDO", 1.2)
 		return
-	if not _can_pay(p.cost):
+	if not _can_pay(item.cost):
 		return
-	_spend(p.cost)
+	_spend(item.cost)
 	owned_perks.append(id)
-	Events.banner.emit(p.name, "ADQUIRIDO", 1.5)
+	Events.banner.emit(item.name, "ADQUIRIDO", 1.5)
 
 func _buy_box() -> void:
-	if ctx.box.is_empty():
+	if ctx.box == null:
 		return
-	var cost := int(ctx.box.data.cost)
+	var cost := ctx.box.cost
 	if not _can_pay(cost):
 		return
 	_spend(cost)
@@ -374,8 +369,10 @@ func _run_interaction_test() -> void:
 	release.physical_keycode = KEY_F
 	release.pressed = false
 	Input.parse_input_event(release)
-	var ok: bool = hit and meta_ok and door_open
-	print("INTERACT_TEST hit=%s meta=%s door=%s" % [str(hit), str(meta_ok), str(door_open)])
+	var door: DoorState = ctx.doors.get("door1", null)
+	var opened: bool = door != null and door.open
+	var ok: bool = hit and meta_ok and opened
+	print("INTERACT_TEST hit=%s meta=%s door=%s" % [str(hit), str(meta_ok), str(opened)])
 	print("INTERACT_OK" if ok else "INTERACT_FAIL")
 	get_tree().quit(0 if ok else 1)
 
@@ -467,15 +464,16 @@ func _run_smoke() -> void:
 		var door_id := String(ctx.doors.keys()[0])
 		var before := points
 		_on_interacted(door_id, player)
-		door_ok = points < before and bool(ctx.doors[door_id].get("open", false))
+		var door: DoorState = ctx.doors[door_id]
+		door_ok = points < before and door.open
 		ok = ok and door_ok
 
 	if not ctx.wallbuys.is_empty():
 		var wallbuy_id := String(ctx.wallbuys.keys()[0])
 		var before := points
 		_on_interacted(wallbuy_id, player)
-		var wb: WallBuyData = ctx.wallbuys[wallbuy_id].data
-		wallbuy_ok = points < before and player.weapon != null and player.weapon.data.id == wb.weapon_id
+		var item: Interactable = ctx.wallbuys[wallbuy_id]
+		wallbuy_ok = points < before and player.weapon != null and player.weapon.data.id == item.weapon_id
 		ok = ok and wallbuy_ok
 
 	if not ctx.perks.is_empty():
@@ -485,7 +483,7 @@ func _run_smoke() -> void:
 		perk_ok = points < before and owned_perks.has(perk_id)
 		ok = ok and perk_ok
 
-	if not ctx.box.is_empty():
+	if ctx.box != null:
 		var before := points
 		_on_interacted("box", player)
 		box_ok = points < before
@@ -493,7 +491,7 @@ func _run_smoke() -> void:
 
 	print("MAP_SMOKE map=%s zombies=%d doors=%d wallbuys=%d perks=%d box=%s door=%s wallbuy=%s perk=%s box_buy=%s" % [
 		map.id, zombies.size(), ctx.doors.size(), ctx.wallbuys.size(),
-		ctx.perks.size(), str(not ctx.box.is_empty()),
+		ctx.perks.size(), str(ctx.box != null),
 		str(door_ok), str(wallbuy_ok), str(perk_ok), str(box_ok),
 	])
 	print("MAP_OK" if ok else "MAP_FAIL")
@@ -522,8 +520,10 @@ func _run_test() -> void:
 	player.weapon.start_reload()
 	await get_tree().create_timer(2.2).timeout
 	var reloaded := player.weapon.ammo_mag == 17
-	var ok := p1 > p0 and door_open and not zombies.is_empty() and reloaded and (z == null or z.is_dead or hp1 < hp0)
-	print("SLICE_TEST hp0=%.1f hp1=%.1f points_before=%d points_after=%d door=%s zombies=%d reload=%s" % [hp0, hp1, p0, p1, str(door_open), zombies.size(), str(reloaded)])
+	var door: DoorState = ctx.doors.get("door1", null)
+	var opened: bool = door != null and door.open
+	var ok := p1 > p0 and opened and not zombies.is_empty() and reloaded and (z == null or z.is_dead or hp1 < hp0)
+	print("SLICE_TEST hp0=%.1f hp1=%.1f points_before=%d points_after=%d door=%s zombies=%d reload=%s" % [hp0, hp1, p0, p1, str(opened), zombies.size(), str(reloaded)])
 	print("SLICE_OK" if ok else "SLICE_FAIL")
 	get_tree().quit(0 if ok else 1)
 
