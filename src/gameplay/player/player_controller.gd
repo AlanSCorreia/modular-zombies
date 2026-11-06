@@ -6,6 +6,7 @@ const SPRINT := 6.3
 const JUMP := 4.6
 const GRAVITY := 18.0
 const MOUSE_SENS := 0.0021
+const MAX_SLOTS := 2
 
 var can_control := false
 var is_dead := false
@@ -14,6 +15,8 @@ var max_health := 100.0
 var camera: Camera3D
 var head: Node3D
 var interact_ray: RayCast3D
+var weapons: Array[WeaponController] = []
+var active_slot := 0
 var weapon: WeaponController
 
 var _pitch := 0.0
@@ -58,16 +61,81 @@ func _ready() -> void:
 	camera.add_child(fill)
 
 func setup_weapon(data: WeaponData) -> void:
-	equip_weapon(data)
+	add_weapon(data)
 
 func equip_weapon(data: WeaponData) -> void:
-	if weapon != null:
-		weapon.queue_free()
-		weapon = null
-	weapon = WeaponController.new()
-	weapon.name = "Weapon"
-	weapon.setup(data, camera, self)
-	add_child(weapon)
+	add_weapon(data)
+
+func _ensure_slots() -> void:
+	while weapons.size() < MAX_SLOTS:
+		weapons.append(null)
+
+func add_weapon(data: WeaponData) -> void:
+	if data == null:
+		return
+	_ensure_slots()
+	for i in range(weapons.size()):
+		var owned := weapons[i]
+		if owned != null and owned.data.id == data.id:
+			switch_slot(i)
+			owned.refill()
+			return
+	var idx := -1
+	for i in range(weapons.size()):
+		if weapons[i] == null:
+			idx = i
+			break
+	if idx < 0:
+		idx = active_slot
+		_free_slot(idx)
+	var w := WeaponController.new()
+	w.name = "Weapon%d" % (idx + 1)
+	w.setup(data, camera, self)
+	w.slot_index = idx
+	add_child(w)
+	weapons[idx] = w
+	switch_slot(idx)
+
+func count_weapons() -> int:
+	var n := 0
+	for w in weapons:
+		if w != null:
+			n += 1
+	return n
+
+func _free_slot(index: int) -> void:
+	if index < 0 or index >= weapons.size():
+		return
+	var old := weapons[index]
+	weapons[index] = null
+	if old != null:
+		if old == weapon:
+			weapon = null
+		old.dispose()
+
+func switch_slot(index: int) -> void:
+	if index < 0 or index >= MAX_SLOTS:
+		return
+	_ensure_slots()
+	var target := weapons[index]
+	if target == null:
+		return
+	if weapon != null and weapon != target:
+		weapon.set_active(false)
+	active_slot = index
+	weapon = target
+	weapon.set_active(true)
+	Events.weapon_changed.emit(weapon.data.id, weapon.data.name)
+	Events.slot_changed.emit(index + 1, count_weapons())
+
+func cycle_slot(dir: int) -> void:
+	if count_weapons() < 2:
+		return
+	for step in range(1, MAX_SLOTS + 1):
+		var idx := posmod(active_slot + dir * step, MAX_SLOTS)
+		if idx < weapons.size() and weapons[idx] != null:
+			switch_slot(idx)
+			return
 
 func _unhandled_input(event: InputEvent) -> void:
 	if not can_control or is_dead:
@@ -75,6 +143,16 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 		rotate_y(-event.relative.x * MOUSE_SENS)
 		_pitch = clampf(_pitch - event.relative.y * MOUSE_SENS, -1.45, 1.45)
+	if event is InputEventKey and event.pressed and not event.echo:
+		if event.keycode == KEY_1:
+			switch_slot(0)
+		elif event.keycode == KEY_2:
+			switch_slot(1)
+	if event is InputEventMouseButton and event.pressed:
+		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
+			cycle_slot(1)
+		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
+			cycle_slot(-1)
 
 func add_recoil(pitch_deg: float, yaw_deg: float = 0.0) -> void:
 	_pitch = clampf(_pitch + deg_to_rad(pitch_deg), -1.45, 1.45)

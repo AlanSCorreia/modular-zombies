@@ -73,6 +73,8 @@ func _ready() -> void:
 		_run_mouse_test.call_deferred()
 	elif "--interaction-test" in args:
 		_run_interaction_test.call_deferred()
+	elif "--slots-test" in args:
+		_run_slots_test.call_deferred()
 	elif "--shot" in args:
 		_run_shot.call_deferred()
 	elif "--ui" in args:
@@ -229,7 +231,7 @@ func _buy_wallbuy(id: String) -> void:
 	if not _can_pay(wb.cost):
 		return
 	_spend(wb.cost)
-	player.equip_weapon(w)
+	player.add_weapon(w)
 	Events.banner.emit(w.name, "COMPRADO", 1.5)
 
 func _buy_perk(id: String) -> void:
@@ -259,7 +261,7 @@ func _buy_box() -> void:
 	var w: WeaponData = Content.get_weapon(String(ids[randi() % ids.size()]))
 	if w == null:
 		return
-	player.equip_weapon(w)
+	player.add_weapon(w)
 	Events.banner.emit("CAIXA MISTERIOSA", w.name, 2.0)
 
 func _on_player_died() -> void:
@@ -341,6 +343,27 @@ func _run_interaction_test() -> void:
 	var ok: bool = hit and meta_ok and door_open
 	print("INTERACT_TEST hit=%s meta=%s door=%s" % [str(hit), str(meta_ok), str(door_open)])
 	print("INTERACT_OK" if ok else "INTERACT_FAIL")
+	get_tree().quit(0 if ok else 1)
+
+func _run_slots_test() -> void:
+	_start()
+	await get_tree().create_timer(0.2).timeout
+	var mp5: WeaponData = Content.get_weapon("weapon.mp5")
+	player.weapon.ammo_mag = 5
+	player.add_weapon(mp5)
+	var count_after_add := player.count_weapons()
+	var active_mp5: bool = player.weapon != null and player.weapon.data.id == "weapon.mp5"
+	player.switch_slot(0)
+	var back_glock: bool = player.weapon != null and player.weapon.data.id == "weapon.glock17" and player.weapon.ammo_mag == 5
+	player.switch_slot(1)
+	var back_mp5: bool = player.weapon != null and player.weapon.data.id == "weapon.mp5"
+	player.add_weapon(mp5)
+	var no_duplicate := player.count_weapons() == 2
+	var ok: bool = count_after_add == 2 and active_mp5 and back_glock and back_mp5 and no_duplicate
+	print("SLOTS_TEST count=%d active_mp5=%s glock_ammo=%s mp5=%s no_dup=%s" % [
+		count_after_add, str(active_mp5), str(back_glock), str(back_mp5), str(no_duplicate),
+	])
+	print("SLOTS_OK" if ok else "SLOTS_FAIL")
 	get_tree().quit(0 if ok else 1)
 
 func _run_pause_shot() -> void:

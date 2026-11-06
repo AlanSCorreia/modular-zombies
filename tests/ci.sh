@@ -34,6 +34,9 @@ echo "== pause =="
 echo "== interação =="
 "$GODOT" --headless --path . -- --interaction-test
 
+echo "== 2 slots =="
+"$GODOT" --headless --path . -- --slots-test
+
 echo "== integração =="
 "$GODOT" --headless --path . -- --test
 

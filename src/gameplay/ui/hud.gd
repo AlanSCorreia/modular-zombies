@@ -22,6 +22,7 @@ var _health_frac := 1.0
 var _ammo_mag: Label
 var _ammo_res: Label
 var _weapon_label: Label
+var _slot_label: Label
 var _points: Label
 var _round: Label
 var _prompt: Label
@@ -45,6 +46,7 @@ func _ready() -> void:
 	_build()
 	Events.player_health_changed.connect(_on_health)
 	Events.ammo_changed.connect(_on_ammo)
+	Events.slot_changed.connect(_on_slot)
 	Events.points_changed.connect(_on_points)
 	Events.prompt_changed.connect(_on_prompt)
 	Events.hitmarker.connect(_on_hitmarker)
@@ -136,6 +138,10 @@ func _build() -> void:
 	_weapon_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_place(_weapon_label, Vector2(1, 1), Vector2(-320, -96), Vector2(280, 22))
 	root.add_child(_weapon_label)
+	_slot_label = _mk("SLOT 1/1", 13, COL_DIM, _font_small)
+	_slot_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
+	_place(_slot_label, Vector2(1, 1), Vector2(-320, -118), Vector2(280, 18))
+	root.add_child(_slot_label)
 	_ammo_mag = _mk("17", 54, COL_TEXT, _font_big)
 	_ammo_mag.horizontal_alignment = HORIZONTAL_ALIGNMENT_RIGHT
 	_place(_ammo_mag, Vector2(1, 1), Vector2(-250, -86), Vector2(130, 70))
@@ -276,6 +282,9 @@ func _on_ammo(mag: int, reserve: int, weapon_name: String) -> void:
 	_ammo_mag.text = str(mag)
 	_ammo_res.text = "/ %d" % reserve
 	_weapon_label.text = weapon_name
+
+func _on_slot(index: int, count: int) -> void:
+	_slot_label.text = "SLOT %d/%d" % [index, count]
 
 func _on_points(points: int) -> void:
 	_points.text = str(points)

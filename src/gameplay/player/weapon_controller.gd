@@ -15,6 +15,8 @@ var muzzle: Node3D
 var flash_light: OmniLight3D
 var flash_mesh: MeshInstance3D
 
+var active := true
+var slot_index := -1
 var ammo_mag := 0
 var ammo_reserve := 0
 var _next_fire := 0
@@ -70,6 +72,31 @@ func setup(p_data: WeaponData, p_camera: Camera3D, p_player: PlayerController) -
 	anim.add_animation_library("", lib)
 	_update_ammo()
 
+func set_active(value: bool) -> void:
+	active = value
+	if holder != null:
+		holder.visible = value
+	set_process(value)
+	_trigger_down = false
+	if not value and anim != null:
+		anim.stop()
+	if value:
+		_update_ammo()
+
+func refill() -> void:
+	ammo_mag = int(data.stats.get("mag", 17))
+	ammo_reserve = int(data.stats.get("reserve", 102))
+	_reloading = false
+	_reload_left = 0.0
+	_update_ammo()
+
+func dispose() -> void:
+	set_active(false)
+	if holder != null:
+		holder.queue_free()
+		holder = null
+	queue_free()
+
 func _build_flash() -> void:
 	flash_light = OmniLight3D.new()
 	flash_light.light_color = Color(1.0, 0.75, 0.4)
@@ -94,6 +121,8 @@ func _build_flash() -> void:
 	muzzle.add_child(flash_mesh)
 
 func _process(delta: float) -> void:
+	if not active:
+		return
 	_kick = lerpf(_kick, 0.0, delta * 10.0)
 	holder.position = _base_pos + Vector3(0, 0, _kick)
 	holder.rotation.x = _kick * 2.0
