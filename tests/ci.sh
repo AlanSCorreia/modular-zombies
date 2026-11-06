@@ -26,21 +26,21 @@ echo "== mapa Bunker 13 =="
 "$GODOT" --headless --path . --script res://tests/run_map_build.gd
 
 echo "== smoke Bunker 13 =="
-"$GODOT" --headless --path . -- --map map.bunker13 --smoke
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case smoke --map map.bunker13
 
 echo "== softlock Bunker 13 =="
-"$GODOT" --headless --path . -- --map map.bunker13 --softlock-test
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case softlock --map map.bunker13
 
 echo "== pause =="
-"$GODOT" --headless --path . -- --pause-test
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case pause
 
 echo "== interação =="
-"$GODOT" --headless --path . -- --interaction-test
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case interaction
 
 echo "== 2 slots =="
-"$GODOT" --headless --path . -- --slots-test
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case slots
 
 echo "== integração =="
-"$GODOT" --headless --path . -- --test
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case slice
 
 echo "CI_OK"
