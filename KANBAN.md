@@ -26,16 +26,30 @@
 
 | Fase | Nome | Status | Foco atual |
 |---|---|---|---|
-| R0 | Preparação | **Em revisão** | Docs revisados; validar importação |
-| R1 | Core + conteúdo | Backlog | — |
-| R2 | Loop de gameplay | Backlog | — |
+| R0 | Preparação | **Concluído** | — |
+| R1 | Core + conteúdo | **Em andamento** | Reorganizar assets + Bunker 13 JSON |
+| R2 | Loop de gameplay | **Parcial** | Slice jogável |
 | R3 | Interações/UI/áudio | Backlog | — |
 | R4 | Ferramentas de mapa | Backlog | — |
 | R5 | Quests/Easter Eggs | Backlog | — |
 | R6 | Escala de conteúdo | Backlog | — |
 | R7 | Produção | Backlog | — |
 
-> **Status:** nenhum código novo será escrito até o escopo da v2 ser aprovado.
+> **Status:** P0 concluído. O vertical slice está jogável e testado (`SLICE_OK`);
+> o próximo foco é R1 (assets + Bunker 13 completo).
+
+---
+
+# P0 — Bootstrap (concluído)
+
+### Done
+- [x] Git + `.gitignore` + commit inicial
+- [x] `Sfx`, `GameRoot`, plugin `bunker_tools`
+- [x] Importação validada no Godot
+- [x] Conteúdo JSON + loader + validador
+- [x] Vertical slice: sala, porta, zumbi, Glock, HUD
+- [x] CI local (`tests/ci.sh`) e bench (`tests/bench.sh`)
+- [x] Bench: 60 FPS, 135 draw calls, 66 MB
 
 ---
 
@@ -45,22 +59,17 @@
 **Aceite:** projeto v2 abre no Godot; assets presentes; regras de escopo aprovadas.
 
 ### Backlog
-- [ ] Criar launcher “Bunker 13 v2 — Editor”
 - [ ] Levantar inventário de assets reaproveitáveis
 - [ ] Definir convenção de IDs (`map.*`, `weapon.*`, `quest.*`)
 
 ### Ready
-- [ ] Revisar arquitetura-alvo e aprovar fases R1–R7
-- [ ] Confirmar o que fica na v1 legada e o que é portado
-- [ ] Reorganizar assets para a árvore híbrida
-- [ ] Mover `.blend` para `source/blender/` com `.gdignore`
+- [ ] Criar launcher “Bunker 13 v2 — Editor”
 
 ### Doing
-- *(vazio — aguardando aprovação)*
+- *(vazio)*
 
 ### Review/Test
-- [ ] Abrir `zombie-fps-v2` no Godot e validar importação
-- [ ] Validar `project.godot` e autoloads (`Events`, `Content`, `Sfx`)
+- *(vazio)*
 
 ### Done
 - [x] Arquivar v1 em `zombie-fps-legacy`
@@ -73,6 +82,15 @@
 - [x] Atualizar docs v2 com decisões atuais (R0–R7, rewrite, C#, tools, JSON, explosivos/faca)
 - [x] Definir JSON como fonte de conteúdo
 - [x] Definir árvore de assets (`assets/`, `source/`, `content/`, `schemas/`)
+- [x] Revisar arquitetura e aprovar fases R1–R7
+- [x] Definir que a v1 é apenas histórica
+- [x] Criar `Sfx` e `GameRoot`
+- [x] Plugin `bunker_tools` (dock)
+- [x] Validar importação e autoloads no Godot
+- [x] Git + `.gitignore`
+- [x] CI local
+- [x] Vertical slice jogável
+- [x] Bench + orçamento de performance
 
 ### Blocked
 - *(vazio)*
@@ -90,9 +108,6 @@
 - [ ] Templates de mapa vazio/corredor/arena
 
 ### Ready
-- [ ] DTOs tipados: `MapDefinition`, `WeaponDefinition`, `ExplosiveDefinition`, `MeleeDefinition`
-- [ ] `ContentRegistry` + loader JSON + IDs
-- [ ] JSON schemas + `ContentValidator` (referências, IDs, ciclos)
 - [ ] `Bunker13Builder` lendo `MapDefinition`
 - [ ] Converter Bunker 13 + 5 armas para JSON
 - [ ] JSON de faca, granada, foguete, barris e traps
@@ -101,14 +116,17 @@
 - [ ] Testes de definições e validação
 
 ### Doing
-- *(vazio)*
+- [ ] Reorganizar assets + completar Bunker 13 em JSON
 
 ### Review/Test
-- [ ] Validar Bunker 13 por JSON
-- [ ] Rodar `CONTENT_OK` e `LOGIC_OK`
+- [x] `CONTENT_OK` e `LOGIC_OK` no slice
+- [ ] Validar Bunker 13 completo
 
 ### Done
-- *(vazio)*
+- [x] DTOs base: `MapData`, `WeaponData`, `EnemyData`
+- [x] Loader JSON + `ContentValidator`
+- [x] JSON do slice (mapa, Glock, zumbi)
+- [x] Testes de conteúdo/lógica
 
 ### Blocked
 - *(vazio)*
@@ -125,30 +143,31 @@
 - [ ] Estatísticas de sessão
 
 ### Ready
-- [ ] `PlayerController` (movimento, vida, câmera)
-- [ ] `WeaponController` (2 slots, hitscan/projectile/melee)
+- [ ] `WeaponController` 2 slots
+- [ ] `WeaponController` projectile/melee
 - [ ] `ExplosionSystem` (raio, LOS, falloff, impulso, cadeia)
 - [ ] Granada (G), lança-foguete e barris explosivos
 - [ ] `MeleeController` (V, corte diagonal, lunge, cooldown)
 - [ ] Faca GLB + mãos compartilhadas + `knife_slash`
 - [ ] `HandsRig` + cache de mãos + `grip_profile`
 - [ ] `ViewmodelFactory` (armas GLB + mãos compartilhadas)
-- [ ] `ZombieEnemy` com `EnemyDefinition`
 - [ ] `RoundManager` (estado, spawn, escalonamento)
 - [ ] `Economy` (pontos, compra, bônus)
 - [ ] `Effects` (sangue, decais, tracers, cápsulas)
-- [ ] Teste integrado do loop
 
 ### Doing
 - *(vazio)*
 
 ### Review/Test
-- [ ] Tiro/recarga de todas as armas; mãos reutilizadas; headshot
-- [ ] IA, ataque sincronizado, morte e spawn
-- [ ] Rodada 1 → 2 e game over
+- [x] Slice: tiro, recarga, zumbi, morte e porta
+- [ ] Rodada 1 → 2 e game over completos
 
 ### Done
-- *(vazio)*
+- [x] `PlayerController` base
+- [x] `WeaponController` Glock/hitscan + animações
+- [x] `ZombieEnemy` base
+- [x] HUD base
+- [x] Loop mínimo do slice
 
 ### Blocked
 - *(vazio)*

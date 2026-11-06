@@ -7,8 +7,8 @@
 | Unitário | JSON, regras, economia, explosões, melee, quest graph | `tests/run_logic_tests.gd` |
 | Integração | Cena real, portas, navmesh, tiro, compras | `--test` headless |
 | Conteúdo | JSON schema, IDs, referências, ciclos, softlocks | `ContentValidator` |
-| Paridade | Comparar v1 ↔ v2 | Checklist + testes |
-| Visual | Spawn, armas, faca, explosivos, menus | `--verify`, `--weapon`, `--combat`, `--shot` |
+| Aceite | Golden path por fase | Checklist + testes |
+| Visual | Start, armas, HUD, slice | `--ui`, `--shot` |
 | Performance | FPS, bake, memória | Benchmark por mapa |
 | Manual | Game feel, áudio, input | Checklist de release |
 
@@ -16,10 +16,10 @@
 
 | Fase | Portão |
 |---|---|
-| R0 | Projeto importa sem erro; docs/Kanban aprovados |
+| R0 | Importa; docs/Kanban aprovados; Git/CI prontos |
 | R1 | Bunker 13 por JSON; assets organizados; 0 refs quebradas |
 | R2 | Loop jogável; explosivos e faca testados |
-| R3 | Paridade v1 + explosivos/faca |
+| R3 | Interações, UI e áudio do plano |
 | R4 | Criar/validar/testar mapa no editor |
 | R5 | Música + main quest de 3 passos; grafo válido |
 | R6 | 2º mapa/armas sem mudar núcleo |
@@ -28,24 +28,19 @@
 ## Comandos
 
 ```bash
-# Regras puras
-./run.sh --headless --script res://tests/run_logic_tests.gd
+# Tudo: import + lógica + conteúdo + integração
+./tests/ci.sh
 
-# Integração
-./run.sh --headless -- --test
-
-# Conteúdo
-./run.sh --headless --script res://tests/run_content_validation.gd
+# Performance
+./tests/bench.sh
 
 # Visual
-./run.sh -- --verify
-./run.sh -- --weapon
-./run.sh -- --combat
-./run.sh -- --shot
+./run.sh -- --ui     # tela inicial
+./run.sh -- --shot   # gameplay
 ```
 
-> Os comandos acima só existirão a partir de R1/R2; até lá a referência é a
-> suíte da v1 em `../zombie-fps-legacy/tests/`.
+**Estado atual:** `LOGIC_OK`, `CONTENT_OK`, `SLICE_OK`.
+**Bench:** 60 FPS, 16,5 ms, 135 draw calls, 66 MB.
 
 ## Validador de conteúdo
 
@@ -76,18 +71,17 @@ Deve falhar em:
 5. Checklist visual (spawns, portas, wallbuys, HUD, explosivos).
 6. Teste de explosivos do mapa (barris/traps) e cadeia.
 
-## Paridade v1 → v2
+## Golden path do slice
 
-Antes de trocar o launcher:
+Antes de expandir conteúdo:
 
-- [ ] Loop de rodadas idêntico em comportamento.
-- [ ] Todas as armas: tiro/recarga com e sem bala no cano; mãos reutilizadas.
-- [ ] Portas, wallbuys, caixa e perks.
-- [ ] Granada, lança-foguete, barris explosivos e traps.
-- [ ] Faca (V, corte diagonal, dano/cooldown).
-- [ ] HUD, pause, game over e restart.
-- [ ] Áudio e efeitos essenciais.
-- [ ] Testes de lógica e integração verdes.
+- [ ] Iniciar pelo menu.
+- [ ] Atirar e recarregar (com e sem bala no cano).
+- [ ] Matar o zumbi e ganhar pontos.
+- [ ] Abrir a porta e spawnar o segundo zumbi.
+- [ ] HUD/health/ammo/pontos corretos.
+- [ ] Game over e restart.
+- [ ] `ci.sh` verde e bench dentro do orçamento.
 
 ## CI
 

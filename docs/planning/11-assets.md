@@ -131,5 +131,5 @@ source/
 
 ## Migração
 
-R0/R1: mover assets atuais para a árvore acima, criar `source/blender`, ajustar
+R1: mover assets atuais para a árvore acima, criar `source/blender`, ajustar
 paths no JSON e rodar o validador. Nada de conteúdo em `.tres`.

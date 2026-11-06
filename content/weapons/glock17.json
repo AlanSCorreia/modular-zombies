@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "kind": "weapon",
+  "id": "weapon.glock17",
+  "name": "GLOCK 17",
+  "type": "hitscan",
+  "scene": "res://assets/models/glock17.glb",
+  "hands": "",
+  "grip_profile": "pistol",
+  "animation_set": "",
+  "moving_parts": ["Slide", "Magazine", "Trigger"],
+  "stats": {
+    "damage": 34,
+    "head_multiplier": 2.0,
+    "rpm": 420,
+    "mag": 17,
+    "reserve": 102,
+    "spread": 0.01,
+    "range": 120,
+    "reload_chambered": 1.55,
+    "reload_empty": 2.05
+  }
+}

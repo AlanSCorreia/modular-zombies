@@ -5,18 +5,16 @@
 
 ## Estado atual
 
-- A v1 está arquivada em `../../../zombie-fps-legacy` e permanece jogável.
-- A v2 é uma **reescrita em paralelo**, não uma refatoração incremental.
-- O scaffold da v2 é **parcial**: `project.godot`, `main.tscn`, `Events` e
-  `Content` existem; faltam `Sfx`, `game_root`, plugin, schemas/JSON de conteúdo
-  e testes. Ainda não é jogável nem foi validada no editor.
-- Fase atual: **R0 em revisão** (docs atualizadas; importação pendente).
-- Os assets ainda estão na árvore antiga; a árvore híbrida será aplicada em R0/R1.
+- A v1 é um protótipo histórico arquivado em `../../../zombie-fps-legacy`; não é fonte de verdade.
+- A v2 é uma **reescrita do runtime**, não uma refatoração incremental.
+- **P0 concluído:** Git, CI, importação, scaffold, vertical slice jogável.
+- Fase atual: **R0 concluído; R1 em andamento** (loader/validador JSON e slice).
+- Vertical slice: uma sala, porta, zumbi, Glock e HUD; testes `SLICE_OK`.
+- Os assets ainda estão na árvore antiga; a reorganização está em R1.
 
 ## Decisões atuais
 
-1. **Reescrever o runtime** em paralelo; manter a v1 como rollback até a
-   paridade.
+1. **Reescrever o runtime**; a v1 é apenas histórico, não há dependência.
 2. **Conteúdo JSON**: mapas, armas, explosivos, inimigos, perks e quests
    definidos em `.json`, validados e convertidos em DTOs tipados.
 3. **Serviços + EventBus**: `RoundManager`, `Economy`, `InteractionSystem`,
@@ -43,6 +41,7 @@
 | `09-json-content-pipeline.md` | JSON canônico, schemas, loader e validador |
 | `10-combat-systems.md` | Explosivos, granadas, foguetes, barris e faca |
 | `11-assets.md` | Árvore de assets, convenções, importação e licenças |
+| `12-development-workflow.md` | Git, CI, vertical slice e orçamento de performance |
 
 ## Como usar
 

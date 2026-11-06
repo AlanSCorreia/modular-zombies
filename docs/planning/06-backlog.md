@@ -3,6 +3,9 @@
 Legenda: **P0** bloqueante, **P1** próxima entrega, **P2** depois.  
 Este backlog é estratégico; o status real fica no `KANBAN.md`.
 
+> **P0 entregue:** R0.1–R0.8, R0.11–R0.14; R1.1–R1.4 parcialmente (slice);
+> R2.1–R2.5 parcialmente. O restante segue para R1/R2.
+
 ## R0 — Preparação
 
 | ID | Tarefa | Pri |
@@ -15,8 +18,11 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | R0.6 | Validar importação no Godot | P0 |
 | R0.7 | Docs v2 + Kanban | P0 |
 | R0.8 | Árvore de assets (`assets/`, `source/`, `content/`, `schemas/`) | P0 |
-| R0.9 | Reorganizar assets e mover `.blend` para `source/` | P0 |
 | R0.10 | Launcher do editor | P1 |
+| R0.11 | Git + `.gitignore` + commit inicial | P0 |
+| R0.12 | CI local (`tests/ci.sh`) | P0 |
+| R0.13 | Vertical slice jogável | P0 |
+| R0.14 | Bench + orçamento de performance | P0 |
 
 ## R1 — Core + conteúdo JSON
 
@@ -32,6 +38,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | R1.8 | Pipeline Blender de armas/mãos + `GripSocket` | P0 |
 | R1.9 | Validação de assets (paths/importação) | P0 |
 | R1.10 | Testes de schema/validação | P0 |
+| R1.11 | Reorganizar assets e mover `.blend` para `source/` | P0 |
 
 ## R2 — Loop de gameplay
 

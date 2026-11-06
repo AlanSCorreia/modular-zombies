@@ -20,6 +20,8 @@ signal quest_completed(id: String)
 signal prompt_changed(text: String, affordable: bool)
 signal game_state_changed(state: int)
 signal banner(title: String, subtitle: String, duration: float)
+signal hitmarker
+signal damage_flash
 
 func reset() -> void:
 	pass

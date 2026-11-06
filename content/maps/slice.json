@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "kind": "map",
+  "id": "map.slice",
+  "name": "Slice — Bunker 13",
+  "player_spawn": [-3.0, 0.1, 3.0],
+  "starting_points": 500,
+  "enemy": "enemy.zombie",
+  "zombie_count": 2,
+  "rooms": [
+    { "id": "A", "rect": [-6, -6, 0, 6], "height": 3.2 },
+    { "id": "B", "rect": [0, -6, 12, 6], "height": 3.2 }
+  ],
+  "doors": [
+    {
+      "id": "door1",
+      "name": "ABRIR",
+      "cost": 500,
+      "room": "B",
+      "position": [0.0, 1.25, 0.0],
+      "size": [0.2, 2.5, 2.6]
+    }
+  ],
+  "zombie_spawns": [
+    { "id": "zA", "position": [-3.0, 0.1, -3.0], "room": "A" },
+    { "id": "zB", "position": [8.0, 0.1, 0.0], "room": "B" }
+  ]
+}

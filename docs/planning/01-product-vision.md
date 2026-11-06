@@ -4,17 +4,16 @@
 
 **Reescrever o Bunker 13** como uma plataforma de conteúdo de FPS zombies:
 mapas, armas, perks, inimigos e Easter Eggs adicionáveis sem reescrever o
-núcleo. A v1 é referência e rollback; a v2 é a linha principal.
+núcleo. A v1 é apenas histórico; a v2 é a linha principal.
 
 ## Estratégia
 
-Reescrita real em paralelo, com paridade:
+Reescrita real em fatias verticais:
 
-1. v1 arquivada e jogável.
+1. v1 arquivada apenas como histórico.
 2. v2 construída com a nova arquitetura.
-3. Porte em fatias verticais até paridade funcional.
-4. Troca do launcher/atalho quando os testes de paridade passarem.
-5. v1 só é aposentada depois da troca.
+3. Entregas verticais jogáveis/testáveis.
+4. v2 é a linha principal desde já; não há dependência da v1.
 
 ## Pilares
 
@@ -60,4 +59,4 @@ texturas e áudio em `assets/`, fontes em `source/`.
 | Cobertura de regras críticas | 100% das regras puras |
 | Mapas sem mudança no núcleo | 2 mapas consecutivos |
 | Softlocks conhecidos | 0 |
-| Paridade v1 → v2 | checklist completo antes da troca |
+| Golden path do slice | checklist completo e `ci.sh` verde |

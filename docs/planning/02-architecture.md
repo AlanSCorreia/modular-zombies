@@ -19,14 +19,14 @@ stringly typed. A v2 **reescreve o runtime** para eliminar esses limites.
 | Testes dentro do jogo | `tests/` + harness |
 | Navmesh rebake em runtime | Variantes pré-bakeadas (R7) |
 
-## Estado do scaffold v2
+## Estado atual (P0 concluído)
 
-Já existe: `project.godot`, `scenes/main.tscn`, `src/core/event_bus.gd`,
-`src/core/content_registry.gd`, assets copiados, `KANBAN.md` e docs.
+Já existe: `project.godot`, `main.tscn`, `Events`, `Content`, `Sfx`, `GameRoot`,
+`PlayerController`, `WeaponController` (Glock), `ZombieEnemy`, `SliceHUD`,
+loader/validador JSON, plugin `bunker_tools`, CI local e vertical slice jogável.
 
-Ainda falta para R0 fechar: `src/audio/sfx.gd`, `src/gameplay/game_root.gd`,
-plugin em `addons/bunker_tools/`, schemas/JSON de conteúdo e validação de
-importação no editor.
+Pendente para R1/R2: Bunker 13 completo em JSON, reorganização de assets,
+5 armas, faca, explosivos, rodadas/economia completas e UI/áudio finais.
 
 ## Arquitetura alvo
 

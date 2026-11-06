@@ -1,23 +1,24 @@
 # Bunker 13 v2
 
-**Reescrita do runtime em paralelo.** A v1 foi arquivada em
-`../zombie-fps-legacy` e permanece jogável como referência/rollback. A v2 não é
-uma refatoração incremental: o núcleo será reescrito em torno de conteúdo
-JSON, serviços e ferramentas de autoria.
+**Reescrita do runtime.** A v1 foi um protótipo arquivado em
+`../zombie-fps-legacy`; nada dela é fonte de verdade para a v2. A v2 não é uma
+refatoração incremental: o núcleo é reescrito em torno de conteúdo JSON,
+serviços e ferramentas de autoria.
 
 - **Board de execução (fonte operacional):** [`KANBAN.md`](KANBAN.md)
 - **Estratégia e decisões:** [`docs/planning/`](docs/planning/)
-- **Legado:** `../zombie-fps-legacy`
+- **Legado histórico:** `../zombie-fps-legacy` (não usar como referência de implementação)
 
-## Estado atual — R0 (parcial)
+## Estado atual — P0 concluído
 
-A v2 tem apenas o **scaffold parcial**:
+Vertical slice jogável:
 
-- Estrutura de pastas, assets copiados, `project.godot`, `main.tscn`.
-- `Events` (EventBus) e `Content` (ContentRegistry) criados.
-- **Faltam:** `Sfx`, `game_root.gd`, plugin do editor, schemas/JSON de conteúdo
-  e testes.
-- **Ainda não é jogável nem foi validada no editor.**
+- Uma sala, porta comprável, zumbi, Glock com animações e HUD.
+- Conteúdo em JSON (`content/`), carregado e validado por `ContentRegistry`.
+- `Events`, `Sfx`, `GameRoot`, plugin `bunker_tools` e CI local.
+- Git inicializado; v1 é apenas legado.
+
+Ainda não é o Bunker 13 completo; o loop será expandido em R1–R3.
 
 ## Decisões-chave
 
@@ -38,16 +39,16 @@ assets/         models, textures, materials, animations, audio, ui, vfx, shaders
 source/blender/ .blend e scripts (fora do import do Godot)
 ```
 
-> A árvore atual ainda está na estrutura antiga; a reorganização é R0/R1.
+> A árvore atual ainda está na estrutura antiga; a reorganização é R1.
 > Detalhes: `docs/planning/11-assets.md`.
 
 ## Fases
 
 | Fase | Status |
 |---|---|
-| R0 Preparação | Em revisão (docs atualizadas; importação pendente) |
-| R1 Core + conteúdo | Backlog |
-| R2 Loop de gameplay | Backlog |
+| R0 Preparação | Concluído |
+| R1 Core + conteúdo | Em andamento |
+| R2 Loop de gameplay | Parcial (slice) |
 | R3 Interações/UI/áudio | Backlog |
 | R4 Ferramentas de mapa | Backlog |
 | R5 Quests/Easter Eggs | Backlog |
@@ -57,7 +58,15 @@ source/blender/ .blend e scripts (fora do import do Godot)
 ## Executar
 
 ```bash
-./run.sh
+./run.sh          # jogo
+./editor.sh       # editor Godot
 ```
 
-> Só será jogável após R2; a importação do projeto será validada no fim de R0.
+Atalhos: **Bunker 13 v2** e **Bunker 13 v2 — Editor**.
+
+## Testes
+
+```bash
+./tests/ci.sh
+./tests/bench.sh
+```

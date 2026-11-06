@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Enemy",
+  "type": "object",
+  "required": ["schema_version", "kind", "id", "name", "scene", "health", "speed", "damage"],
+  "properties": {
+    "schema_version": { "type": "integer", "const": 1 },
+    "kind": { "type": "string", "const": "enemy" },
+    "id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "scene": { "type": "string", "minLength": 1 },
+    "health": { "type": "number", "exclusiveMinimum": 0 },
+    "speed": { "type": "number", "exclusiveMinimum": 0 },
+    "damage": { "type": "number", "exclusiveMinimum": 0 }
+  }
+}

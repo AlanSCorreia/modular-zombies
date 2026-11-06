@@ -1,7 +1,7 @@
 # Roadmap — v2
 
-**Estratégia:** reescrever o runtime em paralelo; a v1 fica arquivada como
-referência/rollback. O board operacional é `../../KANBAN.md`.
+**Estratégia:** reescrever o runtime; a v1 fica arquivada apenas como histórico.
+O board operacional é `../../KANBAN.md`.
 
 **Regra:** uma fase ativa por vez; não avançar sem o aceite da anterior.
 
@@ -9,35 +9,35 @@ referência/rollback. O board operacional é `../../KANBAN.md`.
 
 | Fase | Nome | Objetivo | Status | Tamanho |
 |---|---|---|---|---|
-| R0 | Preparação | Arquivar v1, scaffold v2, docs e Kanban | **Parcial** | S |
-| R1 | Core + conteúdo | Definições, registry, validador, Bunker 13 em dados | Backlog | M |
-| R2 | Loop de gameplay | Player, armas, zumbis, rodadas, economia, efeitos | Backlog | L |
+| R0 | Preparação | Arquivar v1, scaffold v2, docs e Kanban | **Concluído** | S |
+| R1 | Core + conteúdo | Definições, registry, validador, Bunker 13 em JSON | **Em andamento** | M |
+| R2 | Loop de gameplay | Player, armas, zumbis, rodadas, economia, efeitos | **Parcial (slice)** | L |
 | R3 | Interações/UI/áudio | Portas, compras, caixa, perks, HUD, menus, som | Backlog | M |
 | R4 | Ferramentas de mapa | Criar/validar/testar mapas no editor | Backlog | M |
 | R5 | Quests/Easter Eggs | QuestSystem, música, mecânica única, debug | Backlog | L |
 | R6 | Escala de conteúdo | 2º mapa, armas novas, wonder weapon, inimigo | Backlog | L |
 | R7 | Produção | Save, settings, export, pools, CI, performance | Backlog | L |
 
-## R0 — Preparação (parcial)
+## R0 — Preparação (concluído — P0)
 
 **Entregáveis**
-- v1 arquivada em `zombie-fps-legacy`.
+- v1 arquivada (histórico, não é fonte de verdade).
 - v2 criada, assets copiados.
-- Scaffold: `project.godot`, `main.tscn`, `Events`, `Content`.
-- Docs de planejamento atualizados + Kanban.
-- `README.md` da v2.
+- Scaffold: `project.godot`, `main.tscn`, `Events`, `Content`, `Sfx`, `GameRoot`.
+- Plugin `bunker_tools` (dock de validação/playtest).
+- Importação validada no Godot.
+- Docs, Kanban, Git, CI local, bench.
 - Árvore híbrida definida: `content/` JSON, `assets/` binários, `source/` Blender.
 
-**Pendências para fechar R0**
-- Criar `src/audio/sfx.gd`, `src/gameplay/game_root.gd` e plugin placeholder.
-- Validar importação no Godot.
-- Aprovar escopo R1–R7.
+**Aceite:** projeto importa; docs/árvore aprovados; `git` inicializado; `ci.sh` verde.
 
-**Aceite:** projeto abre/importa sem erro; docs, árvore de assets e Kanban aprovados.
+## R1 — Core + conteúdo (em andamento)
 
-## R1 — Core + conteúdo
+**Já entregue no P0:** JSON loader/validator, `MapData`/`WeaponData`/`EnemyData`, slice JSON.
 
-**Entregáveis**
+**Pendente**
+
+**Pendências**
 - `MapDefinition`, `DoorDefinition`, `WallBuyDefinition`, `SpawnDefinition`,
   `BoxDefinition`, `PerkDefinition`, `MechanicDefinition`.
 - `WeaponDefinition`, `EnemyDefinition`, `QuestDefinition`, `QuestStep`,
@@ -54,9 +54,13 @@ referência/rollback. O board operacional é `../../KANBAN.md`.
 **Aceite:** Bunker 13 carrega 100% por JSON; validador 0 erros; 0 refs de
 asset quebradas; nenhum `if map_id` no núcleo e nenhum conteúdo em `.tres`.
 
-## R2 — Loop de gameplay
+## R2 — Loop de gameplay (parcial — slice)
 
-**Entregáveis**
+**Já entregue no P0:** `PlayerController`, `WeaponController` (Glock), `ZombieEnemy`, HUD, loop mínimo.
+
+**Pendente**
+
+**Pendências**
 - `PlayerController` (movimento, vida, câmera, interação).
 - `WeaponController` (2 slots, tiro, recarga, troca).
 - `ExplosionSystem`, granadas, lança-foguete e barris explosivos.

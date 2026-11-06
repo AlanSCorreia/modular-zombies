@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Weapon",
+  "type": "object",
+  "required": ["schema_version", "kind", "id", "name", "type", "scene", "stats"],
+  "properties": {
+    "schema_version": { "type": "integer", "const": 1 },
+    "kind": { "type": "string", "const": "weapon" },
+    "id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "type": { "type": "string", "enum": ["hitscan", "projectile", "melee"] },
+    "scene": { "type": "string", "minLength": 1 },
+    "stats": { "type": "object" }
+  }
+}
