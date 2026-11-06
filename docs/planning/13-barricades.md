@@ -91,10 +91,10 @@ spawn fora → aproxima → arranca tábua → ... → 0 tábuas → climb → d
 
 ## Roadmap
 
-| Fase | Entrega |
+| Etapa | Entrega |
 |---|---|
-| Conteúdo | Schema e dados JSON de barricadas |
-| Gameplay | `BarricadeSystem`, hold F, tear/climb, pontos |
-| Interações | HUD/progresso, áudio/VFX, authoring no editor |
-| Quests | Barricadas em quests/mecânicas de mapa |
-| Produção | Save/load do estado das tábuas |
+| Etapa 2 — Conteúdo | Schema e dados JSON de barricadas |
+| Etapa 3 — Gameplay | `BarricadeSystem`, hold F, tear/climb, pontos |
+| Etapa 4 — Interações | HUD/progresso, áudio/VFX, authoring no editor |
+| Etapa 6 — Quests | Barricadas em quests/mecânicas de mapa |
+| Etapa 8 — Produção | Save/load do estado das tábuas |

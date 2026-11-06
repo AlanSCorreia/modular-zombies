@@ -2,8 +2,8 @@
 
 ## Estado na v2
 
-**Planejado para Ferramentas; ainda não implementado.** O plugin `bunker_tools` não
-existe no scaffold atual. A ordem é: Conteúdo (dados) → Gameplay–Interações (loop/UI) → Ferramentas (tools).
+**Planejado para a Etapa 5 — Ferramentas; ainda não implementado.** O plugin `bunker_tools` não
+existe no scaffold atual. A ordem é: Etapa 2 — Conteúdo (dados) → Etapas 3–4 — Gameplay/Interações (loop/UI) → Etapa 5 — Ferramentas.
 
 ## Objetivo
 
@@ -87,7 +87,7 @@ addons/bunker_tools/
 
 | Risco | Mitigação |
 |---|---|
-| Ferramenta antes da base | Só iniciar após fase 2 |
+| Ferramenta antes da base | Só iniciar após a Etapa 2 |
 | API do editor mudar | Fixar versão 4.7.x e testar |
 | Editor complexo demais | MVP primeiro; graph depois |
 | Dados inválidos | Validador obrigatório |

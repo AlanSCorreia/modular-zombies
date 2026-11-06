@@ -9,7 +9,7 @@ serviços e ferramentas de autoria.
 - **Estratégia e decisões:** [`docs/planning/`](docs/planning/)
 - **Legado histórico:** `../zombie-fps-legacy` (não usar como referência de implementação)
 
-## Estado atual — Conteúdo concluído
+## Estado atual: Etapa 2 — Conteúdo concluída
 
 - Vertical slice jogável (sala, porta, zumbi, Glock, HUD).
 - **Bunker 13 completo em JSON + `Bunker13Builder`** (4 salas, 4 portas,
@@ -18,7 +18,7 @@ serviços e ferramentas de autoria.
 - Modelos reorganizados em `assets/models/<categoria>/<id>/`.
 - Git, CI, plugin `bunker_tools` e bench.
 
-Gameplay em andamento: o Bunker 13 já abre com `--map map.bunker13`; faltam
+Etapa 3 — Gameplay em andamento: o Bunker 13 já abre com `--map map.bunker13`; faltam
 janelas, barricadas, faca, explosivos, mãos separadas e 2 slots.
 
 ## Decisões-chave
@@ -49,18 +49,18 @@ source/blender/ .blend e scripts (fora do import do Godot)
 > Modelos reorganizados; faltam as mãos separadas e as fontes `.blend` em `source/`.
 > Detalhes: `docs/planning/11-assets.md`.
 
-## Fases
+## Etapas
 
-| Fase | Status |
+| Etapa | Status |
 |---|---|
-| Preparação (`prep`) | Concluído |
-| Conteúdo (`content`) | Concluído |
-| Gameplay (`gameplay`) | Em andamento |
-| Interações (`interact`) | Backlog |
-| Ferramentas (`tools`) | Backlog |
-| Quests (`quests`) | Backlog |
-| Escala (`scale`) | Backlog |
-| Produção (`prod`) | Backlog |
+| Etapa 1 — Preparação (`etapa1`) | Concluído |
+| Etapa 2 — Conteúdo (`etapa2`) | Concluído |
+| Etapa 3 — Gameplay (`etapa3`) | Em andamento |
+| Etapa 4 — Interações (`etapa4`) | Backlog |
+| Etapa 5 — Ferramentas (`etapa5`) | Backlog |
+| Etapa 6 — Quests (`etapa6`) | Backlog |
+| Etapa 7 — Escala (`etapa7`) | Backlog |
+| Etapa 8 — Produção (`etapa8`) | Backlog |
 
 ## Executar
 
@@ -77,7 +77,7 @@ Atalhos: **Bunker 13 v2** e **Bunker 13 v2 — Editor**.
 WASD mover • Shift correr • Space pular • Mouse mirar/atirar
 R recarregar • F interagir • Clique em INICIAR para capturar o mouse.
 
-> Barricadas, faca (V), granadas e explosivos ainda não estão neste slice; entram na fase de Gameplay.
+> Barricadas, faca (V), granadas e explosivos ainda não estão neste slice; entram na Etapa 3 — Gameplay.
 
 ## Testes
 

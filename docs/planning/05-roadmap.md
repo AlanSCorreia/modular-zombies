@@ -7,18 +7,18 @@ O board operacional é `../../KANBAN.md`.
 
 ## Visão geral
 
-| ID | Fase | Objetivo | Status | Tamanho |
+| ID | Etapa | Objetivo | Status | Tamanho |
 |---|---|---|---|---|
-| `prep` | Preparação | Arquivar v1, scaffold v2, docs e Kanban | **Concluído** | S |
-| `content` | Conteúdo | Definições, registry, validador, Bunker 13 em JSON | **Concluído** | M |
-| `gameplay` | Gameplay | Player, armas, zumbis, barricadas, rodadas, economia | **Em andamento** | L |
-| `interact` | Interações | Portas, compras, caixa, perks, HUD, menus, som | Backlog | M |
-| `tools` | Ferramentas | Criar/validar/testar mapas no editor | Backlog | M |
-| `quests` | Quests | QuestSystem, música, mecânica única, debug | Backlog | L |
-| `scale` | Escala | 2º mapa, armas novas, wonder weapon, inimigo | Backlog | L |
-| `prod` | Produção | Save, settings, export, pools, CI, performance | Backlog | L |
+| `etapa1` | Etapa 1 — Preparação | Arquivar v1, scaffold v2, docs e Kanban | **Concluído** | S |
+| `etapa2` | Etapa 2 — Conteúdo | Definições, registry, validador, Bunker 13 em JSON | **Concluído** | M |
+| `etapa3` | Etapa 3 — Gameplay | Player, armas, zumbis, barricadas, rodadas, economia | **Em andamento** | L |
+| `etapa4` | Etapa 4 — Interações | Portas, compras, caixa, perks, HUD, menus, som | Backlog | M |
+| `etapa5` | Etapa 5 — Ferramentas | Criar/validar/testar mapas no editor | Backlog | M |
+| `etapa6` | Etapa 6 — Quests | QuestSystem, música, mecânica única, debug | Backlog | L |
+| `etapa7` | Etapa 7 — Escala | 2º mapa, armas novas, wonder weapon, inimigo | Backlog | L |
+| `etapa8` | Etapa 8 — Produção | Save, settings, export, pools, CI, performance | Backlog | L |
 
-## Preparação (concluído — tag `prep`)
+## Etapa 1 — Preparação (concluída — tag `etapa1`)
 
 **Entregáveis**
 - v1 arquivada (histórico, não é fonte de verdade).
@@ -31,7 +31,7 @@ O board operacional é `../../KANBAN.md`.
 
 **Aceite:** projeto importa; docs/árvore aprovados; `git` inicializado; `ci.sh` verde.
 
-## Conteúdo (concluído)
+## Etapa 2 — Conteúdo (concluída)
 
 **Entregue**
 - Loader JSON + `ContentValidator`.
@@ -42,18 +42,18 @@ O board operacional é `../../KANBAN.md`.
 - Modelos reorganizados em `assets/models/<categoria>/<id>/`.
 - Testes `CONTENT_OK`, `LOGIC_OK` e `BUNKER13_OK`.
 
-**Passa para Gameplay:** mãos separadas, JSON de faca/explosivos, gameplay completo
+**Passa para a Etapa 3 — Gameplay:** mãos separadas, JSON de faca/explosivos, gameplay completo
 do Bunker 13, 2 slots e barricadas funcionais.
 
 **Aceite:** Bunker 13 carrega 100% por JSON; validador 0 erros; 0 refs de
 asset quebradas; nenhum `if map_id` no núcleo e nenhum conteúdo em `.tres`.
 
-## Gameplay (em andamento)
+## Etapa 3 — Gameplay (em andamento)
 
-**Já entregue na Preparação:** `PlayerController`, `WeaponController` (Glock/hitscan),
+**Já entregue na Etapa 1 — Preparação:** `PlayerController`, `WeaponController` (Glock/hitscan),
 `ZombieEnemy`, HUD e loop mínimo (tiro, recarga, porta, morte).
 
-**Já entregue no Gameplay:** `--map <id>`, `MapBuilderRegistry` (builder no
+**Já entregue na Etapa 3 — Gameplay:** `--map <id>`, `MapBuilderRegistry` (builder no
 JSON), interações de porta/wallbuy/perk/caixa e smoke `MAP_OK` do Bunker 13.
 
 **Pendente**
@@ -69,7 +69,7 @@ JSON), interações de porta/wallbuy/perk/caixa e smoke `MAP_OK` do Bunker 13.
 **Aceite:** Bunker 13 jogável; armas em JSON + `HandsRig`; faca, explosivos e
 barricadas funcionando.
 
-## Interações
+## Etapa 4 — Interações
 
 **Entregáveis**
 - `InteractionSystem` tipado (`Interactable`).
@@ -84,7 +84,7 @@ barricadas funcionando.
 
 **Aceite:** interações, UI e áudio do plano + explosivos/faca (checklist).
 
-## Ferramentas de mapa
+## Etapa 5 — Ferramentas de mapa
 
 **Entregáveis**
 - Launcher “Bunker 13 v2 — Editor”.
@@ -95,7 +95,7 @@ barricadas funcionando.
 
 **Aceite:** criar/duplicar/validar/testar um mapa sem tocar no núcleo.
 
-## Quests e Easter Eggs
+## Etapa 6 — Quests e Easter Eggs
 
 **Entregáveis**
 - `QuestSystem` + `QuestStep`/`Reward`.
@@ -107,7 +107,7 @@ barricadas funcionando.
 
 **Aceite:** música secreta + main quest de 3 passos jogáveis.
 
-## Escala de conteúdo
+## Etapa 7 — Escala de conteúdo
 
 **Entregáveis**
 - Segundo mapa com 2 mecânicas únicas.
@@ -118,7 +118,7 @@ barricadas funcionando.
 
 **Aceite:** novo mapa/arma sem alterar o núcleo; validador e testes verdes.
 
-## Produção
+## Etapa 8 — Produção
 
 **Entregáveis**
 - Save/load versionado.
@@ -155,7 +155,7 @@ barricadas funcionando.
 |---|---|---|
 | Reescrita longa | Alto | Fatias verticais jogáveis |
 | Perder polish | Alto | Paridade checklist |
-| Ferramenta antes da base | Médio | Ferramentas só após Interações |
+| Ferramenta antes da base | Médio | Etapa 5 só após a Etapa 4 |
 | Conteúdo inválido | Alto | Validador + CI |
 | Performance em iGPU | Médio | Orçamento por mapa |
 | Escopo crescer | Alto | Não-objetivos e Kanban |

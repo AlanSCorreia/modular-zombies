@@ -28,16 +28,16 @@ texturas e áudio em `assets/`, fontes em `source/`.
 
 ## Escopo por fase
 
-| Fase | Escopo |
+| Etapa | Escopo |
 |---|---|
-| Preparação | Preparação, scaffold, docs e Kanban |
-| Conteúdo | JSON schemas, loader, validador, assets organizados e Bunker 13 em JSON |
-| Gameplay | Loop: player, armas, faca, explosivos, zumbis, barricadas, rodadas, economia |
-| Interações | Interações, traps/props explosivos, HUD, menus e áudio |
-| Ferramentas | Ferramentas de mapa no editor |
-| Quests | Quests/Easter Eggs |
-| Escala | Segundo mapa, armas novas e escala |
-| Produção | Save, settings, exportação, CI e performance |
+| Etapa 1 — Preparação | Preparação, scaffold, docs e Kanban |
+| Etapa 2 — Conteúdo | JSON schemas, loader, validador, assets organizados e Bunker 13 em JSON |
+| Etapa 3 — Gameplay | Loop: player, armas, faca, explosivos, zumbis, barricadas, rodadas, economia |
+| Etapa 4 — Interações | Interações, traps/props explosivos, HUD, menus e áudio |
+| Etapa 5 — Ferramentas | Ferramentas de mapa no editor |
+| Etapa 6 — Quests | Quests/Easter Eggs |
+| Etapa 7 — Escala | Segundo mapa, armas novas e escala |
+| Etapa 8 — Produção | Save, settings, exportação, CI e performance |
 
 ## Não-objetivos
 

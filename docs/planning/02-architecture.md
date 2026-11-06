@@ -17,15 +17,15 @@ stringly typed. A v2 **reescreve o runtime** para eliminar esses limites.
 | Glock como caso especial no viewmodel | Todas as armas iguais + mãos compartilhadas |
 | Strings de estado | Enums/state machines |
 | Testes dentro do jogo | `tests/` + harness |
-| Navmesh rebake em runtime | Variantes pré-bakeadas (Produção) |
+| Navmesh rebake em runtime | Variantes pré-bakeadas (Etapa 8 — Produção) |
 
-## Estado atual (Preparação concluída)
+## Estado atual (Etapa 1 — Preparação concluída)
 
 Já existe: `project.godot`, `main.tscn`, `Events`, `Content`, `Sfx`, `GameRoot`,
 `PlayerController`, `WeaponController` (Glock), `ZombieEnemy`, `SliceHUD`,
 loader/validador JSON, plugin `bunker_tools`, CI local e vertical slice jogável.
 
-Pendente para Conteúdo/Gameplay: Bunker 13 completo em JSON, reorganização de assets,
+Pendente para as Etapas 2–3: Bunker 13 completo em JSON, reorganização de assets,
 5 armas, faca, explosivos, barricadas, rodadas/economia completas e UI/áudio finais.
 
 ## Arquitetura alvo
@@ -257,14 +257,14 @@ source/
 
 | Etapa | Entrega |
 |---|---|
-| Preparação | Scaffold, docs, Kanban, importação validada |
-| Conteúdo | JSON schemas + loader + validador + Bunker 13 em dados |
-| Gameplay | Player, armas, faca, explosivos, zumbis, barricadas, rodadas |
-| Interações | Interações, HUD e áudio |
-| Ferramentas | Ferramentas de mapa no editor |
-| Quests | QuestSystem + Easter Eggs |
-| Escala | 2º mapa + armas novas |
-| Produção | Save, settings, export, performance |
+| Etapa 1 — Preparação | Scaffold, docs, Kanban, importação validada |
+| Etapa 2 — Conteúdo | JSON schemas + loader + validador + Bunker 13 em dados |
+| Etapa 3 — Gameplay | Player, armas, faca, explosivos, zumbis, barricadas, rodadas |
+| Etapa 4 — Interações | Interações, HUD e áudio |
+| Etapa 5 — Ferramentas | Ferramentas de mapa no editor |
+| Etapa 6 — Quests | QuestSystem + Easter Eggs |
+| Etapa 7 — Escala | 2º mapa + armas novas |
+| Etapa 8 — Produção | Save, settings, export, performance |
 
 ## Decisão de linguagem
 
@@ -278,7 +278,7 @@ profiling. Ver `07-adr/0001-gdscript-vs-csharp.md`.
 |---|---|
 | Perder polish na reescrita | Paridade checklist antes da troca |
 | Refatoração longa | Fatias verticais jogáveis |
-| Ferramenta antes da base | Ferramentas só após Conteúdo–Interações |
+| Ferramenta antes da base | Etapa 5 só após as Etapas 2–4 |
 | Quest complexa | Framework de passos + script de escape |
 | Conteúdo inválido | Validador + CI |
 | Performance | Orçamento por mapa e profiling |

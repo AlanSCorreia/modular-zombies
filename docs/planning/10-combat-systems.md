@@ -124,10 +124,10 @@ como nos CoDs, com dano, alcance curto e feedback.
 
 ## Roadmap
 
-| Fase | Entrega |
+| Etapa | Entrega |
 |---|---|
-| Conteúdo | JSON de explosivos/melee + validator |
-| Gameplay | `ExplosionSystem`, granada, lança-foguete, barris, faca |
-| Interações | Traps, props explosivos no mapa, VFX/SFX/HUD |
-| Escala | Variantes (faca melhorada, explosivos wonder) |
-| Produção | Pools e orçamento de performance |
+| Etapa 2 — Conteúdo | JSON de explosivos/melee + validator |
+| Etapa 3 — Gameplay | `ExplosionSystem`, granada, lança-foguete, barris, faca |
+| Etapa 4 — Interações | Traps, props explosivos no mapa, VFX/SFX/HUD |
+| Etapa 7 — Escala | Variantes (faca melhorada, explosivos wonder) |
+| Etapa 8 — Produção | Pools e orçamento de performance |

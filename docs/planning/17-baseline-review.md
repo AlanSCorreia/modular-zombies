@@ -1,7 +1,7 @@
-# Revisão de linha de base — Gameplay
+# Revisão de linha de base da Etapa 3 — Gameplay
 
 **Data:** 2026-11-06  
-**Escopo:** estado após Conteúdo (repo limpo e publicado), antes de iniciar Gameplay.  
+**Escopo:** estado após a Etapa 2 — Conteúdo (repo limpo e publicado), antes de iniciar a Etapa 3 — Gameplay.  
 **Método:** três subagentes somente leitura (`explorer`, `test-reviewer` e
 `content-checker`) + CI local.
 
@@ -17,12 +17,12 @@
 - `--map <id>` + `MapBuilderRegistry`: o builder agora vem do JSON.
 - Interações base implementadas: porta, wallbuy, perk e caixa.
 - `GameRoot` usa `map.enemy_id` e `map.zombie_count`.
-- `WeaponController` lê `audio` e `scale` do JSON.
+- `WeaponController` lê `audio` e `etapa7` do JSON.
 - CI ganhou o smoke do Bunker 13 (`MAP_OK`) com compras.
 - Continuam abertos: janelas/barricadas/IA, `hands.glb`, 2 slots e o teste de
   integração com falsos positivos.
 
-## P0 — bloqueiam o Gameplay
+## P0 — bloqueiam a Etapa 3 — Gameplay
 
 | # | Achado | Evidência | Ação |
 |---|---|---|---|
@@ -36,7 +36,7 @@
 | 8 | Não há 2 slots: um único `WeaponController`; `weapon_changed` nunca é emitido. | `src/gameplay/player/player_controller.gd:60-64`; `src/core/event_bus.gd:14` | Inventário de 2 slots |
 | 9 | O teste de integração tem falsos positivos: pontos por acerto, spawn incondicional e reload forçado. | `src/gameplay/game_root.gd:176-202` | Testar morte, kill, porta e recarga reais |
 
-## P1 — dívida que atrapalha o Gameplay
+## P1 — dívida que atrapalha a Etapa 3 — Gameplay
 
 - Builders duplicados: `SliceBuilder` vs `Bunker13Builder`
   (`src/maps/slice/slice_builder.gd:23-54` vs `src/maps/bunker13/builder.gd:37-74`);
@@ -78,10 +78,10 @@
 ## Decisão
 
 - A base de conteúdo está **OK**; a arquitetura de gameplay **não está pronta**
-  para Gameplay.
+  para a Etapa 3 — Gameplay.
 - **Não começar por MP5:** ela depende de `hands.glb` e de um viewmodel
   data-driven.
-- Primeiro item de Gameplay: harness de testes + `--map` + generalização mínima do
+- Primeiro item da Etapa 3 — Gameplay: harness de testes + `--map` + generalização mínima do
   `GameRoot`.
 - A revisão confirma o item já registrado ("Bunker 13 jogável") e promove o
   harness de testes a P0.

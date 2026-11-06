@@ -24,23 +24,23 @@
 
 ## Visão geral
 
-| ID | Fase | Status | Foco atual |
+| ID | Etapa | Status | Foco atual |
 |---|---|---|---|
-| `prep` | Preparação | **Concluído** | — |
-| `content` | Conteúdo | **Concluído** | — |
-| `gameplay` | Gameplay | **Em andamento** | Bunker 13: janelas, barricadas e IA |
-| `interact` | Interações | Backlog | — |
-| `tools` | Ferramentas de mapa | Backlog | — |
-| `quests` | Quests e Easter Eggs | Backlog | — |
-| `scale` | Escala de conteúdo | Backlog | — |
-| `prod` | Produção | Backlog | — |
+| `etapa1` | Etapa 1 — Preparação | **Concluído** | — |
+| `etapa2` | Etapa 2 — Conteúdo | **Concluído** | — |
+| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Bunker 13: janelas, barricadas e IA |
+| `etapa4` | Etapa 4 — Interações | Backlog | — |
+| `etapa5` | Etapa 5 — Ferramentas de mapa | Backlog | — |
+| `etapa6` | Etapa 6 — Quests e Easter Eggs | Backlog | — |
+| `etapa7` | Etapa 7 — Escala de conteúdo | Backlog | — |
+| `etapa8` | Etapa 8 — Produção | Backlog | — |
 
-> **Status:** Preparação e Conteúdo concluídos. Bunker 13 carrega por JSON (`BUNKER13_OK`);
-> o foco agora é Gameplay (barricadas, faca, explosivos e loop completo).
+> **Status:** Etapas 1 e 2 concluídas. Bunker 13 carrega por JSON (`BUNKER13_OK`);
+> o foco agora é a Etapa 3 — Gameplay (barricadas, faca, explosivos e loop completo).
 
 ---
 
-# Preparação
+# Etapa 1 — Preparação
 
 **Objetivo:** arquivar a v1, criar a v2 e validar a base.  
 **Aceite:** projeto v2 abre no Godot; assets presentes; regras de escopo aprovadas.
@@ -65,10 +65,10 @@
 - [x] Criar este Kanban
 - [x] Copiar docs de planejamento para a v2
 - [x] Criar `README.md` da v2
-- [x] Atualizar docs v2 com decisões atuais (Preparação–Produção, rewrite, C#, tools, JSON, explosivos/faca)
+- [x] Atualizar docs v2 com decisões atuais (Etapas 1–8, rewrite, C#, tools, JSON, explosivos/faca)
 - [x] Definir JSON como fonte de conteúdo
 - [x] Definir árvore de assets (`assets/`, `source/`, `content/`, `schemas/`)
-- [x] Revisar arquitetura e aprovar fases Conteúdo–Produção
+- [x] Revisar arquitetura e aprovar Etapas 2–8
 - [x] Definir que a v1 é apenas histórica
 - [x] Criar `Sfx` e `GameRoot`
 - [x] Plugin `bunker_tools` (dock)
@@ -76,7 +76,7 @@
 - [x] Git + `.gitignore` + commit inicial
 - [x] CI local (`tests/ci.sh`) e bench (`tests/bench.sh`)
 - [x] Conteúdo JSON + loader + validador
-- [x] Commit do slice + tag `prep`
+- [x] Commit do slice + tag `etapa1`
 - [x] Vertical slice jogável
 - [x] Bench: 42–61 FPS, 135 draw calls, 66 MB
 - [x] Launcher “Bunker 13 v2 — Editor”
@@ -87,7 +87,7 @@
 
 ---
 
-# Conteúdo
+# Etapa 2 — Conteúdo
 
 **Objetivo:** mapa e conteúdo em JSON; sem `if map_id` no núcleo.  
 **Aceite:** Bunker 13 carrega por JSON; validador sem erros; zero conteúdo em `.tres`; 0 refs de asset quebradas.
@@ -119,7 +119,7 @@
 
 ---
 
-# Gameplay
+# Etapa 3 — Gameplay
 
 **Objetivo:** loop completo + combate com explosivos e faca.  
 **Aceite:** Bunker 13 jogável; armas usam JSON + `HandsRig`; faca, explosivos e barricadas funcionando.
@@ -184,7 +184,7 @@
 
 ---
 
-# Interações
+# Etapa 4 — Interações
 
 **Objetivo:** conteúdo e apresentação completos.  
 **Aceite:** portas, wallbuys, caixa, perks, explosivos/faca, HUD, pause e áudio funcionando.
@@ -220,7 +220,7 @@
 
 ---
 
-# Ferramentas de mapa
+# Etapa 5 — Ferramentas de mapa
 
 **Objetivo:** criar, validar e testar mapas no editor.  
 **Aceite:** mapa novo criado/duplicado/validado/testado sem tocar no núcleo.
@@ -254,7 +254,7 @@
 
 ---
 
-# Quests e Easter Eggs
+# Etapa 6 — Quests e Easter Eggs
 
 **Objetivo:** autorar segredos sem código no núcleo.  
 **Aceite:** música secreta + main quest de 3 passos jogáveis.
@@ -291,7 +291,7 @@
 
 ---
 
-# Escala de conteúdo
+# Etapa 7 — Escala de conteúdo
 
 **Objetivo:** provar que o framework escala.  
 **Aceite:** 2º mapa + arma nova sem mudar o núcleo.
@@ -323,7 +323,7 @@
 
 ---
 
-# Produção
+# Etapa 8 — Produção
 
 **Objetivo:** versão distribuível e estável.  
 **Aceite:** build standalone, FPS ≥ 40 na iGPU, zero softlocks.

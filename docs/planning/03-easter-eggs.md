@@ -83,9 +83,9 @@ reutilizáveis. O erro é hardcodar cada mapa no núcleo.
 
 | Egg clássico | Como vira dados |
 |---|---|
-| Música secreta (3 objetos) | JSON de quest tipo `music` + 3 passos `interact` + reward `music` |
-| Rádio/cifra | Passo `interact` + reward `lore` |
-| Wonder weapon build | 3 passos `collect` + 1 `interact` + reward `weapon` |
+| Música secreta (3 objetos) | JSON de quest tipo `music` + 3 passos `etapa4` + reward `music` |
+| Rádio/cifra | Passo `etapa4` + reward `lore` |
+| Wonder weapon build | 3 passos `collect` + 1 `etapa4` + reward `weapon` |
 | Main quest | Grafo de 5–15 passos + `boss` + reward `ending` |
 | Perk grátis | Passo `puzzle`/`sequence` + reward `perk` |
 | Co-op | `requires_coop` + passos com múltiplos jogadores |
@@ -99,10 +99,10 @@ reutilizáveis. O erro é hardcodar cada mapa no núcleo.
 - Testar solo e co-op quando aplicável.
 - RNG controlado e documentado.
 
-## Aplicação na v2 (Quests)
+## Aplicação na v2 (Etapa 6 — Quests)
 
 - O catálogo acima é referência de **padrões**, não uma lista de cópias.
-- A v2 implementará o framework em Quests, não os eggs individualmente.
+- A v2 implementará o framework na Etapa 6 — Quests, não os eggs individualmente.
 - Primeiro egg de teste: **3 rádios no Bunker 13** → música + pontos.
 - Mecânica única de mapa: `Bunker13PowerMechanic` (interruptor de energia).
 - Tudo validado por `QuestValidator` (IDs, ciclos, passos órfãos e softlocks).

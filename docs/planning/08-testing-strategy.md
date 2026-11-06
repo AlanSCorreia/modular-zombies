@@ -12,18 +12,18 @@
 | Performance | FPS, bake, memória | Benchmark por mapa |
 | Manual | Game feel, áudio, input | Checklist de release |
 
-## Portões por fase
+## Portões por etapa
 
-| Fase | Portão |
+| Etapa | Portão |
 |---|---|
-| Preparação | Importa; docs/Kanban aprovados; Git/CI prontos |
-| Conteúdo | Bunker 13 por JSON; assets organizados; 0 refs quebradas |
-| Gameplay | Loop jogável; explosivos, faca, barricadas e workflow de arma testados |
-| Interações | Interações, UI e áudio do plano |
-| Ferramentas | Criar/validar/testar mapa no editor |
-| Quests | Música + main quest de 3 passos; grafo válido |
-| Escala | 2º mapa/armas sem mudar núcleo |
-| Produção | Build exportado; FPS ≥ 40; zero softlocks |
+| Etapa 1 — Preparação | Importa; docs/Kanban aprovados; Git/CI prontos |
+| Etapa 2 — Conteúdo | Bunker 13 por JSON; assets organizados; 0 refs quebradas |
+| Etapa 3 — Gameplay | Loop jogável; explosivos, faca, barricadas e workflow de arma testados |
+| Etapa 4 — Interações | Interações, UI e áudio do plano |
+| Etapa 5 — Ferramentas | Criar/validar/testar mapa no editor |
+| Etapa 6 — Quests | Música + main quest de 3 passos; grafo válido |
+| Etapa 7 — Escala | 2º mapa/armas sem mudar núcleo |
+| Etapa 8 — Produção | Build exportado; FPS ≥ 40; zero softlocks |
 
 ## Comandos
 
