@@ -38,12 +38,12 @@
 > **Status:** Etapas 1 e 2 concluídas. Bunker 13 carrega por JSON (`BUNKER13_OK`);
 > o foco agora é a Etapa 3 — Gameplay.
 
-## Norte
+## Próximo item
 
 - **Etapa ativa:** 3 — Gameplay.
-- **Item atual (Doing):** migrar a geometria do mapa para cena autoral.
+- **Agora (Doing):** migrar a geometria do mapa para cena autoral.
+- **Depois:** topo de `Ready` da etapa ativa quando o `Doing` estiver vazio.
 - **Próxima etapa:** 4 — Interações, somente após o aceite da Etapa 3.
-- **Próximo item:** topo de `Ready` quando o `Doing` estiver vazio.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
 ---

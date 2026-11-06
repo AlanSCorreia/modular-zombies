@@ -33,7 +33,7 @@
 - Uma etapa ativa por vez; no máximo **1 item em Doing**.
 - Responder e documentar em português.
 
-## Norte e registro
+## Próximo item e registro
 
 - Antes de agir, leia `KANBAN.md`, `docs/planning/05-roadmap.md`,
   `06-backlog.md`, `19-decision-log.md` e `20-work-log.md`.

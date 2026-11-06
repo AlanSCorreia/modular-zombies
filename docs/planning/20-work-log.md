@@ -15,7 +15,7 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   `overview.blend`.
 - Regra de assets autorais documentada em `18-authored-assets.md`.
 - Criados `19-decision-log.md` e `20-work-log.md`; `AGENTS.md`, Kanban, roadmap e
-  backlog agora definem o Norte e o critério de avanço de etapa.
+  backlog agora definem o próximo item e o critério de avanço de etapa.
 
 **Testes**
 - `LOGIC_OK`, `CONTENT_OK`, `BUNKER13_OK`, `MAP_OK`, `SLICE_OK`, `CI_OK`.

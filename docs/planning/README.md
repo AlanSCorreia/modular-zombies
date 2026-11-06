@@ -12,8 +12,8 @@
 - Vertical slice jogável + Bunker 13 em JSON/`Bunker13Builder`; testes `SLICE_OK` e `BUNKER13_OK`.
 - Barricadas estão planejadas para a Etapa 3 — Gameplay (`13-barricades.md`).
 - Modelos reorganizados; fontes `.blend` já existem em `source/blender/`.
-- **Norte:** `KANBAN.md` + `05-roadmap.md`; decisões em `19-decision-log.md` e
-  avanços em `20-work-log.md`.
+- **Execução:** `KANBAN.md` + `05-roadmap.md`; decisões em `19-decision-log.md`
+  e avanços em `20-work-log.md`.
 
 ## Decisões atuais
 
