@@ -58,6 +58,12 @@ func _ready() -> void:
 	camera.add_child(fill)
 
 func setup_weapon(data: WeaponData) -> void:
+	equip_weapon(data)
+
+func equip_weapon(data: WeaponData) -> void:
+	if weapon != null:
+		weapon.queue_free()
+		weapon = null
 	weapon = WeaponController.new()
 	weapon.name = "Weapon"
 	weapon.setup(data, camera, self)
@@ -123,6 +129,10 @@ func _update_interaction() -> void:
 			match String(data.get("kind", "")):
 				"door":
 					text = "[F] %s — %d" % [data.get("name", "ABRIR"), int(data.get("cost", 0))]
+				"wallbuy", "perk":
+					text = "[F] COMPRAR %s — %d" % [data.get("name", ""), int(data.get("cost", 0))]
+				"box":
+					text = "[F] ABRIR CAIXA — %d" % int(data.get("cost", 0))
 			Events.prompt_changed.emit(text, not text.is_empty())
 			if text != "":
 				var f := Input.is_physical_key_pressed(KEY_F)

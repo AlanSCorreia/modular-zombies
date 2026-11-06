@@ -7,6 +7,8 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary)
 		var m: MapData = maps[id]
 		if m.id == "" or m.name == "":
 			errors.append("map %s: id/name vazios" % id)
+		if m.builder == "":
+			errors.append("map %s: builder ausente" % id)
 		if m.rooms.is_empty():
 			errors.append("map %s: sem rooms" % id)
 		if m.doors.size() > 0 and m.rooms.is_empty():

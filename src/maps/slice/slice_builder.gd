@@ -18,7 +18,15 @@ func build(parent: Node3D, data: MapData) -> Dictionary:
 	_build_shared_wall()
 	_build_door()
 	_build_lights()
-	return { "doors": doors, "spawns": spawns, "lights": lights }
+	return {
+		"doors": doors,
+		"wallbuys": {},
+		"perks": {},
+		"box": {},
+		"barricades": {},
+		"spawns": spawns,
+		"lights": lights,
+	}
 
 func _mat_wall() -> StandardMaterial3D:
 	return MatLib.textured("concrete_wall_008", 0.30)

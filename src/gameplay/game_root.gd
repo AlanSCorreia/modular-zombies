@@ -12,6 +12,7 @@ var points := 0
 var started := false
 var door_open := false
 var spawned := 0
+var owned_perks: Array[String] = []
 var _complete := false
 
 func _ready() -> void:
@@ -20,14 +21,20 @@ func _ready() -> void:
 	get_viewport().scaling_3d_scale = 0.75
 	_setup_environment()
 
-	map = Content.get_map("map.slice")
+	var args := OS.get_cmdline_user_args()
+	var map_id := MapArgs.map_id_from_args(args)
+	map = Content.get_map(map_id)
 	weapon_data = Content.get_weapon("weapon.glock17")
-	enemy_data = Content.get_enemy("enemy.zombie")
+	enemy_data = Content.get_enemy(map.enemy_id) if map != null else null
 	if map == null or weapon_data == null or enemy_data == null:
-		push_error("Conteúdo do slice incompleto")
+		push_error("Conteúdo incompleto para o mapa '%s'" % map_id)
 		return
 
-	ctx = SliceBuilder.new().build(self, map)
+	var builder := MapBuilderRegistry.create(map.builder)
+	if builder == null:
+		push_error("Builder inválido para o mapa %s: %s" % [map.id, map.builder])
+		return
+	ctx = builder.build(self, map)
 
 	player = PlayerController.new()
 	player.name = "Player"
@@ -37,6 +44,7 @@ func _ready() -> void:
 	hud = SliceHUD.new()
 	hud.name = "HUD"
 	add_child(hud)
+	hud.set_map_name(map.name)
 	hud.start_requested.connect(_start)
 	hud.restart_requested.connect(_restart)
 
@@ -51,9 +59,10 @@ func _ready() -> void:
 	Events.player_died.connect(_on_player_died)
 	hud.show_start()
 
-	var args := OS.get_cmdline_user_args()
 	if "--test" in args:
 		_run_test.call_deferred()
+	elif "--smoke" in args:
+		_run_smoke.call_deferred()
 	elif "--shot" in args:
 		_run_shot.call_deferred()
 	elif "--ui" in args:
@@ -105,20 +114,18 @@ func _start() -> void:
 	hud.hide_start()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	player.can_control = true
-	_spawn("zA")
-	Events.banner.emit("SLICE", "MATE O ZUMBI E ABRA A PORTA", 2.5)
+	_spawn_initial()
+	Events.banner.emit(map.name.to_upper(), "SOBREVIVA E ABRA AS PORTAS", 2.5)
 
-func _spawn(spawn_id: String) -> void:
-	var spawn: SpawnData = null
-	for s in map.zombie_spawns:
-		if s.id == spawn_id:
-			spawn = s
-			break
-	if spawn == null:
-		return
+func _spawn_initial() -> void:
+	var total := mini(map.zombie_count, map.zombie_spawns.size())
+	for i in range(total):
+		_spawn_at(map.zombie_spawns[i].position)
+
+func _spawn_at(pos: Vector3) -> void:
 	var z := ZombieEnemy.new()
 	z.setup(enemy_data, player)
-	z.position = spawn.position
+	z.position = pos
 	add_child(z)
 	zombies.append(z)
 	spawned += 1
@@ -128,26 +135,43 @@ func _on_zombie_killed(z: ZombieEnemy, headshot: bool) -> void:
 	points += 100 if headshot else 50
 	Events.points_changed.emit(points)
 	Events.banner.emit("ZUMBI ELIMINADO", "+%d PONTOS" % (100 if headshot else 50), 1.2)
-	if door_open and zombies.is_empty() and not _complete:
+	if zombies.is_empty() and not _complete:
 		_complete = true
-		Events.banner.emit("SLICE COMPLETO", "PRESSIONE R PARA REINICIAR", 5.0)
+		Events.banner.emit("ÁREA LIMPA", "PRESSIONE R PARA REINICIAR", 5.0)
 
 func _on_zombie_hit(_z: ZombieEnemy, _damage: float, _head: bool, _pos: Vector3) -> void:
 	points += 10
 	Events.points_changed.emit(points)
 
 func _on_interacted(id: String, _who: Node) -> void:
-	if id != "door1" or door_open:
-		return
+	if ctx.doors.has(id):
+		_buy_door(id)
+	elif ctx.wallbuys.has(id):
+		_buy_wallbuy(id)
+	elif ctx.perks.has(id):
+		_buy_perk(id)
+	elif id == "box":
+		_buy_box()
+
+func _can_pay(cost: int) -> bool:
+	if points >= cost:
+		return true
+	Events.banner.emit("PONTOS INSUFICIENTES", "FALTAM %d" % (cost - points), 1.6)
+	return false
+
+func _spend(cost: int) -> void:
+	points -= cost
+	Events.points_changed.emit(points)
+
+func _buy_door(id: String) -> void:
 	var info: Dictionary = ctx.doors.get(id, {})
-	if info.is_empty():
+	if info.is_empty() or bool(info.get("open", false)):
 		return
 	var d: DoorData = info.data
-	if points < d.cost:
-		Events.banner.emit("PONTOS INSUFICIENTES", "FALTAM %d" % (d.cost - points), 1.6)
+	if not _can_pay(d.cost):
 		return
-	points -= d.cost
-	Events.points_changed.emit(points)
+	_spend(d.cost)
+	info["open"] = true
 	door_open = true
 	var node: Node3D = info.node
 	var body: Node = info.body
@@ -159,8 +183,52 @@ func _on_interacted(id: String, _who: Node) -> void:
 	var tw := create_tween()
 	tw.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	tw.tween_property(node, "position:y", node.position.y + 2.8, 0.7)
-	Events.banner.emit("SETOR B ABERTO", "", 1.5)
-	_spawn("zB")
+	Events.banner.emit("SETOR %s ABERTO" % d.room, "", 1.5)
+
+func _buy_wallbuy(id: String) -> void:
+	var info: Dictionary = ctx.wallbuys.get(id, {})
+	if info.is_empty():
+		return
+	var wb: WallBuyData = info.data
+	var w: WeaponData = Content.get_weapon(wb.weapon_id)
+	if w == null:
+		Events.banner.emit("ARMA INDISPONÍVEL", wb.name, 1.5)
+		return
+	if not _can_pay(wb.cost):
+		return
+	_spend(wb.cost)
+	player.equip_weapon(w)
+	Events.banner.emit(w.name, "COMPRADO", 1.5)
+
+func _buy_perk(id: String) -> void:
+	var info: Dictionary = ctx.perks.get(id, {})
+	if info.is_empty():
+		return
+	var p: PerkData = info.data
+	if owned_perks.has(id):
+		Events.banner.emit(p.name, "JÁ ADQUIRIDO", 1.2)
+		return
+	if not _can_pay(p.cost):
+		return
+	_spend(p.cost)
+	owned_perks.append(id)
+	Events.banner.emit(p.name, "ADQUIRIDO", 1.5)
+
+func _buy_box() -> void:
+	if ctx.box.is_empty():
+		return
+	var cost := int(ctx.box.data.cost)
+	if not _can_pay(cost):
+		return
+	_spend(cost)
+	var ids: Array = Content.weapons.keys()
+	if ids.is_empty():
+		return
+	var w: WeaponData = Content.get_weapon(String(ids[randi() % ids.size()]))
+	if w == null:
+		return
+	player.equip_weapon(w)
+	Events.banner.emit("CAIXA MISTERIOSA", w.name, 2.0)
 
 func _on_player_died() -> void:
 	hud.show_gameover()
@@ -172,6 +240,53 @@ func _restart() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if _complete and event is InputEventKey and event.pressed and event.keycode == KEY_R:
 		_restart()
+
+func _run_smoke() -> void:
+	_start()
+	points = 20000
+	Events.points_changed.emit(points)
+	await get_tree().create_timer(0.3).timeout
+	var ok: bool = player != null and not zombies.is_empty() and not ctx.doors.is_empty()
+	var door_ok := false
+	var wallbuy_ok := false
+	var perk_ok := false
+	var box_ok := false
+
+	if not ctx.doors.is_empty():
+		var door_id := String(ctx.doors.keys()[0])
+		var before := points
+		_on_interacted(door_id, player)
+		door_ok = points < before and bool(ctx.doors[door_id].get("open", false))
+		ok = ok and door_ok
+
+	if not ctx.wallbuys.is_empty():
+		var wallbuy_id := String(ctx.wallbuys.keys()[0])
+		var before := points
+		_on_interacted(wallbuy_id, player)
+		var wb: WallBuyData = ctx.wallbuys[wallbuy_id].data
+		wallbuy_ok = points < before and player.weapon != null and player.weapon.data.id == wb.weapon_id
+		ok = ok and wallbuy_ok
+
+	if not ctx.perks.is_empty():
+		var perk_id := String(ctx.perks.keys()[0])
+		var before := points
+		_on_interacted(perk_id, player)
+		perk_ok = points < before and owned_perks.has(perk_id)
+		ok = ok and perk_ok
+
+	if not ctx.box.is_empty():
+		var before := points
+		_on_interacted("box", player)
+		box_ok = points < before
+		ok = ok and box_ok
+
+	print("MAP_SMOKE map=%s zombies=%d doors=%d wallbuys=%d perks=%d box=%s door=%s wallbuy=%s perk=%s box_buy=%s" % [
+		map.id, zombies.size(), ctx.doors.size(), ctx.wallbuys.size(),
+		ctx.perks.size(), str(not ctx.box.is_empty()),
+		str(door_ok), str(wallbuy_ok), str(perk_ok), str(box_ok),
+	])
+	print("MAP_OK" if ok else "MAP_FAIL")
+	get_tree().quit(0 if ok else 1)
 
 func _run_test() -> void:
 	_start()

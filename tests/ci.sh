@@ -18,6 +18,9 @@ echo "== conteúdo =="
 echo "== mapa Bunker 13 =="
 "$GODOT" --headless --path . --script res://tests/run_map_build.gd
 
+echo "== smoke Bunker 13 =="
+"$GODOT" --headless --path . -- --map map.bunker13 --smoke
+
 echo "== integração =="
 "$GODOT" --headless --path . -- --test
 

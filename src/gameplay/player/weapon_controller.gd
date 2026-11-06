@@ -41,7 +41,8 @@ func setup(p_data: WeaponData, p_camera: Camera3D, p_player: PlayerController) -
 	viewmodel = Node3D.new()
 	viewmodel.position = Vector3(0.06, -0.14, -0.62)
 	viewmodel.rotation.y = 0.08
-	viewmodel.scale = Vector3(0.78, 0.78, 0.78)
+	var vm_scale := float(data.viewmodel.get("scale", 0.78))
+	viewmodel.scale = Vector3(vm_scale, vm_scale, vm_scale)
 	holder.add_child(viewmodel)
 
 	var packed: PackedScene = load(data.scene)
@@ -140,7 +141,7 @@ func try_fire() -> void:
 	flash_mesh.visible = true
 	flash_mesh.rotation.z = randf() * TAU
 	player.add_recoil(float(data.stats.get("recoil", 1.5)), randf_range(-0.3, 0.3))
-	Sfx.play("gun_pistol", -1.5, randf_range(0.97, 1.03), 0.02)
+	Sfx.play(String(data.audio.get("fire", "gun_pistol")), -1.5, randf_range(0.97, 1.03), 0.02)
 	if anim != null:
 		anim.stop()
 		anim.play("fire_last" if last else "fire")
@@ -181,7 +182,7 @@ func start_reload() -> void:
 	else:
 		_reload_total = float(data.stats.get("reload_chambered", 1.55))
 	_reload_left = _reload_total
-	Sfx.play("reload", -6, 1.0, 0.05)
+	Sfx.play(String(data.audio.get("reload", "reload")), -6, 1.0, 0.05)
 
 func _finish_reload() -> void:
 	var cap := int(data.stats.get("mag", 17))

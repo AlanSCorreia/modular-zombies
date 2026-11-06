@@ -222,7 +222,7 @@ func _build_box() -> void:
 	_box(lid, "LidMesh", Vector3(1.5, 0.1, 0.95), Vector3(0, 0.05, 0.47), _mat_wood(), false)
 	_label(holder, "?", Vector3(0, 0.62, 0.52), 120, Color(0.25, 0.85, 0.95))
 	var area := _area(holder, Vector3(0, 0.6, 0.85), Vector3(2.0, 1.6, 1.4), {
-		"kind": "box", "cost": map.box.cost, "name": "CAIXA MISTERIOSA",
+		"kind": "box", "id": "box", "cost": map.box.cost, "name": "CAIXA MISTERIOSA",
 	})
 	box = { "data": map.box, "node": holder, "lid": lid, "area": area }
 

@@ -8,6 +8,7 @@
     "kind": { "type": "string", "const": "map" },
     "id": { "type": "string", "minLength": 1 },
     "name": { "type": "string", "minLength": 1 },
+    "builder": { "type": "string", "minLength": 1, "default": "slice" },
     "player_spawn": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
     "starting_points": { "type": "integer", "minimum": 0 },
     "enemy": { "type": "string" },

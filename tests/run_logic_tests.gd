@@ -32,7 +32,13 @@ func _init() -> void:
 	check(bunker != null, "mapa Bunker 13 carregado")
 	check(weapon != null, "arma carregada")
 	check(enemy != null, "inimigo carregado")
+	check(MapBuilderRegistry.has("slice"), "builder slice registrado")
+	check(MapBuilderRegistry.has("bunker13"), "builder bunker13 registrado")
+	check(not MapBuilderRegistry.has("inexistente"), "builder desconhecido rejeitado")
+	check(MapArgs.map_id_from_args(PackedStringArray(["--map", "map.bunker13"])) == "map.bunker13", "--map lê o mapa")
+	check(MapArgs.map_id_from_args(PackedStringArray([])) == "map.slice", "--map usa slice por padrão")
 	if map != null:
+		check(map.builder == "slice", "slice usa builder slice")
 		check(map.rooms.size() == 2, "mapa tem 2 salas")
 		check(map.doors.size() == 1, "mapa tem 1 porta")
 		check(map.doors[0].cost == 500, "porta custa 500")
@@ -46,6 +52,7 @@ func _init() -> void:
 		check(weapon.type == "hitscan", "Glock é hitscan")
 		check(weapon.scene.ends_with("weapons/glock17/glock17.glb"), "cena da Glock")
 	if bunker != null:
+		check(bunker.builder == "bunker13", "Bunker 13 usa builder bunker13")
 		check(bunker.rooms.size() == 4, "Bunker 13 tem 4 salas")
 		check(bunker.doors.size() == 4, "Bunker 13 tem 4 portas")
 		check(bunker.wallbuys.size() == 4, "Bunker 13 tem 4 wallbuys")

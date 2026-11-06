@@ -3,6 +3,7 @@ extends RefCounted
 
 var id := ""
 var name := ""
+var builder := "slice"
 var player_spawn := Vector3.ZERO
 var starting_points := 500
 var enemy_id := ""
@@ -19,6 +20,7 @@ static func from_dict(d: Dictionary) -> MapData:
 	var m := MapData.new()
 	m.id = String(d.get("id", ""))
 	m.name = String(d.get("name", ""))
+	m.builder = String(d.get("builder", "slice"))
 	var p: Array = d.get("player_spawn", [0, 0.1, 0])
 	m.player_spawn = Vector3(float(p[0]), float(p[1]), float(p[2]))
 	m.starting_points = int(d.get("starting_points", 500))

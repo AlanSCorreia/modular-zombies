@@ -134,7 +134,7 @@ func _build() -> void:
 	_place(_ammo_res, Vector2(1, 1), Vector2(-112, -66), Vector2(90, 40))
 	root.add_child(_ammo_res)
 
-	_round = _mk("SLICE", 24, COL_TEXT, _font_big)
+	_round = _mk("", 24, COL_TEXT, _font_big)
 	_round.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 	_place(_round, Vector2(0.5, 0), Vector2(-180, 20), Vector2(360, 36))
 	root.add_child(_round)
@@ -169,7 +169,7 @@ func _build() -> void:
 	_damage.color = Color(0.45, 0.0, 0.0, 0.0)
 	root.add_child(_damage)
 
-	_start = _overlay("BUNKER 13", "VERTICAL SLICE\n\nWASD mover • SHIFT correr • MOUSE atirar\nR recarregar • F interagir", "INICIAR", true)
+	_start = _overlay("BUNKER 13", "WASD mover • SHIFT correr • MOUSE atirar\nR recarregar • F interagir", "INICIAR", true)
 	_over = _overlay("VOCÊ MORREU", "O bunker guarda mais um corpo.", "REINICIAR", false)
 	_over.visible = false
 
@@ -256,6 +256,9 @@ func _on_banner(title: String, sub: String, duration: float) -> void:
 	_banner_time = duration
 	_banner.modulate.a = 1.0
 	_banner_sub.modulate.a = 1.0
+
+func set_map_name(map_name: String) -> void:
+	_round.text = map_name.to_upper()
 
 func show_start() -> void:
 	_start.visible = true
