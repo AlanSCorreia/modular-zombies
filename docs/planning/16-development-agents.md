@@ -13,6 +13,7 @@ arquitetura: o agente principal continua responsável por decisões e edições.
 | `explorer` | Mapeia código, cenas, assets e JSON | não | nada (só `read`/`glob`/`grep`) |
 | `test-reviewer` | Revisa diff/regressões e escreve testes | `tests/**` | `git diff/status/log/show`, `./tests/ci.sh`, `./run.sh --headless` |
 | `content-checker` | Valida JSON, referências e mapas | não | `./tests/ci.sh`, `./run.sh --headless` |
+| `doc-keeper` | Mantém KANBAN, logs e issues do GitHub | `KANBAN.md`, `docs/planning/**` | git, CI, `gh issue` |
 
 Arquivos: `.opencode/agents/<id>.md`. O modelo não é fixado; cada subagente
 herda o modelo da sessão pai. As instruções globais do projeto ficam em
@@ -26,6 +27,8 @@ herda o modelo da sessão pai. As instruções globais do projeto ficam em
   rodar o CI.”
 - **Conteúdo novo/alterado:** “Use o `content-checker` para validar
   `content/maps/bunker13.json` e os assets referenciados.”
+- **Fim de bloco/etapa:** “Use o `doc-keeper` para sincronizar KANBAN, work log
+  e issues do GitHub.”
 
 ## Limites
 

@@ -138,7 +138,6 @@ faca, explosivos e barricadas funcionando.
 - [ ] Estatísticas de sessão
 
 ### Ready
-- [ ] Migrar geometria do mapa para cena autoral (GLB/`.tscn`)
 - [ ] `WeaponController` 2 slots
 - [ ] `WeaponController` projectile/melee
 - [ ] `ExplosionSystem` (raio, LOS, falloff, impulso, cadeia)
@@ -167,7 +166,7 @@ faca, explosivos e barricadas funcionando.
 - [ ] `Effects` (sangue, decais, tracers, cápsulas)
 
 ### Doing
-- [ ] Migrar geometria do mapa para cena autoral (GLB/`.tscn`)
+- [ ] Migrar geometria do mapa para cena autoral (GLB/`.tscn`) — [#1](https://github.com/AlanSCorreia/modular-zombies/issues/1)
 
 ### Review/Test
 - [x] Slice: tiro, recarga, zumbi, morte e porta

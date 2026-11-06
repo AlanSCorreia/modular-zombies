@@ -16,6 +16,8 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - Regra de assets autorais documentada em `18-authored-assets.md`.
 - Criados `19-decision-log.md` e `20-work-log.md`; `AGENTS.md`, Kanban, roadmap e
   backlog agora definem o próximo item e o critério de avanço de etapa.
+- Organização híbrida adotada: labels/milestone no GitHub, issue #1 para a
+  migração do mapa e subagente `doc-keeper` para sincronizar snapshot.
 
 **Testes**
 - `LOGIC_OK`, `CONTENT_OK`, `BUNKER13_OK`, `MAP_OK`, `SLICE_OK`, `CI_OK`.

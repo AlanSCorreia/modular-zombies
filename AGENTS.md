@@ -39,6 +39,8 @@
   `06-backlog.md`, `19-decision-log.md` e `20-work-log.md`.
 - O próximo item é o `Doing` do Kanban; se vazio, o topo de `Ready` da etapa
   ativa.
+- Execução: issues/milestones no GitHub; `KANBAN.md` é o snapshot local.
+- O subagente `doc-keeper` sincroniza KANBAN, logs e issues no fim do bloco.
 - **Não perguntar "qual o próximo passo"**: decida pelos arquivos.
 - Toda decisão estrutural nova vai para `19-decision-log.md`; todo avanço
   relevante vai para `20-work-log.md`.

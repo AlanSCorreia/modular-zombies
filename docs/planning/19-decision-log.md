@@ -5,6 +5,7 @@ Decisões estruturais longas também viram ADR em `07-adr/`.
 
 | ID | Data | Decisão | Motivo / consequência |
 |---|---|---|---|
+| D-013 | 2026-11-06 | **Organização híbrida:** docs duráveis no repo; execução (issues/milestones) no GitHub; `KANBAN.md` é snapshot. O subagente `doc-keeper` mantém a consistência. | Dá histórico/notificações no GitHub sem perder o acesso offline dos agentes; evita duplicar status. |
 | D-012 | 2026-11-06 | **Os docs definem a execução.** O próximo item é o `Doing` do Kanban; se vazio, o topo de `Ready` da etapa ativa. Não perguntar próximo passo ao usuário. | Evita interrupção e mantém o trabalho reproduzível. |
 | D-011 | 2026-11-06 | **Nenhum modelo 3D em runtime.** Todo modelo tem `.blend` fonte em `source/blender/` e GLB em `assets/models/`. Mapas usam geometria autoral + JSON de âncoras. | Permite abrir/editar no Blender e evita geometria escondida em GDScript. |
 | D-010 | 2026-11-06 | **Blender 4.5 LTS** é a ferramenta de modelagem. `./blender.sh` abre a visão geral. | Pipeline único para armas, inimigos, props e mapas. |

@@ -75,6 +75,15 @@ source/blender/ .blend e scripts (fora do import do Godot)
 | Etapa 7 — Escala (`etapa7`) | Backlog |
 | Etapa 8 — Produção (`etapa8`) | Backlog |
 
+## Gestão
+
+- Execução: [Issues](https://github.com/AlanSCorreia/modular-zombies/issues) +
+  milestones por etapa.
+- Snapshot local: [`KANBAN.md`](KANBAN.md).
+- Decisões: `docs/planning/19-decision-log.md`; avanços:
+  `docs/planning/20-work-log.md`.
+- O subagente `doc-keeper` mantém a sincronização.
+
 ## Executar
 
 ```bash
