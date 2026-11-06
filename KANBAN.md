@@ -36,7 +36,15 @@
 | `etapa8` | Etapa 8 — Produção | Backlog | — |
 
 > **Status:** Etapas 1 e 2 concluídas. Bunker 13 carrega por JSON (`BUNKER13_OK`);
-> o foco agora é a Etapa 3 — Gameplay (barricadas, faca, explosivos e loop completo).
+> o foco agora é a Etapa 3 — Gameplay.
+
+## Norte
+
+- **Etapa ativa:** 3 — Gameplay.
+- **Item atual (Doing):** migrar a geometria do mapa para cena autoral.
+- **Próxima etapa:** 4 — Interações, somente após o aceite da Etapa 3.
+- **Próximo item:** topo de `Ready` quando o `Doing` estiver vazio.
+- **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
 ---
 
@@ -122,7 +130,8 @@
 # Etapa 3 — Gameplay
 
 **Objetivo:** loop completo + combate com explosivos e faca.  
-**Aceite:** Bunker 13 jogável; armas usam JSON + `HandsRig`; faca, explosivos e barricadas funcionando.
+**Aceite:** Bunker 13 jogável com geometria autoral; armas usam JSON + `HandsRig`;
+faca, explosivos e barricadas funcionando.
 
 ### Backlog
 - [ ] Perk “Gatilho Duplo” com definição
@@ -188,6 +197,8 @@
 ---
 
 # Etapa 4 — Interações
+
+> Inicia após o aceite da Etapa 3 (geometria autoral + Bunker 13 jogável).
 
 **Objetivo:** conteúdo e apresentação completos.  
 **Aceite:** portas, wallbuys, caixa, perks, explosivos/faca, HUD, pause e áudio funcionando.

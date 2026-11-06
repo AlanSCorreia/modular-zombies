@@ -42,6 +42,9 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 
 ## Etapa 3 — Gameplay
 
+> Pré-requisito de saída: ETAPA3.34–36 (geometria autoral). A Etapa 4 só começa
+> depois do aceite da Etapa 3.
+
 | ID | Tarefa | Pri |
 |---|---|---|
 | ETAPA3.1 | `PlayerController` | P0 |
@@ -83,6 +86,8 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.16 | Teste integrado do loop | P0 |
 
 ## Etapa 4 — Interações
+
+> Inicia após o aceite da Etapa 3.
 
 | ID | Tarefa | Pri |
 |---|---|---|

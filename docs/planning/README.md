@@ -11,7 +11,9 @@
 - Etapa atual: **Etapa 2 — Conteúdo concluída; Etapa 3 — Gameplay em andamento** (barricadas/faca/explosivos).
 - Vertical slice jogável + Bunker 13 em JSON/`Bunker13Builder`; testes `SLICE_OK` e `BUNKER13_OK`.
 - Barricadas estão planejadas para a Etapa 3 — Gameplay (`13-barricades.md`).
-- Modelos reorganizados; mãos separadas e fontes `.blend` ficam para a Etapa 3 — Gameplay.
+- Modelos reorganizados; fontes `.blend` já existem em `source/blender/`.
+- **Norte:** `KANBAN.md` + `05-roadmap.md`; decisões em `19-decision-log.md` e
+  avanços em `20-work-log.md`.
 
 ## Decisões atuais
 
@@ -49,6 +51,8 @@
 | `16-development-agents.md` | Subagentes de exploração, revisão e validação |
 | `17-baseline-review.md` | Revisão de base antes da Etapa 3 — Gameplay |
 | `18-authored-assets.md` | Regra de assets autorais e pipeline Blender → GLB |
+| `19-decision-log.md` | Decisões duráveis do projeto |
+| `20-work-log.md` | Registro cronológico de avanços e testes |
 
 ## Como usar
 

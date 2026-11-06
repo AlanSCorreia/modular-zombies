@@ -70,10 +70,14 @@ Blender + fontes `.blend` de todas as armas e do zumbi.
 - `RoundManager`/economia completos e efeitos.
 - Testes de explosivos/faca e loop completo.
 
-**Aceite:** Bunker 13 jogável; armas em JSON + `HandsRig`; faca, explosivos e
-barricadas funcionando.
+**Pré-requisito de saída:** geometria do mapa autoral (ETAPA3.34–36).
+
+**Aceite:** Bunker 13 jogável com geometria autoral; armas em JSON + `HandsRig`;
+faca, explosivos e barricadas funcionando.
 
 ## Etapa 4 — Interações
+
+> Inicia após o aceite da Etapa 3.
 
 **Entregáveis**
 - `InteractionSystem` tipado (`Interactable`).
