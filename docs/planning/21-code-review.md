@@ -14,6 +14,8 @@
 - **Velocidade:** **sim, o estilo atual atrasa** — não pelos docs/CI, mas pela
   arquitetura de runtime. Cada item novo (2 slots, barricadas, IA) exige mexer
   em vários pontos ao mesmo tempo.
+- **Atualização:** 2 slots implementados (`SLOTS_OK`); a factory/mãos completas
+  continuam pendentes. Softlock do Bunker 13 segue como issue #3.
 
 ## Boas práticas presentes
 

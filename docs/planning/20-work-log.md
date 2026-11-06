@@ -54,6 +54,18 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `a99f691` `feat: load authored map geometry from GLB`
 - `4019c1c` `docs: record authored map geometry migration`
 
+**2 slots (issue #2) — concluído**
+- `PlayerController` com dois `WeaponController` independentes; troca por `1`/`2`,
+  scroll e `switch_slot`.
+- `WeaponController.set_active`/`dispose`/`refill`: munição e recarga preservadas,
+  viewmodel antigo liberado, controller inativo sem `_process`.
+- HUD mostra `SLOT N/2` e nome/munição da arma ativa (`slot_changed`).
+- Wallbuys e caixa usam `add_weapon`: não duplicam arma; com slots cheios,
+  substituem o slot ativo.
+- Teste `SLOTS_OK` no CI (troca, munição preservada e sem duplicata).
+- Issue #2 fechada; issue #3 aberta para o softlock do Bunker 13.
+- Commit `e51f172` `feat: add two weapon slots`.
+
 **Correções de input/UI (2026-11-06)**
 - Mouse look restaurado: controles decorativos do HUD (`crosshair`, `hitmarker`,
   `damage`, `prompt`) agora usam `MOUSE_FILTER_IGNORE`; eles consumiam o mouse
@@ -68,8 +80,8 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   screenshot do menu.
 
 **Próximo item (KANBAN)**
-- `WeaponController` 2 slots (issue #2); depois, topo de `Ready`
-  (`WeaponController` projectile/melee).
+- Corrigir softlock do Bunker 13 + spawns alcançáveis (issue #3); depois,
+  `MapContext` tipado + `Interactable`.
 
 ## 2026-11-05 — Etapas 1 e 2 (Preparação/Conteúdo)
 

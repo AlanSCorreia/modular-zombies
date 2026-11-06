@@ -28,22 +28,23 @@
 |---|---|---|---|
 | `etapa1` | Etapa 1 — Preparação | **Concluído** | — |
 | `etapa2` | Etapa 2 — Conteúdo | **Concluído** | — |
-| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | `WeaponController` 2 slots |
+| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Softlock do Bunker 13 / `MapContext` |
 | `etapa4` | Etapa 4 — Interações | Backlog | — |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | Backlog | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | Backlog | — |
 | `etapa7` | Etapa 7 — Escala de conteúdo | Backlog | — |
 | `etapa8` | Etapa 8 — Produção | Backlog | — |
 
-> **Status:** Etapas 1 e 2 concluídas. Bunker 13 carrega por JSON (`BUNKER13_OK`)
-> e a geometria autoral (GLB) está concluída (issue #1, D-014); o foco agora é
-> armas e combate da Etapa 3 — Gameplay.
+> **Status:** Etapas 1 e 2 concluídas. Geometria autoral (GLB) e 2 slots
+> concluídos (issues #1 e #2); o foco agora é corrigir o softlock do Bunker 13
+> e tipar o `MapContext`.
 
 ## Próximo item
 
 - **Etapa ativa:** 3 — Gameplay.
-- **Agora (Doing):** `WeaponController` 2 slots.
-- **Depois:** corrigir softlock do Bunker 13 e tipar `MapContext` (topo de `Ready`).
+- **Agora (Doing):** *(vazio)*.
+- **Próximo:** corrigir softlock do Bunker 13 + spawns alcançáveis (issue #3).
+- **Depois:** `MapContext` tipado + `Interactable`.
 - **Próxima etapa:** 4 — Interações, somente após o aceite da Etapa 3.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -139,7 +140,7 @@ faca, explosivos e barricadas funcionando.
 - [ ] Estatísticas de sessão
 
 ### Ready
-- [ ] Corrigir softlock do Bunker 13 + spawns alcançáveis (P0)
+- [ ] Corrigir softlock do Bunker 13 + spawns alcançáveis (P0) — [#3](https://github.com/AlanSCorreia/modular-zombies/issues/3)
 - [ ] `MapContext` tipado + `Interactable` (P0)
 - [ ] Extrair harness de `GameRoot` para `tests/` (P1)
 - [ ] Pool/cache de tracers, áudio e animações (P1)
@@ -172,7 +173,7 @@ faca, explosivos e barricadas funcionando.
 - [ ] `Effects` (sangue, decais, tracers, cápsulas)
 
 ### Doing
-- [ ] `WeaponController` 2 slots — [#2](https://github.com/AlanSCorreia/modular-zombies/issues/2)
+- *(vazio)*
 
 ### Review/Test
 - [x] Slice: tiro, recarga, zumbi, morte e porta
@@ -180,6 +181,7 @@ faca, explosivos e barricadas funcionando.
 - [x] Smoke do Bunker 13 + compras (`MAP_OK`)
 - [x] Bunker 13 e slice carregam GLB autoral
 - [x] Mouse look, ESC/pause e F na porta
+- [x] 2 slots: troca, munição e HUD (`SLOTS_OK`)
 - [ ] Rodada 1 → 2 e game over completos
 
 ### Done
@@ -199,6 +201,7 @@ faca, explosivos e barricadas funcionando.
 - [x] Fontes `.blend` das 5 armas + zumbi + pistol + mapas (slice, Bunker 13)
 - [x] `source/blender/overview.blend` e scripts de importação
 - [x] Correções de input/UI: mouse look, pause com ESC e F na porta
+- [x] `WeaponController` 2 slots (issue #2)
 
 ### Blocked
 - [ ] MP5 de ponta a ponta — depende de `hands.glb` + `ViewmodelFactory`
