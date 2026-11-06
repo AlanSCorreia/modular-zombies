@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://c648ahq0mjees"
-path="res://.godot/imported/gun_pistol.glb-3be93af5405385e50857c58f7410b1e0.scn"
+uid="uid://bqhgp5fphxhck"
+path="res://.godot/imported/wunder.glb-58ebc94eca3cdeb9f336cbbac003f12b.scn"
 
 [deps]
 
-source_file="res://assets/models/gun_pistol.glb"
-dest_files=["res://.godot/imported/gun_pistol.glb-3be93af5405385e50857c58f7410b1e0.scn"]
+source_file="res://assets/models/weapons/wunder/wunder.glb"
+dest_files=["res://.godot/imported/wunder.glb-58ebc94eca3cdeb9f336cbbac003f12b.scn"]
 
 [params]
 

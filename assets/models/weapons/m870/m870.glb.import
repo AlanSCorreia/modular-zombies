@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://u0x5s4k5gmm3"
-path="res://.godot/imported/gun_wunder.glb-ec5a414c17082192f494f0075f772db5.scn"
+uid="uid://dh7ri8bk3a3ii"
+path="res://.godot/imported/m870.glb-422bbb78cb48de062126dd019959d330.scn"
 
 [deps]
 
-source_file="res://assets/models/gun_wunder.glb"
-dest_files=["res://.godot/imported/gun_wunder.glb-ec5a414c17082192f494f0075f772db5.scn"]
+source_file="res://assets/models/weapons/m870/m870.glb"
+dest_files=["res://.godot/imported/m870.glb-422bbb78cb48de062126dd019959d330.scn"]
 
 [params]
 

@@ -15,6 +15,9 @@ echo "== lógica =="
 echo "== conteúdo =="
 "$GODOT" --headless --path . --script res://tests/run_content_validation.gd
 
+echo "== mapa Bunker 13 =="
+"$GODOT" --headless --path . --script res://tests/run_map_build.gd
+
 echo "== integração =="
 "$GODOT" --headless --path . -- --test
 

@@ -8,10 +8,10 @@
 - A v1 é um protótipo histórico arquivado em `../../../zombie-fps-legacy`; não é fonte de verdade.
 - A v2 é uma **reescrita do runtime**, não uma refatoração incremental.
 - **P0 concluído:** Git, CI, importação, scaffold, vertical slice jogável.
-- Fase atual: **R0 concluído; R1 em andamento** (loader/validador JSON e slice).
-- Vertical slice: uma sala, porta, zumbi, Glock e HUD; testes `SLICE_OK`.
+- Fase atual: **R1 concluído; R2 em andamento** (barricadas/faca/explosivos).
+- Vertical slice jogável + Bunker 13 em JSON/`Bunker13Builder`; testes `SLICE_OK` e `BUNKER13_OK`.
 - Barricadas estão planejadas para R2 (`13-barricades.md`).
-- Os assets ainda estão na árvore antiga; a reorganização está em R1.
+- Modelos reorganizados; mãos separadas e fontes `.blend` ficam em R2.
 
 ## Decisões atuais
 

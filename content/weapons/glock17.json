@@ -4,11 +4,15 @@
   "id": "weapon.glock17",
   "name": "GLOCK 17",
   "type": "hitscan",
-  "scene": "res://assets/models/glock17.glb",
+  "scene": "res://assets/models/weapons/glock17/glock17.glb",
   "hands": "",
   "grip_profile": "pistol",
   "animation_set": "",
-  "moving_parts": ["Slide", "Magazine", "Trigger"],
+  "moving_parts": [
+    "Slide",
+    "Magazine",
+    "Trigger"
+  ],
   "stats": {
     "damage": 34,
     "head_multiplier": 2.0,
@@ -19,5 +23,26 @@
     "range": 120,
     "reload_chambered": 1.55,
     "reload_empty": 2.05
+  },
+  "viewmodel": {
+    "position": [
+      0.18,
+      -0.19,
+      -0.55
+    ],
+    "rotation": [
+      0.0,
+      0.08,
+      0.0
+    ],
+    "scale": 0.78
+  },
+  "reload": {
+    "strategy": "magazine"
+  },
+  "audio": {
+    "fire": "gun_pistol",
+    "reload": "reload",
+    "empty": "reload"
   }
 }

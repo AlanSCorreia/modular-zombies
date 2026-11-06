@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "kind": "weapon",
+  "id": "weapon.ak74",
+  "name": "AK-74",
+  "type": "hitscan",
+  "scene": "res://assets/models/weapons/ak74/ak74.glb",
+  "hands": "",
+  "grip_profile": "rifle",
+  "animation_set": "",
+  "moving_parts": [],
+  "viewmodel": { "position": [0.18, -0.19, -0.55], "rotation": [0.0, 0.08, 0.0], "scale": 0.8 },
+  "stats": {
+    "damage": 52,
+    "head_multiplier": 2.0,
+    "rpm": 600,
+    "mag": 30,
+    "reserve": 210,
+    "spread": 0.015,
+    "range": 150,
+    "reload_chambered": 2.35,
+    "reload_empty": 2.7,
+    "auto": true
+  },
+  "reload": { "strategy": "magazine" },
+  "audio": { "fire": "gun_rifle", "reload": "reload", "empty": "reload" }
+}

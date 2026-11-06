@@ -27,16 +27,16 @@
 | Fase | Nome | Status | Foco atual |
 |---|---|---|---|
 | R0 | Preparação | **Concluído** | — |
-| R1 | Core + conteúdo | **Em andamento** | Reorganizar assets + Bunker 13 JSON |
-| R2 | Loop de gameplay | **Parcial** | Slice jogável |
+| R1 | Core + conteúdo | **Concluído** | — |
+| R2 | Loop de gameplay | **Em andamento** | Barricadas, faca, explosivos e 2 slots |
 | R3 | Interações/UI/áudio | Backlog | — |
 | R4 | Ferramentas de mapa | Backlog | — |
 | R5 | Quests/Easter Eggs | Backlog | — |
 | R6 | Escala de conteúdo | Backlog | — |
 | R7 | Produção | Backlog | — |
 
-> **Status:** P0 concluído. O vertical slice está jogável e testado (`SLICE_OK`);
-> o próximo foco é R1 (assets + Bunker 13 completo).
+> **Status:** P0 e R1 concluídos. Bunker 13 carrega por JSON (`BUNKER13_OK`);
+> o foco agora é R2 (barricadas, faca, explosivos e loop completo).
 
 ---
 
@@ -105,30 +105,25 @@
 **Aceite:** Bunker 13 carrega por JSON; validador sem erros; zero conteúdo em `.tres`; 0 refs de asset quebradas.
 
 ### Backlog
-- [ ] `QuestDefinition`/`RewardDefinition`
-- [ ] `MechanicDefinition`
-- [ ] Templates de mapa vazio/corredor/arena
+- *(vazio)*
 
 ### Ready
-- [ ] `Bunker13Builder` lendo `MapDefinition`
-- [ ] Converter Bunker 13 + 5 armas para JSON
-- [ ] JSON de faca, granada, foguete, barris, traps e barricadas
-- [ ] Pipeline Blender de armas/mãos (todas as armas + mãos separadas)
-- [ ] Validação de assets (paths + importação)
-- [ ] Template de arma + schema completo
-- [ ] Testes de definições e validação
+- *(vazio)*
 
 ### Doing
-- [ ] Reorganizar assets + completar Bunker 13 em JSON
+- *(vazio)*
 
 ### Review/Test
-- [x] `CONTENT_OK` e `LOGIC_OK` no slice
-- [ ] Validar Bunker 13 completo
+- [x] `CONTENT_OK`, `LOGIC_OK` e `BUNKER13_OK`
 
 ### Done
-- [x] DTOs base: `MapData`, `WeaponData`, `EnemyData`
+- [x] DTOs base: `MapData`, `WeaponData`, `EnemyData`, `WallBuyData`, `PerkData`, `BoxData`, `BarricadeData`
 - [x] Loader JSON + `ContentValidator`
-- [x] JSON do slice (mapa, Glock, zumbi)
+- [x] 2 mapas + 5 armas em JSON
+- [x] Bunker 13: 4 salas, 4 portas, 4 wallbuys, 3 perks, caixa, 9 barricadas e 9 spawns
+- [x] `Bunker13Builder` + teste `BUNKER13_OK`
+- [x] Modelos reorganizados em `assets/models/<categoria>/<id>/`
+- [x] Template de arma + schema
 - [x] Testes de conteúdo/lógica
 
 ### Blocked
@@ -152,6 +147,9 @@
 - [ ] Granada (G), lança-foguete e barris explosivos
 - [ ] `MeleeController` (V, corte diagonal, lunge, cooldown)
 - [ ] `Barricade` + `BarricadeSystem` (tábuas, hold F, pontos)
+- [ ] JSON de faca, granada, foguete, barris e traps
+- [ ] Mãos separadas (`hands.glb`) + `GripSocket`
+- [ ] Bunker 13 jogável (spawns, portas, barricadas)
 - [ ] IA de zumbi: arrancar tábua, fila e entrada com 0
 - [ ] Testes de barricada (reparo, interrupção, breach)
 - [ ] Faca GLB + mãos compartilhadas + `knife_slash`
@@ -163,7 +161,7 @@
 - [ ] `Effects` (sangue, decais, tracers, cápsulas)
 
 ### Doing
-- *(vazio)*
+- [ ] Barricadas + faca + explosivos + 2 slots
 
 ### Review/Test
 - [x] Slice: tiro, recarga, zumbi, morte e porta
@@ -257,6 +255,8 @@
 **Aceite:** música secreta + main quest de 3 passos jogáveis.
 
 ### Backlog
+- [ ] `QuestDefinition`/`RewardDefinition`
+- [ ] `MechanicDefinition`
 - [ ] Grafo visual (GraphEdit)
 - [ ] Cifras/rádios/lore
 - [ ] Co-op

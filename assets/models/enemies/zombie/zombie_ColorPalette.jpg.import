@@ -2,19 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://efffax2is0kj"
-path="res://.godot/imported/zombie_dook_climb_ColorPalette.jpg-3eeb73c12640cc57807c12ddbb5adbe7.ctex"
+uid="uid://c733ynbhnkvc"
+path="res://.godot/imported/zombie_ColorPalette.jpg-db6bc8e4d561c954845efcda478de8ac.ctex"
 metadata={
 "vram_texture": false
-}
-generator_parameters={
-"md5": "d2a7b96c9bb284011fb650d9514233c1"
 }
 
 [deps]
 
-source_file="res://assets/models/zombie_dook_climb_ColorPalette.jpg"
-dest_files=["res://.godot/imported/zombie_dook_climb_ColorPalette.jpg-3eeb73c12640cc57807c12ddbb5adbe7.ctex"]
+source_file="res://assets/models/enemies/zombie/zombie_ColorPalette.jpg"
+dest_files=["res://.godot/imported/zombie_ColorPalette.jpg-db6bc8e4d561c954845efcda478de8ac.ctex"]
 
 [params]
 
@@ -26,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

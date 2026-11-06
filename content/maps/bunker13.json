@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "kind": "map",
+  "id": "map.bunker13",
+  "name": "Bunker 13",
+  "player_spawn": [0.0, 0.1, 12.0],
+  "starting_points": 500,
+  "enemy": "enemy.zombie",
+  "zombie_count": 8,
+  "rooms": [
+    { "id": "A", "rect": [-9, 5, 9, 17], "height": 3.4 },
+    { "id": "B", "rect": [-9, -8, 9, 5], "height": 3.4 },
+    { "id": "C", "rect": [9, -8, 24, 5], "height": 3.4 },
+    { "id": "D", "rect": [9, 5, 24, 17], "height": 3.4 }
+  ],
+  "doors": [
+    { "id": "door1", "name": "ABRIR", "cost": 750, "room": "B", "position": [0.0, 1.25, 5.0], "size": [2.6, 2.5, 0.2] },
+    { "id": "door2", "name": "ABRIR", "cost": 1000, "room": "C", "position": [9.0, 1.25, -2.0], "size": [0.2, 2.5, 2.6] },
+    { "id": "door3", "name": "ABRIR", "cost": 1250, "room": "D", "position": [16.0, 1.25, 5.0], "size": [2.6, 2.5, 0.2] },
+    { "id": "door4", "name": "ABRIR", "cost": 1500, "room": "D", "position": [9.0, 1.25, 12.0], "size": [0.2, 2.5, 2.6] }
+  ],
+  "zombie_spawns": [
+    { "id": "win_A1", "position": [-5.5, 0.1, 15.3], "room": "A" },
+    { "id": "win_A2", "position": [0.0, 0.1, 15.3], "room": "A" },
+    { "id": "win_A3", "position": [5.5, 0.1, 15.3], "room": "A" },
+    { "id": "win_B1", "position": [-7.3, 0.1, -5.0], "room": "B" },
+    { "id": "win_B2", "position": [-7.3, 0.1, 1.0], "room": "B" },
+    { "id": "win_C1", "position": [12.5, 0.1, -6.3], "room": "C" },
+    { "id": "win_C2", "position": [20.0, 0.1, -6.3], "room": "C" },
+    { "id": "win_D1", "position": [22.3, 0.1, 8.0], "room": "D" },
+    { "id": "win_D2", "position": [22.3, 0.1, 14.0], "room": "D" }
+  ],
+  "barricades": [
+    { "id": "bar_A1", "room": "A", "position": [-5.5, 1.55, 16.82], "rotation_y": 3.14159, "max_planks": 6, "repair_time": 0.8, "repair_points": 10, "spawn_position": [-5.5, 0.1, 18.2] },
+    { "id": "bar_A2", "room": "A", "position": [0.0, 1.55, 16.82], "rotation_y": 3.14159, "max_planks": 6, "repair_time": 0.8, "repair_points": 10, "spawn_position": [0.0, 0.1, 18.2] },
+    { "id": "bar_A3", "room": "A", "position": [5.5, 1.55, 16.82], "rotation_y": 3.14159, "max_planks": 6, "repair_time": 0.8, "repair_points": 10, "spawn_position": [5.5, 0.1, 18.2] },
+    { "id": "bar_B1", "room": "B", "position": [-8.82, 1.55, -5.0], "rotation_y": -1.5708, "max_planks": 6, "repair_time": 0.8, "repair_points": 10, "spawn_position": [-10.2, 0.1, -5.0] },
+    { "id": "bar_B2", "room": "B", "position": [-8.82, 1.55, 1.0], "rotation_y": -1.5708, "max_planks": 6, "repair_time": 0.8, "repair_points": 10, "spawn_position": [-10.2, 0.1, 1.0] },
+    { "id": "bar_C1", "room": "C", "position": [12.5, 1.55, -7.82], "rotation_y": 0.0, "max_planks": 6, "repair_time": 0.8, "repair_points": 10, "spawn_position": [12.5, 0.1, -9.2] },
+    { "id": "bar_C2", "room": "C", "position": [20.0, 1.55, -7.82], "rotation_y": 0.0, "max_planks": 6, "repair_time": 0.8, "repair_points": 10, "spawn_position": [20.0, 0.1, -9.2] },
+    { "id": "bar_D1", "room": "D", "position": [23.82, 1.55, 8.0], "rotation_y": 1.5708, "max_planks": 6, "repair_time": 0.8, "repair_points": 10, "spawn_position": [25.2, 0.1, 8.0] },
+    { "id": "bar_D2", "room": "D", "position": [23.82, 1.55, 14.0], "rotation_y": 1.5708, "max_planks": 6, "repair_time": 0.8, "repair_points": 10, "spawn_position": [25.2, 0.1, 14.0] }
+  ],
+  "wallbuys": [
+    { "id": "wb_mp5", "weapon": "weapon.mp5", "name": "MP5", "cost": 1000, "position": [3.0, 1.45, 16.72], "rotation_y": 3.14159 },
+    { "id": "wb_m870", "weapon": "weapon.m870", "name": "M870", "cost": 1200, "position": [-8.72, 1.45, -3.0], "rotation_y": 1.5708 },
+    { "id": "wb_ak74", "weapon": "weapon.ak74", "name": "AK-74", "cost": 1500, "position": [17.0, 1.45, -7.72], "rotation_y": 0.0 },
+    { "id": "wb_glock", "weapon": "weapon.glock17", "name": "GLOCK 17", "cost": 500, "position": [23.72, 1.45, 11.0], "rotation_y": -1.5708 }
+  ],
+  "perks": [
+    { "id": "jugg", "name": "AÇO VITAL", "cost": 2500, "position": [-6.2, 0.0, -7.45], "rotation_y": 0.0, "effect": "jugg" },
+    { "id": "speed", "name": "MÃOS RÁPIDAS", "cost": 3000, "position": [22.7, 0.0, 2.0], "rotation_y": -1.5708, "effect": "speed" },
+    { "id": "tap", "name": "GATILHO DUPLO", "cost": 2000, "position": [21.0, 0.0, 16.5], "rotation_y": 3.14159, "effect": "tap" }
+  ],
+  "box": { "position": [19.0, 0.0, -3.5], "cost": 950 }
+}

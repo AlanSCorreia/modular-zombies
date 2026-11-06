@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bs61qb3wsqcrh"
-path="res://.godot/imported/zombie_dook_climb.glb-36332878b49bd36aa99ae8a60c08ce14.scn"
+uid="uid://dolbao4a3cmyc"
+path="res://.godot/imported/glock17.glb-c912042cde968b737415892ef80b225e.scn"
 
 [deps]
 
-source_file="res://assets/models/zombie_dook_climb.glb"
-dest_files=["res://.godot/imported/zombie_dook_climb.glb-36332878b49bd36aa99ae8a60c08ce14.scn"]
+source_file="res://assets/models/weapons/glock17/glock17.glb"
+dest_files=["res://.godot/imported/glock17.glb-c912042cde968b737415892ef80b225e.scn"]
 
 [params]
 

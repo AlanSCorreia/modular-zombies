@@ -9,16 +9,16 @@ serviços e ferramentas de autoria.
 - **Estratégia e decisões:** [`docs/planning/`](docs/planning/)
 - **Legado histórico:** `../zombie-fps-legacy` (não usar como referência de implementação)
 
-## Estado atual — P0 concluído
+## Estado atual — R1 concluído
 
-Vertical slice jogável:
+- Vertical slice jogável (sala, porta, zumbi, Glock, HUD).
+- **Bunker 13 completo em JSON + `Bunker13Builder`** (4 salas, 4 portas,
+  4 wallbuys, 3 perks, caixa, 9 barricadas e 9 spawns).
+- 5 armas em JSON, loader/validador, testes `BUNKER13_OK`.
+- Modelos reorganizados em `assets/models/<categoria>/<id>/`.
+- Git, CI, plugin `bunker_tools` e bench.
 
-- Uma sala, porta comprável, zumbi, Glock com animações e HUD.
-- Conteúdo em JSON (`content/`), carregado e validado por `ContentRegistry`.
-- `Events`, `Sfx`, `GameRoot`, plugin `bunker_tools` e CI local.
-- Git inicializado; v1 é apenas legado.
-
-Ainda não é o Bunker 13 completo; barricadas e o loop serão expandidos em R1–R3.
+R2 em andamento: barricadas, faca, explosivos, mãos separadas e 2 slots.
 
 ## Decisões-chave
 
@@ -45,7 +45,7 @@ assets/         models, textures, materials, animations, audio, ui, vfx, shaders
 source/blender/ .blend e scripts (fora do import do Godot)
 ```
 
-> A árvore atual ainda está na estrutura antiga; a reorganização é R1.
+> Modelos reorganizados; faltam as mãos separadas e as fontes `.blend` em `source/`.
 > Detalhes: `docs/planning/11-assets.md`.
 
 ## Fases

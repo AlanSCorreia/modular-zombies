@@ -3,8 +3,9 @@
 Legenda: **P0** bloqueante, **P1** próxima entrega, **P2** depois.  
 Este backlog é estratégico; o status real fica no `KANBAN.md`.
 
-> **P0 entregue:** R0 completo (R0.1–R0.14); R1.1–R1.4 parcialmente (slice);
-> R2.1–R2.5 parcialmente. O restante segue para R1/R2.
+> **P0 entregue:** R0 completo. **R1 concluído:** loader/validador, 2 mapas,
+> 5 armas, Bunker 13 JSON + builder, models reorganizados e testes.
+> R2 em andamento (slice já jogável).
 
 ## R0 — Preparação
 
@@ -34,8 +35,6 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | R1.4 | DTOs tipados (`MapDefinition`, `WeaponDefinition`, `ExplosiveDefinition`, `MeleeDefinition`) | P0 |
 | R1.5 | `Bunker13Builder` lendo `MapDefinition` | P0 |
 | R1.6 | Converter Bunker 13 + 5 armas para JSON | P0 |
-| R1.7 | JSON de faca, granada, foguete, barris, traps e barricadas | P0 |
-| R1.8 | Pipeline Blender de armas/mãos + `GripSocket` | P0 |
 | R1.9 | Validação de assets (paths/importação) | P0 |
 | R1.10 | Testes de schema/validação | P0 |
 | R1.11 | Reorganizar assets e mover `.blend` para `source/` | P0 |
@@ -64,6 +63,9 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | R2.19 | IA de zumbi: arrancar, entrar e fila por janela | P0 |
 | R2.20 | Testes de barricada (reparo, interrupção, breach) | P0 |
 | R2.21 | Validar workflow com uma segunda arma | P0 |
+| R2.22 | JSON de faca, granada, foguete, barris e traps | P0 |
+| R2.23 | Mãos separadas (`hands.glb`) + `GripSocket` | P0 |
+| R2.24 | Bunker 13 jogável (spawns, portas, barricadas) | P0 |
 | R2.15 | Testes de explosivos e faca | P0 |
 | R2.16 | Teste integrado do loop | P0 |
 

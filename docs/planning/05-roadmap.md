@@ -10,8 +10,8 @@ O board operacional é `../../KANBAN.md`.
 | Fase | Nome | Objetivo | Status | Tamanho |
 |---|---|---|---|---|
 | R0 | Preparação | Arquivar v1, scaffold v2, docs e Kanban | **Concluído** | S |
-| R1 | Core + conteúdo | Definições, registry, validador, Bunker 13 em JSON | **Em andamento** | M |
-| R2 | Loop de gameplay | Player, armas, zumbis, rodadas, economia, efeitos | **Parcial (slice)** | L |
+| R1 | Core + conteúdo | Definições, registry, validador, Bunker 13 em JSON | **Concluído** | M |
+| R2 | Loop de gameplay | Player, armas, zumbis, barricadas, rodadas, economia | **Em andamento** | L |
 | R3 | Interações/UI/áudio | Portas, compras, caixa, perks, HUD, menus, som | Backlog | M |
 | R4 | Ferramentas de mapa | Criar/validar/testar mapas no editor | Backlog | M |
 | R5 | Quests/Easter Eggs | QuestSystem, música, mecânica única, debug | Backlog | L |
@@ -31,23 +31,24 @@ O board operacional é `../../KANBAN.md`.
 
 **Aceite:** projeto importa; docs/árvore aprovados; `git` inicializado; `ci.sh` verde.
 
-## R1 — Core + conteúdo (em andamento)
+## R1 — Core + conteúdo (concluído)
 
-**Já entregue no P0:** loader JSON, `ContentValidator`, DTOs base
-(`MapData`, `WeaponData`, `EnemyData`) e JSON do slice.
+**Entregue**
+- Loader JSON + `ContentValidator`.
+- 2 mapas (slice + Bunker 13) e 5 armas.
+- Bunker 13 em JSON: 4 salas, 4 portas, 4 wallbuys, 3 perks, caixa,
+  9 barricadas e 9 spawns.
+- `Bunker13Builder` lendo `MapDefinition`.
+- Modelos reorganizados em `assets/models/<categoria>/<id>/`.
+- Testes `CONTENT_OK`, `LOGIC_OK` e `BUNKER13_OK`.
 
-**Pendente**
-- Bunker 13 completo em JSON.
-- 5 armas + faca/explosivos + barricadas definidos em JSON.
-- Schemas completos e validação de assets (paths/importação).
-- Template de arma + schema completo (`14-weapon-workflow.md`).
-- Reorganização de assets para a árvore híbrida.
-- Testes de definições e conteúdo completo.
+**Passa para R2:** mãos separadas, JSON de faca/explosivos, gameplay completo
+do Bunker 13, 2 slots e barricadas funcionais.
 
 **Aceite:** Bunker 13 carrega 100% por JSON; validador 0 erros; 0 refs de
 asset quebradas; nenhum `if map_id` no núcleo e nenhum conteúdo em `.tres`.
 
-## R2 — Loop de gameplay (parcial — slice)
+## R2 — Loop de gameplay (em andamento)
 
 **Já entregue no P0:** `PlayerController`, `WeaponController` (Glock/hitscan),
 `ZombieEnemy`, HUD e loop mínimo (tiro, recarga, porta, morte).

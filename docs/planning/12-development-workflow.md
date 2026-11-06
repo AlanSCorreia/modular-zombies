@@ -67,9 +67,9 @@ vsync/foco da janela). Registrar o bench a cada mudança grande.
 - Exportar GLB para `assets/` via script; validar escala/pivôs.
 - Nenhum asset de terceiros sem licença em `CREDITS.md`.
 
-## Próximos passos (P0 concluído)
+## Próximos passos (R1 concluído)
 
-1. Reorganizar assets para a árvore híbrida (R1).
-2. Completar loader/validador para todas as definições (R1).
-3. Portar o Bunker 13 completo por JSON (R1).
-4. Fechar o loop de gameplay (R2) e depois UI/áudio (R3).
+1. Barricadas, faca, explosivos e 2 slots (R2).
+2. Mãos separadas (`hands.glb`) e Bunker 13 jogável (R2).
+3. UI/áudio de combate (R3).
+4. Ferramentas de mapa (R4).

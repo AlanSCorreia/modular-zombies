@@ -135,5 +135,6 @@ source/
 
 ## Migração
 
-R1: mover assets atuais para a árvore acima, criar `source/blender`, ajustar
-paths no JSON e rodar o validador. Nada de conteúdo em `.tres`.
+**Status:** modelos já reorganizados em `assets/models/<categoria>/<id>/`.
+Faltam as mãos separadas (`hands.glb`) e as fontes `.blend` em `source/`
+(R2). Nada de conteúdo em `.tres`.

@@ -3,7 +3,7 @@
   "kind": "enemy",
   "id": "enemy.zombie",
   "name": "Zumbi",
-  "scene": "res://assets/models/zombie_dook_climb.glb",
+  "scene": "res://assets/models/enemies/zombie/zombie.glb",
   "health": 100,
   "speed": 1.35,
   "damage": 20,

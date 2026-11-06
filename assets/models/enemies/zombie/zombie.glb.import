@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ctf1lq7mywgoy"
-path="res://.godot/imported/gun_rifle.glb-5822c1acd12b56ddfe1e4898d9673afa.scn"
+uid="uid://bykf623omtjer"
+path="res://.godot/imported/zombie.glb-10fc12cdbed6ba1b45125f2ad5895ccf.scn"
 
 [deps]
 
-source_file="res://assets/models/gun_rifle.glb"
-dest_files=["res://.godot/imported/gun_rifle.glb-5822c1acd12b56ddfe1e4898d9673afa.scn"]
+source_file="res://assets/models/enemies/zombie/zombie.glb"
+dest_files=["res://.godot/imported/zombie.glb-10fc12cdbed6ba1b45125f2ad5895ccf.scn"]
 
 [params]
 

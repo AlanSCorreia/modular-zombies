@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cbb0ienxc54lb"
-path="res://.godot/imported/zombie_dook.glb-76a6fa73df782df1a44d2ac3d25bfa58.scn"
+uid="uid://c4xk3w1yp7chn"
+path="res://.godot/imported/ak74.glb-53bf1c9b53e05c0cdf70ee7f51b8b1e5.scn"
 
 [deps]
 
-source_file="res://assets/models/zombie_dook.glb"
-dest_files=["res://.godot/imported/zombie_dook.glb-76a6fa73df782df1a44d2ac3d25bfa58.scn"]
+source_file="res://assets/models/weapons/ak74/ak74.glb"
+dest_files=["res://.godot/imported/ak74.glb-53bf1c9b53e05c0cdf70ee7f51b8b1e5.scn"]
 
 [params]
 

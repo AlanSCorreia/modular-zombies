@@ -28,6 +28,27 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary)
 		for s in m.zombie_spawns:
 			if not room_ids.has(s.room):
 				errors.append("map %s: spawn %s aponta para room inexistente" % [id, s.id])
+		for wb in m.wallbuys:
+			if wb.id == "" or wb.weapon_id == "":
+				errors.append("map %s: wallbuy sem id/weapon" % id)
+			if not weapons.has(wb.weapon_id):
+				errors.append("map %s: wallbuy %s usa arma inexistente (%s)" % [id, wb.id, wb.weapon_id])
+			if wb.cost < 0:
+				errors.append("map %s: wallbuy %s custo negativo" % [id, wb.id])
+		for perk in m.perks:
+			if perk.id == "" or perk.name == "":
+				errors.append("map %s: perk sem id/name" % id)
+			if perk.cost < 0:
+				errors.append("map %s: perk %s custo negativo" % [id, perk.id])
+		if m.box != null and m.box.cost < 0:
+			errors.append("map %s: box custo negativo" % id)
+		for b in m.barricades:
+			if b.id == "":
+				errors.append("map %s: barricada sem id" % id)
+			if not room_ids.has(b.room):
+				errors.append("map %s: barricada %s aponta para room inexistente" % [id, b.id])
+			if b.max_planks <= 0:
+				errors.append("map %s: barricada %s com max_planks <= 0" % [id, b.id])
 		if m.enemy_id == "" or not enemies.has(m.enemy_id):
 			errors.append("map %s: enemy '%s' inexistente" % [id, m.enemy_id])
 		if m.starting_points < 0:

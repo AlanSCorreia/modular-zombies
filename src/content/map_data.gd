@@ -10,6 +10,10 @@ var zombie_count := 1
 var rooms: Array[RoomData] = []
 var doors: Array[DoorData] = []
 var zombie_spawns: Array[SpawnData] = []
+var wallbuys: Array[WallBuyData] = []
+var perks: Array[PerkData] = []
+var box: BoxData = null
+var barricades: Array[BarricadeData] = []
 
 static func from_dict(d: Dictionary) -> MapData:
 	var m := MapData.new()
@@ -26,4 +30,12 @@ static func from_dict(d: Dictionary) -> MapData:
 		m.doors.append(DoorData.from_dict(door))
 	for s in d.get("zombie_spawns", []):
 		m.zombie_spawns.append(SpawnData.from_dict(s))
+	for w in d.get("wallbuys", []):
+		m.wallbuys.append(WallBuyData.from_dict(w))
+	for perk in d.get("perks", []):
+		m.perks.append(PerkData.from_dict(perk))
+	if d.has("box"):
+		m.box = BoxData.from_dict(d.get("box", {}))
+	for b in d.get("barricades", []):
+		m.barricades.append(BarricadeData.from_dict(b))
 	return m
