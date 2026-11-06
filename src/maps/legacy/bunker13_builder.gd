@@ -1,6 +1,9 @@
 class_name Bunker13Builder
 extends RefCounted
 
+## LEGADO: usado apenas por tools/export_map.gd para gerar o GLB inicial.
+## O runtime carrega assets/models/maps/bunker13/bunker13.glb.
+
 ## Constrói o Bunker 13 completo a partir de MapData (JSON).
 ## Geometria base + portas + wallbuys + perks + caixa + barricadas.
 
@@ -167,6 +170,7 @@ func _build_doors() -> void:
 func _build_wallbuys() -> void:
 	for wb in map.wallbuys:
 		var holder := Node3D.new()
+		holder.name = "WallBuy_" + wb.id
 		holder.position = wb.position
 		holder.rotation.y = wb.rotation_y
 		root.add_child(holder)
@@ -184,6 +188,7 @@ func _build_wallbuys() -> void:
 func _build_perks() -> void:
 	for p in map.perks:
 		var holder := Node3D.new()
+		holder.name = "Perk_" + p.id
 		holder.position = p.position
 		holder.rotation.y = p.rotation_y
 		root.add_child(holder)
@@ -211,6 +216,7 @@ func _build_box() -> void:
 	if map.box == null:
 		return
 	var holder := Node3D.new()
+	holder.name = "Box"
 	holder.position = map.box.position
 	root.add_child(holder)
 	_box(holder, "BoxBase", Vector3(1.5, 0.72, 0.95), Vector3(0, 0.36, 0), _mat_wood())
@@ -229,12 +235,13 @@ func _build_box() -> void:
 func _build_barricades() -> void:
 	for b in map.barricades:
 		var holder := Node3D.new()
+		holder.name = "Barricade_" + b.id
 		holder.position = b.position
 		holder.rotation.y = b.rotation_y
 		root.add_child(holder)
 		var planks: Array[MeshInstance3D] = []
 		for i in range(b.max_planks):
-			var p := _box(holder, "Plank", Vector3(1.9, 0.17, 0.07),
+			var p := _box(holder, "Plank_%d" % i, Vector3(1.9, 0.17, 0.07),
 				Vector3(randf_range(-0.1, 0.1), -0.55 + i * 0.22, 0), _mat_wood(), false)
 			p.rotation.z = randf_range(-0.05, 0.05)
 			planks.append(p)

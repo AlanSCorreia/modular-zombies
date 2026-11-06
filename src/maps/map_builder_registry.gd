@@ -4,10 +4,9 @@ extends RefCounted
 ## Seleciona o builder de geometria a partir do campo `builder` do mapa.
 ## O núcleo não conhece IDs de mapa; só o registry mantém o mapeamento.
 
-const DEFAULT_BUILDER := "slice"
+const DEFAULT_BUILDER := "scene"
 const BUILDERS := {
-	"slice": preload("res://src/maps/slice/slice_builder.gd"),
-	"bunker13": preload("res://src/maps/bunker13/builder.gd"),
+	"scene": preload("res://src/maps/map_scene_builder.gd"),
 }
 
 static func has(builder_id: String) -> bool:

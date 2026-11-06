@@ -15,6 +15,13 @@ echo "== lógica =="
 echo "== conteúdo =="
 "$GODOT" --headless --path . --script res://tests/run_content_validation.gd
 
+echo "== geometria runtime =="
+if grep -nE 'BoxMesh\.new|MeshInstance3D\.new' src/maps/map_scene_builder.gd; then
+  echo "FAIL: geometria de mapa criada em runtime"
+  exit 1
+fi
+echo "ok"
+
 echo "== mapa Bunker 13 =="
 "$GODOT" --headless --path . --script res://tests/run_map_build.gd
 

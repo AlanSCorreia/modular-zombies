@@ -9,6 +9,8 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary)
 			errors.append("map %s: id/name vazios" % id)
 		if m.builder == "":
 			errors.append("map %s: builder ausente" % id)
+		if m.scene == "" or not FileAccess.file_exists(m.scene):
+			errors.append("map %s: cena inexistente (%s)" % [id, m.scene])
 		if m.rooms.is_empty():
 			errors.append("map %s: sem rooms" % id)
 		if m.doors.size() > 0 and m.rooms.is_empty():

@@ -1,6 +1,9 @@
 class_name SliceBuilder
 extends RefCounted
 
+## LEGADO: usado apenas por tools/export_map.gd para gerar o GLB inicial.
+## O runtime carrega assets/models/maps/slice/slice.glb.
+
 ## Constrói o vertical slice: duas salas, uma porta comprável, luzes e spawns.
 
 var map: MapData

@@ -20,7 +20,15 @@ func _init() -> void:
 		return
 	var root := Node3D.new()
 	get_root().add_child(root)
-	var ctx := Bunker13Builder.new().build(root, map)
+	check(map.builder == "scene", "Bunker 13 usa cena autoral")
+	var builder = MapBuilderRegistry.create(map.builder)
+	check(builder != null, "builder scene carregado")
+	if builder == null:
+		root.free()
+		reg.free()
+		quit(1)
+		return
+	var ctx: Dictionary = builder.build(root, map)
 	check(ctx.doors.size() == 4, "4 portas")
 	check(ctx.wallbuys.size() == 4, "4 wallbuys")
 	check(ctx.perks.size() == 3, "3 perks")
@@ -28,7 +36,11 @@ func _init() -> void:
 	check(ctx.barricades.size() == 9, "9 barricadas")
 	check(ctx.spawns.size() == 9, "9 spawns")
 	check(ctx.lights.size() == 8, "8 luzes")
-	check(root.get_child_count() > 20, "geometria construída")
+	check(root.find_child("MapGeometry", false, false) != null, "cena autoral carregada")
+	var meshes := root.find_children("*", "MeshInstance3D", true, false)
+	check(meshes.size() > 20, "geometria autoral carregada")
+	var bodies := root.find_children("*", "StaticBody3D", true, false)
+	check(bodies.size() > 20, "colisão gerada")
 	root.free()
 	reg.free()
 	if failures > 0:
