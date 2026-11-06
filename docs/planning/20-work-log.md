@@ -3,6 +3,36 @@
 Registro cronológico curto do que foi feito, testes e commits. O plano vivo
 continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 
+## 2026-11-06 — Pool/cache de áudio, tracer e animação (issue #6)
+
+**Feito**
+- `Sfx` (`src/audio/sfx.gd`): pools fixos de 12 `AudioStreamPlayer` e
+  16 `AudioStreamPlayer3D`, com reuso por canal e sem `new()` por som.
+- Tracer (`weapon_controller.gd`): `BoxMesh` unitário e material emissivo
+  estáticos; escala por distância em vez de malha por tiro.
+- `ZombieEnemy`: mapa nome→animação e estado atual (`_play` sem varredura por
+  frame); `PackedScene` e strip de root motion cacheados por cena.
+- Decisão registrada como D-019 em `19-decision-log.md`.
+
+**Testes (2026-11-06, reexecutados nesta sincronização)**
+- `./tests/ci.sh` verde: `LOGIC_OK`, `CONTENT_OK`, `BUNKER13_OK`, `MAP_OK`,
+  `SOFTLOCK_OK`, `PAUSE_OK`, `INTERACT_OK`, `SLOTS_OK`, `SLICE_OK`, `CI_OK`.
+- Bench windowed: antes 61 FPS / 16,69 ms / 83 draw calls / 66,8 MB; depois
+  60 FPS / 16,57 ms / 83 draw calls / 67,0 MB — sem regressão; ganho é de
+  alocação por tiro/som/spawn.
+- Ruído não fatal conhecido: `ObjectDB instances leaked` e `resources still in
+  use` no exit headless.
+
+**Commits**
+- `7396942` `perf: pool audio and cache tracer/animation assets`
+- `6fec227` `docs: record pool and cache block`
+
+**Estado do board**
+- KANBAN: pool/cache apenas em **Done**; **Doing** vazio; topo de **Ready** =
+  HUD em `.tscn` (issue #7); etapa ativa 3.
+- GitHub: #6 fechada (`etapa:3`, `prio:P1`, `area:gameplay`, milestone Etapa 3);
+  #7 aberta com as mesmas labels e milestone.
+
 ## 2026-11-06 — Harness de integração extraído (issue #5)
 
 **Feito**
@@ -148,7 +178,8 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - Bench (windowed): antes 61 FPS/16,69 ms/83 draw calls/66,8 MB; depois
   60 FPS/16,57 ms/83 draw calls/67,0 MB — sem regressão; ganho é de alocação.
 - Issue #6 fechada; issue #7 aberta (HUD `.tscn`).
-- Commit `7396942` `perf: pool audio and cache tracer/animation assets`.
+- Commits `7396942` `perf: pool audio and cache tracer/animation assets` e
+  `6fec227` `docs: record pool and cache block`.
 
 **Harness extraído de `GameRoot` (issue #5) — concluído**
 - `tests/test_runner.tscn` roda como cena principal e instancia `main.tscn`;

@@ -30,8 +30,9 @@ O CI deve bloquear qualquer mudança com conteúdo inválido ou teste vermelho.
 Nenhuma fase avança só com “framework”. Cada entrega precisa ser jogável ou
 testável:
 
-- Slice atual: uma sala, porta comprável, zumbi, Glock e HUD.
-- Próximo: conteúdo completo do Bunker 13 e mecânicas únicas.
+- Slice atual: Bunker 13 com geometria autoral, portas, compras, 2 slots e HUD
+  base.
+- Próximo: HUD em `.tscn`, barricadas, faca e explosivos (Etapa 3 — Gameplay).
 - Ferramentas de mapa só depois das Etapas 2–4 estáveis.
 
 ## Orçamento de performance
@@ -75,9 +76,9 @@ grande.
 - Exportar GLB para `assets/` via script; validar escala/pivôs.
 - Nenhum asset de terceiros sem licença em `CREDITS.md`.
 
-## Próximos passos (Etapa 2 — Conteúdo concluída)
+## Próximos passos (Etapa 3 — Gameplay em andamento)
 
-1. Barricadas, faca, explosivos e 2 slots (Etapa 3 — Gameplay).
+1. Barricadas, faca e explosivos (Etapa 3 — Gameplay).
 2. Mãos separadas (`hands.glb`) e Bunker 13 jogável (Etapa 3 — Gameplay).
 3. UI/áudio de combate (Etapa 4 — Interações).
 4. Ferramentas de mapa (Etapa 5 — Ferramentas).
