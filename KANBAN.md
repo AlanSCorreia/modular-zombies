@@ -43,7 +43,7 @@
 
 - **Etapa ativa:** 3 — Gameplay.
 - **Agora (Doing):** `WeaponController` 2 slots.
-- **Depois:** `WeaponController` projectile/melee (topo de `Ready` da etapa ativa).
+- **Depois:** corrigir softlock do Bunker 13 e tipar `MapContext` (topo de `Ready`).
 - **Próxima etapa:** 4 — Interações, somente após o aceite da Etapa 3.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -139,6 +139,12 @@ faca, explosivos e barricadas funcionando.
 - [ ] Estatísticas de sessão
 
 ### Ready
+- [ ] Corrigir softlock do Bunker 13 + spawns alcançáveis (P0)
+- [ ] `MapContext` tipado + `Interactable` (P0)
+- [ ] Extrair harness de `GameRoot` para `tests/` (P1)
+- [ ] Pool/cache de tracers, áudio e animações (P1)
+- [ ] HUD em `.tscn` (P1)
+- [ ] `RoundManager`/`Economy` fora do `GameRoot` (P1)
 - [ ] `WeaponController` projectile/melee
 - [ ] `ExplosionSystem` (raio, LOS, falloff, impulso, cadeia)
 - [ ] Granada (G), lança-foguete e barris explosivos

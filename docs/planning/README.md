@@ -56,6 +56,7 @@
 | `18-authored-assets.md` | Regra de assets autorais e pipeline Blender → GLB |
 | `19-decision-log.md` | Decisões duráveis do projeto |
 | `20-work-log.md` | Registro cronológico de avanços e testes |
+| `21-code-review.md` | Boas práticas, performance e dívida que atrasa |
 
 ## Como usar
 
