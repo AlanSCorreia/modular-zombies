@@ -140,6 +140,16 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `a99f691` `feat: load authored map geometry from GLB`
 - `4019c1c` `docs: record authored map geometry migration`
 
+**Pool/cache de áudio, tracer e animação (issue #6) — concluído**
+- Áudio: pools fixos de 12 `AudioStreamPlayer` e 16 `AudioStreamPlayer3D`.
+- Tracer: `BoxMesh` unitário e material emissivo estáticos; escala por distância.
+- Zumbi: mapa nome→animação e estado atual; `_play` não varre mais a lista por
+  frame; `PackedScene` e strip de root motion cacheados por cena.
+- Bench (windowed): antes 61 FPS/16,69 ms/83 draw calls/66,8 MB; depois
+  60 FPS/16,57 ms/83 draw calls/67,0 MB — sem regressão; ganho é de alocação.
+- Issue #6 fechada; issue #7 aberta (HUD `.tscn`).
+- Commit `7396942` `perf: pool audio and cache tracer/animation assets`.
+
 **Harness extraído de `GameRoot` (issue #5) — concluído**
 - `tests/test_runner.tscn` roda como cena principal e instancia `main.tscn`;
   casos via `--case slice|smoke|softlock|pause|interaction|slots|ui|shot|bench|mouse|pause_shot`.
@@ -196,7 +206,8 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   screenshot do menu.
 
 **Próximo item (KANBAN)**
-- Pool/cache de tracers, áudio e animações (issue #6); depois, HUD em `.tscn`.
+- Mover o HUD para `.tscn` (issue #7); depois, `RoundManager`/`Economy` fora do
+  `GameRoot`.
 
 **Registro confirmado**
 - GitHub: #2 fechada; #3 aberta à época (hoje fechada — ver bloco “Softlock do

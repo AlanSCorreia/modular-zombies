@@ -5,6 +5,7 @@ Decisões estruturais longas também viram ADR em `07-adr/`.
 
 | ID | Data | Decisão | Motivo / consequência |
 |---|---|---|---|
+| D-019 | 2026-11-06 | **Pool/cache de efeitos:** áudio em pools fixos (12x 2D, 16x 3D), tracer com mesh/material estáticos e animação por mapa de estados + cache de cena. | Corta alocação por tiro/som/spawn sem mudar gameplay; bench atual estável. |
 | D-018 | 2026-11-06 | **Harness em cena de teste:** `tests/test_runner.tscn` roda como cena principal (autoloads disponíveis) e instancia `main.tscn`; casos via `--case`. | Remove ~250 linhas de teste do `GameRoot` e mantém autoloads sem gambiarra em `--script`. |
 | D-017 | 2026-11-06 | **`MapContext`/`Interactable` tipados:** `DoorState.open` é o único estado de porta; `kind` vira enum, não string. | Elimina `ctx: Dictionary`, `door_open` global e strings mágicas nos consumidores. |
 | D-016 | 2026-11-06 | **Navegação por BFS de salas/portas** (`MapNav`, grafo de salas com arestas por porta; porta fechada bloqueia a aresta) em vez de navmesh para os zumbis; ondas só em salas alcançáveis. | 4 salas retangulares: BFS é determinístico, barato e impede pathing por portas fechadas; `path()` devolve waypoints pelas portas ou vazio (zumbi faz idle). Navmesh fica para mapas irregulares (Etapa 8). |

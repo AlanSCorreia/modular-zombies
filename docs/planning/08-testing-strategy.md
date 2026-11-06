@@ -42,7 +42,7 @@
 
 **Estado atual:** `LOGIC_OK`, `CONTENT_OK`, `BUNKER13_OK`, `MAP_OK`,
 `SOFTLOCK_OK`, `PAUSE_OK`, `INTERACT_OK`, `SLOTS_OK`, `SLICE_OK`.
-**Bench:** 42–61 FPS, 135 draw calls, 66 MB (vsync/foco).
+**Bench (2026-11-06):** ~60 FPS, 16,6 ms, 83 draw calls, 67 MB (vsync/foco).
 
 ## Testes de geometria
 

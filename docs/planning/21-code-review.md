@@ -62,9 +62,10 @@ o slice atual.
 **Onde está caro / vai escalar mal:**
 - `ZombieEnemy._play("Walk")` todo frame varre animações; cada instância reescreve
   as animações e faz `load`/`find_child` no spawn (`zombie_enemy.gd:52-83,121-123`).
-- Tracer cria `MeshInstance3D` + `BoxMesh` + material por tiro
-  (`weapon_controller.gd:199-216`); áudio cria player por som (`sfx.gd:82-112`).
-- HUD emite `prompt_changed` a cada frame, mesmo sem mudança
+- Tracer tinha `MeshInstance3D` + `BoxMesh` + material por tiro; agora mesh e
+  material são estáticos (node ainda é criado por tiro).
+- Áudio criava player por som; agora usa pools fixos 2D/3D.
+- HUD ainda emite `prompt_changed` a cada frame, mesmo sem mudança
   (`player_controller.gd:124-144`).
 - `MapSceneBuilder` cria um `StaticBody3D`/`BoxShape3D` por mesh (centenas)
   (`map_scene_builder.gd:64-95`); funciona, mas infla broadphase/import.
@@ -85,8 +86,8 @@ mortos. Isso é **softlock**, não só performance.
    restam sleeps/contagens residuais e invariantes mais fortes.
 4. **Corrigir o softlock**: feito com ondas em salas alcançáveis e BFS de
    salas/portas (`SOFTLOCK_OK`). Navmesh fica para mapas irregulares.
-5. **Cache/pool rápido**: tracer, áudio, animações; emitir prompt só na mudança;
-   um `StaticBody3D` por sala/grupo.
+5. **Cache/pool rápido**: tracer, áudio e animações feitos; ainda faltam
+   prompt só na mudança e um `StaticBody3D` por sala/grupo.
 6. **HUD em `.tscn`**, `RoundManager`/`Economy` fora do `GameRoot`, InputMap e
    validação de áudio/partes.
 
