@@ -154,6 +154,8 @@
 - [ ] Teste visual do Bunker 13
 - [ ] IA de zumbi: arrancar tábua, fila e entrada com 0
 - [ ] Testes de barricada (reparo, interrupção, breach)
+- [ ] `BoxBuilder`/helpers comuns
+- [ ] `.blend` fonte em `source/blender`
 - [ ] Faca GLB + mãos compartilhadas + `knife_slash`
 - [ ] `HandsRig` + cache de mãos + `grip_profile`
 - [ ] `ViewmodelFactory` (armas GLB + mãos compartilhadas)
@@ -163,7 +165,7 @@
 - [ ] `Effects` (sangue, decais, tracers, cápsulas)
 
 ### Doing
-- [ ] Barricadas + faca + explosivos + 2 slots
+- [ ] MP5 de ponta a ponta (workflow de arma)
 
 ### Review/Test
 - [x] Slice: tiro, recarga, zumbi, morte e porta

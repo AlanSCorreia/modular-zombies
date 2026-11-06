@@ -56,7 +56,8 @@ asset quebradas; nenhum `if map_id` no núcleo e nenhum conteúdo em `.tres`.
 **Pendente**
 - 2 slots de arma e troca.
 - `HandsRig`/`ViewmodelFactory` com mãos compartilhadas.
-- Validar o workflow com uma segunda arma.
+- **MP5 de ponta a ponta antes de remodelar as outras armas.**
+- `BoxBuilder` compartilhado e fontes `.blend` versionadas.
 - Faca (V, corte diagonal) e explosivos (granadas, foguete, barris).
 - `BarricadeSystem`: hold F, tábuas, arranque e entrada do zumbi.
 - `RoundManager`/economia completos e efeitos.
