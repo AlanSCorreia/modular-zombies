@@ -10,13 +10,11 @@ var player: PlayerController
 var hud: SliceHUD
 var ctx: MapContext
 var nav: MapNav
+var economy: Economy
+var round: RoundManager
 var zombies: Array[ZombieEnemy] = []
-var points := 0
 var started := false
-var spawned := 0
 var owned_perks: Array[String] = []
-var _complete := false
-var _wave_pending := false
 
 func _ready() -> void:
 	randomize()
@@ -57,8 +55,12 @@ func _ready() -> void:
 
 	player.setup_weapon(weapon_data)
 
-	points = map.starting_points
-	Events.points_changed.emit(points)
+	economy = Economy.new()
+	economy.setup(map.starting_points)
+	round = RoundManager.new()
+	round.setup(map, nav, get_tree())
+	round.spawn_requested.connect(_spawn_at)
+	round.completed.connect(_on_round_completed)
 	Events.player_health_changed.emit(player.health, player.max_health)
 	Events.zombie_killed.connect(_on_zombie_killed)
 	Events.zombie_hit.connect(_on_zombie_hit)
@@ -113,7 +115,7 @@ func _start() -> void:
 	hud.hide_start()
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	player.can_control = true
-	_spawn_wave()
+	round.start()
 	Events.banner.emit(map.name.to_upper(), "SOBREVIVA E ABRA AS PORTAS", 2.5)
 
 func _on_pause_toggled() -> void:
@@ -125,7 +127,7 @@ func _on_pause_toggled() -> void:
 		_pause()
 
 func _pause() -> void:
-	if _complete or player == null or player.is_dead:
+	if round == null or round.is_complete() or player == null or player.is_dead:
 		return
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -136,59 +138,25 @@ func _resume() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	hud.hide_pause()
 
-func _reachable_spawns() -> Array[SpawnData]:
-	if nav == null:
-		return map.zombie_spawns.duplicate()
-	var rooms := nav.reachable_rooms()
-	var out: Array[SpawnData] = []
-	for s in map.zombie_spawns:
-		if rooms.has(s.room):
-			out.append(s)
-	if out.is_empty():
-		return map.zombie_spawns.duplicate()
-	return out
-
-func _spawn_wave() -> void:
-	_wave_pending = false
-	if map == null or enemy_data == null or player == null or player.is_dead:
-		return
-	var pending := map.zombie_count - spawned
-	if pending <= 0:
-		return
-	var available := _reachable_spawns()
-	if available.is_empty():
-		return
-	var total := mini(pending, mini(3, available.size()))
-	var base := spawned
-	for i in range(total):
-		var s: SpawnData = available[(base + i) % available.size()]
-		_spawn_at(s.position)
-
 func _spawn_at(pos: Vector3) -> void:
 	var z := ZombieEnemy.new()
 	z.setup(enemy_data, player, nav)
 	z.position = pos
 	add_child(z)
 	zombies.append(z)
-	spawned += 1
 
 func _on_zombie_killed(z: ZombieEnemy, headshot: bool) -> void:
 	zombies.erase(z)
-	points += 100 if headshot else 50
-	Events.points_changed.emit(points)
-	Events.banner.emit("ZUMBI ELIMINADO", "+%d PONTOS" % (100 if headshot else 50), 1.2)
-	if zombies.is_empty():
-		if spawned < map.zombie_count:
-			if not _wave_pending:
-				_wave_pending = true
-				get_tree().create_timer(0.6, false).timeout.connect(_spawn_wave)
-		elif not _complete:
-			_complete = true
-			Events.banner.emit("ÁREA LIMPA", "PRESSIONE R PARA REINICIAR", 5.0)
+	var gain := 100 if headshot else 50
+	economy.add(gain)
+	Events.banner.emit("ZUMBI ELIMINADO", "+%d PONTOS" % gain, 1.2)
+	round.notify_killed()
 
 func _on_zombie_hit(_z: ZombieEnemy, _damage: float, _head: bool, _pos: Vector3) -> void:
-	points += 10
-	Events.points_changed.emit(points)
+	economy.add(10)
+
+func _on_round_completed() -> void:
+	Events.banner.emit("ÁREA LIMPA", "PRESSIONE R PARA REINICIAR", 5.0)
 
 func _on_interacted(id: String, _who: Node) -> void:
 	if ctx.doors.has(id):
@@ -201,14 +169,13 @@ func _on_interacted(id: String, _who: Node) -> void:
 		_buy_box()
 
 func _can_pay(cost: int) -> bool:
-	if points >= cost:
+	if economy.can_afford(cost):
 		return true
-	Events.banner.emit("PONTOS INSUFICIENTES", "FALTAM %d" % (cost - points), 1.6)
+	Events.banner.emit("PONTOS INSUFICIENTES", "FALTAM %d" % (cost - economy.points), 1.6)
 	return false
 
 func _spend(cost: int) -> void:
-	points -= cost
-	Events.points_changed.emit(points)
+	economy.spend(cost)
 
 func _buy_door(id: String) -> void:
 	var door: DoorState = ctx.doors.get(id, null)
@@ -274,6 +241,8 @@ func _buy_box() -> void:
 	Events.banner.emit("CAIXA MISTERIOSA", w.name, 2.0)
 
 func _on_player_died() -> void:
+	if round != null:
+		round.stop()
 	get_tree().paused = false
 	hud.hide_pause()
 	hud.show_gameover()
@@ -285,5 +254,6 @@ func _restart() -> void:
 	get_tree().reload_current_scene()
 
 func _unhandled_input(event: InputEvent) -> void:
-	if _complete and event is InputEventKey and event.pressed and event.keycode == KEY_R:
+	if round != null and round.is_complete() and event is InputEventKey \
+		and event.pressed and event.keycode == KEY_R:
 		_restart()

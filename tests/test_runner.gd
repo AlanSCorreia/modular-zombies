@@ -59,7 +59,7 @@ func _spawn_pos(room: String) -> Vector3:
 func _slice() -> void:
 	game._start()
 	await get_tree().create_timer(0.4).timeout
-	var p0 := game.points
+	var p0 := game.economy.points
 	var z: ZombieEnemy = game.zombies[0] if not game.zombies.is_empty() else null
 	var hp0 := z.health if z != null else 0.0
 	if z != null:
@@ -71,7 +71,7 @@ func _slice() -> void:
 			break
 	var hp1 := z.health if z != null else 0.0
 	await get_tree().create_timer(0.3).timeout
-	var p1 := game.points
+	var p1 := game.economy.points
 	game._on_interacted("door1", game.player)
 	await get_tree().create_timer(0.3).timeout
 	game.player.weapon.ammo_mag = 0
@@ -90,7 +90,7 @@ func _slice() -> void:
 
 func _smoke() -> void:
 	game._start()
-	game.points = 20000
+	game.economy.set_points(20000)
 	await get_tree().create_timer(0.3).timeout
 	var ok: bool = game.player != null and not game.zombies.is_empty() and not game.ctx.doors.is_empty()
 	var door_ok := false
@@ -100,32 +100,32 @@ func _smoke() -> void:
 
 	if not game.ctx.doors.is_empty():
 		var door_id := String(game.ctx.doors.keys()[0])
-		var before := game.points
+		var before := game.economy.points
 		game._on_interacted(door_id, game.player)
 		var door: DoorState = game.ctx.doors[door_id]
-		door_ok = game.points < before and door.open
+		door_ok = game.economy.points < before and door.open
 		ok = ok and door_ok
 
 	if not game.ctx.wallbuys.is_empty():
 		var wallbuy_id := String(game.ctx.wallbuys.keys()[0])
-		var before := game.points
+		var before := game.economy.points
 		game._on_interacted(wallbuy_id, game.player)
 		var item: Interactable = game.ctx.wallbuys[wallbuy_id]
-		wallbuy_ok = game.points < before and game.player.weapon != null \
+		wallbuy_ok = game.economy.points < before and game.player.weapon != null \
 			and game.player.weapon.data.id == item.weapon_id
 		ok = ok and wallbuy_ok
 
 	if not game.ctx.perks.is_empty():
 		var perk_id := String(game.ctx.perks.keys()[0])
-		var before := game.points
+		var before := game.economy.points
 		game._on_interacted(perk_id, game.player)
-		perk_ok = game.points < before and game.owned_perks.has(perk_id)
+		perk_ok = game.economy.points < before and game.owned_perks.has(perk_id)
 		ok = ok and perk_ok
 
 	if game.ctx.box != null:
-		var before := game.points
+		var before := game.economy.points
 		game._on_interacted("box", game.player)
-		box_ok = game.points < before
+		box_ok = game.economy.points < before
 		ok = ok and box_ok
 
 	print("MAP_SMOKE map=%s zombies=%d doors=%d wallbuys=%d perks=%d box=%s door=%s wallbuy=%s perk=%s box_buy=%s" % [
@@ -147,7 +147,7 @@ func _softlock() -> void:
 	var closed_blocked := game.nav.path(_spawn_pos("B"), game.map.player_spawn).is_empty()
 
 	var guard := 0
-	while game.spawned < game.map.zombie_count and guard < 20:
+	while game.round.spawned < game.map.zombie_count and guard < 20:
 		for z in game.zombies.duplicate():
 			z.take_damage(100000.0, false, z.global_position)
 		await get_tree().create_timer(0.8).timeout
@@ -156,16 +156,16 @@ func _softlock() -> void:
 		z.take_damage(100000.0, false, z.global_position)
 	await get_tree().create_timer(0.8).timeout
 
-	var all_spawned := game.spawned >= game.map.zombie_count
-	var complete_ok := game._complete
-	var points_before := game.points
+	var all_spawned := game.round.spawned >= game.map.zombie_count
+	var complete_ok := game.round.is_complete()
+	var points_before := game.economy.points
 	var points_ok := points_before >= 750
 	game._buy_door("door1")
 	var open_ok := not game.nav.path(_spawn_pos("B"), game.map.player_spawn).is_empty()
 	var ok: bool = initial_count == 3 and only_a and closed_blocked \
 		and all_spawned and complete_ok and points_ok and open_ok
 	print("SOFTLOCK_TEST initial=%d only_a=%s closed_blocked=%s spawned=%d points_before=%d complete=%s open_path=%s" % [
-		initial_count, str(only_a), str(closed_blocked), game.spawned, points_before,
+		initial_count, str(only_a), str(closed_blocked), game.round.spawned, points_before,
 		str(complete_ok), str(open_ok),
 	])
 	_finish("SOFTLOCK_OK", ok)
@@ -247,7 +247,7 @@ func _ui() -> void:
 
 func _shot() -> void:
 	game._start()
-	game.points = 20000
+	game.economy.set_points(20000)
 	await get_tree().create_timer(0.8).timeout
 	await RenderingServer.frame_post_draw
 	game.get_viewport().get_texture().get_image().save_png("/tmp/opencode/slice_a.png")
