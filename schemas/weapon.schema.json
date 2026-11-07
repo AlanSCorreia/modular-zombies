@@ -15,6 +15,7 @@
     "animation_set": { "type": "string" },
     "moving_parts": { "type": "array", "items": { "type": "string" } },
     "projectile": { "type": "object" },
+    "explosive": { "type": "string" },
     "viewmodel": { "type": "object" },
     "stats": { "type": "object" },
     "reload": { "type": "object" },

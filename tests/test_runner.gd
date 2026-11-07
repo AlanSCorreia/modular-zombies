@@ -30,6 +30,8 @@ func _ready() -> void:
 			await _melee()
 		"projectile":
 			await _projectile()
+		"explosion":
+			await _explosion()
 		"ui":
 			await _ui()
 		"shot":
@@ -285,6 +287,90 @@ func _projectile() -> void:
 		before, z.health, str(z.is_dead), game.player.weapon.data.id,
 	])
 	_finish("PROJECTILE_OK", ok)
+
+func _explosion() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	var data: ExplosiveData = Content.get_explosive("explosive.frag")
+	var center := Vector3(-4.0, 0.1, 0.0)
+
+	var z1 := ZombieEnemy.new()
+	z1.setup(game.enemy_data, game.player, game.nav)
+	game.add_child(z1)
+	var z2 := ZombieEnemy.new()
+	z2.setup(game.enemy_data, game.player, game.nav)
+	game.add_child(z2)
+	var z3 := ZombieEnemy.new()
+	z3.setup(game.enemy_data, game.player, game.nav)
+	game.add_child(z3)
+	z1.set_physics_process(false)
+	z2.set_physics_process(false)
+	z3.set_physics_process(false)
+	z1.position = center + Vector3(1.0, 0.0, 0.0)
+	z2.position = center + Vector3(2.5, 0.0, 0.0)
+	z3.position = center + Vector3(3.5, 0.0, 0.0)
+
+	var wall := StaticBody3D.new()
+	wall.collision_layer = 1
+	wall.collision_mask = 0
+	wall.position = center + Vector3(2.75, 1.0, 0.0)
+	var wmesh := MeshInstance3D.new()
+	var wbox := BoxMesh.new()
+	wbox.size = Vector3(0.2, 2.0, 3.0)
+	wmesh.mesh = wbox
+	wall.add_child(wmesh)
+	var wcs := CollisionShape3D.new()
+	var wshape := BoxShape3D.new()
+	wshape.size = Vector3(0.2, 2.0, 3.0)
+	wcs.shape = wshape
+	wall.add_child(wcs)
+	game.add_child(wall)
+
+	var rb := RigidBody3D.new()
+	rb.gravity_scale = 0.0
+	rb.collision_layer = 16
+	rb.collision_mask = 0
+	rb.position = center + Vector3(1.5, 1.0, 0.0)
+	var rmesh := MeshInstance3D.new()
+	var rbox := BoxMesh.new()
+	rbox.size = Vector3(0.5, 0.5, 0.5)
+	rmesh.mesh = rbox
+	rb.add_child(rmesh)
+	var rcs := CollisionShape3D.new()
+	var rshape := BoxShape3D.new()
+	rshape.size = Vector3(0.5, 0.5, 0.5)
+	rcs.shape = rshape
+	rb.add_child(rcs)
+	game.add_child(rb)
+
+	var chain_center := Vector3(-5.0, 0.1, 8.0)
+	var b1 := ExplosiveBarrel.new()
+	b1.setup(data, chain_center + Vector3(0.0, 0.0, -1.0))
+	game.add_child(b1)
+	var b2 := ExplosiveBarrel.new()
+	b2.setup(data, chain_center + Vector3(-1.0, 0.0, 0.0))
+	game.add_child(b2)
+	var far := ExplosiveBarrel.new()
+	far.setup(data, chain_center + Vector3(0.0, 0.0, 4.5))
+	game.add_child(far)
+
+	await get_tree().create_timer(0.15).timeout
+	ExplosionSystem.explode(game.get_world_3d(), get_tree(), center, data, 0)
+	await get_tree().create_timer(0.15).timeout
+
+	var z1_dmg := 100.0 - z1.health
+	var z2_dmg := 100.0 - z2.health
+	var falloff_ok := z1_dmg > z2_dmg and z2_dmg > 0.0
+	var los_ok := z3.health >= 99.9
+	var impulse_ok := rb.linear_velocity.length() > 0.01
+
+	ExplosionSystem.explode(game.get_world_3d(), get_tree(), chain_center, data, 0)
+	var chain_ok := b1.detonated and b2.detonated and not far.detonated
+	var ok: bool = falloff_ok and los_ok and impulse_ok and chain_ok
+	print("EXPLOSION_TEST near=%.1f far=%.1f los=%s impulse=%s chain=%s" % [
+		z1_dmg, z2_dmg, str(los_ok), str(impulse_ok), str(chain_ok),
+	])
+	_finish("EXPLOSION_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

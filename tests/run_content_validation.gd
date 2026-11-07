@@ -4,8 +4,8 @@ func _init() -> void:
 	var reg := ContentRegistry.new()
 	reg.reload()
 	if reg.errors.is_empty():
-		print("CONTENT_OK maps=%d weapons=%d enemies=%d melees=%d" % [
-			reg.maps.size(), reg.weapons.size(), reg.enemies.size(), reg.melees.size(),
+		print("CONTENT_OK maps=%d weapons=%d enemies=%d melees=%d explosives=%d" % [
+			reg.maps.size(), reg.weapons.size(), reg.enemies.size(), reg.melees.size(), reg.explosives.size(),
 		])
 		reg.free()
 		quit(0)

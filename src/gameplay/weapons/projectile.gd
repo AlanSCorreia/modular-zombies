@@ -60,10 +60,18 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 
 func _explode(pos: Vector3) -> void:
-	if explosion_radius <= 0.0:
-		return
-	for n in get_tree().get_nodes_in_group("zombies"):
-		if n is ZombieEnemy:
-			var z: ZombieEnemy = n
-			if z.global_position.distance_to(pos) <= explosion_radius:
-				z.take_damage(damage * 0.6, false, z.global_position)
+	var ed: ExplosiveData = null
+	if data.explosive != "":
+		ed = Content.get_explosive(data.explosive)
+	if ed == null and explosion_radius > 0.0:
+		ed = ExplosiveData.new()
+		ed.id = "runtime"
+		ed.name = "EXPLOSÃO"
+		ed.damage = damage * 0.6
+		ed.radius = explosion_radius
+		ed.falloff = 0.35
+		ed.impulse = 4.0
+		ed.max_targets = 16
+		ed.chain_depth = 0
+	if ed != null:
+		ExplosionSystem.explode(get_world_3d(), get_tree(), pos, ed, 0)

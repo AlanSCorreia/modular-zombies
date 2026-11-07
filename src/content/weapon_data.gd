@@ -12,6 +12,7 @@ var moving_parts: Array[String] = []
 var viewmodel: Dictionary = {}
 var stats: Dictionary = {}
 var projectile: Dictionary = {}
+var explosive := ""
 var reload: Dictionary = {}
 var audio: Dictionary = {}
 
@@ -28,6 +29,7 @@ static func from_dict(d: Dictionary) -> WeaponData:
 		w.moving_parts.append(String(p))
 	w.stats = d.get("stats", {})
 	w.projectile = d.get("projectile", {})
+	w.explosive = String(d.get("explosive", ""))
 	w.viewmodel = d.get("viewmodel", {})
 	w.reload = d.get("reload", {})
 	w.audio = d.get("audio", {})

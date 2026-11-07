@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Explosive",
+  "type": "object",
+  "required": ["schema_version", "kind", "id", "name", "damage", "radius", "falloff"],
+  "properties": {
+    "schema_version": { "type": "integer", "const": 1 },
+    "kind": { "type": "string", "const": "explosive" },
+    "id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "damage": { "type": "number", "exclusiveMinimum": 0 },
+    "radius": { "type": "number", "exclusiveMinimum": 0 },
+    "falloff": { "type": "number", "minimum": 0, "maximum": 1 },
+    "impulse": { "type": "number", "minimum": 0 },
+    "max_targets": { "type": "integer", "minimum": 1 },
+    "chain_depth": { "type": "integer", "minimum": 0 }
+  }
+}

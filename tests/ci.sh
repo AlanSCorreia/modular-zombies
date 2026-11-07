@@ -46,6 +46,9 @@ echo "== melee =="
 echo "== projetil =="
 "$GODOT" --headless --path . res://tests/test_runner.tscn -- --case projectile
 
+echo "== explosão =="
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case explosion
+
 echo "== integração =="
 "$GODOT" --headless --path . res://tests/test_runner.tscn -- --case slice
 

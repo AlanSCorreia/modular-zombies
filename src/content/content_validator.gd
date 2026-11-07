@@ -1,7 +1,7 @@
 class_name ContentValidator
 extends RefCounted
 
-static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary, melees: Dictionary) -> Array[String]:
+static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary, melees: Dictionary, explosives: Dictionary) -> Array[String]:
 	var errors: Array[String] = []
 	for id in maps.keys():
 		var m: MapData = maps[id]
@@ -75,6 +75,8 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 			errors.append("weapon %s: damage <= 0" % id)
 		if int(w.stats.get("mag", 0)) <= 0:
 			errors.append("weapon %s: mag <= 0" % id)
+		if w.explosive != "" and not explosives.has(w.explosive):
+			errors.append("weapon %s: explosive inexistente (%s)" % [id, w.explosive])
 		if w.type == "projectile":
 			if w.projectile.is_empty():
 				errors.append("weapon %s: type projectile sem bloco projectile" % id)
@@ -101,4 +103,13 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 			errors.append("melee %s: stats inválidos" % id)
 		if m.scene != "" and not FileAccess.file_exists(m.scene):
 			errors.append("melee %s: cena inexistente (%s)" % [id, m.scene])
+
+	for id in explosives.keys():
+		var e: ExplosiveData = explosives[id]
+		if e.id == "" or e.name == "":
+			errors.append("explosive %s: id/name vazios" % id)
+		if e.damage <= 0.0 or e.radius <= 0.0:
+			errors.append("explosive %s: damage/radius inválidos" % id)
+		if e.falloff < 0.0 or e.falloff > 1.0:
+			errors.append("explosive %s: falloff fora de 0..1" % id)
 	return errors
