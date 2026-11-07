@@ -145,12 +145,14 @@ func _resume() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	hud.hide_pause()
 
-func _spawn_at(pos: Vector3) -> void:
+func _spawn_at(pos: Vector3, barricade_id := "") -> void:
 	var z := ZombieEnemy.new()
 	z.setup(enemy_data, player, nav)
 	z.position = pos
 	add_child(z)
 	zombies.append(z)
+	if barricade_id != "" and ctx.barricades.has(barricade_id):
+		z.setup_barricade(ctx.barricades[barricade_id], barricade_system)
 
 func _on_zombie_killed(z: ZombieEnemy, headshot: bool) -> void:
 	zombies.erase(z)

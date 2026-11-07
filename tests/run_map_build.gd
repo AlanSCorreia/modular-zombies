@@ -52,6 +52,19 @@ func _init() -> void:
 	check(meshes.size() > 20, "geometria autoral carregada")
 	var bodies := root.find_children("*", "StaticBody3D", true, false)
 	check(bodies.size() > 20, "colisão gerada")
+	var wall_meshes := root.find_children("Wall_N_*", "MeshInstance3D", true, false)
+	var open_clear := true
+	for mi in wall_meshes:
+		var local: Vector3 = mi.transform.affine_inverse() * Vector3(-5.5, 1.6, 17.0)
+		if mi.get_aabb().has_point(local):
+			open_clear = false
+	check(open_clear, "vão da janela A1 livre")
+	var wall_hit := false
+	for mi in wall_meshes:
+		var local: Vector3 = mi.transform.affine_inverse() * Vector3(-7.5, 1.6, 17.0)
+		if mi.get_aabb().has_point(local):
+			wall_hit = true
+	check(wall_hit, "parede ao lado bloqueia")
 	root.free()
 	reg.free()
 	if failures > 0:

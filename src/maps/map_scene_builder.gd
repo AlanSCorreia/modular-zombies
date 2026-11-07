@@ -188,9 +188,11 @@ func _build_barrels() -> void:
 		ctx.barrels[barr.id] = b
 
 func _collect_lights() -> void:
-	for child in map_root.get_children():
-		if child is OmniLight3D:
-			ctx.lights.append(child)
+	for child in map_root.find_children("*", "OmniLight3D", true, false):
+		var parent := child.get_parent()
+		if parent != null and String(parent.name).begins_with("Perk_"):
+			continue
+		ctx.lights.append(child)
 
 func _area(parent: Node3D, pos: Vector3, size: Vector3, meta: Interactable) -> Area3D:
 	var a := Area3D.new()

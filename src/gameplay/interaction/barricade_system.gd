@@ -8,6 +8,7 @@ var player: PlayerController
 var economy: Economy
 var barricades: Dictionary[String, BarricadeState] = {}
 var active: BarricadeState = null
+var _tearers: Dictionary[String, Node] = {}
 
 func setup(p_player: PlayerController, p_economy: Economy,
 		p_barricades: Dictionary[String, BarricadeState]) -> void:
@@ -91,6 +92,23 @@ func cancel_repair() -> void:
 			active.id, 0.0, active.plank_count, active.data.max_planks
 		)
 	active = null
+
+## Fila de arranque/entrada: apenas um zumbi usa a barricada por vez.
+func try_claim_tearer(target: BarricadeState, node: Node) -> bool:
+	if target == null or node == null:
+		return false
+	var current = _tearers.get(target.id, null)
+	if current == null or not is_instance_valid(current) or current == node:
+		_tearers[target.id] = node
+		return true
+	return false
+
+func release_tearer(target: BarricadeState, node: Node) -> void:
+	if target == null:
+		return
+	var current = _tearers.get(target.id, null)
+	if current == null or not is_instance_valid(current) or current == node:
+		_tearers.erase(target.id)
 
 func _on_player_damaged(_amount: float) -> void:
 	cancel_repair()

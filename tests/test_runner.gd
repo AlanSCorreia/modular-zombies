@@ -40,6 +40,8 @@ func _ready() -> void:
 			await _barrel()
 		"barricade":
 			await _barricade()
+		"zombie_barricade":
+			await _zombie_barricade()
 		"ui":
 			await _ui()
 		"shot":
@@ -156,7 +158,7 @@ func _softlock() -> void:
 	var initial_count := game.zombies.size()
 	var only_a := true
 	for z in game.zombies:
-		if game.nav.room_at(z.global_position) != "A":
+		if z.barricade == null or z.barricade.data.room != "A":
 			only_a = false
 	var closed_blocked := game.nav.path(_spawn_pos("B"), game.map.player_spawn).is_empty()
 
@@ -490,6 +492,72 @@ func _planks_visible(b: BarricadeState) -> int:
 		if p.visible:
 			n += 1
 	return n
+
+func _zombie_barricade() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	game.player.health = 100000.0
+	game.round.stop()
+	for z in game.zombies.duplicate():
+		z.queue_free()
+	game.zombies.clear()
+	await get_tree().process_frame
+
+	var b: BarricadeState = game.ctx.barricades.get("bar_A1", null)
+	if b == null:
+		_finish("ZOMBIE_BARRICADE_OK", false)
+		return
+	b.setup_runtime()
+	b.data.tear_time_base = 0.2
+	b.data.climb_time = 0.25
+	var z1 := _make_barricade_zombie(b)
+	var z2 := _make_barricade_zombie(b)
+
+	var approach_ok: bool = z1.bar_state == ZombieEnemy.BAR_APPROACH \
+		and z2.bar_state == ZombieEnemy.BAR_APPROACH
+	var queue_ok := true
+	var saw_tear := false
+	var guard := 0
+	while guard < 80:
+		await get_tree().create_timer(0.1).timeout
+		var busy := 0
+		for z in [z1, z2]:
+			if z.bar_state == ZombieEnemy.BAR_TEAR \
+				or z.bar_state == ZombieEnemy.BAR_CLIMB:
+				busy += 1
+			if z.bar_state == ZombieEnemy.BAR_TEAR:
+				saw_tear = true
+		if busy > 1:
+			queue_ok = false
+		if z1.bar_state == ZombieEnemy.BAR_INSIDE \
+			and z2.bar_state == ZombieEnemy.BAR_INSIDE:
+			break
+		guard += 1
+
+	var breached: bool = b.plank_count == 0 and b.breached
+	var inside: bool = z1.bar_state == ZombieEnemy.BAR_INSIDE \
+		and z2.bar_state == ZombieEnemy.BAR_INSIDE
+	var in_room: bool = game.nav.room_at(z1.global_position) == "A" \
+		and game.nav.room_at(z2.global_position) == "A"
+	var path_ok: bool = not game.nav.path(
+		z1.global_position, game.player.global_position
+	).is_empty()
+	var ok: bool = approach_ok and saw_tear and queue_ok and breached \
+		and inside and in_room and path_ok
+	print("ZOMBIE_BARRICADE_TEST approach=%s tear=%s queue=%s breach=%s inside=%s room=%s path=%s" % [
+		str(approach_ok), str(saw_tear), str(queue_ok), str(breached),
+		str(inside), str(in_room), str(path_ok),
+	])
+	_finish("ZOMBIE_BARRICADE_OK", ok)
+
+func _make_barricade_zombie(b: BarricadeState) -> ZombieEnemy:
+	var z := ZombieEnemy.new()
+	z.setup(game.enemy_data, game.player, game.nav)
+	z.position = b.data.spawn_position + Vector3(0.15, 0.0, 0.0)
+	game.add_child(z)
+	z.setup_barricade(b, game.barricade_system)
+	game.zombies.append(z)
+	return z
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

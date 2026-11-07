@@ -61,6 +61,9 @@ echo "== barris =="
 echo "== barricadas =="
 "$GODOT" --headless --path . res://tests/test_runner.tscn -- --case barricade --map map.bunker13
 
+echo "== zumbi na barricada =="
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case zombie_barricade --map map.bunker13
+
 echo "== integração =="
 "$GODOT" --headless --path . res://tests/test_runner.tscn -- --case slice
 

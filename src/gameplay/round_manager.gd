@@ -3,7 +3,7 @@ extends RefCounted
 
 ## Ondas, spawns em salas alcançáveis e conclusão da rodada.
 
-signal spawn_requested(position: Vector3)
+signal spawn_requested(position: Vector3, barricade_id: String)
 signal completed
 
 var map: MapData
@@ -67,6 +67,17 @@ func _spawn_wave() -> void:
 	var pending := map.zombie_count - spawned
 	if pending <= 0:
 		return
+	var barricades := _reachable_barricades()
+	if not barricades.is_empty():
+		var total := mini(pending, mini(3, barricades.size()))
+		var base := spawned
+		for i in range(total):
+			var b: BarricadeData = barricades[(base + i) % barricades.size()]
+			spawn_requested.emit(b.spawn_position, b.id)
+		spawned += total
+		alive += total
+		return
+
 	var available := _reachable_spawns()
 	if available.is_empty():
 		return
@@ -74,6 +85,16 @@ func _spawn_wave() -> void:
 	var base := spawned
 	for i in range(total):
 		var s: SpawnData = available[(base + i) % available.size()]
-		spawn_requested.emit(s.position)
+		spawn_requested.emit(s.position, "")
 	spawned += total
 	alive += total
+
+func _reachable_barricades() -> Array[BarricadeData]:
+	var out: Array[BarricadeData] = []
+	if map.barricades.is_empty():
+		return out
+	var rooms := nav.reachable_rooms() if nav != null else []
+	for b in map.barricades:
+		if rooms.is_empty() or rooms.has(b.room):
+			out.append(b)
+	return out
