@@ -37,10 +37,10 @@
    contrato entre builder e gameplay não é tipado; `kind` aparece no builder,
    no prompt e na compra. `door_open` global duplica o estado de cada porta.
 3. **`WeaponController` específico da Glock** (`weapon_controller.gd`):
-   `moving_parts`, `viewmodel` e `hands` do JSON ainda são ignorados e a
-   animação é montada para a Glock. O 2 slots foi resolvido com dois controllers
-   independentes (`set_active`/`dispose`/`refill`), mas `ViewmodelFactory`/
-   `HandsRig` continuam pendentes — o MP5 segue bloqueado por isso.
+   hitscan/pellets/projectile e melee separado implementados; `moving_parts`,
+   `viewmodel` e `hands` do JSON ainda são ignorados e a animação é montada
+   para a Glock. `ViewmodelFactory`/`HandsRig` continuam pendentes — o MP5
+   segue bloqueado por isso.
 4. **HUD 100% em código** — resolvido: `scenes/ui/hud.tscn` guarda a árvore;
    `hud.gd` só faz bind/sinais.
 5. **Sem composição de cena**: `main.tscn` só tem `GameRoot`; player, arma,

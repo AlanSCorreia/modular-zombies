@@ -52,7 +52,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ID | Tarefa | Pri |
 |---|---|---|
 | ETAPA3.1 | `PlayerController` | P0 |
-| ETAPA3.2 | `WeaponController` (hitscan/projectile/melee) | P0 |
+| ETAPA3.2 | `WeaponController` (hitscan/projectile; melee separado) (feito) | P0 |
 | ETAPA3.3 | `ViewmodelFactory` (armas GLB + mãos compartilhadas) | P0 |
 | ETAPA3.4 | `HandsRig` + cache + `grip_profile` | P0 |
 | ETAPA3.5 | `ZombieEnemy` + `EnemyDefinition` | P0 |
@@ -63,7 +63,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.10 | Granada equipável (G) | P0 |
 | ETAPA3.11 | Lança-foguete (`projectile`) | P0 |
 | ETAPA3.12 | Barris explosivos ao receber tiro | P0 |
-| ETAPA3.13 | `MeleeController` (V, corte diagonal, lunge, cooldown) | P0 |
+| ETAPA3.13 | `MeleeController` (V, cooldown, ray) (feito; modelo/arco pendentes) | P0 |
 | ETAPA3.14 | Faca GLB + mãos compartilhadas + animação `knife_slash` | P0 |
 | ETAPA3.17 | `Barricade` + estado das tábuas | P0 |
 | ETAPA3.18 | `BarricadeSystem` + hold F + pontos | P0 |

@@ -59,13 +59,14 @@ Blender + fontes `.blend` de todas as armas e do zumbi, geometria autoral dos
 mapas (GLB + `.blend`), **2 slots de arma** com troca, correção do softlock do
 Bunker 13 (ondas alcançáveis + BFS salas/portas), `MapContext`/`Interactable`
 tipados, harness extraído para `tests/`, pool/cache de áudio/tracer/animação,
-HUD autoral em `scenes/ui/hud.tscn` e `Economy`/`RoundManager` separados.
+HUD autoral em `scenes/ui/hud.tscn`, `Economy`/`RoundManager` separados e
+armas hitscan/pellets/projectile + melee controller.
 
 **Pendente**
 - `HandsRig`/`ViewmodelFactory` com mãos compartilhadas.
 - **MP5 de ponta a ponta antes de remodelar as outras armas.**
 - `BoxBuilder` compartilhado.
-- Faca (V, corte diagonal) e explosivos (granadas, foguete, barris).
+- Faca GLB/animação e explosivos (granadas, foguete, barris).
 - `BarricadeSystem`: hold F, tábuas, arranque e entrada do zumbi.
 - `RoundManager`/economia completos e efeitos.
 - Testes de explosivos/faca e loop completo.

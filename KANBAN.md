@@ -28,7 +28,7 @@
 |---|---|---|---|
 | `etapa1` | Etapa 1 — Preparação | **Concluído** | — |
 | `etapa2` | Etapa 2 — Conteúdo | **Concluído** | — |
-| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | `WeaponController` projectile/melee |
+| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | `ExplosionSystem` |
 | `etapa4` | Etapa 4 — Interações | Backlog | — |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | Backlog | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | Backlog | — |
@@ -36,16 +36,16 @@
 | `etapa8` | Etapa 8 — Produção | Backlog | — |
 
 > **Status:** Etapas 1 e 2 concluídas. Geometria autoral, 2 slots, softlock,
-> `MapContext`/`Interactable`, harness, pool/cache, HUD em `.tscn` e
-> `RoundManager`/`Economy` concluídos (issues #1–#8 fechadas); o foco agora é
-> `WeaponController` projectile/melee (issue #9).
+> `MapContext`/`Interactable`, harness, pool/cache, HUD em `.tscn`,
+> `RoundManager`/`Economy` e projectile/melee concluídos (issues #1–#9
+> fechadas); o foco agora é `ExplosionSystem` (issue #10).
 
 ## Próximo item
 
 - **Etapa ativa:** 3 — Gameplay.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** `WeaponController` projectile/melee (issue #9).
-- **Depois:** `ExplosionSystem`.
+- **Próximo:** `ExplosionSystem` (issue #10).
+- **Depois:** granada, lança-foguete e barris explosivos.
 - **Próxima etapa:** 4 — Interações, somente após o aceite da Etapa 3.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -141,8 +141,7 @@ faca, explosivos e barricadas funcionando.
 - [ ] Estatísticas de sessão
 
 ### Ready
-- [ ] `WeaponController` projectile/melee (P1) — [#9](https://github.com/AlanSCorreia/modular-zombies/issues/9)
-- [ ] `ExplosionSystem` (raio, LOS, falloff, impulso, cadeia)
+- [ ] `ExplosionSystem` (raio, LOS, falloff, impulso, cadeia) (P1) — [#10](https://github.com/AlanSCorreia/modular-zombies/issues/10)
 - [ ] Granada (G), lança-foguete e barris explosivos
 - [ ] `MeleeController` (V, corte diagonal, lunge, cooldown)
 - [ ] `Barricade` + `BarricadeSystem` (tábuas, hold F, pontos)
@@ -202,6 +201,7 @@ faca, explosivos e barricadas funcionando.
 - [x] Pool de áudio + cache de tracer/animação (issue #6)
 - [x] HUD autoral em `scenes/ui/hud.tscn` (issue #7)
 - [x] `Economy` + `RoundManager` extraídos do `GameRoot` (issue #8)
+- [x] `WeaponController` projectile/pellets + `MeleeController` (issue #9)
 
 ### Blocked
 - [ ] MP5 de ponta a ponta — depende de `hands.glb` + `ViewmodelFactory`

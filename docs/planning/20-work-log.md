@@ -170,6 +170,16 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `a99f691` `feat: load authored map geometry from GLB`
 - `4019c1c` `docs: record authored map geometry migration`
 
+**Projectile/pellets + MeleeController (issue #9) — concluído**
+- `WeaponController` ramifica por `type`: `hitscan` (com `pellets`) e
+  `projectile`; `Projectile` move por raycast e aplica dano/explosão básica.
+- `Wunder` virou `projectile`.
+- `MeleeController` separado, `melee.knife` em JSON, V/cooldown/ray.
+- `ContentRegistry` ganhou `melees`; validador e schema de melee.
+- Testes `MELEE_OK` e `PROJECTILE_OK` no CI.
+- Issue #9 fechada; issue #10 aberta (`ExplosionSystem`).
+- Commit `3991bd2` `feat: add melee and projectile weapon support`.
+
 **Economy + RoundManager (issue #8) — concluído**
 - `Economy` (`src/gameplay/economy.gd`): pontos, `add`, `can_afford`, `spend`,
   `set_points`; HUD continua via `Events.points_changed`.
@@ -259,7 +269,7 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   screenshot do menu.
 
 **Próximo item (KANBAN)**
-- `WeaponController` projectile/melee (issue #9); depois, `ExplosionSystem`.
+- `ExplosionSystem` (issue #10); depois, granada, lança-foguete e barris.
 
 **Registro confirmado**
 - GitHub: #2 fechada; #3 aberta à época (hoje fechada — ver bloco “Softlock do
