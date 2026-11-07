@@ -58,6 +58,9 @@ echo "== foguete =="
 echo "== barris =="
 "$GODOT" --headless --path . res://tests/test_runner.tscn -- --case barrel --map map.bunker13
 
+echo "== barricadas =="
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case barricade --map map.bunker13
+
 echo "== integração =="
 "$GODOT" --headless --path . res://tests/test_runner.tscn -- --case slice
 

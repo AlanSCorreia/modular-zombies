@@ -12,6 +12,7 @@ var ctx: MapContext
 var nav: MapNav
 var economy: Economy
 var round: RoundManager
+var barricade_system: BarricadeSystem
 var zombies: Array[ZombieEnemy] = []
 var started := false
 var owned_perks: Array[String] = []
@@ -59,6 +60,10 @@ func _ready() -> void:
 
 	economy = Economy.new()
 	economy.setup(map.starting_points)
+	barricade_system = BarricadeSystem.new()
+	barricade_system.name = "BarricadeSystem"
+	barricade_system.setup(player, economy, ctx.barricades)
+	add_child(barricade_system)
 	round = RoundManager.new()
 	round.setup(map, nav, get_tree())
 	round.spawn_requested.connect(_spawn_at)

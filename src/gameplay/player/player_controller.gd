@@ -22,6 +22,7 @@ var melee: MeleeController
 var grenade_data: ExplosiveData
 var grenades := 2
 var max_grenades := 2
+var current_interactable: Interactable = null
 
 var _pitch := 0.0
 var _bob := 0.0
@@ -235,11 +236,13 @@ func _process(_delta: float) -> void:
 	_update_interaction()
 
 func _update_interaction() -> void:
+	current_interactable = null
 	if interact_ray.is_colliding():
 		var col := interact_ray.get_collider()
 		if col != null and col.has_meta("interact"):
 			var data := col.get_meta("interact") as Interactable
 			if data != null:
+				current_interactable = data
 				var text := ""
 				match data.kind:
 					Interactable.Kind.DOOR:
@@ -248,15 +251,35 @@ func _update_interaction() -> void:
 						text = "[F] COMPRAR %s — %d" % [data.name, data.cost]
 					Interactable.Kind.BOX:
 						text = "[F] ABRIR CAIXA — %d" % data.cost
+					Interactable.Kind.BARRICADE:
+						var b := data as BarricadeState
+						if b != null and b.data != null:
+							if b.plank_count >= b.data.max_planks:
+								text = "BARRICADA COMPLETA — %d/%d" % [
+									b.plank_count, b.data.max_planks,
+								]
+							else:
+								text = "[F] REPARAR BARRICADA — %d/%d" % [
+									b.plank_count, b.data.max_planks,
+								]
 				Events.prompt_changed.emit(text, not text.is_empty())
-				if text != "":
-					var f := Input.is_physical_key_pressed(KEY_F)
-					if f and not _f_down:
-						Events.interacted.emit(data.id, self)
-					_f_down = f
+				if not text.is_empty():
+					if data.kind != Interactable.Kind.BARRICADE:
+						var f := Input.is_physical_key_pressed(KEY_F)
+						if f and not _f_down:
+							Events.interacted.emit(data.id, self)
+						_f_down = f
+					else:
+						_f_down = Input.is_physical_key_pressed(KEY_F)
 					return
 	Events.prompt_changed.emit("", false)
 	_f_down = Input.is_physical_key_pressed(KEY_F)
+
+func get_interactable() -> Interactable:
+	return current_interactable
+
+func is_interact_held() -> bool:
+	return Input.is_physical_key_pressed(KEY_F)
 
 func take_damage(amount: float) -> void:
 	if is_dead:

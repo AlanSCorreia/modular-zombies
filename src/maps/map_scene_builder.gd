@@ -161,12 +161,18 @@ func _build_barricades() -> void:
 		for child in holder.get_children():
 			if child is MeshInstance3D and String(child.name).begins_with("Plank"):
 				planks.append(child)
+		planks.sort_custom(func(a: MeshInstance3D, b: MeshInstance3D) -> bool:
+			return String(a.name).get_slice("_", 1).to_int() \
+				< String(b.name).get_slice("_", 1).to_int()
+		)
 		var b := BarricadeState.new()
 		b.id = data.id
 		b.name = data.id
 		b.data = data
 		b.node = holder
 		b.planks = planks
+		b.area = _area(holder, Vector3.ZERO, Vector3(2.4, 1.8, 1.6), b)
+		b.setup_runtime()
 		ctx.barricades[data.id] = b
 
 func _build_barrels() -> void:

@@ -38,6 +38,8 @@ func _ready() -> void:
 			await _rocket()
 		"barrel":
 			await _barrel()
+		"barricade":
+			await _barricade()
 		"ui":
 			await _ui()
 		"shot":
@@ -436,6 +438,58 @@ func _barrel() -> void:
 	var ok: bool = b1.detonated and b2.detonated
 	print("BARREL_TEST b1=%s b2=%s" % [str(b1.detonated), str(b2.detonated)])
 	_finish("BARREL_OK", ok)
+
+func _barricade() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	if game.ctx.barricades.is_empty() or game.barricade_system == null:
+		_finish("BARRICADE_OK", false)
+		return
+
+	var bid := String(game.ctx.barricades.keys()[0])
+	var b: BarricadeState = game.ctx.barricades[bid]
+	var bs := game.barricade_system
+	var maxp := b.data.max_planks
+	var full_ok: bool = b.plank_count == maxp and _planks_visible(b) == maxp
+	var points0 := game.economy.points
+
+	bs.tear_plank(b)
+	bs.tear_plank(b)
+	var torn: bool = b.plank_count == maxp - 2 and _planks_visible(b) == maxp - 2
+
+	bs.repair_tick(b, b.data.repair_time * 0.5)
+	var partial: bool = b.repair_progress > 0.0 and b.plank_count == maxp - 2
+	Events.player_damaged.emit(5.0)
+	var damage_cancel: bool = is_zero_approx(b.repair_progress) \
+		and b.plank_count == maxp - 2
+	bs.repair_tick(b, b.data.repair_time * 0.5)
+	Events.weapon_changed.emit("weapon.test", "TESTE")
+	var weapon_cancel: bool = is_zero_approx(b.repair_progress) \
+		and b.plank_count == maxp - 2
+
+	bs.repair_tick(b, b.data.repair_time * 2.05)
+	var repaired: bool = b.plank_count == maxp and _planks_visible(b) == maxp
+	var paid: bool = game.economy.points == points0 + b.data.repair_points * 2
+	var limit_ok: bool = not bs.repair_one(b) and b.plank_count == maxp
+
+	for i in range(maxp):
+		bs.tear_plank(b)
+	var breach: bool = b.plank_count == 0 and b.breached and _planks_visible(b) == 0
+	var floor_ok: bool = not bs.tear_plank(b)
+	var ok: bool = full_ok and torn and partial and damage_cancel and weapon_cancel \
+		and repaired and paid and limit_ok and breach and floor_ok
+	print("BARRICADE_TEST full=%s torn=%s partial=%s cancel=%s weapon=%s repaired=%s paid=%s limit=%s breach=%s" % [
+		str(full_ok), str(torn), str(partial), str(damage_cancel),
+		str(weapon_cancel), str(repaired), str(paid), str(limit_ok), str(breach),
+	])
+	_finish("BARRICADE_OK", ok)
+
+func _planks_visible(b: BarricadeState) -> int:
+	var n := 0
+	for p in b.planks:
+		if p.visible:
+			n += 1
+	return n
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

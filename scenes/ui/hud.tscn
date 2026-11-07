@@ -362,6 +362,48 @@ theme_override_font_sizes/font_size = 19
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="RepairBox" type="PanelContainer" parent="Root" unique_id=1732194031]
+visible = false
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -210.0
+offset_top = -244.0
+offset_right = 210.0
+offset_bottom = -192.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h022r")
+
+[node name="VBox" type="VBoxContainer" parent="Root/RepairBox" unique_id=1732194032]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RepairLabel" type="Label" parent="Root/RepairBox/VBox" unique_id=1732194033]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.84, 0.76, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_136eg")
+theme_override_font_sizes/font_size = 16
+text = "REPARANDO — 4/6"
+horizontal_alignment = 1
+
+[node name="RepairBar" type="ColorRect" parent="Root/RepairBox/VBox" unique_id=1732194034]
+custom_minimum_size = Vector2(0, 8)
+layout_mode = 2
+mouse_filter = 2
+color = Color(0.05, 0.05, 0.05, 0.8)
+
+[node name="Fill" type="ColorRect" parent="Root/RepairBox/VBox/RepairBar" unique_id=1732194035]
+layout_mode = 0
+offset_right = 0.0
+offset_bottom = 8.0
+mouse_filter = 2
+color = Color(0.85, 0.62, 0.18, 1)
+
 [node name="Banner" type="Label" parent="Root" unique_id=1309376446]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 0

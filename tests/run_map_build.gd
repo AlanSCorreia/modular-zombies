@@ -43,6 +43,10 @@ func _init() -> void:
 		check(info.body.has_meta("interact"), "porta %s interagível" % did)
 	for wid in ctx.wallbuys:
 		check(ctx.wallbuys[wid].area.has_meta("interact"), "wallbuy %s interagível" % wid)
+	for bid in ctx.barricades:
+		var bar: BarricadeState = ctx.barricades[bid]
+		check(bar.area != null and bar.area.has_meta("interact"), "barricada %s interagível" % bid)
+		check(bar.plank_count == bar.data.max_planks, "barricada %s cheia" % bid)
 	check(root.find_child("MapGeometry", false, false) != null, "cena autoral carregada")
 	var meshes := root.find_children("*", "MeshInstance3D", true, false)
 	check(meshes.size() > 20, "geometria autoral carregada")

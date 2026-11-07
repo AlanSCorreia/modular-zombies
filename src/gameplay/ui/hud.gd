@@ -22,6 +22,10 @@ const COL_AMBER := Color(0.95, 0.68, 0.20)
 @onready var _round: Label = $Root/RoundLabel
 @onready var _prompt: Label = $Root/PromptBox/Prompt
 @onready var _prompt_box: PanelContainer = $Root/PromptBox
+@onready var _repair_box: PanelContainer = $Root/RepairBox
+@onready var _repair_label: Label = $Root/RepairBox/VBox/RepairLabel
+@onready var _repair_bar: ColorRect = $Root/RepairBox/VBox/RepairBar
+@onready var _repair_fill: ColorRect = $Root/RepairBox/VBox/RepairBar/Fill
 @onready var _banner: Label = $Root/Banner
 @onready var _banner_sub: Label = $Root/BannerSub
 @onready var _damage: ColorRect = $Root/Damage
@@ -60,6 +64,7 @@ func _ready() -> void:
 	Events.hitmarker.connect(_on_hitmarker)
 	Events.damage_flash.connect(_on_damage)
 	Events.banner.connect(_on_banner)
+	Events.barricade_progress.connect(_on_barricade_progress)
 
 func show_pause() -> void:
 	_pause.visible = true
@@ -126,12 +131,23 @@ func _on_banner(title: String, sub: String, duration: float) -> void:
 	_banner.modulate.a = 1.0
 	_banner_sub.modulate.a = 1.0
 
+func _on_barricade_progress(_id: String, progress: float, planks: int,
+		max_planks: int) -> void:
+	if progress <= 0.0 or planks >= max_planks:
+		_repair_box.visible = false
+		return
+	_repair_box.visible = true
+	_repair_label.text = "REPARANDO — %d/%d" % [planks, max_planks]
+	var width := maxf(_repair_bar.size.x, 1.0)
+	_repair_fill.size.x = width * clampf(progress, 0.0, 1.0)
+
 func set_map_name(map_name: String) -> void:
 	_round.text = map_name.to_upper()
 
 func show_start() -> void:
 	if _start == null:
 		return
+	_repair_box.visible = false
 	_start.visible = true
 	_over.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
@@ -144,5 +160,6 @@ func hide_start() -> void:
 	_start = null
 
 func show_gameover() -> void:
+	_repair_box.visible = false
 	_over.visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
