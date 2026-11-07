@@ -59,8 +59,8 @@ processo e 165–200 MB. Não há necessidade de ECS, pooling geral ou LOD só p
 o slice atual.
 
 **Onde está caro / vai escalar mal:**
-- `ZombieEnemy._play("Walk")` todo frame varre animações; cada instância reescreve
-  as animações e faz `load`/`find_child` no spawn (`zombie_enemy.gd:52-83,121-123`).
+- Zumbi: `_play` ainda varria animações por frame e reescrevia setup por spawn;
+  resolvido com mapa/estado de animação e cache de cena (issue #6).
 - Tracer tinha `MeshInstance3D` + `BoxMesh` + material por tiro; agora mesh e
   material são estáticos (node ainda é criado por tiro).
 - Áudio criava player por som; agora usa pools fixos 2D/3D.
@@ -70,25 +70,25 @@ o slice atual.
   (`map_scene_builder.gd:64-95`); funciona, mas infla broadphase/import.
 - Sem navmesh: zumbis empurram direto contra portas fechadas.
 
-**Correção imediata (P0):** no Bunker 13, o jogador começa com 500 pontos e a
-`door1` custa 750; 5 zumbis ficam em salas fechadas e `_complete` exige todos
-mortos. Isso é **softlock**, não só performance.
+**Resolvido:** o softlock do Bunker 13 foi corrigido com ondas em salas
+alcançáveis e BFS de salas/portas (`SOFTLOCK_OK`); navmesh fica para mapas
+irregulares.
 
 ## O que eu faria primeiro
 
 1. **`MapContext` tipado + `Interactable`** — feito: estado de porta em
    `DoorState.open`, enum no lugar de strings e sem `door_open` global.
-2. **`WeaponSlots` + `ViewmodelFactory`** — dois controllers pré-instanciados,
-   rig filho da arma, `moving_parts`/`viewmodel`/`reload` do JSON. É o caminho
-   para 2 slots e MP5.
+2. **`WeaponSlots` + `ViewmodelFactory`** — 2 slots resolvidos com controllers
+   independentes; faltam `ViewmodelFactory`/`HandsRig` e `moving_parts`/
+   `viewmodel`/`hands` do JSON. É o bloqueio do MP5.
 3. **Extrair o harness de `GameRoot`** — feito em `tests/test_runner.tscn`;
    restam sleeps/contagens residuais e invariantes mais fortes.
 4. **Corrigir o softlock**: feito com ondas em salas alcançáveis e BFS de
    salas/portas (`SOFTLOCK_OK`). Navmesh fica para mapas irregulares.
 5. **Cache/pool rápido**: tracer, áudio e animações feitos; ainda faltam
    prompt só na mudança e um `StaticBody3D` por sala/grupo.
-6. **HUD em `.tscn`**, `RoundManager`/`Economy` fora do `GameRoot`, InputMap e
-   validação de áudio/partes.
+6. **HUD em `.tscn`** e `RoundManager`/`Economy` fora do `GameRoot` — feitos;
+   faltam InputMap e validação de áudio/partes.
 
 ## Processo
 

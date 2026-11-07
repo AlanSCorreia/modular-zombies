@@ -59,7 +59,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.6 | `RoundManager` | P0 |
 | ETAPA3.7 | `Economy` | P0 |
 | ETAPA3.8 | `Effects` (sangue, decais, tracers, cápsulas) | P0 |
-| ETAPA3.9 | `ExplosionSystem` (raio, LOS, falloff, impulso, cadeia) | P0 |
+| ETAPA3.9 | `ExplosionSystem` (raio, LOS, falloff, impulso, cadeia) (feito) | P0 |
 | ETAPA3.10 | Granada equipável (G) | P0 |
 | ETAPA3.11 | Lança-foguete (`projectile`) | P0 |
 | ETAPA3.12 | Barris explosivos ao receber tiro | P0 |

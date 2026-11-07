@@ -170,6 +170,16 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `a99f691` `feat: load authored map geometry from GLB`
 - `4019c1c` `docs: record authored map geometry migration`
 
+**ExplosionSystem + ExplosiveData (issue #10) — concluído**
+- `ExplosionSystem` com shape query, raio, falloff, LOS, `max_targets`,
+  impulso em `RigidBody3D` e cadeia por `explosive_chain`/`chain_depth`.
+- `ExplosiveData` + `explosive.frag` (JSON/schema/validador).
+- `ExplosiveBarrel` encadeável; `Projectile` usa o sistema quando há explosão.
+- Camada de física `props` (16) para alvos/impulso.
+- Teste `EXPLOSION_OK` (falloff, LOS, impulso e cadeia).
+- Issue #10 fechada; issue #11 aberta (granada/foguete/barris).
+- Commit `a3dfc0a` `feat: add explosion system and explosive props`.
+
 **Projectile/pellets + MeleeController (issue #9) — concluído**
 - `WeaponController` ramifica por `type`: `hitscan` (com `pellets`) e
   `projectile`; `Projectile` move por raycast e aplica dano/explosão básica.
@@ -269,7 +279,8 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   screenshot do menu.
 
 **Próximo item (KANBAN)**
-- `ExplosionSystem` (issue #10); depois, granada, lança-foguete e barris.
+- Granada, lança-foguete e barris explosivos (issue #11); depois,
+  `BarricadeSystem`.
 
 **Registro confirmado**
 - GitHub: #2 fechada; #3 aberta à época (hoje fechada — ver bloco “Softlock do
