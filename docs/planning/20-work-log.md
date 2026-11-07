@@ -170,6 +170,17 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `a99f691` `feat: load authored map geometry from GLB`
 - `4019c1c` `docs: record authored map geometry migration`
 
+**Economy + RoundManager (issue #8) — concluído**
+- `Economy` (`src/gameplay/economy.gd`): pontos, `add`, `can_afford`, `spend`,
+  `set_points`; HUD continua via `Events.points_changed`.
+- `RoundManager` (`src/gameplay/round_manager.gd`): ondas em salas alcançáveis,
+  `spawned`/`alive`, timer de 0.6 s, conclusão e `stop()`.
+- `GameRoot` só orquestra: compras usam `economy`; mortes chamam
+  `round.notify_killed`; spawn via `spawn_requested`.
+- Test runner atualizado para `game.economy`/`game.round`.
+- Issue #8 fechada; issue #9 aberta (`WeaponController` projectile/melee).
+- Commit `f86a134` `refactor: extract economy and round manager`.
+
 **HUD autoral em `.tscn` (issue #7) — concluído**
 - `scenes/ui/hud.tscn` gerado a partir do HUD em código e versionado.
 - `hud.gd` agora usa `@onready` + bind de sinais; `_build`/`_mk`/`_place`/
@@ -248,8 +259,7 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   screenshot do menu.
 
 **Próximo item (KANBAN)**
-- Extrair `RoundManager`/`Economy` do `GameRoot` (issue #8); depois,
-  `WeaponController` projectile/melee.
+- `WeaponController` projectile/melee (issue #9); depois, `ExplosionSystem`.
 
 **Registro confirmado**
 - GitHub: #2 fechada; #3 aberta à época (hoje fechada — ver bloco “Softlock do

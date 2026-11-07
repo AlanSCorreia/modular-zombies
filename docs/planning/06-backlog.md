@@ -92,7 +92,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.41 | Extrair harness de teste do `GameRoot` para `tests/` (feito) | P1 |
 | ETAPA3.42 | Pool/cache de tracers, áudio e animações (feito, issue #6) | P1 |
 | ETAPA3.43 | HUD em `.tscn` (feito, issue #7) | P1 |
-| ETAPA3.44 | `RoundManager`/`Economy` fora do `GameRoot` | P1 |
+| ETAPA3.44 | `RoundManager`/`Economy` fora do `GameRoot` (feito) | P1 |
 | ETAPA3.45 | InputMap + validação de áudio/partes no validador | P2 |
 | ETAPA3.46 | Bench com draw calls/frame time e baseline atualizado | P2 |
 | ETAPA3.15 | Testes de explosivos e faca | P0 |

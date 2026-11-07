@@ -58,8 +58,8 @@ JSON), interações de porta/wallbuy/perk/caixa, smoke `MAP_OK` do Bunker 13,
 Blender + fontes `.blend` de todas as armas e do zumbi, geometria autoral dos
 mapas (GLB + `.blend`), **2 slots de arma** com troca, correção do softlock do
 Bunker 13 (ondas alcançáveis + BFS salas/portas), `MapContext`/`Interactable`
-tipados, harness extraído para `tests/`, pool/cache de áudio/tracer/animação e
-HUD autoral em `scenes/ui/hud.tscn`.
+tipados, harness extraído para `tests/`, pool/cache de áudio/tracer/animação,
+HUD autoral em `scenes/ui/hud.tscn` e `Economy`/`RoundManager` separados.
 
 **Pendente**
 - `HandsRig`/`ViewmodelFactory` com mãos compartilhadas.

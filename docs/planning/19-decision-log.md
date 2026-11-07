@@ -5,6 +5,7 @@ Decisões estruturais longas também viram ADR em `07-adr/`.
 
 | ID | Data | Decisão | Motivo / consequência |
 |---|---|---|---|
+| D-021 | 2026-11-06 | **Serviços de loop:** `Economy` (pontos/compra) e `RoundManager` (ondas/spawn/conclusão) separados do `GameRoot`. | `GameRoot` só orquestra; testes e regras ficam isolados. |
 | D-020 | 2026-11-06 | **HUD autoral:** `scenes/ui/hud.tscn` guarda a árvore; `hud.gd` só faz bind/sinais via `@onready`. | Ajuste visual sem rodar o jogo; corrige a dívida do HUD 100% em código. |
 | D-019 | 2026-11-06 | **Pool/cache de efeitos:** áudio em pools fixos (12x 2D, 16x 3D), tracer com mesh/material estáticos e animação por mapa de estados + cache de cena. | Corta alocação por tiro/som/spawn sem mudar gameplay; bench atual estável. |
 | D-018 | 2026-11-06 | **Harness em cena de teste:** `tests/test_runner.tscn` roda como cena principal (autoloads disponíveis) e instancia `main.tscn`; casos via `--case`. | Remove ~250 linhas de teste do `GameRoot` e mantém autoloads sem gambiarra em `--script`. |

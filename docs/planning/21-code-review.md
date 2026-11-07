@@ -14,9 +14,9 @@
 - **Velocidade:** **sim, o estilo atual atrasa** — não pelos docs/CI, mas pela
   arquitetura de runtime. Cada item novo (2 slots, barricadas, IA) exige mexer
   em vários pontos ao mesmo tempo.
-- **Atualização:** 2 slots implementados (`SLOTS_OK`), softlock do Bunker 13
-  corrigido (`SOFTLOCK_OK`) e `MapContext`/`Interactable` tipados; harness do
-  `GameRoot` e factory/mãos continuam pendentes.
+- **Atualização:** 2 slots, softlock, `MapContext`/`Interactable`, harness,
+  HUD em `.tscn` e `Economy`/`RoundManager` concluídos; factory/mãos continuam
+  pendentes.
 
 ## Boas práticas presentes
 
@@ -30,10 +30,9 @@
 
 ## Dívidas que mais atrasam
 
-1. **`GameRoot` monolítico** (`src/gameplay/game_root.gd`): economia, spawn,
-   portas, compras, pausa e handlers no mesmo arquivo. O harness de teste já foi
-   extraído para `tests/test_runner.tscn` (issue #5); a orquestração continua
-   concentrada.
+1. **`GameRoot` monolítico** — reduzido: harness saiu para
+   `tests/test_runner.tscn`; `Economy` e `RoundManager` foram extraídos. Ainda
+   concentra compras, pausa, HUD e handlers.
 2. **`ctx: Dictionary` com strings mágicas** (`game_root.gd:9,179-186`): o
    contrato entre builder e gameplay não é tipado; `kind` aparece no builder,
    no prompt e na compra. `door_open` global duplica o estado de cada porta.
