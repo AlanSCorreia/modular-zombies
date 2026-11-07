@@ -40,6 +40,12 @@ echo "== interação =="
 echo "== 2 slots =="
 "$GODOT" --headless --path . res://tests/test_runner.tscn -- --case slots
 
+echo "== melee =="
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case melee
+
+echo "== projetil =="
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case projectile
+
 echo "== integração =="
 "$GODOT" --headless --path . res://tests/test_runner.tscn -- --case slice
 

@@ -1,7 +1,7 @@
 class_name ContentValidator
 extends RefCounted
 
-static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary) -> Array[String]:
+static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary, melees: Dictionary) -> Array[String]:
 	var errors: Array[String] = []
 	for id in maps.keys():
 		var m: MapData = maps[id]
@@ -75,6 +75,14 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary)
 			errors.append("weapon %s: damage <= 0" % id)
 		if int(w.stats.get("mag", 0)) <= 0:
 			errors.append("weapon %s: mag <= 0" % id)
+		if w.type == "projectile":
+			if w.projectile.is_empty():
+				errors.append("weapon %s: type projectile sem bloco projectile" % id)
+			else:
+				if float(w.projectile.get("speed", 0.0)) <= 0.0:
+					errors.append("weapon %s: projectile.speed <= 0" % id)
+				if float(w.projectile.get("lifetime", 0.0)) <= 0.0:
+					errors.append("weapon %s: projectile.lifetime <= 0" % id)
 
 	for id in enemies.keys():
 		var e: EnemyData = enemies[id]
@@ -84,4 +92,13 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary)
 			errors.append("enemy %s: cena inexistente (%s)" % [id, e.scene])
 		if e.health <= 0.0 or e.speed <= 0.0 or e.damage <= 0.0:
 			errors.append("enemy %s: stats inválidos" % id)
+
+	for id in melees.keys():
+		var m: MeleeData = melees[id]
+		if m.id == "" or m.name == "":
+			errors.append("melee %s: id/name vazios" % id)
+		if m.damage <= 0.0 or m.range <= 0.0 or m.cooldown <= 0.0:
+			errors.append("melee %s: stats inválidos" % id)
+		if m.scene != "" and not FileAccess.file_exists(m.scene):
+			errors.append("melee %s: cena inexistente (%s)" % [id, m.scene])
 	return errors

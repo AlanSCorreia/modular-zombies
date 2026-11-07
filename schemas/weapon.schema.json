@@ -14,6 +14,7 @@
     "grip_profile": { "type": "string" },
     "animation_set": { "type": "string" },
     "moving_parts": { "type": "array", "items": { "type": "string" } },
+    "projectile": { "type": "object" },
     "viewmodel": { "type": "object" },
     "stats": { "type": "object" },
     "reload": { "type": "object" },

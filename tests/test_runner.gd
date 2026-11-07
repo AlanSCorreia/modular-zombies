@@ -26,6 +26,10 @@ func _ready() -> void:
 			await _interaction()
 		"slots":
 			await _slots()
+		"melee":
+			await _melee()
+		"projectile":
+			await _projectile()
 		"ui":
 			await _ui()
 		"shot":
@@ -238,6 +242,49 @@ func _slots() -> void:
 		count_after_add, str(active_mp5), str(back_glock), str(back_mp5), str(no_duplicate),
 	])
 	_finish("SLOTS_OK", ok)
+
+func _melee() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	var z: ZombieEnemy = game.zombies[0]
+	z.set_physics_process(false)
+	var forward := -game.player.global_transform.basis.z
+	z.position = game.player.position + forward * 1.2
+	z.position.y = game.player.position.y
+	game.player.look_at(Vector3(z.position.x, game.player.position.y, z.position.z), Vector3.UP)
+	await get_tree().process_frame
+	await get_tree().physics_frame
+	await get_tree().create_timer(0.1).timeout
+	var before := z.health
+	var hit := game.player.melee != null and game.player.melee.try_swing()
+	await get_tree().create_timer(0.1).timeout
+	var ok: bool = hit and (z.is_dead or z.health < before)
+	print("MELEE_TEST hit=%s before=%.1f after=%.1f dead=%s" % [
+		str(hit), before, z.health, str(z.is_dead),
+	])
+	_finish("MELEE_OK", ok)
+
+func _projectile() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	var w: WeaponData = Content.get_weapon("weapon.wunder")
+	game.player.add_weapon(w)
+	var z: ZombieEnemy = game.zombies[0]
+	z.set_physics_process(false)
+	var forward := -game.player.global_transform.basis.z
+	z.position = game.player.position + forward * 3.0
+	z.position.y = game.player.position.y
+	game.player.look_at(Vector3(z.position.x, game.player.position.y, z.position.z), Vector3.UP)
+	await get_tree().process_frame
+	await get_tree().physics_frame
+	var before := z.health
+	game.player.weapon.try_fire()
+	await get_tree().create_timer(0.8).timeout
+	var ok: bool = z.is_dead or z.health < before
+	print("PROJECTILE_TEST before=%.1f after=%.1f dead=%s weapon=%s" % [
+		before, z.health, str(z.is_dead), game.player.weapon.data.id,
+	])
+	_finish("PROJECTILE_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

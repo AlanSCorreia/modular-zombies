@@ -180,25 +180,45 @@ func try_fire() -> void:
 
 	var spread := float(data.stats.get("spread", 0.01))
 	var from := camera.global_position
-	var dir := -camera.global_transform.basis.z
-	dir += camera.global_transform.basis.x * randf_range(-spread, spread)
-	dir += camera.global_transform.basis.y * randf_range(-spread, spread)
-	dir = dir.normalized()
-	var to := from + dir * float(data.stats.get("range", 120.0))
-	var q := PhysicsRayQueryParameters3D.create(from, to, 1 | 4)
-	var res: Dictionary = camera.get_world_3d().direct_space_state.intersect_ray(q)
-	var end := to
-	if not res.is_empty():
-		end = res.position
-		var col = res.collider
-		if col is ZombieEnemy:
-			var z: ZombieEnemy = col
-			var head := z.is_head_hit(res.position)
-			var mult := float(data.stats.get("head_multiplier", 2.0)) if head else 1.0
-			z.take_damage(float(data.stats.get("damage", 34.0)) * mult, head, res.position)
-			Events.hitmarker.emit()
-	_tracer(from, end)
+	var base_dir := -camera.global_transform.basis.z
+
+	if data.type == "projectile":
+		var pdir := base_dir
+		pdir += camera.global_transform.basis.x * randf_range(-spread, spread)
+		pdir += camera.global_transform.basis.y * randf_range(-spread, spread)
+		_fire_projectile(from, pdir.normalized())
+		_update_ammo()
+		return
+
+	var pellets := int(data.stats.get("pellets", 1))
+	for i in range(pellets):
+		var dir := base_dir
+		dir += camera.global_transform.basis.x * randf_range(-spread, spread)
+		dir += camera.global_transform.basis.y * randf_range(-spread, spread)
+		dir = dir.normalized()
+		var to := from + dir * float(data.stats.get("range", 120.0))
+		var q := PhysicsRayQueryParameters3D.create(from, to, 1 | 4)
+		var res: Dictionary = camera.get_world_3d().direct_space_state.intersect_ray(q)
+		var end := to
+		if not res.is_empty():
+			end = res.position
+			var col = res.collider
+			if col is ZombieEnemy:
+				var z: ZombieEnemy = col
+				var head := z.is_head_hit(res.position)
+				var mult := float(data.stats.get("head_multiplier", 2.0)) if head else 1.0
+				z.take_damage(float(data.stats.get("damage", 34.0)) * mult, head, res.position)
+				Events.hitmarker.emit()
+		_tracer(from, end)
 	_update_ammo()
+
+func _fire_projectile(from: Vector3, dir: Vector3) -> void:
+	var proj := Projectile.new()
+	proj.setup(data, from, dir, player)
+	var parent := player.get_parent()
+	if parent == null:
+		parent = get_tree().current_scene
+	parent.add_child(proj)
 
 func start_reload() -> void:
 	if _reloading or ammo_mag >= int(data.stats.get("mag", 17)) or ammo_reserve <= 0:

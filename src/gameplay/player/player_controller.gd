@@ -18,6 +18,7 @@ var interact_ray: RayCast3D
 var weapons: Array[WeaponController] = []
 var active_slot := 0
 var weapon: WeaponController
+var melee: MeleeController
 
 var _pitch := 0.0
 var _bob := 0.0
@@ -62,6 +63,14 @@ func _ready() -> void:
 
 func setup_weapon(data: WeaponData) -> void:
 	add_weapon(data)
+
+func setup_melee(data: MeleeData) -> void:
+	if data == null:
+		return
+	melee = MeleeController.new()
+	melee.name = "Melee"
+	melee.setup(data, camera, self)
+	add_child(melee)
 
 func equip_weapon(data: WeaponData) -> void:
 	add_weapon(data)

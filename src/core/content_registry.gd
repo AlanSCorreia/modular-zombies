@@ -8,6 +8,7 @@ const ROOT := "res://content"
 var maps: Dictionary = {}
 var weapons: Dictionary = {}
 var enemies: Dictionary = {}
+var melees: Dictionary = {}
 var errors: Array[String] = []
 var loaded := false
 
@@ -18,6 +19,7 @@ func reload() -> void:
 	maps.clear()
 	weapons.clear()
 	enemies.clear()
+	melees.clear()
 	errors.clear()
 	loaded = false
 	for path in _scan(ROOT):
@@ -42,13 +44,17 @@ func reload() -> void:
 				weapons[id] = WeaponData.from_dict(d)
 			"enemy":
 				enemies[id] = EnemyData.from_dict(d)
+			"melee":
+				melees[id] = MeleeData.from_dict(d)
 			_:
 				errors.append("%s: kind desconhecido '%s'" % [path, kind])
-	errors.append_array(ContentValidator.validate(maps, weapons, enemies))
+	errors.append_array(ContentValidator.validate(maps, weapons, enemies, melees))
 	for e in errors:
 		push_error("CONTEÚDO: " + e)
 	loaded = errors.is_empty()
-	print("CONTENT_LOADED maps=%d weapons=%d enemies=%d errors=%d" % [maps.size(), weapons.size(), enemies.size(), errors.size()])
+	print("CONTENT_LOADED maps=%d weapons=%d enemies=%d melees=%d errors=%d" % [
+		maps.size(), weapons.size(), enemies.size(), melees.size(), errors.size(),
+	])
 
 func _scan(dir: String) -> Array[String]:
 	var out: Array[String] = []
@@ -75,3 +81,6 @@ func get_weapon(id: String) -> WeaponData:
 
 func get_enemy(id: String) -> EnemyData:
 	return enemies.get(id, null)
+
+func get_melee(id: String) -> MeleeData:
+	return melees.get(id, null)

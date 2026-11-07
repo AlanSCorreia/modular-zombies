@@ -18,10 +18,16 @@ func _init() -> void:
 	var bunker: MapData = reg.get_map("map.bunker13")
 	var weapon: WeaponData = reg.get_weapon("weapon.glock17")
 	var enemy: EnemyData = reg.get_enemy("enemy.zombie")
+	var melee: MeleeData = reg.get_melee("melee.knife")
 
 	check(reg.errors.is_empty(), "conteúdo sem erros")
 	check(reg.maps.size() == 2, "2 mapas carregados")
 	check(reg.weapons.size() == 5, "5 armas carregadas")
+	check(reg.melees.size() == 1, "1 melee carregado")
+	check(melee != null, "faca carregada")
+	if melee != null:
+		check(melee.damage == 150.0, "faca causa 150")
+		check(melee.cooldown > 0.0, "faca tem cooldown")
 	for wid in ["weapon.glock17", "weapon.mp5", "weapon.m870", "weapon.ak74", "weapon.wunder"]:
 		var w: WeaponData = reg.get_weapon(wid)
 		check(w != null, "arma " + wid)

@@ -54,6 +54,7 @@ func _ready() -> void:
 	hud.resume_requested.connect(_resume)
 
 	player.setup_weapon(weapon_data)
+	player.setup_melee(Content.get_melee("melee.knife"))
 
 	economy = Economy.new()
 	economy.setup(map.starting_points)

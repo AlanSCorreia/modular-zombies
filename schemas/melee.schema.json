@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Melee",
+  "type": "object",
+  "required": ["schema_version", "kind", "id", "name", "damage", "range", "cooldown"],
+  "properties": {
+    "schema_version": { "type": "integer", "const": 1 },
+    "kind": { "type": "string", "const": "melee" },
+    "id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "damage": { "type": "number", "exclusiveMinimum": 0 },
+    "range": { "type": "number", "exclusiveMinimum": 0 },
+    "arc_deg": { "type": "number", "minimum": 1, "maximum": 360 },
+    "cooldown": { "type": "number", "exclusiveMinimum": 0 },
+    "impact_time": { "type": "number", "minimum": 0 },
+    "lunge": { "type": "number", "minimum": 0 },
+    "scene": { "type": "string" },
+    "hands": { "type": "string" }
+  }
+}

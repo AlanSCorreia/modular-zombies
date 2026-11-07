@@ -39,6 +39,7 @@ func _ready() -> void:
 	collision_layer = 4
 	collision_mask = 1 | 2
 	floor_snap_length = 0.3
+	add_to_group("zombies")
 
 	var cs := CollisionShape3D.new()
 	var cap := CapsuleShape3D.new()
