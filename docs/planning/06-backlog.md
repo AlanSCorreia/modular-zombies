@@ -44,10 +44,10 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 
 > Atendido: ETAPA3.34–36 (geometria autoral). A Etapa 4 só começa depois do
 > aceite da Etapa 3.
-> Ordem de execução: ETAPA3.40 (softlock, issue #3), ETAPA3.38
-> (`MapContext`/`Interactable`, issue #4), ETAPA3.41 (harness em `tests/`,
-> issue #5) e ETAPA3.42 (pool/cache, issue #6) concluídas; agora ETAPA3.43
-> (HUD em `.tscn`, issue #7).
+> Ordem de execução: ETAPA3.40–43 (issues #3–#7), `Economy`/`RoundManager`
+> (issue #8), melee/projétil (issue #9), `ExplosionSystem` (issue #10) e
+> granada/foguete/barris (issue #11) concluídas; agora ETAPA3.17/18
+> (`Barricade`/`BarricadeSystem`, issue #12).
 
 | ID | Tarefa | Pri |
 |---|---|---|
@@ -60,9 +60,9 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.7 | `Economy` | P0 |
 | ETAPA3.8 | `Effects` (sangue, decais, tracers, cápsulas) | P0 |
 | ETAPA3.9 | `ExplosionSystem` (raio, LOS, falloff, impulso, cadeia) (feito) | P0 |
-| ETAPA3.10 | Granada equipável (G) | P0 |
-| ETAPA3.11 | Lança-foguete (`projectile`) | P0 |
-| ETAPA3.12 | Barris explosivos ao receber tiro | P0 |
+| ETAPA3.10 | Granada equipável (G) (feito) | P0 |
+| ETAPA3.11 | Lança-foguete (`projectile`) (feito) | P0 |
+| ETAPA3.12 | Barris explosivos ao receber tiro (feito) | P0 |
 | ETAPA3.13 | `MeleeController` (V, cooldown, ray) (feito; modelo/arco pendentes) | P0 |
 | ETAPA3.14 | Faca GLB + mãos compartilhadas + animação `knife_slash` | P0 |
 | ETAPA3.17 | `Barricade` + estado das tábuas | P0 |
@@ -70,7 +70,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.19 | IA de zumbi: arrancar, entrar e fila por janela | P0 |
 | ETAPA3.20 | Testes de barricada (reparo, interrupção, breach) | P0 |
 | ETAPA3.21 | Validar workflow com uma segunda arma | P0 |
-| ETAPA3.22 | JSON de faca, granada, foguete, barris e traps | P0 |
+| ETAPA3.22 | JSON de faca, granada, foguete e barris (feito; traps pendentes) | P0 |
 | ETAPA3.23 | Mãos separadas (`hands.glb`) + `GripSocket` | P0 |
 | ETAPA3.24 | Bunker 13 jogável (spawns, portas, barricadas) | P0 |
 | ETAPA3.25 | `--map <id>` no GameRoot | P0 |

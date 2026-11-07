@@ -170,6 +170,19 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `a99f691` `feat: load authored map geometry from GLB`
 - `4019c1c` `docs: record authored map geometry migration`
 
+**Granada, lança-foguete e barris (issue #11) — concluído**
+- Granada (G) com fusível de `ExplosiveData`, contador de 2 cargas e HUD via
+  `Events.grenades_changed`; arremesso por `RigidBody3D` autorado.
+- `weapon.rocket` (`projectile` + `explosive.frag`) e dano em área.
+- `map.barrels` no JSON do Bunker 13 (`barrel_A1/A2`), `BarrelData`,
+  `ExplosiveBarrel` com dano por tiro/corpo a corpo e cadeia.
+- Assets autorais `barrel.glb`/`grenade.glb` + fontes `.blend`.
+- Testes `GRENADE_OK`, `ROCKET_OK` e `BARREL_OK` no CI.
+- `ExplosionSystem` e `MapSceneBuilder` passaram a usar duck typing/dicionário
+  de explosivos para continuarem válidos em `--script` sem autoloads.
+- Issue #11 fechada; issue #12 aberta (`BarricadeSystem`).
+- Commit `5aaeffe` `feat: add grenade, rocket launcher and explosive barrels`.
+
 **ExplosionSystem + ExplosiveData (issue #10) — concluído**
 - `ExplosionSystem` com shape query, raio, falloff, LOS, `max_targets`,
   impulso em `RigidBody3D` e cadeia por `explosive_chain`/`chain_depth`.
@@ -279,8 +292,8 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   screenshot do menu.
 
 **Próximo item (KANBAN)**
-- Granada, lança-foguete e barris explosivos (issue #11); depois,
-  `BarricadeSystem`.
+- `Barricade` + `BarricadeSystem` (issue #12); depois, IA de zumbi em
+  barricadas e mãos compartilhadas.
 
 **Registro confirmado**
 - GitHub: #2 fechada; #3 aberta à época (hoje fechada — ver bloco “Softlock do

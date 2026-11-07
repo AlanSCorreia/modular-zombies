@@ -60,17 +60,18 @@ mapas (GLB + `.blend`), **2 slots de arma** com troca, correção do softlock do
 Bunker 13 (ondas alcançáveis + BFS salas/portas), `MapContext`/`Interactable`
 tipados, harness extraído para `tests/`, pool/cache de áudio/tracer/animação,
 HUD autoral em `scenes/ui/hud.tscn`, `Economy`/`RoundManager` separados,
-armas hitscan/pellets/projectile + melee controller e `ExplosionSystem` com
-`ExplosiveData`/barris encadeáveis.
+armas hitscan/pellets/projectile + melee controller, `ExplosionSystem` com
+`ExplosiveData`/barris encadeáveis e granada (G), lança-foguete e barris
+autorais com dano por tiro e cadeia.
 
 **Pendente**
 - `HandsRig`/`ViewmodelFactory` com mãos compartilhadas.
 - **MP5 de ponta a ponta antes de remodelar as outras armas.**
 - `BoxBuilder` compartilhado.
-- Faca GLB/animação e explosivos (granadas, foguete, barris).
+- Faca GLB/animação.
 - `BarricadeSystem`: hold F, tábuas, arranque e entrada do zumbi.
 - `RoundManager`/economia completos e efeitos.
-- Testes de explosivos/faca e loop completo.
+- Testes de faca, granadas/traps e loop completo.
 
 **Pré-requisito atendido:** geometria do mapa autoral (ETAPA3.34–36).
 

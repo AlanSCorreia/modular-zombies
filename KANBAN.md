@@ -28,7 +28,7 @@
 |---|---|---|---|
 | `etapa1` | Etapa 1 — Preparação | **Concluído** | — |
 | `etapa2` | Etapa 2 — Conteúdo | **Concluído** | — |
-| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Granada, lança-foguete e barris |
+| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Barricadas |
 | `etapa4` | Etapa 4 — Interações | Backlog | — |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | Backlog | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | Backlog | — |
@@ -37,15 +37,16 @@
 
 > **Status:** Etapas 1 e 2 concluídas. Geometria autoral, 2 slots, softlock,
 > `MapContext`/`Interactable`, harness, pool/cache, HUD em `.tscn`,
-> `RoundManager`/`Economy`, projectile/melee e `ExplosionSystem` concluídos
-> (issues #1–#10 fechadas); o foco agora é granada/foguete/barris (issue #11).
+> `RoundManager`/`Economy`, projectile/melee, `ExplosionSystem`,
+> granada/foguete/barris concluídos (issues #1–#11 fechadas); o foco agora é
+> `BarricadeSystem` (issue #12).
 
 ## Próximo item
 
 - **Etapa ativa:** 3 — Gameplay.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** granada, lança-foguete e barris explosivos (issue #11).
-- **Depois:** barricadas (`BarricadeSystem`).
+- **Próximo:** `Barricade` + `BarricadeSystem` (issue #12).
+- **Depois:** IA de zumbi em barricadas e mãos compartilhadas.
 - **Próxima etapa:** 4 — Interações, somente após o aceite da Etapa 3.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -141,9 +142,8 @@ faca, explosivos e barricadas funcionando.
 - [ ] Estatísticas de sessão
 
 ### Ready
-- [ ] Granada (G), lança-foguete e barris explosivos (P1) — [#11](https://github.com/AlanSCorreia/modular-zombies/issues/11)
-- [ ] `Barricade` + `BarricadeSystem` (tábuas, hold F, pontos)
-- [ ] JSON de granada, foguete, barris e traps
+- [ ] `Barricade` + `BarricadeSystem` (tábuas, hold F, pontos) (P0) — [#12](https://github.com/AlanSCorreia/modular-zombies/issues/12)
+- [ ] JSON de traps explosivas
 - [ ] Mãos separadas (`hands.glb`) + `GripSocket`
 - [ ] Bunker 13 jogável com janelas e barricadas
 - [ ] Teste visual do Bunker 13
@@ -201,6 +201,7 @@ faca, explosivos e barricadas funcionando.
 - [x] `Economy` + `RoundManager` extraídos do `GameRoot` (issue #8)
 - [x] `WeaponController` projectile/pellets + `MeleeController` (issue #9)
 - [x] `ExplosionSystem` + `ExplosiveData` + barril encadeável (issue #10)
+- [x] Granada (G), lança-foguete e barris explosivos autorais (issue #11)
 
 ### Blocked
 - [ ] MP5 de ponta a ponta — depende de `hands.glb` + `ViewmodelFactory`

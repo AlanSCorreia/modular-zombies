@@ -5,6 +5,7 @@ Decisões estruturais longas também viram ADR em `07-adr/`.
 
 | ID | Data | Decisão | Motivo / consequência |
 |---|---|---|---|
+| D-024 | 2026-11-06 | **Granada, foguete e barris data-driven:** granada com `fuse` de `ExplosiveData`; lança-foguete é arma `projectile` com `explosive`; barris vêm de `map.barrels` e disparam `ExplosionSystem`. | Conteúdo novo sem código específico; qualquer arma projétil pode reutilizar o mesmo explosivo. |
 | D-023 | 2026-11-06 | **Explosão centralizada:** `ExplosionSystem` faz shape query com raio/falloff/LOS/limite, impulso em `RigidBody3D` e cadeia por grupo `explosive_chain` com `chain_depth`. | Um serviço evita duplicar regras em granada, foguete e barris. |
 | D-022 | 2026-11-06 | **Armas por tipo:** `hitscan` (com pellets), `projectile` (classe `Projectile`) e melee separado (`MeleeController` + `melee.knife` JSON). | Um controller não acumula todos os tipos; dados de melee/projétil ficam no conteúdo. |
 | D-021 | 2026-11-06 | **Serviços de loop:** `Economy` (pontos/compra) e `RoundManager` (ondas/spawn/conclusão) separados do `GameRoot`. | `GameRoot` só orquestra; testes e regras ficam isolados. |
