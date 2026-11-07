@@ -62,15 +62,15 @@ tipados, harness extraído para `tests/`, pool/cache de áudio/tracer/animação
 HUD autoral em `scenes/ui/hud.tscn`, `Economy`/`RoundManager` separados,
 armas hitscan/pellets/projectile + melee controller, `ExplosionSystem` com
 `ExplosiveData`/barris encadeáveis, granada (G), lança-foguete e barris
-autorais com dano por tiro e cadeia e `BarricadeSystem` (hold F, tábuas,
-pontos e HUD de progresso).
+autorais com dano por tiro e cadeia, `BarricadeSystem` (hold F, tábuas,
+pontos e HUD de progresso), vãos de janela autorais e IA de zumbi
+(approach/tear/climb/inside com fila por barricada).
 
 **Pendente**
 - `HandsRig`/`ViewmodelFactory` com mãos compartilhadas.
 - **MP5 de ponta a ponta antes de remodelar as outras armas.**
 - `BoxBuilder` compartilhado.
 - Faca GLB/animação.
-- IA de zumbi em barricadas: arranque, fila e entrada com 0.
 - `RoundManager`/economia completos e efeitos.
 - Testes de faca, traps e loop completo.
 

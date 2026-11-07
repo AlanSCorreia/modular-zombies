@@ -43,7 +43,7 @@
 **Estado atual:** `LOGIC_OK`, `CONTENT_OK`, `BUNKER13_OK`, `MAP_OK`,
 `SOFTLOCK_OK`, `PAUSE_OK`, `INTERACT_OK`, `SLOTS_OK`, `MELEE_OK`,
 `PROJECTILE_OK`, `EXPLOSION_OK`, `GRENADE_OK`, `ROCKET_OK`, `BARREL_OK`,
-`BARRICADE_OK`, `SLICE_OK`.
+`BARRICADE_OK`, `ZOMBIE_BARRICADE_OK`, `SLICE_OK`.
 **Bench (2026-11-06):** ~60 FPS, 16,6 ms, 83 draw calls, 67 MB (vsync/foco).
 
 ## Testes de geometria
@@ -109,7 +109,7 @@ Antes de expandir conteúdo:
 - [ ] Matar o zumbi e ganhar pontos.
 - [ ] Abrir a porta e spawnar o segundo zumbi.
 - [x] Reparar uma barricada com hold F e ganhar pontos.
-- [ ] Ver o zumbi arrancar tábuas e entrar com 0.
+- [x] Ver o zumbi arrancar tábuas e entrar com 0.
 - [ ] HUD/health/ammo/pontos corretos.
 - [ ] Game over e restart.
 - [ ] `ci.sh` verde e bench dentro do orçamento.

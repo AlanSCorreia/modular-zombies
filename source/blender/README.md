@@ -10,6 +10,7 @@ source/blender/
   enemies/<id>/<id>.blend
   maps/<id>/<id>.blend
   scripts/import_glb_to_blend.py
+  scripts/open_windows.py
   scripts/make_overview.py
   overview.blend
 ```
@@ -35,6 +36,19 @@ O GLB é artefato de exportação; nunca edite o GLB como fonte.
 
 Nos mapas, preserve os nomes `Door_<id>`, `WallBuy_<id>`, `Perk_<id>`, `Box`,
 `Lid`, `Barricade_<id>` e `Plank_*`; o runtime depende deles.
+
+## Janelas do Bunker 13
+
+Os vãos são segmentos das paredes `Wall_N_*`/`Wall_S_*`/`Wall_W_*`/
+`Wall_E_*`, com peitoril e verga. Para regenerar:
+
+```bash
+blender -b source/blender/maps/bunker13/bunker13.blend \
+  --python source/blender/scripts/open_windows.py
+```
+
+O script é idempotente: se as paredes originais já não existem, apenas
+reexporta o GLB com as luzes.
 
 ## Importar GLB existente
 

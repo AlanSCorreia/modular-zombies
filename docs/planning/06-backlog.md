@@ -46,9 +46,9 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 > aceite da Etapa 3.
 > Ordem de execução: ETAPA3.40–43 (issues #3–#7), `Economy`/`RoundManager`
 > (issue #8), melee/projétil (issue #9), `ExplosionSystem` (issue #10) e
-> granada/foguete/barris (issue #11) e `Barricade`/`BarricadeSystem`
-> (issue #12) concluídas; agora ETAPA3.19 (IA de zumbi em barricadas,
-> issue #13).
+> granada/foguete/barris (issue #11), `Barricade`/`BarricadeSystem`
+> (issue #12) e janelas/IA de zumbi (issue #13) concluídas; agora ETAPA3.23
+> (`hands.glb` + `GripSocket`, issue #14).
 
 | ID | Tarefa | Pri |
 |---|---|---|
@@ -68,19 +68,19 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.14 | Faca GLB + mãos compartilhadas + animação `knife_slash` | P0 |
 | ETAPA3.17 | `Barricade` + estado das tábuas (feito) | P0 |
 | ETAPA3.18 | `BarricadeSystem` + hold F + pontos (feito) | P0 |
-| ETAPA3.19 | IA de zumbi: arrancar, entrar e fila por janela | P0 |
+| ETAPA3.19 | IA de zumbi: arrancar, entrar e fila por janela (feito) | P0 |
 | ETAPA3.20 | Testes de barricada (reparo, interrupção, breach) (feito) | P0 |
 | ETAPA3.21 | Validar workflow com uma segunda arma | P0 |
 | ETAPA3.22 | JSON de faca, granada, foguete e barris (feito; traps pendentes) | P0 |
 | ETAPA3.23 | Mãos separadas (`hands.glb`) + `GripSocket` | P0 |
-| ETAPA3.24 | Bunker 13 jogável (spawns, portas, barricadas) | P0 |
+| ETAPA3.24 | Bunker 13 jogável (spawns, portas, barricadas) (feito) | P0 |
 | ETAPA3.25 | `--map <id>` no GameRoot | P0 |
 | ETAPA3.26 | Teste visual do Bunker 13 | P1 |
 | ETAPA3.27 | Extrair `BoxBuilder`/helpers comuns | P1 |
 | ETAPA3.28 | Versionar `.blend` fonte em `source/blender` (feito) | P1 |
 | ETAPA3.29 | `InteractionSystem` genérico (porta/wallbuy/perk/caixa/barricada) | P0 |
-| ETAPA3.30 | Abrir vãos de janela + reposicionar barricadas | P0 |
-| ETAPA3.31 | Spawns vinculados a `barricade.spawn_position` | P0 |
+| ETAPA3.30 | Abrir vãos de janela + reposicionar barricadas (feito) | P0 |
+| ETAPA3.31 | Spawns vinculados a `barricade.spawn_position` (feito) | P0 |
 | ETAPA3.32 | Corrigir falsos positivos do teste integrado | P0 |
 | ETAPA3.33 | Reforçar `ContentValidator` (schema, IDs, hands, áudio) | P1 |
 | ETAPA3.34 | Migrar geometria do mapa para cena autoral (GLB/`.tscn`) (feito) | P0 |

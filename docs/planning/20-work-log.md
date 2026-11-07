@@ -170,6 +170,19 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `a99f691` `feat: load authored map geometry from GLB`
 - `4019c1c` `docs: record authored map geometry migration`
 
+**Janelas autorais + IA de zumbi em barricadas (issue #13) — concluído**
+- Paredes externas do Bunker 13 segmentadas no `.blend`
+  (`source/blender/scripts/open_windows.py`), com peitoril/verga e vãos de
+  2,2 m; GLB reexportado e colisão por segmento (sem tapar as janelas).
+- Spawns de zumbi passaram a usar `barricade.spawn_position`, filtrados por
+  salas alcançáveis; fallback para `zombie_spawns` em mapas sem barricadas.
+- `ZombieEnemy` com estados `approach → tear → climb → inside`, fila por
+  barricada (`try_claim_tearer`) e tempo de arranque escalado pela rodada.
+- Teste `ZOMBIE_BARRICADE_OK` cobre aproximação, arranque, fila, breach,
+  entrada na sala e path até o player; `BUNKER13_OK` valida os vãos.
+- Issue #13 fechada; issue #14 aberta (`hands.glb`/`GripSocket`/`ViewmodelFactory`).
+- Commit `5f492d7` `feat: add zombie barricade AI and open bunker windows`.
+
 **Barricadas: estado, hold F e HUD (issue #12) — concluído**
 - `BarricadeState` com `plank_count`, `repair_progress` e `breached`; meshes
   `Plank_*` ligados/desligados e área de interação criada pelo builder.
@@ -304,8 +317,8 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   screenshot do menu.
 
 **Próximo item (KANBAN)**
-- IA de zumbi em barricadas (issue #13); depois, mãos compartilhadas +
-  `ViewmodelFactory`.
+- Mãos compartilhadas + `GripSocket` + `ViewmodelFactory` (issue #14); depois,
+  faca GLB + `knife_slash`.
 
 **Registro confirmado**
 - GitHub: #2 fechada; #3 aberta à época (hoje fechada — ver bloco “Softlock do

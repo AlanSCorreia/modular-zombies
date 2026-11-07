@@ -55,7 +55,9 @@ blender -b --python source/blender/scripts/make_overview.py
 ## Nomes que o runtime procura
 
 `Door_<id>`, `WallBuy_<id>`, `Perk_<id>`, `Box`, `Lid`, `Barricade_<id>` e
-`Plank_*`. Renomear esses nós no Blender quebra a interação.
+`Plank_*`. Renomear esses nós no Blender quebra a interação. Vãos de janela
+usam segmentos `Wall_N_*`/`Wall_S_*`/`Wall_W_*`/`Wall_E_*` com peitoril e
+verga; ver `source/blender/scripts/open_windows.py`.
 
 ## Regras
 
