@@ -28,7 +28,7 @@
 |---|---|---|---|
 | `etapa1` | Etapa 1 — Preparação | **Concluído** | — |
 | `etapa2` | Etapa 2 — Conteúdo | **Concluído** | — |
-| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Barricadas |
+| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | IA de zumbi em barricadas |
 | `etapa4` | Etapa 4 — Interações | Backlog | — |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | Backlog | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | Backlog | — |
@@ -38,15 +38,15 @@
 > **Status:** Etapas 1 e 2 concluídas. Geometria autoral, 2 slots, softlock,
 > `MapContext`/`Interactable`, harness, pool/cache, HUD em `.tscn`,
 > `RoundManager`/`Economy`, projectile/melee, `ExplosionSystem`,
-> granada/foguete/barris concluídos (issues #1–#11 fechadas); o foco agora é
-> `BarricadeSystem` (issue #12).
+> granada/foguete/barris e `BarricadeSystem` concluídos (issues #1–#12
+> fechadas); o foco agora é a IA de zumbi em barricadas (issue #13).
 
 ## Próximo item
 
 - **Etapa ativa:** 3 — Gameplay.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** `Barricade` + `BarricadeSystem` (issue #12).
-- **Depois:** IA de zumbi em barricadas e mãos compartilhadas.
+- **Próximo:** IA de zumbi em barricadas (issue #13).
+- **Depois:** mãos compartilhadas + `ViewmodelFactory`.
 - **Próxima etapa:** 4 — Interações, somente após o aceite da Etapa 3.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -142,19 +142,16 @@ faca, explosivos e barricadas funcionando.
 - [ ] Estatísticas de sessão
 
 ### Ready
-- [ ] `Barricade` + `BarricadeSystem` (tábuas, hold F, pontos) (P0) — [#12](https://github.com/AlanSCorreia/modular-zombies/issues/12)
-- [ ] JSON de traps explosivas
+- [ ] IA de zumbi: arrancar tábua, fila e entrada com 0 (P0) — [#13](https://github.com/AlanSCorreia/modular-zombies/issues/13)
 - [ ] Mãos separadas (`hands.glb`) + `GripSocket`
+- [ ] Spawns vinculados a `barricade.spawn_position`
+- [ ] JSON de traps explosivas
 - [ ] Bunker 13 jogável com janelas e barricadas
 - [ ] Teste visual do Bunker 13
 - [ ] Abrir vãos de janela no perímetro do Bunker 13
-- [ ] HUD de reparo de barricada
-- [ ] Spawns vinculados a `barricade.spawn_position`
 - [ ] Corrigir teste de integração (morte, kill, porta, reload)
 - [ ] Reforçar `ContentValidator` (schema, IDs, hands, áudio, moving_parts)
 - [ ] Substituir `get_child(0)` por referência tipada
-- [ ] IA de zumbi: arrancar tábua, fila e entrada com 0
-- [ ] Testes de barricada (reparo, interrupção, breach)
 - [ ] `BoxBuilder`/helpers comuns
 - [ ] Faca GLB + mãos compartilhadas + `knife_slash`
 - [ ] `HandsRig` + cache de mãos + `grip_profile`
@@ -173,6 +170,7 @@ faca, explosivos e barricadas funcionando.
 - [x] Smoke do Bunker 13 + compras (`MAP_OK`)
 - [x] Bunker 13 e slice carregam GLB autoral
 - [x] Mouse look, ESC/pause e F na porta
+- [x] Barricadas: hold F, interrupção, pontos e breach (`BARRICADE_OK`)
 - [ ] Rodada 1 → 2 e game over completos
 
 ### Done
@@ -202,6 +200,7 @@ faca, explosivos e barricadas funcionando.
 - [x] `WeaponController` projectile/pellets + `MeleeController` (issue #9)
 - [x] `ExplosionSystem` + `ExplosiveData` + barril encadeável (issue #10)
 - [x] Granada (G), lança-foguete e barris explosivos autorais (issue #11)
+- [x] `BarricadeSystem` + hold F + tábuas + HUD de progresso (issue #12)
 
 ### Blocked
 - [ ] MP5 de ponta a ponta — depende de `hands.glb` + `ViewmodelFactory`

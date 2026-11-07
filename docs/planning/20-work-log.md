@@ -170,6 +170,18 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `a99f691` `feat: load authored map geometry from GLB`
 - `4019c1c` `docs: record authored map geometry migration`
 
+**Barricadas: estado, hold F e HUD (issue #12) — concluído**
+- `BarricadeState` com `plank_count`, `repair_progress` e `breached`; meshes
+  `Plank_*` ligados/desligados e área de interação criada pelo builder.
+- `BarricadeSystem`: hold F repara 1 tábua por `repair_time`, paga
+  `repair_points`, cancela ao soltar F/tomar dano/trocar de arma e expõe
+  `tear_plank()` para a IA.
+- HUD com painel de progresso de reparo e contador de tábuas.
+- Teste `BARRICADE_OK` cobre cheia, arranque, interrupção, dois reparos,
+  limite e breach.
+- Issue #12 fechada; issue #13 aberta (IA de zumbi em barricadas).
+- Commit `6d41ec9` `feat: add barricade repair system`.
+
 **Granada, lança-foguete e barris (issue #11) — concluído**
 - Granada (G) com fusível de `ExplosiveData`, contador de 2 cargas e HUD via
   `Events.grenades_changed`; arremesso por `RigidBody3D` autorado.
@@ -292,8 +304,8 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   screenshot do menu.
 
 **Próximo item (KANBAN)**
-- `Barricade` + `BarricadeSystem` (issue #12); depois, IA de zumbi em
-  barricadas e mãos compartilhadas.
+- IA de zumbi em barricadas (issue #13); depois, mãos compartilhadas +
+  `ViewmodelFactory`.
 
 **Registro confirmado**
 - GitHub: #2 fechada; #3 aberta à época (hoje fechada — ver bloco “Softlock do
