@@ -42,10 +42,10 @@
    animação é montada para a Glock. O 2 slots foi resolvido com dois controllers
    independentes (`set_active`/`dispose`/`refill`), mas `ViewmodelFactory`/
    `HandsRig` continuam pendentes — o MP5 segue bloqueado por isso.
-4. **HUD 100% em código** (`hud.gd:76-235`): ajuste visual exige rodar o jogo;
-   foi a causa do bug de mouse (controles consumindo o cursor).
-5. **Sem composição de cena**: `main.tscn` só tem `GameRoot`; player, HUD,
-   arma, zumbi e colisão são criados por `.new()`.
+4. **HUD 100% em código** — resolvido: `scenes/ui/hud.tscn` guarda a árvore;
+   `hud.gd` só faz bind/sinais.
+5. **Sem composição de cena**: `main.tscn` só tem `GameRoot`; player, arma,
+   zumbi e colisão ainda são criados por `.new()`. O HUD já é cena.
 6. **Fonte de verdade duplicada**: posições de portas/wallbuys/perks/barricadas
    estão no JSON, mas o runtime usa o GLB; os campos do JSON ficaram inertes.
 7. **Testes por tempo/contagem**: `--test` dorme ~4 s e usa margem de 150 ms;

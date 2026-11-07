@@ -170,6 +170,17 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `a99f691` `feat: load authored map geometry from GLB`
 - `4019c1c` `docs: record authored map geometry migration`
 
+**HUD autoral em `.tscn` (issue #7) — concluído**
+- `scenes/ui/hud.tscn` gerado a partir do HUD em código e versionado.
+- `hud.gd` agora usa `@onready` + bind de sinais; `_build`/`_mk`/`_place`/
+  `_overlay` removidos (~250 linhas).
+- `GameRoot` instancia a cena via `HUD_SCENE`.
+- Start/pause/gameover, mouse filters, banner, ammo/slot e prompt preservados.
+- `PAUSE_OK`, `SLICE_OK`, `INTERACT_OK`, `SLOTS_OK`, `SOFTLOCK_OK` e `CI_OK`
+  verdes; screenshots de start/pause validados.
+- Issue #7 fechada; issue #8 aberta (`RoundManager`/`Economy`).
+- Commit `6a1bfd7` `refactor: move HUD to authored scene`.
+
 **Pool/cache de áudio, tracer e animação (issue #6) — concluído**
 - Áudio: pools fixos de 12 `AudioStreamPlayer` e 16 `AudioStreamPlayer3D`.
 - Tracer: `BoxMesh` unitário e material emissivo estáticos; escala por distância.
@@ -237,8 +248,8 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   screenshot do menu.
 
 **Próximo item (KANBAN)**
-- Mover o HUD para `.tscn` (issue #7); depois, `RoundManager`/`Economy` fora do
-  `GameRoot`.
+- Extrair `RoundManager`/`Economy` do `GameRoot` (issue #8); depois,
+  `WeaponController` projectile/melee.
 
 **Registro confirmado**
 - GitHub: #2 fechada; #3 aberta à época (hoje fechada — ver bloco “Softlock do
