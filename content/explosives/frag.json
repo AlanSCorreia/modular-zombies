@@ -8,5 +8,6 @@
   "falloff": 0.35,
   "impulse": 6.0,
   "max_targets": 24,
-  "chain_depth": 2
+  "chain_depth": 2,
+  "fuse": 2.5
 }

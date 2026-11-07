@@ -49,6 +49,15 @@ echo "== projetil =="
 echo "== explosão =="
 "$GODOT" --headless --path . res://tests/test_runner.tscn -- --case explosion
 
+echo "== granada =="
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case grenade
+
+echo "== foguete =="
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case rocket
+
+echo "== barris =="
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case barrel --map map.bunker13
+
 echo "== integração =="
 "$GODOT" --headless --path . res://tests/test_runner.tscn -- --case slice
 

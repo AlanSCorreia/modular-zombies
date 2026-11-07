@@ -28,12 +28,13 @@ func _init() -> void:
 		reg.free()
 		quit(1)
 		return
-	var ctx: MapContext = builder.build(root, map)
+	var ctx: MapContext = builder.build(root, map, reg.explosives)
 	check(ctx.doors.size() == 4, "4 portas")
 	check(ctx.wallbuys.size() == 4, "4 wallbuys")
 	check(ctx.perks.size() == 3, "3 perks")
 	check(ctx.box != null, "caixa misteriosa")
 	check(ctx.barricades.size() == 9, "9 barricadas")
+	check(ctx.barrels.size() == 2, "2 barris explosivos")
 	check(ctx.spawns.size() == 9, "9 spawns")
 	check(ctx.lights.size() == 8, "8 luzes")
 	for did in ctx.doors:

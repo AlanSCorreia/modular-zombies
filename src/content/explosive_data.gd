@@ -9,6 +9,7 @@ var falloff := 0.35
 var impulse := 4.0
 var max_targets := 24
 var chain_depth := 0
+var fuse := 2.5
 
 static func from_dict(d: Dictionary) -> ExplosiveData:
 	var e := ExplosiveData.new()
@@ -20,4 +21,5 @@ static func from_dict(d: Dictionary) -> ExplosiveData:
 	e.impulse = float(d.get("impulse", 4.0))
 	e.max_targets = int(d.get("max_targets", 24))
 	e.chain_depth = int(d.get("chain_depth", 0))
+	e.fuse = float(d.get("fuse", 2.5))
 	return e

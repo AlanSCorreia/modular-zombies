@@ -19,6 +19,9 @@ var weapons: Array[WeaponController] = []
 var active_slot := 0
 var weapon: WeaponController
 var melee: MeleeController
+var grenade_data: ExplosiveData
+var grenades := 2
+var max_grenades := 2
 
 var _pitch := 0.0
 var _bob := 0.0
@@ -71,6 +74,28 @@ func setup_melee(data: MeleeData) -> void:
 	melee.name = "Melee"
 	melee.setup(data, camera, self)
 	add_child(melee)
+
+func setup_grenades(data: ExplosiveData, count := 2) -> void:
+	grenade_data = data
+	max_grenades = count
+	grenades = count
+	Events.grenades_changed.emit(grenades)
+
+func throw_grenade() -> bool:
+	if grenade_data == null or not can_control or is_dead or grenades <= 0 or camera == null:
+		return false
+	grenades -= 1
+	Events.grenades_changed.emit(grenades)
+	Events.banner.emit("GRANADA", "%d RESTANTES" % grenades, 0.9)
+	var from := camera.global_position
+	var dir := -camera.global_transform.basis.z
+	var g := Grenade.new()
+	g.setup(grenade_data, from, dir)
+	var parent := get_parent()
+	if parent == null:
+		parent = get_tree().current_scene
+	parent.add_child(g)
+	return true
 
 func equip_weapon(data: WeaponData) -> void:
 	add_weapon(data)
@@ -157,6 +182,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			switch_slot(0)
 		elif event.keycode == KEY_2:
 			switch_slot(1)
+		elif event.keycode == KEY_G:
+			throw_grenade()
 	if event is InputEventMouseButton and event.pressed:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP:
 			cycle_slot(1)

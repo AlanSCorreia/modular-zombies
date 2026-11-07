@@ -13,6 +13,7 @@ signal player_health_changed(hp: float, max_hp: float)
 signal ammo_changed(mag: int, reserve: int, weapon_name: String)
 signal weapon_changed(id: String, name: String)
 signal slot_changed(index: int, count: int)
+signal grenades_changed(count: int)
 signal door_opened(id: String, room: String)
 signal power_on
 signal interacted(id: String, player: Node)

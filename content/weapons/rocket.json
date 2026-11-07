@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "kind": "weapon",
+  "id": "weapon.rocket",
+  "name": "LANÇA-FOGUETE",
+  "type": "projectile",
+  "scene": "res://assets/models/weapons/wunder/wunder.glb",
+  "hands": "",
+  "grip_profile": "rocket",
+  "animation_set": "",
+  "moving_parts": [],
+  "projectile": { "speed": 20.0, "radius": 0.3, "lifetime": 6.0, "explosion_radius": 0.0 },
+  "explosive": "explosive.frag",
+  "viewmodel": { "position": [0.18, -0.19, -0.55], "rotation": [0.0, 0.08, 0.0], "scale": 0.8 },
+  "stats": {
+    "damage": 180,
+    "head_multiplier": 1.0,
+    "rpm": 40,
+    "mag": 1,
+    "reserve": 4,
+    "spread": 0.0,
+    "range": 200,
+    "reload_chambered": 2.5,
+    "reload_empty": 3.0,
+    "auto": false
+  },
+  "reload": { "strategy": "magazine" },
+  "audio": { "fire": "gun_shotgun", "reload": "reload", "empty": "reload" }
+}

@@ -23,7 +23,7 @@ func _init() -> void:
 
 	check(reg.errors.is_empty(), "conteúdo sem erros")
 	check(reg.maps.size() == 2, "2 mapas carregados")
-	check(reg.weapons.size() == 5, "5 armas carregadas")
+	check(reg.weapons.size() == 6, "6 armas carregadas")
 	check(reg.melees.size() == 1, "1 melee carregado")
 	check(reg.explosives.size() == 1, "1 explosivo carregado")
 	check(melee != null, "faca carregada")
@@ -34,7 +34,7 @@ func _init() -> void:
 	if explosive != null:
 		check(explosive.radius == 4.0, "granada tem raio 4")
 		check(explosive.chain_depth == 2, "granada encadeia")
-	for wid in ["weapon.glock17", "weapon.mp5", "weapon.m870", "weapon.ak74", "weapon.wunder"]:
+	for wid in ["weapon.glock17", "weapon.mp5", "weapon.m870", "weapon.ak74", "weapon.wunder", "weapon.rocket"]:
 		var w: WeaponData = reg.get_weapon(wid)
 		check(w != null, "arma " + wid)
 		if w != null:
@@ -73,6 +73,7 @@ func _init() -> void:
 		check(bunker.perks.size() == 3, "Bunker 13 tem 3 perks")
 		check(bunker.box != null, "Bunker 13 tem caixa")
 		check(bunker.barricades.size() == 9, "Bunker 13 tem 9 barricadas")
+		check(bunker.barrels.size() == 2, "Bunker 13 tem 2 barris")
 		check(bunker.zombie_spawns.size() == 9, "Bunker 13 tem 9 spawns")
 	if enemy != null:
 		check(enemy.health == 100.0, "zumbi tem 100 de vida")

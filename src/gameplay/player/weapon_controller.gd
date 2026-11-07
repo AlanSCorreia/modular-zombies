@@ -197,7 +197,7 @@ func try_fire() -> void:
 		dir += camera.global_transform.basis.y * randf_range(-spread, spread)
 		dir = dir.normalized()
 		var to := from + dir * float(data.stats.get("range", 120.0))
-		var q := PhysicsRayQueryParameters3D.create(from, to, 1 | 4)
+		var q := PhysicsRayQueryParameters3D.create(from, to, 1 | 4 | 16)
 		var res: Dictionary = camera.get_world_3d().direct_space_state.intersect_ray(q)
 		var end := to
 		if not res.is_empty():
@@ -209,6 +209,9 @@ func try_fire() -> void:
 				var mult := float(data.stats.get("head_multiplier", 2.0)) if head else 1.0
 				z.take_damage(float(data.stats.get("damage", 34.0)) * mult, head, res.position)
 				Events.hitmarker.emit()
+			elif col is ExplosiveBarrel:
+				var barrel: ExplosiveBarrel = col
+				barrel.hit(float(data.stats.get("damage", 34.0)))
 		_tracer(from, end)
 	_update_ammo()
 

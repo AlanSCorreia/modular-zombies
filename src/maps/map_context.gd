@@ -8,5 +8,6 @@ var wallbuys: Dictionary[String, Interactable] = {}
 var perks: Dictionary[String, Interactable] = {}
 var box: BoxState = null
 var barricades: Dictionary[String, BarricadeState] = {}
+var barrels: Dictionary[String, ExplosiveBarrel] = {}
 var spawns: Array[SpawnData] = []
 var lights: Array[OmniLight3D] = []

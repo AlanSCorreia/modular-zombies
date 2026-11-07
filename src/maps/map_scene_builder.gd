@@ -8,10 +8,12 @@ var map: MapData
 var root: Node3D
 var map_root: Node3D
 var ctx: MapContext
+var explosives: Dictionary = {}
 
-func build(parent: Node3D, data: MapData) -> MapContext:
+func build(parent: Node3D, data: MapData, p_explosives: Dictionary = {}) -> MapContext:
 	root = parent
 	map = data
+	explosives = p_explosives
 	ctx = MapContext.new()
 	ctx.spawns = data.zombie_spawns.duplicate()
 
@@ -33,6 +35,7 @@ func build(parent: Node3D, data: MapData) -> MapContext:
 	_build_perks()
 	_build_box()
 	_build_barricades()
+	_build_barrels()
 	_collect_lights()
 	return ctx
 
@@ -165,6 +168,18 @@ func _build_barricades() -> void:
 		b.node = holder
 		b.planks = planks
 		ctx.barricades[data.id] = b
+
+func _build_barrels() -> void:
+	for barr in map.barrels:
+		var data: ExplosiveData = explosives.get(barr.explosive_id, null)
+		if data == null:
+			push_warning("Barril sem explosivo: " + barr.id)
+			continue
+		var b := ExplosiveBarrel.new()
+		b.name = "Barrel_" + barr.id
+		b.setup(data, barr.position)
+		root.add_child(b)
+		ctx.barrels[barr.id] = b
 
 func _collect_lights() -> void:
 	for child in map_root.get_children():

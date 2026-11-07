@@ -36,9 +36,8 @@ static func explode(world: World3D, tree: SceneTree, pos: Vector3, data: Explosi
 
 		var t := clampf(dist / maxf(data.radius, 0.001), 0.0, 1.0)
 		var mult := lerpf(1.0, data.falloff, t)
-		if col is ZombieEnemy:
-			var z: ZombieEnemy = col
-			z.take_damage(data.damage * mult, false, target_pos)
+		if col.has_method("take_damage"):
+			col.take_damage(data.damage * mult, false, target_pos)
 			count += 1
 		elif col is RigidBody3D:
 			var rb: RigidBody3D = col

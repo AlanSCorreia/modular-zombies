@@ -13,6 +13,7 @@
     "falloff": { "type": "number", "minimum": 0, "maximum": 1 },
     "impulse": { "type": "number", "minimum": 0 },
     "max_targets": { "type": "integer", "minimum": 1 },
-    "chain_depth": { "type": "integer", "minimum": 0 }
+    "chain_depth": { "type": "integer", "minimum": 0 },
+    "fuse": { "type": "number", "exclusiveMinimum": 0 }
   }
 }

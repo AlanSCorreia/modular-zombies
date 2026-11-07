@@ -32,6 +32,12 @@ func _ready() -> void:
 			await _projectile()
 		"explosion":
 			await _explosion()
+		"grenade":
+			await _grenade()
+		"rocket":
+			await _rocket()
+		"barrel":
+			await _barrel()
 		"ui":
 			await _ui()
 		"shot":
@@ -371,6 +377,65 @@ func _explosion() -> void:
 		z1_dmg, z2_dmg, str(los_ok), str(impulse_ok), str(chain_ok),
 	])
 	_finish("EXPLOSION_OK", ok)
+
+func _grenade() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	var z: ZombieEnemy = game.zombies[0]
+	z.set_physics_process(false)
+	var forward := -game.player.global_transform.basis.z
+	z.position = game.player.position + forward * 3.0
+	z.position.y = game.player.position.y
+	game.player.look_at(Vector3(z.position.x, game.player.position.y, z.position.z), Vector3.UP)
+	await get_tree().process_frame
+	await get_tree().physics_frame
+	var count_before := game.player.grenades
+	game.player.grenade_data.fuse = 0.6
+	var thrown := game.player.throw_grenade()
+	await get_tree().create_timer(1.2).timeout
+	var ok: bool = thrown and game.player.grenades == count_before - 1 and (z.is_dead or z.health < 100.0)
+	print("GRENADE_TEST thrown=%s count=%d dead=%s hp=%.1f" % [
+		str(thrown), game.player.grenades, str(z.is_dead), z.health,
+	])
+	_finish("GRENADE_OK", ok)
+
+func _rocket() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	game.player.add_weapon(Content.get_weapon("weapon.rocket"))
+	var z: ZombieEnemy = game.zombies[0]
+	z.set_physics_process(false)
+	var forward := -game.player.global_transform.basis.z
+	z.position = game.player.position + forward * 3.0
+	z.position.y = game.player.position.y
+	game.player.look_at(Vector3(z.position.x, game.player.position.y, z.position.z), Vector3.UP)
+	await get_tree().process_frame
+	await get_tree().physics_frame
+	game.player.weapon.try_fire()
+	await get_tree().create_timer(1.2).timeout
+	var ok: bool = z.is_dead or z.health < 100.0
+	print("ROCKET_TEST dead=%s hp=%.1f" % [str(z.is_dead), z.health])
+	_finish("ROCKET_OK", ok)
+
+func _barrel() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	var ids := game.ctx.barrels.keys()
+	if ids.size() < 2:
+		_finish("BARREL_OK", false)
+		return
+	var b1: ExplosiveBarrel = game.ctx.barrels[String(ids[0])]
+	var b2: ExplosiveBarrel = game.ctx.barrels[String(ids[1])]
+	game.player.position = b1.global_position + Vector3(0, 0.1 - b1.global_position.y, -2.0)
+	game.player.look_at(Vector3(b1.global_position.x, game.player.position.y, b1.global_position.z), Vector3.UP)
+	game.player._pitch = -0.55
+	await get_tree().process_frame
+	await get_tree().physics_frame
+	await get_tree().create_timer(0.1).timeout
+	game.player.weapon.try_fire()
+	var ok: bool = b1.detonated and b2.detonated
+	print("BARREL_TEST b1=%s b2=%s" % [str(b1.detonated), str(b2.detonated)])
+	_finish("BARREL_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

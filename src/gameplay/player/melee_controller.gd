@@ -28,7 +28,7 @@ func try_swing() -> bool:
 	var from := camera.global_position
 	var dir := -camera.global_transform.basis.z
 	var to := from + dir * data.range
-	var q := PhysicsRayQueryParameters3D.create(from, to, 1 | 4)
+	var q := PhysicsRayQueryParameters3D.create(from, to, 1 | 4 | 16)
 	q.collide_with_areas = false
 	var res: Dictionary = camera.get_world_3d().direct_space_state.intersect_ray(q)
 	if res.is_empty():
@@ -39,5 +39,9 @@ func try_swing() -> bool:
 		z.take_damage(data.damage, false, res.position)
 		Events.hitmarker.emit()
 		Sfx.play_3d("hit_flesh", res.position, -4, 1.0, 0.05)
+		return true
+	if col is ExplosiveBarrel:
+		var barrel: ExplosiveBarrel = col
+		barrel.hit(data.damage)
 		return true
 	return false

@@ -40,7 +40,7 @@ func setup(p_data: WeaponData, from: Vector3, dir: Vector3, p_player: PlayerCont
 
 func _physics_process(delta: float) -> void:
 	var next := global_position + _dir * speed * delta
-	var q := PhysicsRayQueryParameters3D.create(global_position, next, 1 | 4)
+	var q := PhysicsRayQueryParameters3D.create(global_position, next, 1 | 4 | 16)
 	q.collide_with_areas = false
 	var res: Dictionary = get_world_3d().direct_space_state.intersect_ray(q)
 	if not res.is_empty():
@@ -49,6 +49,9 @@ func _physics_process(delta: float) -> void:
 			var z: ZombieEnemy = col
 			z.take_damage(damage, false, res.position)
 			Events.hitmarker.emit()
+		elif col is ExplosiveBarrel:
+			var barrel: ExplosiveBarrel = col
+			barrel.hit(damage)
 		_explode(res.position)
 		queue_free()
 		return

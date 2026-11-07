@@ -43,6 +43,10 @@
     { "id": "bar_D1", "room": "D", "position": [23.82, 1.55, 8.0], "rotation_y": 1.5708, "max_planks": 6, "repair_time": 0.8, "repair_points": 10, "spawn_position": [25.2, 0.1, 8.0] },
     { "id": "bar_D2", "room": "D", "position": [23.82, 1.55, 14.0], "rotation_y": 1.5708, "max_planks": 6, "repair_time": 0.8, "repair_points": 10, "spawn_position": [25.2, 0.1, 14.0] }
   ],
+  "barrels": [
+    { "id": "barrel_A1", "explosive": "explosive.frag", "position": [5.5, 0.55, 14.5] },
+    { "id": "barrel_A2", "explosive": "explosive.frag", "position": [6.2, 0.55, 14.5] }
+  ],
   "wallbuys": [
     { "id": "wb_mp5", "weapon": "weapon.mp5", "name": "MP5", "cost": 1000, "position": [3.0, 1.45, 16.72], "rotation_y": 3.14159 },
     { "id": "wb_m870", "weapon": "weapon.m870", "name": "M870", "cost": 1200, "position": [-8.72, 1.45, -3.0], "rotation_y": 1.5708 },

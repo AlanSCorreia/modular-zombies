@@ -55,6 +55,11 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 				errors.append("map %s: barricada %s com max_planks <= 0" % [id, b.id])
 		if m.enemy_id == "" or not enemies.has(m.enemy_id):
 			errors.append("map %s: enemy '%s' inexistente" % [id, m.enemy_id])
+		for barr in m.barrels:
+			if barr.id == "":
+				errors.append("map %s: barril sem id" % id)
+			if not explosives.has(barr.explosive_id):
+				errors.append("map %s: barril %s usa explosivo inexistente (%s)" % [id, barr.id, barr.explosive_id])
 		if m.starting_points < 0:
 			errors.append("map %s: starting_points negativo" % id)
 		if m.zombie_count < 1:

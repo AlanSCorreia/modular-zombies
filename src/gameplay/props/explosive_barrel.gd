@@ -1,6 +1,8 @@
 class_name ExplosiveBarrel
 extends StaticBody3D
 
+const BARREL_SCENE := preload("res://assets/models/props/barrel/barrel.glb")
+
 var data: ExplosiveData
 var detonated := false
 
@@ -11,18 +13,17 @@ func setup(p_data: ExplosiveData, pos: Vector3) -> void:
 	collision_mask = 0
 	add_to_group("explosive_chain")
 
-	var mesh := MeshInstance3D.new()
-	var box := BoxMesh.new()
-	box.size = Vector3(0.8, 1.1, 0.8)
-	mesh.mesh = box
-	mesh.material_override = MatLib.simple(Color(0.72, 0.12, 0.08), 0.35, 0.55)
-	add_child(mesh)
+	var model := BARREL_SCENE.instantiate()
+	add_child(model)
 
 	var cs := CollisionShape3D.new()
 	var shape := BoxShape3D.new()
 	shape.size = Vector3(0.8, 1.1, 0.8)
 	cs.shape = shape
 	add_child(cs)
+
+func hit(_damage: float) -> void:
+	detonate(0)
 
 func detonate(depth: int) -> void:
 	if detonated or data == null:

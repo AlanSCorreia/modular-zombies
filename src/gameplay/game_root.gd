@@ -35,7 +35,7 @@ func _ready() -> void:
 	if builder == null:
 		push_error("Builder inválido para o mapa %s: %s" % [map.id, map.builder])
 		return
-	ctx = builder.build(self, map)
+	ctx = builder.build(self, map, Content.explosives)
 	nav = MapNav.new()
 	nav.setup(map, ctx.doors)
 
@@ -55,6 +55,7 @@ func _ready() -> void:
 
 	player.setup_weapon(weapon_data)
 	player.setup_melee(Content.get_melee("melee.knife"))
+	player.setup_grenades(Content.get_explosive("explosive.frag"))
 
 	economy = Economy.new()
 	economy.setup(map.starting_points)
