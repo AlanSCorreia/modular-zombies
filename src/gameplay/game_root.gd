@@ -1,6 +1,8 @@
 class_name GameRoot
 extends Node3D
 
+const HUD_SCENE := preload("res://scenes/ui/hud.tscn")
+
 var map: MapData
 var weapon_data: WeaponData
 var enemy_data: EnemyData
@@ -44,7 +46,7 @@ func _ready() -> void:
 	player.position = map.player_spawn
 	add_child(player)
 
-	hud = SliceHUD.new()
+	hud = HUD_SCENE.instantiate() as SliceHUD
 	hud.name = "HUD"
 	add_child(hud)
 	hud.set_map_name(map.name)

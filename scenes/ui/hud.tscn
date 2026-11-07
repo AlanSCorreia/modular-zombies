@@ -1,0 +1,581 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://src/gameplay/ui/hud.gd" id="1_8qguk"]
+[ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-SemiBold.ttf" id="2_136eg"]
+[ext_resource type="FontFile" path="res://assets/fonts/Oswald.ttf" id="3_oj5la"]
+[ext_resource type="FontFile" path="res://assets/fonts/SpecialElite.ttf" id="4_gss2c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_h022r"]
+bg_color = Color(0.03, 0.03, 0.03, 0.75)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.75, 0.62, 0.25, 0.7)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4jqwt"]
+bg_color = Color(0.06, 0.065, 0.06, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.65, 0.25, 0.15, 0.9)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kicr4"]
+bg_color = Color(0.06, 0.065, 0.06, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.65, 0.25, 0.15, 0.9)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mj13f"]
+bg_color = Color(0.06, 0.065, 0.06, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.65, 0.25, 0.15, 0.9)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0h1do"]
+bg_color = Color(0.06, 0.065, 0.06, 0.95)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.65, 0.25, 0.15, 0.9)
+
+[node name="HUD" type="CanvasLayer" unique_id=1144341672]
+process_mode = 3
+layer = 10
+script = ExtResource("1_8qguk")
+
+[node name="Root" type="Control" parent="." unique_id=1424519711]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="Crosshair" type="Control" parent="Root" unique_id=1066113430]
+anchors_preset = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+mouse_filter = 2
+
+[node name="Bar0" type="ColorRect" parent="Root/Crosshair" unique_id=1281212182]
+layout_mode = 0
+offset_left = -1.0
+offset_top = -12.5
+offset_right = 1.0
+offset_bottom = -5.5
+mouse_filter = 2
+color = Color(0.92, 0.9, 0.84, 0.85)
+
+[node name="Bar1" type="ColorRect" parent="Root/Crosshair" unique_id=1260023952]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 5.5
+offset_right = 1.0
+offset_bottom = 12.5
+mouse_filter = 2
+color = Color(0.92, 0.9, 0.84, 0.85)
+
+[node name="Bar2" type="ColorRect" parent="Root/Crosshair" unique_id=2130623985]
+layout_mode = 0
+offset_left = -12.5
+offset_top = -1.0
+offset_right = -5.5
+offset_bottom = 1.0
+mouse_filter = 2
+color = Color(0.92, 0.9, 0.84, 0.85)
+
+[node name="Bar3" type="ColorRect" parent="Root/Crosshair" unique_id=2017917095]
+layout_mode = 0
+offset_left = 5.5
+offset_top = -1.0
+offset_right = 12.5
+offset_bottom = 1.0
+mouse_filter = 2
+color = Color(0.92, 0.9, 0.84, 0.85)
+
+[node name="Hitmarker" type="Control" parent="Root" unique_id=2094946133]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+mouse_filter = 2
+
+[node name="Bar0" type="ColorRect" parent="Root/Hitmarker" unique_id=1668316688]
+layout_mode = 0
+offset_left = -11.0
+offset_top = -11.0
+offset_right = -2.0
+offset_bottom = -9.0
+rotation = 0.7853982
+pivot_offset = Vector2(4.5, 1)
+mouse_filter = 2
+color = Color(0.95, 0.95, 0.9, 1)
+
+[node name="Bar1" type="ColorRect" parent="Root/Hitmarker" unique_id=2051970892]
+layout_mode = 0
+offset_left = 11.0
+offset_top = -11.0
+offset_right = 20.0
+offset_bottom = -9.0
+rotation = -0.7853982
+pivot_offset = Vector2(4.5, 1)
+mouse_filter = 2
+color = Color(0.95, 0.95, 0.9, 1)
+
+[node name="Bar2" type="ColorRect" parent="Root/Hitmarker" unique_id=558271991]
+layout_mode = 0
+offset_left = -11.0
+offset_top = 11.0
+offset_right = -2.0
+offset_bottom = 13.0
+rotation = -0.7853982
+pivot_offset = Vector2(4.5, 1)
+mouse_filter = 2
+color = Color(0.95, 0.95, 0.9, 1)
+
+[node name="Bar3" type="ColorRect" parent="Root/Hitmarker" unique_id=459220833]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 11.0
+offset_right = 20.0
+offset_bottom = 13.0
+rotation = 0.7853982
+pivot_offset = Vector2(4.5, 1)
+mouse_filter = 2
+color = Color(0.95, 0.95, 0.9, 1)
+
+[node name="HealthTitle" type="Label" parent="Root" unique_id=255302440]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -66.0
+offset_right = 130.0
+offset_bottom = -46.0
+theme_override_colors/font_color = Color(0.55, 0.54, 0.48, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_136eg")
+theme_override_font_sizes/font_size = 15
+text = "VIDA"
+
+[node name="HealthLabel" type="Label" parent="Root" unique_id=672890951]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 30.0
+offset_top = -48.0
+offset_right = 130.0
+offset_bottom = -8.0
+theme_override_colors/font_color = Color(0.86, 0.84, 0.76, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_oj5la")
+theme_override_font_sizes/font_size = 34
+text = "100"
+
+[node name="HealthBg" type="ColorRect" parent="Root" unique_id=1644084135]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -40.0
+offset_right = 280.0
+offset_bottom = -30.0
+mouse_filter = 2
+color = Color(0.05, 0.05, 0.05, 0.8)
+
+[node name="HealthBar" type="ColorRect" parent="Root" unique_id=433855971]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = -40.0
+offset_right = 280.0
+offset_bottom = -30.0
+mouse_filter = 2
+color = Color(0.62, 0.62, 0.55, 1)
+
+[node name="PointsTitle" type="Label" parent="Root" unique_id=2057410579]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -64.0
+offset_right = 100.0
+offset_bottom = -44.0
+theme_override_colors/font_color = Color(0.55, 0.54, 0.48, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_136eg")
+theme_override_font_sizes/font_size = 15
+text = "PONTOS"
+horizontal_alignment = 1
+
+[node name="Points" type="Label" parent="Root" unique_id=785062439]
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -100.0
+offset_top = -50.0
+offset_right = 100.0
+offset_bottom = -6.0
+theme_override_colors/font_color = Color(0.95, 0.68, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_oj5la")
+theme_override_font_sizes/font_size = 36
+text = "500"
+horizontal_alignment = 1
+
+[node name="WeaponLabel" type="Label" parent="Root" unique_id=493760942]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -96.0
+offset_right = -40.0
+offset_bottom = -74.0
+theme_override_colors/font_color = Color(0.55, 0.54, 0.48, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_136eg")
+theme_override_font_sizes/font_size = 17
+text = "GLOCK 17"
+horizontal_alignment = 2
+
+[node name="SlotLabel" type="Label" parent="Root" unique_id=1421345569]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -320.0
+offset_top = -118.0
+offset_right = -40.0
+offset_bottom = -100.0
+theme_override_colors/font_color = Color(0.55, 0.54, 0.48, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_136eg")
+theme_override_font_sizes/font_size = 13
+text = "SLOT 1/1"
+horizontal_alignment = 2
+
+[node name="AmmoMag" type="Label" parent="Root" unique_id=25484812]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -86.0
+offset_right = -120.0
+offset_bottom = -16.0
+theme_override_colors/font_color = Color(0.86, 0.84, 0.76, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_oj5la")
+theme_override_font_sizes/font_size = 54
+text = "17"
+horizontal_alignment = 2
+
+[node name="AmmoRes" type="Label" parent="Root" unique_id=1670788810]
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -112.0
+offset_top = -66.0
+offset_right = -22.0
+offset_bottom = -26.0
+theme_override_colors/font_color = Color(0.55, 0.54, 0.48, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_oj5la")
+theme_override_font_sizes/font_size = 22
+text = "/ 102"
+
+[node name="RoundLabel" type="Label" parent="Root" unique_id=1318838240]
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -180.0
+offset_top = 20.0
+offset_right = 180.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(0.86, 0.84, 0.76, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_oj5la")
+theme_override_font_sizes/font_size = 24
+horizontal_alignment = 1
+
+[node name="PromptBox" type="PanelContainer" parent="Root" unique_id=952135805]
+visible = false
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -280.0
+offset_top = -180.0
+offset_right = 280.0
+offset_bottom = -136.0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_h022r")
+
+[node name="Prompt" type="Label" parent="Root/PromptBox" unique_id=2013350992]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.84, 0.76, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_136eg")
+theme_override_font_sizes/font_size = 19
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Banner" type="Label" parent="Root" unique_id=1309376446]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -80.0
+offset_right = 500.0
+theme_override_colors/font_color = Color(0.86, 0.84, 0.76, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("3_oj5la")
+theme_override_font_sizes/font_size = 56
+horizontal_alignment = 1
+
+[node name="BannerSub" type="Label" parent="Root" unique_id=265344640]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -4.0
+offset_right = 500.0
+offset_bottom = 30.0
+theme_override_colors/font_color = Color(0.95, 0.68, 0.2, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_136eg")
+theme_override_font_sizes/font_size = 22
+horizontal_alignment = 1
+
+[node name="Damage" type="ColorRect" parent="Root" unique_id=317635769]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.45, 0, 0, 0)
+
+[node name="Start" type="Control" parent="." unique_id=969319533]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Bg" type="ColorRect" parent="Start" unique_id=218270963]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.01, 0.012, 0.012, 0.88)
+
+[node name="Center" type="CenterContainer" parent="Start" unique_id=1499833404]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox" type="VBoxContainer" parent="Start/Center" unique_id=1008361812]
+custom_minimum_size = Vector2(760, 0)
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Start/Center/VBox" unique_id=1444342071]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.79, 0.68, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("4_gss2c")
+theme_override_font_sizes/font_size = 84
+text = "BUNKER 13"
+horizontal_alignment = 1
+
+[node name="Sub" type="Label" parent="Start/Center/VBox" unique_id=750426239]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.54, 0.48, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_136eg")
+theme_override_font_sizes/font_size = 20
+text = "WASD mover • SHIFT correr • MOUSE atirar
+R recarregar • F interagir • ESC pausar"
+horizontal_alignment = 1
+
+[node name="StartButton" type="Button" parent="Start/Center/VBox" unique_id=1348183897]
+custom_minimum_size = Vector2(300, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_oj5la")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_4jqwt")
+text = "INICIAR"
+
+[node name="Over" type="Control" parent="." unique_id=1829249120]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Bg" type="ColorRect" parent="Over" unique_id=220936554]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.01, 0.012, 0.012, 0.88)
+
+[node name="Center" type="CenterContainer" parent="Over" unique_id=686761305]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox" type="VBoxContainer" parent="Over/Center" unique_id=1222213547]
+custom_minimum_size = Vector2(760, 0)
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Over/Center/VBox" unique_id=259537158]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.79, 0.68, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("4_gss2c")
+theme_override_font_sizes/font_size = 84
+text = "VOCÊ MORREU"
+horizontal_alignment = 1
+
+[node name="Sub" type="Label" parent="Over/Center/VBox" unique_id=1980043949]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.54, 0.48, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_136eg")
+theme_override_font_sizes/font_size = 20
+text = "O bunker guarda mais um corpo."
+horizontal_alignment = 1
+
+[node name="RestartButton" type="Button" parent="Over/Center/VBox" unique_id=766220490]
+custom_minimum_size = Vector2(300, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_oj5la")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_kicr4")
+text = "REINICIAR"
+
+[node name="Pause" type="Control" parent="." unique_id=2060514259]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Bg" type="ColorRect" parent="Pause" unique_id=94780371]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color(0.01, 0.012, 0.012, 0.98)
+
+[node name="Center" type="CenterContainer" parent="Pause" unique_id=299511636]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBox" type="VBoxContainer" parent="Pause/Center" unique_id=348056518]
+custom_minimum_size = Vector2(760, 0)
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Pause/Center/VBox" unique_id=914332674]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.82, 0.79, 0.68, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("4_gss2c")
+theme_override_font_sizes/font_size = 84
+text = "PAUSADO"
+horizontal_alignment = 1
+
+[node name="Sub" type="Label" parent="Pause/Center/VBox" unique_id=1628703004]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.55, 0.54, 0.48, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("2_136eg")
+theme_override_font_sizes/font_size = 20
+text = "ESC para continuar"
+horizontal_alignment = 1
+
+[node name="ContinueButton" type="Button" parent="Pause/Center/VBox" unique_id=280024302]
+custom_minimum_size = Vector2(300, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_oj5la")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_mj13f")
+text = "CONTINUAR"
+
+[node name="RestartButton" type="Button" parent="Pause/Center/VBox" unique_id=1034931195]
+custom_minimum_size = Vector2(300, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_oj5la")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_0h1do")
+text = "REINICIAR"
