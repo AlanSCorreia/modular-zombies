@@ -3,7 +3,7 @@ extends RefCounted
 
 ## Contrato tipado de qualquer alvo de interação do mapa.
 
-enum Kind { DOOR, WALLBUY, PERK, BOX, BARRICADE, RADIO }
+enum Kind { DOOR, WALLBUY, PERK, BOX, BARRICADE, RADIO, POWER }
 
 var kind: Kind = Kind.DOOR
 var id := ""

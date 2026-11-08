@@ -19,6 +19,8 @@
     "barricades": { "type": "array" },
     "traps": { "type": "array" },
     "radios": { "type": "array" },
+    "power_switches": { "type": "array" },
+    "power_lights": { "type": "array" },
     "zombie_spawns": { "type": "array" }
   }
 }

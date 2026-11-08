@@ -37,6 +37,8 @@ func _init() -> void:
 	check(ctx.barrels.size() == 2, "2 barris explosivos")
 	check(ctx.traps.size() == 2, "2 traps explosivas")
 	check(ctx.radios.size() == 3, "3 rádios")
+	check(ctx.power_switches.size() == 1, "1 interruptor de energia")
+	check(ctx.power_lights.size() == 3, "3 luzes de energia")
 	check(ctx.spawns.size() == 9, "9 spawns")
 	check(ctx.lights.size() == 8, "8 luzes")
 	for did in ctx.doors:

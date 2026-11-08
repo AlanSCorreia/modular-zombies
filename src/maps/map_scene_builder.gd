@@ -38,6 +38,8 @@ func build(parent: Node3D, data: MapData, p_explosives: Dictionary = {}) -> MapC
 	_build_barrels()
 	_build_traps()
 	_build_radios()
+	_build_power_switches()
+	_build_power_lights()
 	_collect_lights()
 	return ctx
 
@@ -220,6 +222,37 @@ func _build_radios() -> void:
 		r.label = _label(holder, "RÁDIO", Vector3(0, 0.45, 0), 34, Color(0.95, 0.72, 0.3))
 		r.area = _area(holder, Vector3.ZERO, Vector3(0.8, 0.9, 0.8), r)
 		ctx.radios[radio.id] = r
+
+func _build_power_switches() -> void:
+	var scene: PackedScene = load("res://assets/models/props/power_switch/power_switch.glb")
+	for data in map.power_switches:
+		var holder := Node3D.new()
+		holder.name = "PowerSwitch_" + data.id
+		holder.position = data.position
+		holder.rotation.y = data.rotation_y
+		root.add_child(holder)
+		if scene != null:
+			holder.add_child(scene.instantiate())
+		var sw := PowerSwitchState.new()
+		sw.id = data.id
+		sw.name = data.id
+		sw.room = data.room
+		sw.data = data
+		sw.node = holder
+		sw.label = _label(holder, "ENERGIA", Vector3(0, 0.42, 0), 34, Color(0.35, 0.95, 0.45))
+		sw.area = _area(holder, Vector3.ZERO, Vector3(0.8, 1.2, 0.8), sw)
+		ctx.power_switches[data.id] = sw
+
+func _build_power_lights() -> void:
+	for pos in map.power_lights:
+		var light := OmniLight3D.new()
+		light.position = pos
+		light.light_color = Color(0.95, 0.82, 0.62)
+		light.light_energy = 1.4
+		light.omni_range = 7.0
+		light.visible = false
+		root.add_child(light)
+		ctx.power_lights.append(light)
 
 func _collect_lights() -> void:
 	for child in map_root.find_children("*", "OmniLight3D", true, false):

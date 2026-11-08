@@ -58,6 +58,8 @@ func _ready() -> void:
 			await _quest()
 		"radio":
 			await _radio()
+		"power":
+			await _power()
 		"ui":
 			await _ui()
 		"shot":
@@ -823,6 +825,40 @@ func _radio() -> void:
 		str(ok_radios), str(used), str(done), str(points_ok), str(music_ok),
 	])
 	_finish("RADIO_OK", ok)
+
+func _power() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	var sw: PowerSwitchState = game.ctx.power_switches.get("power_1", null)
+	var door: DoorState = game.ctx.doors.get("door2", null)
+	if sw == null or door == null or sw.area == null:
+		_finish("POWER_OK", false)
+		return
+	var lights_off := true
+	for light in game.ctx.power_lights:
+		if light.visible:
+			lights_off = false
+	var points0 := game.economy.points
+	Events.interacted.emit("power_1", game.player)
+	await get_tree().create_timer(0.1).timeout
+	var lights_on := not game.ctx.power_lights.is_empty()
+	for light in game.ctx.power_lights:
+		if not light.visible:
+			lights_on = false
+	var quest: QuestData = Content.get_quest("quest.bunker13_power")
+	var done: bool = game.quest_system.is_complete(quest.id)
+	var paid := game.economy.points >= points0 + 300
+	var points1 := game.economy.points
+	Events.interacted.emit("power_1", game.player)
+	await get_tree().create_timer(0.05).timeout
+	var idempotent := game.economy.points == points1
+	var ok: bool = lights_off and sw.used and door.open and lights_on \
+		and done and paid and idempotent
+	print("POWER_TEST off=%s used=%s door=%s lights=%s quest=%s points=%s idem=%s" % [
+		str(lights_off), str(sw.used), str(door.open), str(lights_on),
+		str(done), str(paid), str(idempotent),
+	])
+	_finish("POWER_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

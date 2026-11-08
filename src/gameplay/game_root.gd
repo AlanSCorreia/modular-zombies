@@ -224,6 +224,8 @@ func _on_interacted(id: String, _who: Node) -> void:
 		_buy_box()
 	elif ctx.radios.has(id):
 		_use_radio(id)
+	elif ctx.power_switches.has(id):
+		_activate_power(id)
 
 func _can_pay(cost: int) -> bool:
 	if economy.can_afford(cost):
@@ -280,6 +282,35 @@ func _buy_perk(id: String) -> void:
 	_spend(item.cost)
 	owned_perks.append(id)
 	Events.banner.emit(item.name, "ADQUIRIDO", 1.5)
+
+func _activate_power(id: String) -> void:
+	var sw: PowerSwitchState = ctx.power_switches.get(id, null)
+	if sw == null or sw.used:
+		return
+	sw.used = true
+	if sw.label != null:
+		sw.label.visible = false
+	for light in ctx.power_lights:
+		light.visible = true
+	Events.power_on.emit(id)
+	Sfx.play("powerup", -3)
+	Events.banner.emit("ENERGIA LIGADA", "SETORES LIBERADOS", 2.0)
+	if sw.data != null and sw.data.door_id != "":
+		_open_door_free(sw.data.door_id)
+
+func _open_door_free(id: String) -> void:
+	var door: DoorState = ctx.doors.get(id, null)
+	if door == null or door.open:
+		return
+	door.open = true
+	if door.body != null:
+		door.body.queue_free()
+	if door.label != null:
+		door.label.queue_free()
+	var node: Node3D = door.node
+	var tw := create_tween()
+	tw.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+	tw.tween_property(node, "position:y", node.position.y + 2.8, 0.7)
 
 func _use_radio(id: String) -> void:
 	var radio: RadioState = ctx.radios.get(id, null)

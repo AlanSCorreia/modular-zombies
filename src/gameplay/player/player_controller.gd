@@ -269,6 +269,12 @@ func _update_interaction() -> void:
 							text = "RÁDIO SINTONIZADO"
 						else:
 							text = "[F] SINTONIZAR RÁDIO"
+					Interactable.Kind.POWER:
+						var power := data as PowerSwitchState
+						if power != null and power.used:
+							text = "ENERGIA LIGADA"
+						else:
+							text = "[F] LIGAR ENERGIA"
 				Events.prompt_changed.emit(text, not text.is_empty())
 				if not text.is_empty():
 					if data.kind != Interactable.Kind.BARRICADE:

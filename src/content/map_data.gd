@@ -19,6 +19,8 @@ var barricades: Array[BarricadeData] = []
 var barrels: Array[BarrelData] = []
 var traps: Array[TrapData] = []
 var radios: Array[RadioData] = []
+var power_switches: Array[PowerSwitchData] = []
+var power_lights: Array[Vector3] = []
 
 static func from_dict(d: Dictionary) -> MapData:
 	var m := MapData.new()
@@ -51,4 +53,8 @@ static func from_dict(d: Dictionary) -> MapData:
 		m.traps.append(TrapData.from_dict(t))
 	for r in d.get("radios", []):
 		m.radios.append(RadioData.from_dict(r))
+	for sw in d.get("power_switches", []):
+		m.power_switches.append(PowerSwitchData.from_dict(sw))
+	for l in d.get("power_lights", []):
+		m.power_lights.append(Vector3(float(l[0]), float(l[1]), float(l[2])))
 	return m

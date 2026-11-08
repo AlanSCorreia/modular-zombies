@@ -22,7 +22,9 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 			room_ids[r.id] = true
 			if r.rect.size.x <= 0.1 or r.rect.size.y <= 0.1:
 				errors.append("map %s: room %s inválido" % [id, r.id])
+		var door_ids := {}
 		for d in m.doors:
+			door_ids[d.id] = true
 			if d.id == "":
 				errors.append("map %s: porta sem id" % id)
 			if d.cost < 0:
@@ -74,6 +76,13 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 				errors.append("map %s: rádio sem id" % id)
 			if not room_ids.has(radio.room):
 				errors.append("map %s: rádio %s aponta para room inexistente" % [id, radio.id])
+		for sw in m.power_switches:
+			if sw.id == "":
+				errors.append("map %s: interruptor sem id" % id)
+			if not room_ids.has(sw.room):
+				errors.append("map %s: interruptor %s em room inexistente" % [id, sw.id])
+			if sw.door_id != "" and not door_ids.has(sw.door_id):
+				errors.append("map %s: interruptor %s aponta para porta inexistente" % [id, sw.id])
 		if m.starting_points < 0:
 			errors.append("map %s: starting_points negativo" % id)
 		if m.zombie_count < 1:
@@ -139,7 +148,7 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 		if m.grip_profile == "" or not ViewmodelFactory.PROFILES.has(m.grip_profile):
 			errors.append("melee %s: grip_profile inválido (%s)" % [id, m.grip_profile])
 
-	var allowed_triggers := ["interact", "kill", "enter_area", "collect"]
+	var allowed_triggers := ["interact", "kill", "enter_area", "collect", "power"]
 	var allowed_rewards := ["points", "music", "weapon", "perk"]
 	for id in quests.keys():
 		var q: QuestData = quests[id]

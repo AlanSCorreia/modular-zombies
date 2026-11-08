@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "kind": "quest",
+  "id": "quest.bunker13_power",
+  "name": "ENERGIA DO BUNKER",
+  "type": "main",
+  "requires_coop": false,
+  "repeatable": false,
+  "steps": [
+    { "id": "power_1", "trigger": "power", "target": "power_1", "count": 1, "hint": "LIGUE A ENERGIA NO SETOR B" }
+  ],
+  "rewards": [
+    { "type": "points", "amount": 300 }
+  ]
+}

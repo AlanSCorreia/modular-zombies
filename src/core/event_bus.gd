@@ -20,7 +20,7 @@ signal barricade_repaired(id: String, planks: int)
 signal barricade_board_broken(id: String, planks: int)
 signal barricade_breached(id: String)
 signal door_opened(id: String, room: String)
-signal power_on
+signal power_on(id: String)
 signal interacted(id: String, player: Node)
 signal quest_step(id: String, target: String)
 signal quest_completed(id: String)

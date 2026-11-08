@@ -56,6 +56,14 @@
     { "id": "radio_2", "room": "C", "position": [14.0, 0.0, -2.0], "rotation_y": -0.6, "quest": "quest.bunker13_music" },
     { "id": "radio_3", "room": "D", "position": [18.0, 0.0, 12.0], "rotation_y": 1.2, "quest": "quest.bunker13_music" }
   ],
+  "power_switches": [
+    { "id": "power_1", "room": "B", "position": [-8.7, 1.4, -2.0], "rotation_y": 1.5708, "door": "door2" }
+  ],
+  "power_lights": [
+    [0.0, 2.8, 12.0],
+    [14.0, 2.8, 0.0],
+    [18.0, 2.8, 12.0]
+  ],
   "wallbuys": [
     { "id": "wb_mp5", "weapon": "weapon.mp5", "name": "MP5", "cost": 1000, "position": [3.0, 1.45, 16.72], "rotation_y": 3.14159 },
     { "id": "wb_m870", "weapon": "weapon.m870", "name": "M870", "cost": 1200, "position": [-8.72, 1.45, -3.0], "rotation_y": 1.5708 },

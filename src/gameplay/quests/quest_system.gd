@@ -27,6 +27,7 @@ func setup(p_quests: Array[QuestData], p_player: PlayerController,
 		}
 	Events.interacted.connect(_on_interacted)
 	Events.zombie_killed.connect(_on_zombie_killed)
+	Events.power_on.connect(_on_power_on)
 
 func start_all() -> void:
 	if _started:
@@ -119,6 +120,9 @@ func _process(delta: float) -> void:
 
 func _on_interacted(id: String, _player: Node) -> void:
 	notify_interact(id)
+
+func _on_power_on(id: String) -> void:
+	notify("power", id)
 
 func _on_zombie_killed(zombie: Node, _headshot: bool) -> void:
 	if zombie == null or zombie.get("data") == null:
