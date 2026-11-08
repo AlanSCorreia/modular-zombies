@@ -44,6 +44,16 @@ func _ready() -> void:
 		load("res://assets/audio/foley/impactPlank_medium_000.ogg"),
 		load("res://assets/audio/foley/impactPlank_medium_001.ogg"),
 	]
+	_streams["explosion"] = [load("res://assets/audio/guns/shotty.wav")]
+	_streams["knife_slash"] = [load("res://assets/audio/foley/impactMetal_light_000.ogg")]
+	_streams["barricade_break"] = [
+		load("res://assets/audio/foley/impactPlank_medium_000.ogg"),
+		load("res://assets/audio/foley/impactPlank_medium_001.ogg"),
+	]
+	_streams["barricade_repair"] = [
+		load("res://assets/audio/foley/impactPlank_medium_001.ogg"),
+	]
+	_streams["grenade_throw"] = _streams["reload"]
 	_streams["shell"] = _streams["reload"]
 	_streams["footstep"] = [
 		load("res://assets/audio/foley/footstep_concrete_000.ogg"),
@@ -154,6 +164,9 @@ func get_random(key: String):
 	if arr.is_empty():
 		return null
 	return arr[randi() % arr.size()]
+
+func has(key: String) -> bool:
+	return _streams.has(key) and not _streams[key].is_empty()
 
 func play_music(key: String, volume_db: float = -6.0) -> void:
 	if not _streams.has(key):

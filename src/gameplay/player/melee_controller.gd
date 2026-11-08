@@ -99,6 +99,7 @@ func try_swing() -> bool:
 func _play_swing() -> void:
 	if viewmodel == null:
 		return
+	Sfx.play("knife_slash", -6, 1.55, 0.08)
 	if _swing_tween != null and _swing_tween.is_valid():
 		_swing_tween.kill()
 	viewmodel.visible = true

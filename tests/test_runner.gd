@@ -50,6 +50,8 @@ func _ready() -> void:
 			await _rounds()
 		"trap":
 			await _trap()
+		"fx":
+			await _fx()
 		"ui":
 			await _ui()
 		"shot":
@@ -721,6 +723,27 @@ func _trap() -> void:
 		str(built), str(detonated), z.health, str(z.is_dead),
 	])
 	_finish("TRAP_OK", ok)
+
+func _fx() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	var label2 := game.hud.grenade_label_text().contains("2")
+	game.player.throw_grenade()
+	await get_tree().create_timer(0.05).timeout
+	var label1 := game.hud.grenade_label_text().contains("1")
+	var data: ExplosiveData = Content.get_explosive("explosive.frag")
+	ExplosionSystem.explode(
+		game.get_world_3d(), get_tree(), Vector3(0, 1, 0), data, 0
+	)
+	await get_tree().create_timer(0.05).timeout
+	var has_fx := not get_tree().get_nodes_in_group("explosion_fx").is_empty()
+	var sounds := Sfx.has("explosion") and Sfx.has("knife_slash") \
+		and Sfx.has("barricade_repair") and Sfx.has("grenade_throw")
+	var ok: bool = label2 and label1 and has_fx and sounds
+	print("FX_TEST grenade2=%s grenade1=%s fx=%s sounds=%s" % [
+		str(label2), str(label1), str(has_fx), str(sounds),
+	])
+	_finish("FX_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

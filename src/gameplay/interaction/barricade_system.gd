@@ -61,6 +61,7 @@ func repair_one(target: BarricadeState) -> bool:
 	target.set_plank_count(target.plank_count + 1)
 	if economy != null:
 		economy.add(target.data.repair_points)
+	Sfx.play_3d("barricade_repair", target.data.position, -5, 1.1, 0.08)
 	Events.barricade_repaired.emit(target.id, target.plank_count)
 	Events.barricade_changed.emit(
 		target.id, target.plank_count, target.data.max_planks
@@ -75,6 +76,7 @@ func tear_plank(target: BarricadeState) -> bool:
 	if active == target:
 		target.repair_progress = 0.0
 	target.set_plank_count(target.plank_count - 1)
+	Sfx.play_3d("barricade_break", target.data.position, -3, 0.9, 0.1)
 	Events.barricade_board_broken.emit(target.id, target.plank_count)
 	Events.barricade_changed.emit(
 		target.id, target.plank_count, target.data.max_planks

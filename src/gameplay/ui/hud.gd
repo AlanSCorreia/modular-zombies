@@ -18,6 +18,7 @@ const COL_AMBER := Color(0.95, 0.68, 0.20)
 @onready var _ammo_res: Label = $Root/AmmoRes
 @onready var _weapon_label: Label = $Root/WeaponLabel
 @onready var _slot_label: Label = $Root/SlotLabel
+@onready var _grenade_label: Label = $Root/GrenadeLabel
 @onready var _points: Label = $Root/Points
 @onready var _round: Label = $Root/RoundLabel
 @onready var _prompt: Label = $Root/PromptBox/Prompt
@@ -60,6 +61,7 @@ func _ready() -> void:
 	Events.player_health_changed.connect(_on_health)
 	Events.ammo_changed.connect(_on_ammo)
 	Events.slot_changed.connect(_on_slot)
+	Events.grenades_changed.connect(_on_grenades)
 	Events.points_changed.connect(_on_points)
 	Events.prompt_changed.connect(_on_prompt)
 	Events.hitmarker.connect(_on_hitmarker)
@@ -111,6 +113,12 @@ func _on_ammo(mag: int, reserve: int, weapon_name: String) -> void:
 
 func _on_slot(index: int, count: int) -> void:
 	_slot_label.text = "SLOT %d/%d" % [index, count]
+
+func _on_grenades(count: int) -> void:
+	_grenade_label.text = "GRANADAS %d" % count
+
+func grenade_label_text() -> String:
+	return _grenade_label.text
 
 func _on_points(points: int) -> void:
 	_points.text = str(points)

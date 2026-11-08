@@ -88,6 +88,7 @@ func throw_grenade() -> bool:
 	grenades -= 1
 	Events.grenades_changed.emit(grenades)
 	Events.banner.emit("GRANADA", "%d RESTANTES" % grenades, 0.9)
+	Sfx.play("grenade_throw", -4, 1.05, 0.05)
 	var from := camera.global_position
 	var dir := -camera.global_transform.basis.z
 	var g := Grenade.new()
