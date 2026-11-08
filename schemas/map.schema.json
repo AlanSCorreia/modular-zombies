@@ -17,6 +17,7 @@
     "rooms": { "type": "array", "minItems": 1 },
     "doors": { "type": "array" },
     "barricades": { "type": "array" },
+    "traps": { "type": "array" },
     "zombie_spawns": { "type": "array" }
   }
 }

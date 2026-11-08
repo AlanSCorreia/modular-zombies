@@ -41,6 +41,7 @@ var _health_frac := 1.0
 var _banner_time := 0.0
 var _hit_alpha := 0.0
 var _damage_alpha := 0.0
+var _map_name := ""
 
 func _ready() -> void:
 	layer = 10
@@ -142,7 +143,20 @@ func _on_barricade_progress(_id: String, progress: float, planks: int,
 	_repair_fill.size.x = width * clampf(progress, 0.0, 1.0)
 
 func set_map_name(map_name: String) -> void:
+	_map_name = map_name
 	_round.text = map_name.to_upper()
+
+func set_round(round_no: int) -> void:
+	if _map_name == "":
+		_round.text = "RODADA %d" % round_no
+	else:
+		_round.text = "%s — RODADA %d" % [_map_name.to_upper(), round_no]
+
+func round_label_text() -> String:
+	return _round.text
+
+func is_gameover_visible() -> bool:
+	return _over.visible
 
 func show_start() -> void:
 	if _start == null:

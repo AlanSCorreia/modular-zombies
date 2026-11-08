@@ -36,6 +36,7 @@ func build(parent: Node3D, data: MapData, p_explosives: Dictionary = {}) -> MapC
 	_build_box()
 	_build_barricades()
 	_build_barrels()
+	_build_traps()
 	_collect_lights()
 	return ctx
 
@@ -186,6 +187,18 @@ func _build_barrels() -> void:
 		b.setup(data, barr.position)
 		root.add_child(b)
 		ctx.barrels[barr.id] = b
+
+func _build_traps() -> void:
+	for trap in map.traps:
+		var data: ExplosiveData = explosives.get(trap.explosive_id, null)
+		if data == null:
+			push_warning("Trap sem explosivo: " + trap.id)
+			continue
+		var t := ExplosiveTrap.new()
+		t.name = "Trap_" + trap.id
+		t.setup(data, trap, trap.position)
+		root.add_child(t)
+		ctx.traps[trap.id] = t
 
 func _collect_lights() -> void:
 	for child in map_root.find_children("*", "OmniLight3D", true, false):

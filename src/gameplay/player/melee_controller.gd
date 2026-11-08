@@ -90,6 +90,10 @@ func try_swing() -> bool:
 		var barrel: ExplosiveBarrel = col
 		barrel.hit(data.damage)
 		return true
+	if col is ExplosiveTrap:
+		var trap: ExplosiveTrap = col
+		trap.hit(data.damage)
+		return true
 	return false
 
 func _play_swing() -> void:

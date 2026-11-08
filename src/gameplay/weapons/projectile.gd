@@ -52,6 +52,9 @@ func _physics_process(delta: float) -> void:
 		elif col is ExplosiveBarrel:
 			var barrel: ExplosiveBarrel = col
 			barrel.hit(damage)
+		elif col is ExplosiveTrap:
+			var trap: ExplosiveTrap = col
+			trap.hit(damage)
 		_explode(res.position)
 		queue_free()
 		return

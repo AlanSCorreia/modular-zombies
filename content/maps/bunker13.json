@@ -47,6 +47,10 @@
     { "id": "barrel_A1", "explosive": "explosive.frag", "position": [5.5, 0.55, 14.5] },
     { "id": "barrel_A2", "explosive": "explosive.frag", "position": [6.2, 0.55, 14.5] }
   ],
+  "traps": [
+    { "id": "trap_A1", "explosive": "explosive.frag", "position": [-3.5, 0.1, 9.0], "trigger_radius": 1.3 },
+    { "id": "trap_B1", "explosive": "explosive.frag", "position": [-3.0, 0.1, -1.0], "trigger_radius": 1.3 }
+  ],
   "wallbuys": [
     { "id": "wb_mp5", "weapon": "weapon.mp5", "name": "MP5", "cost": 1000, "position": [3.0, 1.45, 16.72], "rotation_y": 3.14159 },
     { "id": "wb_m870", "weapon": "weapon.m870", "name": "M870", "cost": 1200, "position": [-8.72, 1.45, -3.0], "rotation_y": 1.5708 },

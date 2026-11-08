@@ -218,6 +218,9 @@ func try_fire() -> void:
 			elif col is ExplosiveBarrel:
 				var barrel: ExplosiveBarrel = col
 				barrel.hit(float(data.stats.get("damage", 34.0)))
+			elif col is ExplosiveTrap:
+				var trap: ExplosiveTrap = col
+				trap.hit(float(data.stats.get("damage", 34.0)))
 		_tracer(from, end)
 	_update_ammo()
 

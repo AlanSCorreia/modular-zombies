@@ -68,6 +68,7 @@ func _ready() -> void:
 	round.setup(map, nav, get_tree())
 	round.spawn_requested.connect(_spawn_at)
 	round.completed.connect(_on_round_completed)
+	round.round_started.connect(_on_round_started)
 	Events.player_health_changed.emit(player.health, player.max_health)
 	Events.zombie_killed.connect(_on_zombie_killed)
 	Events.zombie_hit.connect(_on_zombie_hit)
@@ -165,7 +166,20 @@ func _on_zombie_hit(_z: ZombieEnemy, _damage: float, _head: bool, _pos: Vector3)
 	economy.add(10)
 
 func _on_round_completed() -> void:
-	Events.banner.emit("ÁREA LIMPA", "PRESSIONE R PARA REINICIAR", 5.0)
+	var ended := round.round_no
+	Events.banner.emit("RODADA %d CONCLUÍDA" % ended, "PREPARE-SE", 2.5)
+	if player != null and not player.is_dead:
+		get_tree().create_timer(4.0).timeout.connect(_advance_round)
+
+func _advance_round() -> void:
+	if round == null or player == null or player.is_dead or not round.active:
+		return
+	round.next_round()
+
+func _on_round_started(round_no: int) -> void:
+	hud.set_round(round_no)
+	if round_no > 1:
+		Events.banner.emit("RODADA %d" % round_no, "SOBREVIVA", 2.0)
 
 func _on_interacted(id: String, _who: Node) -> void:
 	if ctx.doors.has(id):

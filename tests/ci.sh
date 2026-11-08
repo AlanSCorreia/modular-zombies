@@ -6,7 +6,7 @@ GODOT="${GODOT_BIN:-$HOME/.local/opt/godot/Godot_v4.7.2-stable_linux.x86_64}"
 cd "$DIR"
 
 # Fonte única dos gates esperados (validado por tools/check_docs.py).
-GATES="DOCS_OK LOGIC_OK CONTENT_OK BUNKER13_OK MAP_OK SOFTLOCK_OK PAUSE_OK INTERACT_OK SLOTS_OK MELEE_OK PROJECTILE_OK EXPLOSION_OK GRENADE_OK ROCKET_OK BARREL_OK BARRICADE_OK ZOMBIE_BARRICADE_OK VIEWMODEL_OK KNIFE_OK SLICE_OK CI_OK"
+GATES="DOCS_OK LOGIC_OK CONTENT_OK BUNKER13_OK MAP_OK SOFTLOCK_OK PAUSE_OK INTERACT_OK SLOTS_OK MELEE_OK PROJECTILE_OK EXPLOSION_OK GRENADE_OK ROCKET_OK BARREL_OK BARRICADE_OK ZOMBIE_BARRICADE_OK VIEWMODEL_OK KNIFE_OK ROUNDS_OK TRAP_OK SLICE_OK CI_OK"
 
 echo "== docs =="
 python3 tools/check_docs.py
@@ -75,6 +75,12 @@ echo "== viewmodel/mãos =="
 
 echo "== faca =="
 "$GODOT" --headless --path . res://tests/test_runner.tscn -- --case knife
+
+echo "== rodadas =="
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case rounds
+
+echo "== traps =="
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case trap --map map.bunker13
 
 echo "== integração =="
 "$GODOT" --headless --path . res://tests/test_runner.tscn -- --case slice

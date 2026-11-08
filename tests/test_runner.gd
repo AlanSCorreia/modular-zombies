@@ -46,6 +46,10 @@ func _ready() -> void:
 			await _viewmodel()
 		"knife":
 			await _knife()
+		"rounds":
+			await _rounds()
+		"trap":
+			await _trap()
 		"ui":
 			await _ui()
 		"shot":
@@ -651,6 +655,72 @@ func _knife() -> void:
 		str(swung), str(hidden_again),
 	])
 	_finish("KNIFE_OK", ok)
+
+func _rounds() -> void:
+	game._start()
+	await get_tree().create_timer(0.3).timeout
+	var base := game.map.zombie_count
+	var round1: bool = game.round.round_no == 1 \
+		and game.round.target_count == base
+	var label1 := game.hud.round_label_text().contains("RODADA 1")
+
+	var guard := 0
+	while not game.round.is_complete() and guard < 40:
+		for z in game.zombies.duplicate():
+			if not z.is_dead:
+				z.take_damage(100000.0, false, z.global_position)
+		await get_tree().create_timer(0.35).timeout
+		guard += 1
+	var complete1: bool = game.round.is_complete() and game.round.round_no == 1
+
+	game.round.next_round()
+	await get_tree().create_timer(0.4).timeout
+	var round2: bool = game.round.round_no == 2 \
+		and game.round.target_count == base + 2
+	var label2 := game.hud.round_label_text().contains("RODADA 2")
+	var spawned2: bool = game.round.spawned > 0 and not game.zombies.is_empty()
+
+	game.player.take_damage(99999.0)
+	await get_tree().create_timer(0.2).timeout
+	var over: bool = game.hud.is_gameover_visible() and not game.round.active
+	var ok: bool = round1 and label1 and complete1 and round2 \
+		and label2 and spawned2 and over
+	print("ROUNDS_TEST r1=%s label1=%s complete1=%s r2=%s label2=%s spawn=%s over=%s" % [
+		str(round1), str(label1), str(complete1), str(round2),
+		str(label2), str(spawned2), str(over),
+	])
+	_finish("ROUNDS_OK", ok)
+
+func _trap() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	game.round.stop()
+	var trap: ExplosiveTrap = game.ctx.traps.get("trap_A1", null)
+	if trap == null:
+		_finish("TRAP_OK", false)
+		return
+
+	var pos := trap.global_position
+	var built: bool = trap.data != null and trap.area != null \
+		and trap.get_child_count() >= 3
+	var z := ZombieEnemy.new()
+	z.setup(game.enemy_data, game.player, game.nav)
+	z.set_physics_process(false)
+	z.position = pos + Vector3(1.0, 0.1, 0.0)
+	game.add_child(z)
+	await get_tree().create_timer(0.4).timeout
+
+	var detonated: bool = not is_instance_valid(trap)
+	if not detonated and is_instance_valid(trap):
+		trap.detonate(0)
+		await get_tree().create_timer(0.15).timeout
+		detonated = true
+	var damaged: bool = z.is_dead or z.health < 100.0
+	var ok: bool = built and detonated and damaged
+	print("TRAP_TEST built=%s detonated=%s hp=%.1f dead=%s" % [
+		str(built), str(detonated), z.health, str(z.is_dead),
+	])
+	_finish("TRAP_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

@@ -62,6 +62,13 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 				errors.append("map %s: barril sem id" % id)
 			if not explosives.has(barr.explosive_id):
 				errors.append("map %s: barril %s usa explosivo inexistente (%s)" % [id, barr.id, barr.explosive_id])
+		for trap in m.traps:
+			if trap.id == "":
+				errors.append("map %s: trap sem id" % id)
+			if not explosives.has(trap.explosive_id):
+				errors.append("map %s: trap %s usa explosivo inexistente (%s)" % [id, trap.id, trap.explosive_id])
+			if trap.trigger_radius <= 0.0:
+				errors.append("map %s: trap %s com trigger_radius <= 0" % [id, trap.id])
 		if m.starting_points < 0:
 			errors.append("map %s: starting_points negativo" % id)
 		if m.zombie_count < 1:
