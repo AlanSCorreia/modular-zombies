@@ -109,12 +109,11 @@ HUD de progresso de barricada, prompts/hitmarker, traps explosivas
 ## Etapa 5 — Ferramentas de mapa (em andamento)
 
 **Já entregue:** launcher “Bunker 13 v2 — Editor”, plugin `bunker_tools` + dock
-com validador e criar/duplicar mapa a partir de `templates/map/template.json`
-(issue #25).
+com validador, criar/duplicar mapa (issue #25) e playtest por mapa via override
+one-shot (issue #26).
 
 **Pendente**
-- Playtest por mapa (issue #26).
-- Documentação do autor.
+- Documentação do autor (issue #27).
 - Marcadores 3D e content browser (P1/P2).
 
 **Aceite:** criar/duplicar/validar/testar um mapa sem tocar no núcleo.

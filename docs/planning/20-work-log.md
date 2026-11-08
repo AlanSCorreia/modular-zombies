@@ -15,6 +15,14 @@ está em
 o início do projeto, em
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 
+## 2026-11-08 — Playtest por mapa (issue #26)
+
+- Botão “Playtest mapa” no dock usa o mapa selecionado.
+- `MapArgs` ganhou override one-shot em `user://playtest.cfg`; `--map` tem
+  prioridade e o override é consumido na primeira leitura.
+- Teste `PLAYTEST_OK` cobre precedência e one-shot; CI verde.
+- Próximo: documentação do autor (#27).
+
 ## 2026-11-08 — Criar/duplicar mapa no bunker_tools (issue #25)
 
 - `MapTools` headless: create a partir de `templates/map/template.json` e
@@ -51,5 +59,5 @@ o início do projeto, em
 - Asset autoral `trap.blend`/GLB; 2 traps no Bunker 13.
 - Teste `TRAP_OK`; Etapa 4 iniciada.
 
-**Próximo item:** playtest por mapa no dock (issue #26); depois documentação do
-autor.
+**Próximo item:** documentação do autor de mapas (issue #27); depois marcadores
+3D/content browser e Etapa 6.
