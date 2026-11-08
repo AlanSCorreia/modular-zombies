@@ -30,23 +30,22 @@
 | `etapa2` | Etapa 2 — Conteúdo | **Concluído** | — |
 | `etapa3` | Etapa 3 — Gameplay | **Concluído** | — |
 | `etapa4` | Etapa 4 — Interações | **Concluído** | — |
-| `etapa5` | Etapa 5 — Ferramentas de mapa | **Em andamento** | Documentação do autor |
-| `etapa6` | Etapa 6 — Quests e Easter Eggs | Backlog | — |
+| `etapa5` | Etapa 5 — Ferramentas de mapa | **Concluído** | — |
+| `etapa6` | Etapa 6 — Quests e Easter Eggs | **Em andamento** | QuestSystem |
 | `etapa7` | Etapa 7 — Escala de conteúdo | Backlog | — |
 | `etapa8` | Etapa 8 — Produção | Backlog | — |
 
-> **Status:** Etapas 3 e 4 **concluídas** (issues #1–#15 e #17–#24).
-> Gameplay completo, HUD, áudio, VFX e rodadas funcionando. Etapa 5 em
-> andamento com o dock `bunker_tools`; a escala das armas (#16) fica como
-> dívida visual para depois.
+> **Status:** Etapas 3, 4 e 5 **concluídas** (issues #1–#15 e #17–#27).
+> Gameplay, apresentação, áudio e ferramentas de mapa prontos. Etapa 6 começa
+> pelo `QuestSystem`; a escala das armas (#16) fica como dívida visual.
 
 ## Próximo item
 
-- **Etapa ativa:** 5 — Ferramentas de mapa.
+- **Etapa ativa:** 6 — Quests e Easter Eggs.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** documentação do autor de mapas (issue #27).
-- **Depois:** marcadores 3D/content browser e Etapa 6.
-- **Próxima etapa:** 6 — Quests e Easter Eggs, após o aceite da Etapa 5.
+- **Próximo:** QuestSystem + DTOs/triggers/recompensas (issue #28).
+- **Depois:** rádios, mecânica do Bunker 13, debug e validador de grafo.
+- **Próxima etapa:** 7 — Escala de conteúdo, após o aceite da Etapa 6.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
 ---
@@ -272,6 +271,7 @@
 - [x] Launcher do editor
 - [x] Criar/duplicar mapa + template (issue #25)
 - [x] Playtest por mapa via override one-shot (issue #26)
+- [x] Documentação do autor / quickstart (issue #27)
 
 ### Blocked
 - *(vazio)*
@@ -289,15 +289,13 @@
 - [ ] Grafo visual (GraphEdit)
 - [ ] Cifras/rádios/lore
 - [ ] Co-op
-
-### Ready
-- [ ] `QuestSystem` + `QuestStep`/`Reward`
-- [ ] Triggers: interagir, matar, entrar, coletar
-- [ ] Recompensas: pontos, música, arma, perk
 - [ ] 3 rádios no Bunker 13
 - [ ] `Bunker13PowerMechanic` (mecânica única)
 - [ ] Validador de grafo/softlock
 - [ ] Debug overlay
+
+### Ready
+- [ ] `QuestSystem` + DTOs, triggers e recompensas (P0) — [#28](https://github.com/AlanSCorreia/modular-zombies/issues/28)
 
 ### Doing
 - *(vazio)*

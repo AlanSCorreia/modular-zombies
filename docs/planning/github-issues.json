@@ -296,13 +296,25 @@
     {
       "number": 27,
       "title": "Documentação do autor de mapas (quickstart)",
-      "state": "OPEN",
+      "state": "CLOSED",
       "labels": [
         "etapa:5",
         "prio:P1",
         "area:docs"
       ],
       "milestone": "Etapa 5 — Ferramentas de mapa"
+    },
+    {
+      "number": 28,
+      "title": "QuestSystem + DTOs, triggers e recompensas",
+      "state": "OPEN",
+      "labels": [
+        "etapa:6",
+        "prio:P0",
+        "area:gameplay",
+        "area:docs"
+      ],
+      "milestone": "Etapa 6 — Quests e Easter Eggs"
     }
   ]
 }

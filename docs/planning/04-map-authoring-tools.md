@@ -12,9 +12,9 @@ last_reviewed: 2026-11-08
 ## Estado na v2
 
 **Implementado:** launcher do editor, plugin `bunker_tools` com dock, validador
-de conteúdo e criação/duplicação de mapas a partir do template
-(`templates/map/template.json`). Falta o playtest por mapa e a documentação
-completa do autor.
+de conteúdo, criação/duplicação de mapas a partir do template
+(`templates/map/template.json`) e playtest por mapa. Guia rápido:
+[`23-map-author-quickstart.md`](23-map-author-quickstart.md).
 
 A ordem foi: Etapa 2 — Conteúdo (dados) → Etapas 3–4 — Gameplay/Interações
 (loop/UI) → Etapa 5 — Ferramentas.

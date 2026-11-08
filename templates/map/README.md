@@ -8,3 +8,5 @@
 - O JSON passa pelo `ContentValidator`; salas, spawns e jogador já são válidos.
 - Duplicar um mapa existente copia o JSON e reutiliza a cena de origem; troque
   `scene` depois de exportar a geometria nova.
+
+Guia completo: [`../../docs/planning/23-map-author-quickstart.md`](../../docs/planning/23-map-author-quickstart.md).

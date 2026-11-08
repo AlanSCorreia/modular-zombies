@@ -2,7 +2,7 @@
 kind: planning
 area: execution
 status: active
-stage: 5
+stage: 6
 owner: docs
 last_reviewed: 2026-11-08
 ---
@@ -139,13 +139,13 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA5.5 | Templates (feito, issue #25) | P1 |
 | ETAPA5.6 | Marcadores 3D com gizmos | P1 |
 | ETAPA5.7 | Content browser | P2 |
-| ETAPA5.8 | Documentação do autor (issue #27) | P1 |
+| ETAPA5.8 | Documentação do autor (feito, issue #27) | P1 |
 
 ## Etapa 6 — Quests e Easter Eggs
 
 | ID | Tarefa | Pri |
 |---|---|---|
-| ETAPA6.1 | `QuestSystem` + EventBus | P0 |
+| ETAPA6.1 | `QuestSystem` + EventBus (issue #28) | P0 |
 | ETAPA6.2 | Triggers base | P0 |
 | ETAPA6.3 | Recompensas | P0 |
 | ETAPA6.4 | 3 rádios no Bunker 13 | P0 |

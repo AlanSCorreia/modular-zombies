@@ -15,6 +15,15 @@ está em
 o início do projeto, em
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 
+## 2026-11-08 — Documentação do autor (issue #27)
+
+- `23-map-author-quickstart.md`: criar/duplicar, trocar cena GLB, preencher
+  JSON, validar, playtest e erros comuns.
+- Link no índice do planning, em `04-map-authoring-tools.md` e no README do
+  template.
+- `DOCS_OK` verde; Etapa 5 aceita com tag `etapa5`.
+- Próxima etapa: Quests (#28).
+
 ## 2026-11-08 — Playtest por mapa (issue #26)
 
 - Botão “Playtest mapa” no dock usa o mapa selecionado.
@@ -59,5 +68,5 @@ o início do projeto, em
 - Asset autoral `trap.blend`/GLB; 2 traps no Bunker 13.
 - Teste `TRAP_OK`; Etapa 4 iniciada.
 
-**Próximo item:** documentação do autor de mapas (issue #27); depois marcadores
-3D/content browser e Etapa 6.
+**Próximo item:** QuestSystem + DTOs/triggers/recompensas (issue #28); depois
+rádios, mecânica do Bunker 13 e debug.

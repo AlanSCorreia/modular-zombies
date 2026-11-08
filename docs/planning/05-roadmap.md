@@ -2,7 +2,7 @@
 kind: planning
 area: execution
 status: active
-stage: 5
+stage: 6
 owner: docs
 last_reviewed: 2026-11-08
 ---
@@ -22,8 +22,8 @@ O board operacional é `../../KANBAN.md`.
 | `etapa2` | Etapa 2 — Conteúdo | Definições, registry, validador, Bunker 13 em JSON | **Concluído** | M |
 | `etapa3` | Etapa 3 — Gameplay | Player, armas, zumbis, barricadas, rodadas, economia | **Concluído** | L |
 | `etapa4` | Etapa 4 — Interações | Portas, compras, caixa, perks, HUD, menus, som | **Concluído** | M |
-| `etapa5` | Etapa 5 — Ferramentas | Criar/validar/testar mapas no editor | **Em andamento** | M |
-| `etapa6` | Etapa 6 — Quests | QuestSystem, música, mecânica única, debug | Backlog | L |
+| `etapa5` | Etapa 5 — Ferramentas | Criar/validar/testar mapas no editor | **Concluído** | M |
+| `etapa6` | Etapa 6 — Quests | QuestSystem, música, mecânica única, debug | **Em andamento** | L |
 | `etapa7` | Etapa 7 — Escala | 2º mapa, armas novas, wonder weapon, inimigo | Backlog | L |
 | `etapa8` | Etapa 8 — Produção | Save, settings, export, pools, CI, performance | Backlog | L |
 
@@ -106,19 +106,19 @@ HUD de progresso de barricada, prompts/hitmarker, traps explosivas
 
 **Aceite:** interações, UI e áudio do plano + explosivos/faca (checklist).
 
-## Etapa 5 — Ferramentas de mapa (em andamento)
+## Etapa 5 — Ferramentas de mapa (concluída — tag `etapa5`)
 
 **Já entregue:** launcher “Bunker 13 v2 — Editor”, plugin `bunker_tools` + dock
-com validador, criar/duplicar mapa (issue #25) e playtest por mapa via override
-one-shot (issue #26).
+com validador, criar/duplicar mapa (issue #25), playtest por mapa via override
+one-shot (issue #26) e quickstart do autor (issue #27).
 
-**Pendente**
-- Documentação do autor (issue #27).
-- Marcadores 3D e content browser (P1/P2).
+**Dívida:** marcadores 3D e content browser (P1/P2).
 
 **Aceite:** criar/duplicar/validar/testar um mapa sem tocar no núcleo.
 
-## Etapa 6 — Quests e Easter Eggs
+## Etapa 6 — Quests e Easter Eggs (em andamento)
+
+**Próximo:** `QuestSystem` + DTOs/triggers/recompensas (issue #28).
 
 **Entregáveis**
 - `QuestSystem` + `QuestStep`/`Reward`.

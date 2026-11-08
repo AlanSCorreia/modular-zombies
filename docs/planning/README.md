@@ -2,7 +2,7 @@
 kind: index
 area: execution
 status: active
-stage: 5
+stage: 6
 owner: docs
 last_reviewed: 2026-11-08
 ---
@@ -16,15 +16,15 @@ last_reviewed: 2026-11-08
 ## Estado atual (2026-11-08)
 
 - v1 é histórico arquivado em `zombie-fps-legacy`; a v2 é reescrita do runtime.
-- **Etapas 1–4 concluídas**; **Etapa 5 — Ferramentas de mapa em andamento**.
+- **Etapas 1–5 concluídas**; **Etapa 6 — Quests e Easter Eggs em andamento**.
 - Entregue: geometria autoral, 2 slots, softlock/BFS, `MapContext`/`Interactable`,
   harness, pool/cache, HUD `.tscn`, `Economy`/`RoundManager`, projétil/melee,
   explosões, granada/foguete/barris, barricadas, janelas + IA de zumbi, mãos
   compartilhadas/`ViewmodelFactory`, faca com `knife_slash`, rodadas 1→2 e
   traps explosivas, VFX/SFX/HUD de granadas e áudio/mixagem.
-- **Próximo:** documentação do autor de mapas (#27).
-- **Depois:** marcadores 3D/content browser; escala (#16) fica como dívida
-  visual.
+- **Próximo:** QuestSystem + DTOs/triggers/recompensas (#28).
+- **Depois:** rádios, mecânica do Bunker 13 e debug; escala (#16) fica como
+  dívida visual.
 - Gates atuais: ver [`08-testing-strategy.md`](08-testing-strategy.md).
 
 ## Índice
@@ -63,6 +63,7 @@ last_reviewed: 2026-11-08
 | [`13-barricades.md`](13-barricades.md) | Barricadas (janelas) |
 | [`14-weapon-workflow.md`](14-weapon-workflow.md) | Workflow de criação de armas |
 | [`18-authored-assets.md`](18-authored-assets.md) | Assets autorais — regra do projeto |
+| [`23-map-author-quickstart.md`](23-map-author-quickstart.md) | Quickstart — autor de mapas |
 
 ### Histórico
 
