@@ -22,8 +22,8 @@ last_reviewed: 2026-11-08
   explosões, granada/foguete/barris, barricadas, janelas + IA de zumbi, mãos
   compartilhadas/`ViewmodelFactory`, faca com `knife_slash`, rodadas 1→2 e
   traps explosivas, VFX/SFX/HUD de granadas e áudio/mixagem.
-- **Próximo:** performance, soak test e checklist de release (#40).
-- **Depois:** escala (#16) fica como dívida visual.
+- **Próximo:** auditoria de licenças + soak 30 min (#41).
+- **Depois:** aceite final; escala (#16) fica como dívida visual.
 - Gates atuais: ver [`08-testing-strategy.md`](08-testing-strategy.md).
 
 ## Índice
@@ -49,6 +49,7 @@ last_reviewed: 2026-11-08
 | [`19-decision-log.md`](19-decision-log.md) | Log de decisões |
 | [`20-work-log.md`](20-work-log.md) | Work log — Etapa 8 |
 | [`22-redundancy-audit.md`](22-redundancy-audit.md) | Auditoria curta de redundância |
+| [`24-release-checklist.md`](24-release-checklist.md) | Checklist de release |
 
 ### Conteúdo, assets e sistemas
 

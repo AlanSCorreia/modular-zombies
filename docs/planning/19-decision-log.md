@@ -14,6 +14,7 @@ Decisões estruturais longas também viram ADR em `07-adr/`.
 
 | ID | Data | Decisão | Motivo / consequência |
 |---|---|---|---|
+| D-052 | 2026-11-08 | **Release técnico, licença pendente:** performance headless/windowed e soak curto passam; `CREDITS.md` marca texturas/áudio sem provenance documentada, então o release público fica bloqueado até auditoria e soak de 30 min. | Não declarar release pronto sem licença; separa dívida técnica de dívida legal. |
 | D-051 | 2026-11-08 | **Build Linux reproduzível:** preset `Linux` + `tools/build_linux.sh` geram binário e PCK em `build/linux/` e rodam smoke headless; `BUILD_OK` entra no CI. | Fecha a produção executável sem depender do editor; templates 4.7.2 são pré-requisito do ambiente. |
 | D-050 | 2026-11-08 | **Settings centralizados:** `GameSettings` estático persiste sensibilidade/volumes/qualidade; player, Sfx e viewport aplicam; HUD usa sliders no pause. | Evita duplicar configurações em áudio/input/vídeo e mantém defaults seguros. |
 | D-049 | 2026-11-08 | **Save versionado:** JSON `version:1` salva economia, vida, armas, perks, barricadas, energia, rodada e quests; carga rejeita versão/mapa incompatível e restaura o meta-estado. | Cobre produção sem tentar serializar zumbis/vivo; o estado de combate reinicia com a rodada. |

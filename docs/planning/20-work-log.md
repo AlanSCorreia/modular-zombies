@@ -14,6 +14,16 @@ Registro curto da etapa ativa, **mais recente primeiro**. Etapas 4–7 estão em
 Etapa 3 em
 [`archive/20-work-log-2026-11-etapa3.md`](archive/20-work-log-2026-11-etapa3.md).
 
+## 2026-11-08 — Performance, soak e checklist (issue #40)
+
+- `PERF_OK`: headless 145 FPS, 0,92 ms, 206 MB; bench windowed 60 FPS,
+  16,58 ms, 100 draw calls, 70,3 MB.
+- `tests/soak.sh`: 300 s / 1.178 iterações sem crash.
+- `24-release-checklist.md` e `CREDITS.md`; licença e soak de 30 min ficam
+  como bloqueio no #41.
+- `PERF_OK` entrou no CI junto de `BUILD_OK`.
+- Próximo: auditoria de licenças + soak 30 min (#41).
+
 ## 2026-11-08 — Exportação Linux + smoke (issue #39)
 
 - `export_presets.cfg` Linux com binário + PCK em `build/linux/`.
@@ -40,5 +50,5 @@ Etapa 3 em
 - Teste `SAVE_OK` cobre round-trip, armas/munição e versão incompatível.
 - Próximo: settings (#38).
 
-**Próximo item:** performance, soak test e checklist de release (issue #40);
-depois aceite final da Etapa 8.
+**Próximo item:** auditoria de licenças + soak 30 min final (issue #41); depois
+aceite final.

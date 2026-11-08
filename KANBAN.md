@@ -33,7 +33,7 @@
 | `etapa5` | Etapa 5 — Ferramentas de mapa | **Concluído** | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | **Concluído** | — |
 | `etapa7` | Etapa 7 — Escala de conteúdo | **Concluído** | — |
-| `etapa8` | Etapa 8 — Produção | **Em andamento** | Performance/soak |
+| `etapa8` | Etapa 8 — Produção | **Em andamento** | Licenças + soak 30 min |
 
 > **Status:** Etapas 3–7 **concluídas** (issues #1–#15 e #17–#36).
 > Gameplay, apresentação, ferramentas, quests e escala de conteúdo prontos.
@@ -43,7 +43,7 @@
 
 - **Etapa ativa:** 8 — Produção.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** performance, soak test e checklist de release (issue #40).
+- **Próximo:** auditoria de licenças + soak 30 min (issue #41).
 - **Depois:** aceite final da Etapa 8.
 - **Última etapa:** 8 — Produção, após o aceite da Etapa 7.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
@@ -341,6 +341,7 @@
 - [x] Save/load versionado da run (issue #37)
 - [x] Settings de sensibilidade/volume/qualidade (issue #38)
 - [x] Exportação Linux + smoke test (issue #39)
+- [x] Performance/soak 5min + checklist de release (issue #40)
 
 ### Blocked
 - *(vazio)*
@@ -360,7 +361,7 @@
 - [ ] Pool de efeitos visuais (se necessário)
 
 ### Ready
-- [ ] Performance, soak test e checklist de release (P0) — [#40](https://github.com/AlanSCorreia/modular-zombies/issues/40)
+- [ ] Auditoria de licenças + soak 30 min final (P0) — [#41](https://github.com/AlanSCorreia/modular-zombies/issues/41)
 
 ### Doing
 - *(vazio)*
@@ -369,7 +370,7 @@
 - [x] Save/load round-trip (`SAVE_OK`)
 - [x] Settings round-trip (`SETTINGS_OK`)
 - [x] Build abre e joga (`BUILD_OK`)
-- [ ] Performance medida
+- [x] Performance medida (`PERF_OK` + bench)
 - [ ] Auditoria de licenças/assets
 - [ ] Checklist manual de release
 
@@ -377,6 +378,7 @@
 - [x] Save/load versionado (issue #37)
 - [x] Settings de sensibilidade/volume/qualidade (issue #38)
 - [x] Exportação Linux + smoke test (issue #39)
+- [x] Performance/soak 5min + checklist de release (issue #40)
 
 ### Blocked
 - *(vazio)*

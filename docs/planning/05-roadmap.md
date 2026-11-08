@@ -145,11 +145,11 @@ QuestValidator (issue #31) e main quest de 3 passos (issue #32).
 
 ## Etapa 8 — Produção (em andamento)
 
-**Já entregue:** save/load (issue #37), settings (issue #38) e exportação
-Linux + smoke (issue #39).
+**Já entregue:** save/load (issue #37), settings (issue #38), exportação Linux
+(issue #39) e performance/soak curto/checklist (issue #40).
 
 **Pendente**
-- Performance, soak test e checklist de release (issue #40).
+- Auditoria de licenças e soak de 30 min final (issue #41).
 - Navmesh para mapas irregulares e pool de efeitos, se necessário.
 
 **Entregáveis**
