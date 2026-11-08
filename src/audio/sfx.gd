@@ -71,6 +71,7 @@ func _ready() -> void:
 	_streams["box_hum"] = [load("res://assets/audio/ui/box_hum.ogg")]
 	_streams["round_end"] = [load("res://assets/audio/music/round_end.ogg")]
 	_streams["round_start"] = [load("res://assets/audio/music/round_start.ogg")]
+	_streams["music.bunker13"] = [load("res://assets/audio/music/ambient_drone.ogg")]
 	_streams["heartbeat"] = [load("res://assets/audio/ui/heartbeat.ogg")]
 
 	var zg: Array = []

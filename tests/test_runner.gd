@@ -54,6 +54,8 @@ func _ready() -> void:
 			await _fx()
 		"audio":
 			await _audio()
+		"quest":
+			await _quest()
 		"ui":
 			await _ui()
 		"shot":
@@ -767,6 +769,31 @@ func _audio() -> void:
 		str(buses), str(keys), slider, str(volume_ok),
 	])
 	_finish("AUDIO_OK", ok)
+
+func _quest() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	var qs: QuestSystem = game.quest_system
+	var quest: QuestData = Content.get_quest("quest.bunker13_music")
+	var loaded: bool = qs != null and quest != null
+	if not loaded:
+		_finish("QUEST_OK", false)
+		return
+	var start_index := qs.step_index(quest.id)
+	qs.notify_interact("radio_3")
+	var skipped: bool = qs.step_index(quest.id) == start_index
+	var points0 := game.economy.points
+	qs.notify_interact("radio_1")
+	qs.notify_interact("radio_2")
+	qs.notify_interact("radio_3")
+	var done := qs.is_complete(quest.id)
+	var points_ok := game.economy.points >= points0 + 500
+	var music_ok := Sfx.has("music.bunker13")
+	var ok: bool = loaded and skipped and done and points_ok and music_ok
+	print("QUEST_TEST loaded=%s skipped=%s done=%s points=%s music=%s" % [
+		str(loaded), str(skipped), str(done), str(points_ok), str(music_ok),
+	])
+	_finish("QUEST_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

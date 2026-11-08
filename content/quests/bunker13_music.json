@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "kind": "quest",
+  "id": "quest.bunker13_music",
+  "name": "MÚSICA DO BUNKER",
+  "type": "music",
+  "requires_coop": false,
+  "repeatable": false,
+  "steps": [
+    { "id": "radio_1", "trigger": "interact", "target": "radio_1", "count": 1, "hint": "ENCONTRE O RÁDIO 1" },
+    { "id": "radio_2", "trigger": "interact", "target": "radio_2", "count": 1, "hint": "ENCONTRE O RÁDIO 2" },
+    { "id": "radio_3", "trigger": "interact", "target": "radio_3", "count": 1, "hint": "ENCONTRE O RÁDIO 3" }
+  ],
+  "rewards": [
+    { "type": "points", "amount": 500 },
+    { "type": "music", "id": "music.bunker13" }
+  ]
+}

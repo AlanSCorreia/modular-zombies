@@ -13,6 +13,7 @@ var nav: MapNav
 var economy: Economy
 var round: RoundManager
 var barricade_system: BarricadeSystem
+var quest_system: QuestSystem
 var zombies: Array[ZombieEnemy] = []
 var started := false
 var owned_perks: Array[String] = []
@@ -64,6 +65,15 @@ func _ready() -> void:
 	barricade_system.name = "BarricadeSystem"
 	barricade_system.setup(player, economy, ctx.barricades)
 	add_child(barricade_system)
+
+	quest_system = QuestSystem.new()
+	quest_system.name = "QuestSystem"
+	var quest_list: Array[QuestData] = []
+	for quest in Content.quests.values():
+		quest_list.append(quest)
+	quest_system.setup(quest_list, player, nav)
+	quest_system.reward_granted.connect(_on_quest_reward)
+	add_child(quest_system)
 	round = RoundManager.new()
 	round.setup(map, nav, get_tree())
 	round.spawn_requested.connect(_spawn_at)
@@ -124,6 +134,8 @@ func _start() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	player.can_control = true
 	round.start()
+	if quest_system != null:
+		quest_system.start_all()
 	Events.banner.emit(map.name.to_upper(), "SOBREVIVA E ABRA AS PORTAS", 2.5)
 
 func _on_pause_toggled() -> void:
@@ -182,6 +194,24 @@ func _on_round_started(round_no: int) -> void:
 	Sfx.play_music("round_start", -8)
 	if round_no > 1:
 		Events.banner.emit("RODADA %d" % round_no, "SOBREVIVA", 2.0)
+
+func _on_quest_reward(type: String, id: String, amount: int) -> void:
+	match type:
+		"points":
+			economy.add(amount)
+		"music":
+			if Sfx.has(id):
+				Sfx.play_music(id, -6)
+			else:
+				Sfx.play_music("round_start", -8)
+		"weapon":
+			var weapon: WeaponData = Content.get_weapon(id)
+			if weapon != null:
+				player.add_weapon(weapon)
+		"perk":
+			if not owned_perks.has(id):
+				owned_perks.append(id)
+				Events.banner.emit("PERK GRÁTIS", id.to_upper(), 1.8)
 
 func _on_interacted(id: String, _who: Node) -> void:
 	if ctx.doors.has(id):

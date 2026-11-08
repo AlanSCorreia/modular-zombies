@@ -1,0 +1,48 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Quest",
+  "type": "object",
+  "required": ["schema_version", "kind", "id", "name", "steps", "rewards"],
+  "properties": {
+    "schema_version": { "type": "integer", "const": 1 },
+    "kind": { "type": "string", "const": "quest" },
+    "id": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "type": { "type": "string", "minLength": 1 },
+    "requires_coop": { "type": "boolean" },
+    "repeatable": { "type": "boolean" },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": ["id", "trigger", "target"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "trigger": {
+            "type": "string",
+            "enum": ["interact", "kill", "enter_area", "collect"]
+          },
+          "target": { "type": "string", "minLength": 1 },
+          "count": { "type": "integer", "minimum": 1 },
+          "hint": { "type": "string" }
+        }
+      }
+    },
+    "rewards": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": ["points", "music", "weapon", "perk"]
+          },
+          "id": { "type": "string" },
+          "amount": { "type": "integer", "minimum": 0 }
+        }
+      }
+    }
+  }
+}

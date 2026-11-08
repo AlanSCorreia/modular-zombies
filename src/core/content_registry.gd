@@ -10,6 +10,7 @@ var weapons: Dictionary = {}
 var enemies: Dictionary = {}
 var melees: Dictionary = {}
 var explosives: Dictionary = {}
+var quests: Dictionary = {}
 var errors: Array[String] = []
 var loaded := false
 
@@ -22,6 +23,7 @@ func reload() -> void:
 	enemies.clear()
 	melees.clear()
 	explosives.clear()
+	quests.clear()
 	errors.clear()
 	loaded = false
 	for path in _scan(ROOT):
@@ -50,14 +52,16 @@ func reload() -> void:
 				melees[id] = MeleeData.from_dict(d)
 			"explosive":
 				explosives[id] = ExplosiveData.from_dict(d)
+			"quest":
+				quests[id] = QuestData.from_dict(d)
 			_:
 				errors.append("%s: kind desconhecido '%s'" % [path, kind])
-	errors.append_array(ContentValidator.validate(maps, weapons, enemies, melees, explosives))
+	errors.append_array(ContentValidator.validate(maps, weapons, enemies, melees, explosives, quests))
 	for e in errors:
 		push_error("CONTEÚDO: " + e)
 	loaded = errors.is_empty()
-	print("CONTENT_LOADED maps=%d weapons=%d enemies=%d melees=%d explosives=%d errors=%d" % [
-		maps.size(), weapons.size(), enemies.size(), melees.size(), explosives.size(), errors.size(),
+	print("CONTENT_LOADED maps=%d weapons=%d enemies=%d melees=%d explosives=%d quests=%d errors=%d" % [
+		maps.size(), weapons.size(), enemies.size(), melees.size(), explosives.size(), quests.size(), errors.size(),
 	])
 
 func _scan(dir: String) -> Array[String]:
@@ -91,3 +95,6 @@ func get_melee(id: String) -> MeleeData:
 
 func get_explosive(id: String) -> ExplosiveData:
 	return explosives.get(id, null)
+
+func get_quest(id: String) -> QuestData:
+	return quests.get(id, null)

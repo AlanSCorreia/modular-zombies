@@ -20,20 +20,26 @@ func _init() -> void:
 	var enemy: EnemyData = reg.get_enemy("enemy.zombie")
 	var melee: MeleeData = reg.get_melee("melee.knife")
 	var explosive: ExplosiveData = reg.get_explosive("explosive.frag")
+	var quest: QuestData = reg.get_quest("quest.bunker13_music")
 
 	check(reg.errors.is_empty(), "conteúdo sem erros")
 	check(reg.maps.size() == 2, "2 mapas carregados")
 	check(reg.weapons.size() == 6, "6 armas carregadas")
 	check(reg.melees.size() == 1, "1 melee carregado")
 	check(reg.explosives.size() == 1, "1 explosivo carregado")
+	check(reg.quests.size() == 1, "1 quest carregada")
 	check(melee != null, "faca carregada")
 	check(explosive != null, "granada carregada")
+	check(quest != null, "quest carregada")
 	if melee != null:
 		check(melee.damage == 150.0, "faca causa 150")
 		check(melee.cooldown > 0.0, "faca tem cooldown")
 	if explosive != null:
 		check(explosive.radius == 4.0, "granada tem raio 4")
 		check(explosive.chain_depth == 2, "granada encadeia")
+	if quest != null:
+		check(quest.steps.size() == 3, "quest tem 3 passos")
+		check(quest.rewards.size() == 2, "quest tem 2 recompensas")
 	for wid in ["weapon.glock17", "weapon.mp5", "weapon.m870", "weapon.ak74", "weapon.wunder", "weapon.rocket"]:
 		var w: WeaponData = reg.get_weapon(wid)
 		check(w != null, "arma " + wid)
