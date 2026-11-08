@@ -32,5 +32,8 @@
   "power_lights": [
     [0.0, 2.8, 0.0],
     [16.0, 2.8, 0.0]
+  ],
+  "special_enemies": [
+    { "enemy": "enemy.brute", "from_round": 2, "chance": 0.3, "max_per_round": 1 }
   ]
 }

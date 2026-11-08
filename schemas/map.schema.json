@@ -13,6 +13,7 @@
     "player_spawn": { "type": "array", "items": { "type": "number" }, "minItems": 3, "maxItems": 3 },
     "starting_points": { "type": "integer", "minimum": 0 },
     "enemy": { "type": "string" },
+    "starting_weapon": { "type": "string" },
     "zombie_count": { "type": "integer", "minimum": 1 },
     "rooms": { "type": "array", "minItems": 1 },
     "doors": { "type": "array" },
@@ -21,6 +22,7 @@
     "radios": { "type": "array" },
     "power_switches": { "type": "array" },
     "power_lights": { "type": "array" },
+    "special_enemies": { "type": "array" },
     "zombie_spawns": { "type": "array" }
   }
 }

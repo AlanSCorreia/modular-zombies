@@ -68,6 +68,8 @@ func _ready() -> void:
 			await _weapons()
 		"wonder":
 			await _wonder()
+		"enemy":
+			await _enemy()
 		"ui":
 			await _ui()
 		"shot":
@@ -993,6 +995,37 @@ func _wonder() -> void:
 		str(audio),
 	])
 	_finish("WONDER_OK", ok)
+
+func _enemy() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	game.round.stop()
+	var brute: EnemyData = Content.get_enemy("enemy.brute")
+	var configured := false
+	for special in game.map.special_enemies:
+		if special.enemy_id == "enemy.brute":
+			configured = true
+	if brute == null or not configured:
+		_finish("ENEMY_OK", false)
+		return
+	var points0 := game.economy.points
+	game._spawn_at(Vector3(-4.0, 0.1, 14.0), "", "enemy.brute")
+	await get_tree().create_timer(0.1).timeout
+	var z: ZombieEnemy = game.zombies[-1] if not game.zombies.is_empty() else null
+	var spawned: bool = z != null and z.data.id == "enemy.brute" \
+		and z.health == brute.health and z.speed == brute.speed
+	if z != null:
+		z.set_physics_process(false)
+		z.take_damage(99999.0, false, z.global_position)
+	await get_tree().create_timer(0.1).timeout
+	var dead: bool = z != null and z.is_dead
+	var paid := game.economy.points > points0
+	var ok: bool = spawned and dead and paid
+	print("ENEMY_TEST config=%s spawn=%s dead=%s paid=%s hp=%.1f" % [
+		str(configured), str(spawned), str(dead), str(paid),
+		brute.health,
+	])
+	_finish("ENEMY_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

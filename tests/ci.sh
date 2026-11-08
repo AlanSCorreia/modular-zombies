@@ -6,7 +6,7 @@ GODOT="${GODOT_BIN:-$HOME/.local/opt/godot/Godot_v4.7.2-stable_linux.x86_64}"
 cd "$DIR"
 
 # Fonte única dos gates esperados (validado por tools/check_docs.py).
-GATES="DOCS_OK LOGIC_OK CONTENT_OK TOOLS_OK PLAYTEST_OK QUEST_VALIDATOR_OK BUNKER13_OK MAP_OK SOFTLOCK_OK PAUSE_OK INTERACT_OK SLOTS_OK MELEE_OK PROJECTILE_OK EXPLOSION_OK GRENADE_OK ROCKET_OK BARREL_OK BARRICADE_OK ZOMBIE_BARRICADE_OK VIEWMODEL_OK KNIFE_OK ROUNDS_OK TRAP_OK FX_OK AUDIO_OK QUEST_OK RADIO_OK POWER_OK MAIN_QUEST_OK SECOND_MAP_OK WEAPONS_OK WONDER_OK SLICE_OK CI_OK"
+GATES="DOCS_OK LOGIC_OK CONTENT_OK TOOLS_OK PLAYTEST_OK QUEST_VALIDATOR_OK NO_CORE_OK BUNKER13_OK MAP_OK SOFTLOCK_OK PAUSE_OK INTERACT_OK SLOTS_OK MELEE_OK PROJECTILE_OK EXPLOSION_OK GRENADE_OK ROCKET_OK BARREL_OK BARRICADE_OK ZOMBIE_BARRICADE_OK VIEWMODEL_OK KNIFE_OK ROUNDS_OK TRAP_OK FX_OK AUDIO_OK QUEST_OK RADIO_OK POWER_OK MAIN_QUEST_OK SECOND_MAP_OK WEAPONS_OK WONDER_OK ENEMY_OK SLICE_OK CI_OK"
 
 echo "== docs =="
 python3 tools/check_docs.py
@@ -39,6 +39,9 @@ echo "== playtest args =="
 
 echo "== validador de quests =="
 "$GODOT" --headless --path . --script res://tests/run_quest_validator.gd
+
+echo "== núcleo sem IDs =="
+"$GODOT" --headless --path . --script res://tests/run_no_core_test.gd
 
 echo "== smoke Bunker 13 =="
 "$GODOT" --headless --path . res://tests/test_runner.tscn -- --case smoke --map map.bunker13
@@ -117,6 +120,9 @@ echo "== armas novas =="
 
 echo "== wonder weapon =="
 "$GODOT" --headless --path . res://tests/test_runner.tscn -- --case wonder --map map.depot
+
+echo "== inimigo especial =="
+"$GODOT" --headless --path . res://tests/test_runner.tscn -- --case enemy --map map.bunker13
 
 echo "== integração =="
 "$GODOT" --headless --path . res://tests/test_runner.tscn -- --case slice

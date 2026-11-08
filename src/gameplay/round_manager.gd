@@ -3,7 +3,7 @@ extends RefCounted
 
 ## Ondas, spawns em salas alcançáveis e conclusão da rodada.
 
-signal spawn_requested(position: Vector3, barricade_id: String)
+signal spawn_requested(position: Vector3, barricade_id: String, enemy_id: String)
 signal completed
 signal round_started(round_no: int)
 signal round_ended(round_no: int)
@@ -18,6 +18,7 @@ var alive := 0
 var complete := false
 var active := false
 var wave_pending := false
+var special_spawned := 0
 
 func setup(p_map: MapData, p_nav: MapNav, p_tree: SceneTree) -> void:
 	map = p_map
@@ -32,6 +33,7 @@ func start() -> void:
 	spawned = 0
 	alive = 0
 	wave_pending = false
+	special_spawned = 0
 	round_started.emit(round_no)
 	_spawn_wave()
 
@@ -45,6 +47,7 @@ func next_round() -> void:
 	spawned = 0
 	alive = 0
 	wave_pending = false
+	special_spawned = 0
 	round_started.emit(round_no)
 	_spawn_wave()
 
@@ -94,7 +97,7 @@ func _spawn_wave() -> void:
 		var base := spawned
 		for i in range(total):
 			var b: BarricadeData = barricades[(base + i) % barricades.size()]
-			spawn_requested.emit(b.spawn_position, b.id)
+			spawn_requested.emit(b.spawn_position, b.id, _pick_special())
 		spawned += total
 		alive += total
 		return
@@ -106,9 +109,18 @@ func _spawn_wave() -> void:
 	var base := spawned
 	for i in range(total):
 		var s: SpawnData = available[(base + i) % available.size()]
-		spawn_requested.emit(s.position, "")
+		spawn_requested.emit(s.position, "", _pick_special())
 	spawned += total
 	alive += total
+
+func _pick_special() -> String:
+	for special in map.special_enemies:
+		if round_no < special.from_round or special_spawned >= special.max_per_round:
+			continue
+		if randf() <= special.chance:
+			special_spawned += 1
+			return special.enemy_id
+	return ""
 
 func _reachable_barricades() -> Array[BarricadeData]:
 	var out: Array[BarricadeData] = []

@@ -18,6 +18,7 @@ func _init() -> void:
 	var bunker: MapData = reg.get_map("map.bunker13")
 	var weapon: WeaponData = reg.get_weapon("weapon.glock17")
 	var enemy: EnemyData = reg.get_enemy("enemy.zombie")
+	var brute: EnemyData = reg.get_enemy("enemy.brute")
 	var melee: MeleeData = reg.get_melee("melee.knife")
 	var explosive: ExplosiveData = reg.get_explosive("explosive.frag")
 	var quest: QuestData = reg.get_quest("quest.bunker13_music")
@@ -54,6 +55,7 @@ func _init() -> void:
 	check(bunker != null, "mapa Bunker 13 carregado")
 	check(weapon != null, "arma carregada")
 	check(enemy != null, "inimigo carregado")
+	check(brute != null, "inimigo especial carregado")
 	check(MapBuilderRegistry.has("scene"), "builder scene registrado")
 	check(not MapBuilderRegistry.has("bunker13"), "builder legado fora do runtime")
 	check(not MapBuilderRegistry.has("inexistente"), "builder desconhecido rejeitado")
@@ -91,6 +93,10 @@ func _init() -> void:
 		check(enemy.health == 100.0, "zumbi tem 100 de vida")
 		check(enemy.speed > 0.0, "zumbi se move")
 		check(enemy.scene.ends_with("enemies/zombie/zombie.glb"), "cena do zumbi")
+	if brute != null:
+		check(brute.health > enemy.health, "brute tem mais vida")
+		check(brute.damage > enemy.damage, "brute causa mais dano")
+		check(brute.speed < enemy.speed, "brute é mais lento")
 
 	reg.free()
 	print("LOGIC_OK" if fails == 0 else "LOGIC_FAIL (%d)" % fails)

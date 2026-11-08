@@ -8,6 +8,7 @@ var scene := ""
 var player_spawn := Vector3.ZERO
 var starting_points := 500
 var enemy_id := ""
+var starting_weapon := "weapon.glock17"
 var zombie_count := 1
 var rooms: Array[RoomData] = []
 var doors: Array[DoorData] = []
@@ -21,6 +22,7 @@ var traps: Array[TrapData] = []
 var radios: Array[RadioData] = []
 var power_switches: Array[PowerSwitchData] = []
 var power_lights: Array[Vector3] = []
+var special_enemies: Array[SpecialEnemyData] = []
 
 static func from_dict(d: Dictionary) -> MapData:
 	var m := MapData.new()
@@ -32,6 +34,7 @@ static func from_dict(d: Dictionary) -> MapData:
 	m.player_spawn = Vector3(float(p[0]), float(p[1]), float(p[2]))
 	m.starting_points = int(d.get("starting_points", 500))
 	m.enemy_id = String(d.get("enemy", ""))
+	m.starting_weapon = String(d.get("starting_weapon", "weapon.glock17"))
 	m.zombie_count = int(d.get("zombie_count", 1))
 	for r in d.get("rooms", []):
 		m.rooms.append(RoomData.from_dict(r))
@@ -57,4 +60,6 @@ static func from_dict(d: Dictionary) -> MapData:
 		m.power_switches.append(PowerSwitchData.from_dict(sw))
 	for l in d.get("power_lights", []):
 		m.power_lights.append(Vector3(float(l[0]), float(l[1]), float(l[2])))
+	for e in d.get("special_enemies", []):
+		m.special_enemies.append(SpecialEnemyData.from_dict(e))
 	return m

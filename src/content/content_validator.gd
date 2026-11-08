@@ -59,6 +59,8 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 				errors.append("map %s: barricada %s com max_planks <= 0" % [id, b.id])
 		if m.enemy_id == "" or not enemies.has(m.enemy_id):
 			errors.append("map %s: enemy '%s' inexistente" % [id, m.enemy_id])
+		if m.starting_weapon == "" or not weapons.has(m.starting_weapon):
+			errors.append("map %s: starting_weapon '%s' inexistente" % [id, m.starting_weapon])
 		for barr in m.barrels:
 			if barr.id == "":
 				errors.append("map %s: barril sem id" % id)
@@ -83,6 +85,11 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 				errors.append("map %s: interruptor %s em room inexistente" % [id, sw.id])
 			if sw.door_id != "" and not door_ids.has(sw.door_id):
 				errors.append("map %s: interruptor %s aponta para porta inexistente" % [id, sw.id])
+		for special in m.special_enemies:
+			if not enemies.has(special.enemy_id):
+				errors.append("map %s: inimigo especial inexistente (%s)" % [id, special.enemy_id])
+			if special.from_round < 1 or special.chance < 0.0 or special.chance > 1.0:
+				errors.append("map %s: special_enemy inválido (%s)" % [id, special.enemy_id])
 		if m.starting_points < 0:
 			errors.append("map %s: starting_points negativo" % id)
 		if m.zombie_count < 1:

@@ -27,7 +27,7 @@ func _ready() -> void:
 	var args := OS.get_cmdline_user_args()
 	var map_id := MapArgs.map_id_from_args(args)
 	map = Content.get_map(map_id)
-	weapon_data = Content.get_weapon("weapon.glock17")
+	weapon_data = Content.get_weapon(map.starting_weapon) if map != null else null
 	enemy_data = Content.get_enemy(map.enemy_id) if map != null else null
 	if map == null or weapon_data == null or enemy_data == null:
 		push_error("Conteúdo incompleto para o mapa '%s'" % map_id)
@@ -158,9 +158,14 @@ func _resume() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	hud.hide_pause()
 
-func _spawn_at(pos: Vector3, barricade_id := "") -> void:
+func _spawn_at(pos: Vector3, barricade_id := "", enemy_id := "") -> void:
+	var spawn_data: EnemyData = enemy_data
+	if enemy_id != "":
+		var special := Content.get_enemy(enemy_id)
+		if special != null:
+			spawn_data = special
 	var z := ZombieEnemy.new()
-	z.setup(enemy_data, player, nav)
+	z.setup(spawn_data, player, nav)
 	z.position = pos
 	add_child(z)
 	zombies.append(z)

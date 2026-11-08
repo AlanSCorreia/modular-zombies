@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "kind": "enemy",
+  "id": "enemy.brute",
+  "name": "Brute",
+  "scene": "res://assets/models/enemies/brute/brute.glb",
+  "health": 450,
+  "speed": 0.95,
+  "damage": 35,
+  "attack_range": 1.8,
+  "attack_cooldown": 2.2,
+  "scale": 0.55,
+  "head_height": 1.8
+}
