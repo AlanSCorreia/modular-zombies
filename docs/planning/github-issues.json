@@ -261,7 +261,7 @@
     {
       "number": 24,
       "title": "Áudio 2D/3D, música e mixagem",
-      "state": "OPEN",
+      "state": "CLOSED",
       "labels": [
         "etapa:4",
         "prio:P1",
@@ -269,6 +269,18 @@
         "area:gameplay"
       ],
       "milestone": "Etapa 4 — Interações"
+    },
+    {
+      "number": 25,
+      "title": "Criar/duplicar mapa a partir de template no bunker_tools",
+      "state": "OPEN",
+      "labels": [
+        "etapa:5",
+        "prio:P0",
+        "area:infra",
+        "area:docs"
+      ],
+      "milestone": "Etapa 5 — Ferramentas de mapa"
     }
   ]
 }

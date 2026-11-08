@@ -2,7 +2,7 @@
 kind: planning
 area: execution
 status: active
-stage: 4
+stage: 5
 owner: docs
 last_reviewed: 2026-11-08
 ---
@@ -123,7 +123,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA4.5 | Props explosivos no JSON do mapa (feito) | P0 |
 | ETAPA4.6 | HUD/menu/pause/game over (feito) | P0 |
 | ETAPA4.7 | HUD de equipamento (granadas) (feito, issue #23) | P1 |
-| ETAPA4.8 | Áudio/VFX de explosão, faca e barricada (VFX feito; áudio #24) | P0 |
+| ETAPA4.8 | Áudio/VFX de explosão, faca e barricada (feito, #23/#24) | P0 |
 | ETAPA4.11 | HUD de progresso de reparo de barricada (feito) | P1 |
 | ETAPA4.9 | Prompts/hitmarker/vinheta | P1 |
 | ETAPA4.10 | Testes de interação/UI/combate | P0 |
@@ -132,9 +132,9 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 
 | ID | Tarefa | Pri |
 |---|---|---|
-| ETAPA5.1 | Plugin `bunker_tools` + dock | P0 |
-| ETAPA5.2 | Criar/duplicar mapa | P0 |
-| ETAPA5.3 | Validador no dock | P0 |
+| ETAPA5.1 | Plugin `bunker_tools` + dock (feito) | P0 |
+| ETAPA5.2 | Criar/duplicar mapa (issue #25) | P0 |
+| ETAPA5.3 | Validador no dock (feito) | P0 |
 | ETAPA5.4 | Playtest por mapa | P0 |
 | ETAPA5.5 | Templates | P1 |
 | ETAPA5.6 | Marcadores 3D com gizmos | P1 |

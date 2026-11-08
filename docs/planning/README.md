@@ -2,7 +2,7 @@
 kind: index
 area: execution
 status: active
-stage: 4
+stage: 5
 owner: docs
 last_reviewed: 2026-11-08
 ---
@@ -16,15 +16,15 @@ last_reviewed: 2026-11-08
 ## Estado atual (2026-11-08)
 
 - v1 é histórico arquivado em `zombie-fps-legacy`; a v2 é reescrita do runtime.
-- **Etapas 1–3 concluídas**; **Etapa 4 — Interações em andamento**.
+- **Etapas 1–4 concluídas**; **Etapa 5 — Ferramentas de mapa em andamento**.
 - Entregue: geometria autoral, 2 slots, softlock/BFS, `MapContext`/`Interactable`,
   harness, pool/cache, HUD `.tscn`, `Economy`/`RoundManager`, projétil/melee,
   explosões, granada/foguete/barris, barricadas, janelas + IA de zumbi, mãos
   compartilhadas/`ViewmodelFactory`, faca com `knife_slash`, rodadas 1→2 e
-  traps explosivas.
-- **Próximo:** áudio 2D/3D, música e mixagem (#24).
-- **Depois:** vinheta e testes de UI; escala das armas (#16) fica como dívida
-  visual.
+  traps explosivas, VFX/SFX/HUD de granadas e áudio/mixagem.
+- **Próximo:** criar/duplicar mapa no `bunker_tools` (#25).
+- **Depois:** playtest por mapa e documentação do autor; escala (#16) fica como
+  dívida visual.
 - Gates atuais: ver [`08-testing-strategy.md`](08-testing-strategy.md).
 
 ## Índice

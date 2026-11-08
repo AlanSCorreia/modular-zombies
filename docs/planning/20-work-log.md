@@ -15,6 +15,15 @@ está em
 o início do projeto, em
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 
+## 2026-11-08 — Áudio 2D/3D, música e mixagem (issue #24)
+
+- Buses `Music`/`Weapons`/`Zombies`/`UI`/`Foley` criados no `Sfx`; roteamento
+  por categoria em `play`/`play_3d`.
+- Master volume no pause com slider e persistência em `user://audio.cfg`.
+- Stingers de início/fim de rodada na bus Music.
+- Teste `AUDIO_OK` cobre buses, chaves e volume; Etapa 4 aceita.
+- Próxima etapa: ferramentas de mapa (#25).
+
 ## 2026-11-08 — VFX/SFX + HUD de granadas (issue #23)
 
 - Explosão com partículas/luz em `ExplosionSystem` (mesh/material cacheados) e
@@ -31,5 +40,5 @@ o início do projeto, em
 - Asset autoral `trap.blend`/GLB; 2 traps no Bunker 13.
 - Teste `TRAP_OK`; Etapa 4 iniciada.
 
-**Próximo item:** áudio 2D/3D, música e mixagem (issue #24); depois vinheta e
-testes de UI.
+**Próximo item:** criar/duplicar mapa no `bunker_tools` (issue #25); depois
+playtest por mapa e documentação do autor.

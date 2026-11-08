@@ -29,24 +29,24 @@
 | `etapa1` | Etapa 1 — Preparação | **Concluído** | — |
 | `etapa2` | Etapa 2 — Conteúdo | **Concluído** | — |
 | `etapa3` | Etapa 3 — Gameplay | **Concluído** | — |
-| `etapa4` | Etapa 4 — Interações | **Em andamento** | Áudio 2D/3D e mixagem |
-| `etapa5` | Etapa 5 — Ferramentas de mapa | Backlog | — |
+| `etapa4` | Etapa 4 — Interações | **Concluído** | — |
+| `etapa5` | Etapa 5 — Ferramentas de mapa | **Em andamento** | Criar/duplicar mapa |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | Backlog | — |
 | `etapa7` | Etapa 7 — Escala de conteúdo | Backlog | — |
 | `etapa8` | Etapa 8 — Produção | Backlog | — |
 
-> **Status:** Etapa 3 **concluída** (issues #1–#15 e #17–#21). Geometria autoral,
-> 2 slots, softlock/BFS, HUD, economia/rodadas, explosivos, barricadas, janelas
-> + IA, mãos/`ViewmodelFactory`, faca e métricas. Etapa 4 em andamento; a escala
-> das armas (#16) fica como dívida visual para depois.
+> **Status:** Etapas 3 e 4 **concluídas** (issues #1–#15 e #17–#24).
+> Gameplay completo, HUD, áudio, VFX e rodadas funcionando. Etapa 5 em
+> andamento com o dock `bunker_tools`; a escala das armas (#16) fica como
+> dívida visual para depois.
 
 ## Próximo item
 
-- **Etapa ativa:** 4 — Interações.
+- **Etapa ativa:** 5 — Ferramentas de mapa.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** áudio 2D/3D, música e mixagem (issue #24).
-- **Depois:** vinheta, polish de prompts e testes de UI.
-- **Próxima etapa:** 4 — Interações, somente após o aceite da Etapa 3.
+- **Próximo:** criar/duplicar mapa a partir de template (issue #25).
+- **Depois:** playtest por mapa e documentação do autor.
+- **Próxima etapa:** 6 — Quests e Easter Eggs, após o aceite da Etapa 5.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
 ---
@@ -215,14 +215,13 @@
 **Aceite:** portas, wallbuys, caixa, perks, explosivos/faca, HUD, pause e áudio funcionando.
 
 ### Backlog
-- [ ] Ajustes de mixagem
 - [ ] Acessibilidade (tamanho de fonte/contraste)
 - [ ] `InteractionSystem` tipado (refactor)
 - [ ] Vinheta e polish de prompts
 - [ ] Teste de interação e UI
 
 ### Ready
-- [ ] Áudio 2D/3D, música e mixagem (P1) — [#24](https://github.com/AlanSCorreia/modular-zombies/issues/24)
+- *(vazio)*
 
 ### Doing
 - *(vazio)*
@@ -239,6 +238,7 @@
 - [x] HUD de progresso de reparo de barricada
 - [x] HUD/menu/pause/game over
 - [x] Hitmarker e prompts
+- [x] Áudio 2D/3D, música, mixagem e volume (issue #24)
 
 ### Blocked
 - *(vazio)*
@@ -254,25 +254,24 @@
 - [ ] Marcadores 3D com gizmos
 - [ ] Content browser
 - [ ] Templates visuais
+- [ ] Playtest por mapa no dock
+- [ ] Documentação do autor
 
 ### Ready
-- [ ] Plugin `bunker_tools` + dock
-- [ ] Criar/duplicar mapa
-- [ ] Validador no dock
-- [ ] Playtest por mapa
-- [ ] Launcher do editor
-- [ ] Documentação do autor
+- [ ] Criar/duplicar mapa a partir de template (P0) — [#25](https://github.com/AlanSCorreia/modular-zombies/issues/25)
 
 ### Doing
 - *(vazio)*
 
 ### Review/Test
 - [ ] Criar mapa a partir de template
-- [ ] Validador aponta erros reais
+- [x] Validador aponta erros reais
 - [ ] Playtest abre o mapa correto
 
 ### Done
-- *(vazio)*
+- [x] Plugin `bunker_tools` + dock
+- [x] Validador no dock
+- [x] Launcher do editor
 
 ### Blocked
 - *(vazio)*

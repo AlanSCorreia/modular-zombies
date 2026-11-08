@@ -2,7 +2,7 @@
 kind: planning
 area: execution
 status: active
-stage: 4
+stage: 5
 owner: docs
 last_reviewed: 2026-11-08
 ---
@@ -21,8 +21,8 @@ O board operacional é `../../KANBAN.md`.
 | `etapa1` | Etapa 1 — Preparação | Arquivar v1, scaffold v2, docs e Kanban | **Concluído** | S |
 | `etapa2` | Etapa 2 — Conteúdo | Definições, registry, validador, Bunker 13 em JSON | **Concluído** | M |
 | `etapa3` | Etapa 3 — Gameplay | Player, armas, zumbis, barricadas, rodadas, economia | **Concluído** | L |
-| `etapa4` | Etapa 4 — Interações | Portas, compras, caixa, perks, HUD, menus, som | **Em andamento** | M |
-| `etapa5` | Etapa 5 — Ferramentas | Criar/validar/testar mapas no editor | Backlog | M |
+| `etapa4` | Etapa 4 — Interações | Portas, compras, caixa, perks, HUD, menus, som | **Concluído** | M |
+| `etapa5` | Etapa 5 — Ferramentas | Criar/validar/testar mapas no editor | **Em andamento** | M |
 | `etapa6` | Etapa 6 — Quests | QuestSystem, música, mecânica única, debug | Backlog | L |
 | `etapa7` | Etapa 7 — Escala | 2º mapa, armas novas, wonder weapon, inimigo | Backlog | L |
 | `etapa8` | Etapa 8 — Produção | Save, settings, export, pools, CI, performance | Backlog | L |
@@ -95,27 +95,27 @@ foi aceita; a escala das armas (#16) fica como dívida visual.
 **Aceite:** Bunker 13 jogável com geometria autoral; armas em JSON +
 `ViewmodelFactory` (`hands.glb`); faca, explosivos e barricadas funcionando.
 
-## Etapa 4 — Interações (em andamento)
+## Etapa 4 — Interações (concluída — tag `etapa4`)
 
 **Já entregue:** portas/wallbuys/caixa/perks, HUD/menu/pause/game over,
 HUD de progresso de barricada, prompts/hitmarker, traps explosivas
-(issue #22) e VFX/SFX + HUD de granadas (issue #23).
+(issue #22), VFX/SFX + HUD de granadas (issue #23) e áudio/mixagem/volume
+(issue #24).
 
-**Pendente**
-- Áudio 2D/3D, música e mixagem (issue #24).
-- Vinheta e polish de prompts.
-- Teste de interação/UI.
+**Dívida de polish:** vinheta e teste de UI dedicado.
 
 **Aceite:** interações, UI e áudio do plano + explosivos/faca (checklist).
 
-## Etapa 5 — Ferramentas de mapa
+## Etapa 5 — Ferramentas de mapa (em andamento)
 
-**Entregáveis**
-- Launcher “Bunker 13 v2 — Editor”.
-- Plugin `bunker_tools` + dock.
-- Criar/duplicar/validar/testar mapa.
-- Templates e documentação do autor.
-- Marcadores 3D e content browser (P1, podem ficar para depois).
+**Já entregue:** launcher “Bunker 13 v2 — Editor”, plugin `bunker_tools` + dock
+com validador.
+
+**Pendente**
+- Criar/duplicar mapa a partir de template (issue #25).
+- Playtest por mapa.
+- Documentação do autor.
+- Marcadores 3D e content browser (P1/P2).
 
 **Aceite:** criar/duplicar/validar/testar um mapa sem tocar no núcleo.
 
