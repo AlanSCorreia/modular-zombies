@@ -1,21 +1,24 @@
 number,title,state,created,closed,lead_hours,labels,milestone,commits_linked,commit_additions,commit_deletions,docs_mentions
-20,Pipeline de métricas do projeto (histórico + agregados),CLOSED,2026-11-08T11:29:26Z,2026-11-08T11:29:28Z,0.0,prio:P1 area:infra area:docs,,0,0,0,6
-19,Automação e validação de docs (checker offline + GitHub opcional),CLOSED,2026-11-08T11:06:56Z,2026-11-08T11:06:58Z,0.0,prio:P1 area:infra area:docs,,0,0,0,4
-18,"Organizar docs: índice, arquivo e work log",CLOSED,2026-11-08T10:41:27Z,2026-11-08T10:46:56Z,0.09,prio:P1 area:docs,,0,0,0,5
-17,Faca GLB + mãos compartilhadas + knife_slash,CLOSED,2026-11-08T02:50:59Z,2026-11-08T11:42:03Z,8.85,etapa:3 prio:P1 area:assets area:gameplay,Etapa 3 — Gameplay,0,0,0,6
-16,Normalizar escala e origem das armas,OPEN,2026-11-08T02:43:06Z,,,etapa:3 prio:P1 area:assets area:gameplay,Etapa 3 — Gameplay,0,0,0,8
-15,"Auditoria curta de redundância (docs, CI, código e execução)",CLOSED,2026-11-08T02:29:40Z,2026-11-08T02:50:58Z,0.35,prio:P2 area:infra area:docs,,0,0,0,6
-14,Mãos compartilhadas + ViewmodelFactory (GripSocket),CLOSED,2026-11-07T09:38:57Z,2026-11-08T02:29:38Z,16.84,etapa:3 prio:P0 area:assets area:gameplay,Etapa 3 — Gameplay,1,407,17,3
-13,"IA de zumbi em barricadas (arranque, fila e entrada)",CLOSED,2026-11-07T02:07:56Z,2026-11-07T09:38:55Z,7.52,etapa:3 prio:P0 area:gameplay,Etapa 3 — Gameplay,1,384,14,3
-12,"Barricade + BarricadeSystem (hold F, tábuas e pontos)",CLOSED,2026-11-07T01:41:37Z,2026-11-07T02:07:54Z,0.44,etapa:3 prio:P0 area:gameplay,Etapa 3 — Gameplay,1,284,5,3
-11,"Granada, lança-foguete e barris explosivos",CLOSED,2026-11-07T00:59:46Z,2026-11-07T01:41:35Z,0.7,etapa:3 prio:P1 area:gameplay,Etapa 3 — Gameplay,1,409,19,3
-10,ExplosionSystem,CLOSED,2026-11-07T00:40:54Z,2026-11-07T00:59:44Z,0.31,etapa:3 prio:P1 area:gameplay,Etapa 3 — Gameplay,1,281,13,3
-9,WeaponController projectile/melee,CLOSED,2026-11-07T00:13:37Z,2026-11-07T00:40:52Z,0.45,etapa:3 prio:P1 area:gameplay,Etapa 3 — Gameplay,1,321,23,3
-8,Extrair RoundManager e Economy do GameRoot,CLOSED,2026-11-07T00:02:05Z,2026-11-07T00:13:35Z,0.19,etapa:3 prio:P1 area:gameplay,Etapa 3 — Gameplay,1,151,72,3
-7,Mover HUD para .tscn,CLOSED,2026-11-06T23:33:04Z,2026-11-07T00:02:03Z,0.48,etapa:3 prio:P1 area:gameplay,Etapa 3 — Gameplay,1,617,214,4
-6,"Pool/cache de tracers, áudio e animações",CLOSED,2026-11-06T23:21:28Z,2026-11-06T23:33:02Z,0.19,etapa:3 prio:P1 area:gameplay,Etapa 3 — Gameplay,2,131,43,3
-5,Extrair harness de GameRoot para tests/,CLOSED,2026-11-06T23:00:21Z,2026-11-06T23:21:26Z,0.35,etapa:3 prio:P1 area:infra,Etapa 3 — Gameplay,2,339,295,2
-4,Tipar MapContext e Interactable,CLOSED,2026-11-06T22:43:58Z,2026-11-06T23:00:19Z,0.27,etapa:3 prio:P0 area:gameplay,Etapa 3 — Gameplay,2,215,143,2
-3,Corrigir softlock do Bunker 13 e spawns inalcançáveis,CLOSED,2026-11-06T22:29:39Z,2026-11-06T22:43:56Z,0.24,etapa:3 prio:P0 area:gameplay,Etapa 3 — Gameplay,10,1611,633,3
-2,WeaponController com 2 slots,CLOSED,2026-11-06T20:42:48Z,2026-11-06T22:29:37Z,1.78,etapa:3 prio:P0 area:gameplay,Etapa 3 — Gameplay,6,1209,279,2
-1,Migrar geometria do mapa para cena autoral (GLB/.tscn),CLOSED,2026-11-06T20:30:36Z,2026-11-06T20:42:51Z,0.2,etapa:3 prio:P0 area:assets,Etapa 3 — Gameplay,2,1788,47,4
+23,"VFX/SFX de explosão, faca e barricada + HUD de granadas",OPEN,2026-11-08T12:11:39Z,,,etapa:4 prio:P1 area:assets area:gameplay,Etapa 4 — Interações,0,0,0,6
+22,Traps explosivas no Bunker 13,CLOSED,2026-11-08T12:11:34Z,2026-11-08T12:11:37Z,0.0,etapa:4 prio:P0 area:assets area:gameplay,Etapa 4 — Interações,0,0,0,4
+21,"Rodada 1→2, HUD de rodada e game over",CLOSED,2026-11-08T12:11:18Z,2026-11-08T12:11:21Z,0.0,etapa:3 prio:P0 area:gameplay,Etapa 3 — Gameplay,0,0,0,3
+20,Pipeline de métricas do projeto (histórico + agregados),CLOSED,2026-11-08T11:29:26Z,2026-11-08T11:29:28Z,0.0,prio:P1 area:infra area:docs,,0,0,0,3
+19,Automação e validação de docs (checker offline + GitHub opcional),CLOSED,2026-11-08T11:06:56Z,2026-11-08T11:06:58Z,0.0,prio:P1 area:infra area:docs,,0,0,0,3
+18,"Organizar docs: índice, arquivo e work log",CLOSED,2026-11-08T10:41:27Z,2026-11-08T10:46:56Z,0.09,prio:P1 area:docs,,0,0,0,3
+17,Faca GLB + mãos compartilhadas + knife_slash,CLOSED,2026-11-08T02:50:59Z,2026-11-08T11:42:03Z,8.85,etapa:3 prio:P1 area:assets area:gameplay,Etapa 3 — Gameplay,0,0,0,4
+16,Normalizar escala e origem das armas,OPEN,2026-11-08T02:43:06Z,,,etapa:3 prio:P1 area:assets area:gameplay,Etapa 3 — Gameplay,0,0,0,5
+15,"Auditoria curta de redundância (docs, CI, código e execução)",CLOSED,2026-11-08T02:29:40Z,2026-11-08T02:50:58Z,0.35,prio:P2 area:infra area:docs,,0,0,0,4
+14,Mãos compartilhadas + ViewmodelFactory (GripSocket),CLOSED,2026-11-07T09:38:57Z,2026-11-08T02:29:38Z,16.84,etapa:3 prio:P0 area:assets area:gameplay,Etapa 3 — Gameplay,1,407,17,2
+13,"IA de zumbi em barricadas (arranque, fila e entrada)",CLOSED,2026-11-07T02:07:56Z,2026-11-07T09:38:55Z,7.52,etapa:3 prio:P0 area:gameplay,Etapa 3 — Gameplay,1,384,14,2
+12,"Barricade + BarricadeSystem (hold F, tábuas e pontos)",CLOSED,2026-11-07T01:41:37Z,2026-11-07T02:07:54Z,0.44,etapa:3 prio:P0 area:gameplay,Etapa 3 — Gameplay,1,284,5,2
+11,"Granada, lança-foguete e barris explosivos",CLOSED,2026-11-07T00:59:46Z,2026-11-07T01:41:35Z,0.7,etapa:3 prio:P1 area:gameplay,Etapa 3 — Gameplay,1,409,19,2
+10,ExplosionSystem,CLOSED,2026-11-07T00:40:54Z,2026-11-07T00:59:44Z,0.31,etapa:3 prio:P1 area:gameplay,Etapa 3 — Gameplay,1,281,13,2
+9,WeaponController projectile/melee,CLOSED,2026-11-07T00:13:37Z,2026-11-07T00:40:52Z,0.45,etapa:3 prio:P1 area:gameplay,Etapa 3 — Gameplay,1,321,23,2
+8,Extrair RoundManager e Economy do GameRoot,CLOSED,2026-11-07T00:02:05Z,2026-11-07T00:13:35Z,0.19,etapa:3 prio:P1 area:gameplay,Etapa 3 — Gameplay,1,151,72,2
+7,Mover HUD para .tscn,CLOSED,2026-11-06T23:33:04Z,2026-11-07T00:02:03Z,0.48,etapa:3 prio:P1 area:gameplay,Etapa 3 — Gameplay,1,617,214,3
+6,"Pool/cache de tracers, áudio e animações",CLOSED,2026-11-06T23:21:28Z,2026-11-06T23:33:02Z,0.19,etapa:3 prio:P1 area:gameplay,Etapa 3 — Gameplay,2,131,43,2
+5,Extrair harness de GameRoot para tests/,CLOSED,2026-11-06T23:00:21Z,2026-11-06T23:21:26Z,0.35,etapa:3 prio:P1 area:infra,Etapa 3 — Gameplay,2,339,295,1
+4,Tipar MapContext e Interactable,CLOSED,2026-11-06T22:43:58Z,2026-11-06T23:00:19Z,0.27,etapa:3 prio:P0 area:gameplay,Etapa 3 — Gameplay,2,215,143,1
+3,Corrigir softlock do Bunker 13 e spawns inalcançáveis,CLOSED,2026-11-06T22:29:39Z,2026-11-06T22:43:56Z,0.24,etapa:3 prio:P0 area:gameplay,Etapa 3 — Gameplay,10,1611,633,2
+2,WeaponController com 2 slots,CLOSED,2026-11-06T20:42:48Z,2026-11-06T22:29:37Z,1.78,etapa:3 prio:P0 area:gameplay,Etapa 3 — Gameplay,6,1209,279,1
+1,Migrar geometria do mapa para cena autoral (GLB/.tscn),CLOSED,2026-11-06T20:30:36Z,2026-11-06T20:42:51Z,0.2,etapa:3 prio:P0 area:assets,Etapa 3 — Gameplay,2,1788,47,2
