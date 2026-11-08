@@ -3,6 +3,8 @@ extends EditorPlugin
 
 var dock: Control
 var map_list: OptionButton
+var new_id: LineEdit
+var new_name: LineEdit
 var output: TextEdit
 
 func _enter_tree() -> void:
@@ -18,8 +20,29 @@ func _enter_tree() -> void:
 	map_list.item_selected.connect(func(_i): _validate())
 	dock.add_child(map_list)
 
+	var form := HBoxContainer.new()
+	dock.add_child(form)
+	new_id = LineEdit.new()
+	new_id.placeholder_text = "map.novo_mapa"
+	new_id.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	form.add_child(new_id)
+	new_name = LineEdit.new()
+	new_name.placeholder_text = "NOME DO MAPA"
+	new_name.size_flags_horizontal = Control.SIZE_EXPAND_FILL
+	form.add_child(new_name)
+
 	var row := HBoxContainer.new()
 	dock.add_child(row)
+
+	var create_btn := Button.new()
+	create_btn.text = "Novo (template)"
+	create_btn.pressed.connect(_create)
+	row.add_child(create_btn)
+
+	var dup_btn := Button.new()
+	dup_btn.text = "Duplicar selecionado"
+	dup_btn.pressed.connect(_duplicate)
+	row.add_child(dup_btn)
 
 	var validate_btn := Button.new()
 	validate_btn.text = "Validar"
@@ -63,6 +86,31 @@ func _refresh() -> void:
 		f = da.get_next()
 	da.list_dir_end()
 	_validate()
+
+func _selected_map_id() -> String:
+	if map_list == null or map_list.selected < 0:
+		return ""
+	return "map." + map_list.get_item_text(map_list.selected).get_basename()
+
+func _create() -> void:
+	var result := MapTools.create_from_template(new_id.text, new_name.text)
+	_show_result(result)
+	_refresh()
+
+func _duplicate() -> void:
+	var source := _selected_map_id()
+	if source == "":
+		output.text = "Selecione um mapa para duplicar."
+		return
+	var result := MapTools.duplicate_map(source, new_id.text, new_name.text)
+	_show_result(result)
+	_refresh()
+
+func _show_result(result: Dictionary) -> void:
+	if result.get("ok", false):
+		output.text = "OK: " + String(result.get("path", ""))
+	else:
+		output.text = "ERRO: " + String(result.get("error", "falha"))
 
 func _validate() -> void:
 	var reg := ContentRegistry.new()

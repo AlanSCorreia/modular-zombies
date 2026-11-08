@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "kind": "map",
+  "id": "map.template",
+  "name": "Novo Mapa",
+  "builder": "scene",
+  "scene": "res://assets/models/maps/slice/slice.glb",
+  "player_spawn": [0.0, 0.1, 3.0],
+  "starting_points": 500,
+  "enemy": "enemy.zombie",
+  "zombie_count": 3,
+  "rooms": [
+    { "id": "A", "rect": [-6, -6, 6, 6], "height": 3.2 }
+  ],
+  "doors": [],
+  "zombie_spawns": [
+    { "id": "spawn_A1", "position": [0.0, 0.1, -3.0], "room": "A" }
+  ],
+  "barricades": [],
+  "barrels": [],
+  "traps": [],
+  "wallbuys": [],
+  "perks": []
+}
