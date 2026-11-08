@@ -47,8 +47,8 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 > Ordem de execução: ETAPA3.40–43 (issues #3–#7), `Economy`/`RoundManager`
 > (issue #8), melee/projétil (issue #9), `ExplosionSystem` (issue #10) e
 > granada/foguete/barris (issue #11), `Barricade`/`BarricadeSystem`
-> (issue #12) e janelas/IA de zumbi (issue #13) concluídas; agora ETAPA3.23
-> (`hands.glb` + `GripSocket`, issue #14).
+> (issue #12), janelas/IA de zumbi (issue #13) e mãos/`ViewmodelFactory`
+> (issue #14) concluídas; agora AUD.1 (auditoria de redundância, issue #15).
 
 | ID | Tarefa | Pri |
 |---|---|---|
@@ -70,9 +70,9 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.18 | `BarricadeSystem` + hold F + pontos (feito) | P0 |
 | ETAPA3.19 | IA de zumbi: arrancar, entrar e fila por janela (feito) | P0 |
 | ETAPA3.20 | Testes de barricada (reparo, interrupção, breach) (feito) | P0 |
-| ETAPA3.21 | Validar workflow com uma segunda arma | P0 |
+| ETAPA3.21 | Validar workflow com uma segunda arma (feito) | P0 |
 | ETAPA3.22 | JSON de faca, granada, foguete e barris (feito; traps pendentes) | P0 |
-| ETAPA3.23 | Mãos separadas (`hands.glb`) + `GripSocket` | P0 |
+| ETAPA3.23 | Mãos separadas (`hands.glb`) + `GripSocket` (feito) | P0 |
 | ETAPA3.24 | Bunker 13 jogável (spawns, portas, barricadas) (feito) | P0 |
 | ETAPA3.25 | `--map <id>` no GameRoot | P0 |
 | ETAPA3.26 | Teste visual do Bunker 13 | P1 |
@@ -88,7 +88,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.36 | Exportar GLB do mapa e carregar no Godot (feito) | P0 |
 | ETAPA3.37 | Teste que impede geração de modelo 3D em runtime (feito) | P1 |
 | ETAPA3.38 | `MapContext` tipado + `Interactable` (porta/barricada) (feito) | P0 |
-| ETAPA3.39 | `WeaponSlots` + `ViewmodelFactory` (slots feitos; factory/mãos pendentes) | P0 |
+| ETAPA3.39 | `WeaponSlots` + `ViewmodelFactory` (feito) | P0 |
 | ETAPA3.40 | Corrigir softlock do Bunker 13 + spawns/navmesh alcançáveis (feito) | P0 |
 | ETAPA3.41 | Extrair harness de teste do `GameRoot` para `tests/` (feito) | P1 |
 | ETAPA3.42 | Pool/cache de tracers, áudio e animações (feito, issue #6) | P1 |
@@ -167,3 +167,9 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA8.8 | Auditoria de licenças/assets | P1 |
 | ETAPA8.9 | Save/load do estado das barricadas | P1 |
 | ETAPA8.10 | Checklist de release | P1 |
+
+## Transversal
+
+| ID | Tarefa | Pri |
+|---|---|---|
+| AUD.1 | Auditoria curta de redundância (docs, CI, código e execução) — issue #15 | P2 |

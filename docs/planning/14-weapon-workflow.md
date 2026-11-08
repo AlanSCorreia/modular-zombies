@@ -101,6 +101,6 @@ Blender (`./blender.sh source/blender/weapons/glock17/glock17.blend`) → GLB
 `glock17.glb` → JSON `glock17.json` → animações no
 `WeaponController` → testes.
 
-> Estado atual: a Glock do slice ainda usa mãos embutidas e offsets no
-> controller. A migração para `hands.glb` + JSON completo é da Etapa 3 — Gameplay; todas as armas
-> novas já seguem o workflow acima.
+> Estado atual: a Glock foi migrada para `hands.glb` + `ViewmodelFactory`
+> (issue #14). MP5 também passa pelo mesmo caminho; as demais armas usam o
+> fallback por `grip_profile` até receberem sockets próprios.

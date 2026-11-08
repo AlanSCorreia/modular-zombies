@@ -170,6 +170,21 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `a99f691` `feat: load authored map geometry from GLB`
 - `4019c1c` `docs: record authored map geometry migration`
 
+**Mãos compartilhadas + ViewmodelFactory (issue #14) — concluído**
+- `source/blender/hands/hands.blend` + `assets/models/hands/hands.glb` com
+  `GripSocket`, `HandL`/`HandR` e antebraços (asset único).
+- `ViewmodelFactory` monta arma + mãos por `grip_profile`, usando o
+  `GripSocket` da arma ou offset de perfil; `viewmodel` do JSON agora controla
+  posição/rotação/escala.
+- Glock reexportada sem `HandL`/`HandR` embutidos; Glock e MP5 ganharam
+  `GripSocket` e `Muzzle` (`prepare_weapon_hands.py`).
+- `ContentValidator` exige `hands` compartilhado e `grip_profile` conhecido.
+- Teste `VIEWMODEL_OK`: asset único, nenhuma mão embutida, socket aplicado e
+  MP5 ponta a ponta (equipar, atirar, recarregar).
+- Issue #14 fechada; issue #15 aberta (auditoria de redundância, pedido do
+  usuário).
+- Commit `d060cdb` `feat: add shared hands and viewmodel factory`.
+
 **Janelas autorais + IA de zumbi em barricadas (issue #13) — concluído**
 - Paredes externas do Bunker 13 segmentadas no `.blend`
   (`source/blender/scripts/open_windows.py`), com peitoril/verga e vãos de
@@ -317,7 +332,7 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   screenshot do menu.
 
 **Próximo item (KANBAN)**
-- Mãos compartilhadas + `GripSocket` + `ViewmodelFactory` (issue #14); depois,
+- Auditoria curta de redundância (issue #15, pedido do usuário); depois,
   faca GLB + `knife_slash`.
 
 **Registro confirmado**

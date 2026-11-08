@@ -28,7 +28,7 @@
 |---|---|---|---|
 | `etapa1` | Etapa 1 — Preparação | **Concluído** | — |
 | `etapa2` | Etapa 2 — Conteúdo | **Concluído** | — |
-| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Mãos compartilhadas + ViewmodelFactory |
+| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Auditoria de redundância |
 | `etapa4` | Etapa 4 — Interações | Backlog | — |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | Backlog | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | Backlog | — |
@@ -39,14 +39,15 @@
 > `MapContext`/`Interactable`, harness, pool/cache, HUD em `.tscn`,
 > `RoundManager`/`Economy`, projectile/melee, `ExplosionSystem`,
 > granada/foguete/barris, `BarricadeSystem`, vãos de janela e IA de zumbi em
-> barricadas concluídos (issues #1–#13 fechadas); o foco agora é
-> `hands.glb`/`GripSocket`/`ViewmodelFactory` (issue #14).
+> barricadas, vãos de janela, IA de zumbi e mãos compartilhadas/
+> `ViewmodelFactory` concluídos (issues #1–#14 fechadas); o foco agora é a
+> auditoria curta de redundância (issue #15), pedida pelo usuário.
 
 ## Próximo item
 
 - **Etapa ativa:** 3 — Gameplay.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** mãos compartilhadas + `GripSocket` + `ViewmodelFactory` (issue #14).
+- **Próximo:** auditoria curta de redundância (issue #15), pedida pelo usuário.
 - **Depois:** faca GLB + `knife_slash`.
 - **Próxima etapa:** 4 — Interações, somente após o aceite da Etapa 3.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
@@ -143,7 +144,7 @@ faca, explosivos e barricadas funcionando.
 - [ ] Estatísticas de sessão
 
 ### Ready
-- [ ] Mãos compartilhadas (`hands.glb`) + `GripSocket` + `ViewmodelFactory` (P0) — [#14](https://github.com/AlanSCorreia/modular-zombies/issues/14)
+- [ ] Auditoria curta de redundância (P2) — [#15](https://github.com/AlanSCorreia/modular-zombies/issues/15)
 - [ ] Faca GLB + mãos compartilhadas + `knife_slash`
 - [ ] Teste visual do Bunker 13
 - [ ] JSON de traps explosivas
@@ -166,6 +167,7 @@ faca, explosivos e barricadas funcionando.
 - [x] Mouse look, ESC/pause e F na porta
 - [x] Barricadas: hold F, interrupção, pontos e breach (`BARRICADE_OK`)
 - [x] Zumbi arranca tábuas, respeita fila e entra com 0 (`ZOMBIE_BARRICADE_OK`)
+- [x] MP5 ponta a ponta + mãos compartilhadas (`VIEWMODEL_OK`)
 - [ ] Rodada 1 → 2 e game over completos
 
 ### Done
@@ -197,9 +199,10 @@ faca, explosivos e barricadas funcionando.
 - [x] Granada (G), lança-foguete e barris explosivos autorais (issue #11)
 - [x] `BarricadeSystem` + hold F + tábuas + HUD de progresso (issue #12)
 - [x] Vãos de janela autorais + spawns por barricada + IA de zumbi (issue #13)
+- [x] `hands.glb` compartilhado + `GripSocket` + `ViewmodelFactory` (issue #14)
 
 ### Blocked
-- [ ] MP5 de ponta a ponta — depende de `hands.glb` + `ViewmodelFactory`
+- *(vazio)*
 
 ---
 

@@ -9,7 +9,10 @@ source/blender/
   weapons/<id>/<id>.blend
   enemies/<id>/<id>.blend
   maps/<id>/<id>.blend
+  hands/hands.blend
   scripts/import_glb_to_blend.py
+  scripts/make_hands.py
+  scripts/prepare_weapon_hands.py
   scripts/open_windows.py
   scripts/make_overview.py
   overview.blend
@@ -33,6 +36,22 @@ source/blender/
 5. Validar no Godot e preencher o JSON.
 
 O GLB é artefato de exportação; nunca edite o GLB como fonte.
+
+## Mãos compartilhadas
+
+`hands.glb` é único para todas as armas e contém `GripSocket`, `HandL` e
+`HandR`. Regenere com:
+
+```bash
+blender -b --python source/blender/scripts/make_hands.py
+blender -b source/blender/weapons/glock17/glock17.blend \
+  --python source/blender/scripts/prepare_weapon_hands.py -- glock17
+blender -b source/blender/weapons/mp5/mp5.blend \
+  --python source/blender/scripts/prepare_weapon_hands.py -- mp5
+```
+
+Nenhum GLB de arma deve conter `HandL`/`HandR`; o `ViewmodelFactory` anexa o
+asset compartilhado no `GripSocket` da arma.
 
 Nos mapas, preserve os nomes `Door_<id>`, `WallBuy_<id>`, `Perk_<id>`, `Box`,
 `Lid`, `Barricade_<id>` e `Plank_*`; o runtime depende deles.

@@ -63,16 +63,18 @@ HUD autoral em `scenes/ui/hud.tscn`, `Economy`/`RoundManager` separados,
 armas hitscan/pellets/projectile + melee controller, `ExplosionSystem` com
 `ExplosiveData`/barris encadeáveis, granada (G), lança-foguete e barris
 autorais com dano por tiro e cadeia, `BarricadeSystem` (hold F, tábuas,
-pontos e HUD de progresso), vãos de janela autorais e IA de zumbi
-(approach/tear/climb/inside com fila por barricada).
+pontos e HUD de progresso), vãos de janela autorais, IA de zumbi
+(approach/tear/climb/inside com fila por barricada) e mãos compartilhadas
+(`hands.glb`/`GripSocket`/`ViewmodelFactory`), com MP5 ponta a ponta.
 
 **Pendente**
-- `HandsRig`/`ViewmodelFactory` com mãos compartilhadas.
-- **MP5 de ponta a ponta antes de remodelar as outras armas.**
-- `BoxBuilder` compartilhado.
 - Faca GLB/animação.
+- `BoxBuilder` compartilhado.
 - `RoundManager`/economia completos e efeitos.
 - Testes de faca, traps e loop completo.
+
+**Transversal:** auditoria curta de redundância (issue #15), solicitada pelo
+usuário, antes do próximo item de gameplay.
 
 **Pré-requisito atendido:** geometria do mapa autoral (ETAPA3.34–36).
 
