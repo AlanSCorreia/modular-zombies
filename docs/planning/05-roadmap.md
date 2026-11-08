@@ -128,12 +128,11 @@ QuestValidator (issue #31) e main quest de 3 passos (issue #32).
 
 ## Etapa 7 — Escala de conteúdo (em andamento)
 
-**Já entregue:** segundo mapa jogável `map.depot` com 2 mecânicas (issue #33) e
-duas armas novas — pistol e SKS (issue #34).
+**Já entregue:** segundo mapa jogável `map.depot` (issue #33), duas armas novas
+(issue #34) e wonder weapon Ray Gun (issue #35).
 
 **Pendente**
-- Wonder weapon (issue #35).
-- Inimigo especial.
+- Inimigo especial (issue #36).
 - Teste “sem mudança no núcleo”.
 
 **Entregáveis**

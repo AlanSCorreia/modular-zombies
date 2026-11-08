@@ -390,6 +390,18 @@
     {
       "number": 35,
       "title": "Wonder weapon autoral (projétil/explosão)",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:7",
+        "prio:P0",
+        "area:assets",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 7 — Escala de conteúdo"
+    },
+    {
+      "number": 36,
+      "title": "Inimigo especial (Brute) data-driven",
       "state": "OPEN",
       "labels": [
         "etapa:7",

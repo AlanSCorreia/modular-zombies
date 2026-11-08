@@ -32,7 +32,7 @@
 | `etapa4` | Etapa 4 — Interações | **Concluído** | — |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | **Concluído** | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | **Concluído** | — |
-| `etapa7` | Etapa 7 — Escala de conteúdo | **Em andamento** | Wonder weapon |
+| `etapa7` | Etapa 7 — Escala de conteúdo | **Em andamento** | Inimigo especial |
 | `etapa8` | Etapa 8 — Produção | Backlog | — |
 
 > **Status:** Etapas 3, 4, 5 e 6 **concluídas** (issues #1–#15 e #17–#32).
@@ -43,8 +43,8 @@
 
 - **Etapa ativa:** 7 — Escala de conteúdo.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** wonder weapon autoral (issue #35).
-- **Depois:** inimigo especial e teste sem núcleo.
+- **Próximo:** inimigo especial Brute (issue #36).
+- **Depois:** teste “sem mudança no núcleo” e aceite da Etapa 7.
 - **Próxima etapa:** 8 — Produção, após o aceite da Etapa 7.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -322,11 +322,10 @@
 ### Backlog
 - [ ] Terceiro mapa
 - [ ] Modo co-op
-- [ ] Um inimigo especial
 - [ ] Teste “sem mudança no núcleo”
 
 ### Ready
-- [ ] Wonder weapon autoral (P0) — [#35](https://github.com/AlanSCorreia/modular-zombies/issues/35)
+- [ ] Inimigo especial Brute (P0) — [#36](https://github.com/AlanSCorreia/modular-zombies/issues/36)
 
 ### Doing
 - *(vazio)*
@@ -334,6 +333,7 @@
 ### Review/Test
 - [x] Novo mapa jogável (`SECOND_MAP_OK`)
 - [x] Nova arma no wallbuy/caixa (`WEAPONS_OK`)
+- [x] Wonder weapon (`WONDER_OK`)
 - [ ] Nova arma no wallbuy/caixa
 - [ ] Validador e testes verdes
 

@@ -15,6 +15,14 @@ está em
 o início do projeto, em
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 
+## 2026-11-08 — Wonder weapon Ray Gun (issue #35)
+
+- Asset autoral `raygun.blend`/GLB com corpo, cano, coils emissivos e sockets.
+- `weapon.raygun` projectile/explosive, shared hands e áudio `gun_raygun`.
+- Fica disponível na caixa (pool de armas) sem código especial.
+- Teste `WONDER_OK` cobre equipar, tiro, explosão, FX e recarga.
+- Próximo: inimigo especial Brute (#36).
+
 ## 2026-11-08 — Duas armas novas (issue #34)
 
 - `weapon.pistol`: GLB normalizado de mm para metros, orientado, com
@@ -134,5 +142,5 @@ o início do projeto, em
 - Asset autoral `trap.blend`/GLB; 2 traps no Bunker 13.
 - Teste `TRAP_OK`; Etapa 4 iniciada.
 
-**Próximo item:** wonder weapon autoral (issue #35); depois inimigo especial e
-teste sem núcleo.
+**Próximo item:** inimigo especial Brute (issue #36); depois teste sem núcleo e
+aceite da Etapa 7.
