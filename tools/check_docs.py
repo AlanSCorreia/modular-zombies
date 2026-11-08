@@ -291,8 +291,8 @@ def check_work_log() -> None:
     elif len(lines) > 160:
         warn(f"20-work-log.md: {len(lines)} linhas (rotacionar?)")
     headings = re.findall(r"^## (\d{4}-\d{2}-\d{2}) — (.+)$", text, re.M)
-    if len(headings) < 5:
-        err("20-work-log.md: poucas seções datadas")
+    if len(headings) < 1:
+        err("20-work-log.md: sem seções datadas")
     dates = [date.fromisoformat(item[0]) for item in headings]
     if dates != sorted(dates, reverse=True):
         err("20-work-log.md: datas fora de ordem decrescente")
@@ -438,8 +438,10 @@ def check_github(issues: dict[int, dict] | None, stage: int) -> None:
     for number, info in issues.items():
         if info["state"] == "OPEN" and number not in referenced:
             err(f"GitHub: issue aberta #{number} não aparece no KANBAN")
-        if info["state"] == "OPEN" and f"etapa:{stage}" not in info["labels"]:
-            warn(f"GitHub: issue aberta #{number} sem label etapa:{stage}")
+        if info["state"] == "OPEN" and not any(
+            label.startswith("etapa:") for label in info["labels"]
+        ):
+            warn(f"GitHub: issue aberta #{number} sem label etapa:*")
         if info["state"] == "CLOSED" and number in referenced:
             # Fechada pode aparecer em Done; só falha se estiver em Ready/Doing.
             pass

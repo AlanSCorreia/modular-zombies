@@ -222,6 +222,41 @@
         "area:docs"
       ],
       "milestone": ""
+    },
+    {
+      "number": 21,
+      "title": "Rodada 1→2, HUD de rodada e game over",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:3",
+        "prio:P0",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 22,
+      "title": "Traps explosivas no Bunker 13",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:4",
+        "prio:P0",
+        "area:assets",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 4 — Interações"
+    },
+    {
+      "number": 23,
+      "title": "VFX/SFX de explosão, faca e barricada + HUD de granadas",
+      "state": "OPEN",
+      "labels": [
+        "etapa:4",
+        "prio:P1",
+        "area:assets",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 4 — Interações"
     }
   ]
 }

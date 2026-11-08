@@ -2,7 +2,7 @@
 kind: planning
 area: execution
 status: active
-stage: 3
+stage: 4
 owner: docs
 last_reviewed: 2026-11-08
 ---
@@ -20,8 +20,8 @@ O board operacional é `../../KANBAN.md`.
 |---|---|---|---|---|
 | `etapa1` | Etapa 1 — Preparação | Arquivar v1, scaffold v2, docs e Kanban | **Concluído** | S |
 | `etapa2` | Etapa 2 — Conteúdo | Definições, registry, validador, Bunker 13 em JSON | **Concluído** | M |
-| `etapa3` | Etapa 3 — Gameplay | Player, armas, zumbis, barricadas, rodadas, economia | **Em andamento** | L |
-| `etapa4` | Etapa 4 — Interações | Portas, compras, caixa, perks, HUD, menus, som | Backlog | M |
+| `etapa3` | Etapa 3 — Gameplay | Player, armas, zumbis, barricadas, rodadas, economia | **Concluído** | L |
+| `etapa4` | Etapa 4 — Interações | Portas, compras, caixa, perks, HUD, menus, som | **Em andamento** | M |
 | `etapa5` | Etapa 5 — Ferramentas | Criar/validar/testar mapas no editor | Backlog | M |
 | `etapa6` | Etapa 6 — Quests | QuestSystem, música, mecânica única, debug | Backlog | L |
 | `etapa7` | Etapa 7 — Escala | 2º mapa, armas novas, wonder weapon, inimigo | Backlog | L |
@@ -57,7 +57,7 @@ do Bunker 13, 2 slots e barricadas funcionais.
 **Aceite:** Bunker 13 carrega 100% por JSON; validador 0 erros; 0 refs de
 asset quebradas; nenhum `if map_id` no núcleo e nenhum conteúdo em `.tres`.
 
-## Etapa 3 — Gameplay (em andamento)
+## Etapa 3 — Gameplay (concluída)
 
 **Já entregue na Etapa 1 — Preparação:** `PlayerController`, `WeaponController` (Glock/hitscan),
 `ZombieEnemy`, HUD e loop mínimo (tiro, recarga, porta, morte).
@@ -77,39 +77,35 @@ pontos e HUD de progresso), vãos de janela autorais, IA de zumbi
 (`hands.glb`/`GripSocket`/`ViewmodelFactory`) com MP5 ponta a ponta e faca
 autoral com `knife_slash`.
 
-**Pendente**
+**Dívida visual (depois)**
 - Normalização de escala/origem das armas (issue #16): AK-74, M870, pistol
   e wunder estão fora de metros.
 - `BoxBuilder` compartilhado.
-- `RoundManager`/economia completos e efeitos.
-- Testes de traps e loop completo.
+- Teste visual do Bunker 13.
 
 **Transversal:** auditoria curta de redundância concluída em
 `22-redundancy-audit.md` (issue #15), docs reorganizadas em índice + archive
 (issue #18), validação automatizada com `tools/check_docs.py` (issue #19),
-pipeline de métricas com snapshot por bloco (issue #20) e faca visual com
-`KNIFE_OK` (issue #17). Próximo item: normalização de escala das armas
-(issue #16).
+pipeline de métricas com snapshot por bloco (issue #20), faca visual com
+`KNIFE_OK` (issue #17) e rodadas/game over (`ROUNDS_OK`, issue #21). A Etapa 3
+foi aceita; a escala das armas (#16) fica como dívida visual.
 
 **Pré-requisito atendido:** geometria do mapa autoral (ETAPA3.34–36).
 
 **Aceite:** Bunker 13 jogável com geometria autoral; armas em JSON +
 `ViewmodelFactory` (`hands.glb`); faca, explosivos e barricadas funcionando.
 
-## Etapa 4 — Interações
+## Etapa 4 — Interações (em andamento)
 
-> Inicia após o aceite da Etapa 3.
+**Já entregue:** portas/wallbuys/caixa/perks, HUD/menu/pause/game over,
+HUD de progresso de barricada, prompts/hitmarker e traps explosivas
+(issue #22).
 
-**Entregáveis**
-- `InteractionSystem` tipado (`Interactable`).
-- Portas, wallbuys, caixa e perks.
-- HUD/progresso de reparo, áudio e VFX de barricada.
-- Traps explosivas e props explosivos vindos do JSON do mapa.
-- HUD, menu, pause, game over.
-- Áudio 2D/3D, música, mixagem e VFX de explosão/faca.
-- HUD de equipamento (granadas).
-- Prompts, hitmarker, vinheta e feedback de pontos.
-- Teste de interação e UI.
+**Pendente**
+- VFX/SFX de explosão/faca/barricada + HUD de granadas (issue #23).
+- Áudio 2D/3D e música.
+- Vinheta e polish de prompts.
+- Teste de interação/UI.
 
 **Aceite:** interações, UI e áudio do plano + explosivos/faca (checklist).
 

@@ -2,7 +2,7 @@
 kind: index
 area: execution
 status: active
-stage: 3
+stage: 4
 owner: docs
 last_reviewed: 2026-11-08
 ---
@@ -16,13 +16,15 @@ last_reviewed: 2026-11-08
 ## Estado atual (2026-11-08)
 
 - v1 é histórico arquivado em `zombie-fps-legacy`; a v2 é reescrita do runtime.
-- **Etapas 1–2 concluídas**; **Etapa 3 — Gameplay em andamento**.
+- **Etapas 1–3 concluídas**; **Etapa 4 — Interações em andamento**.
 - Entregue: geometria autoral, 2 slots, softlock/BFS, `MapContext`/`Interactable`,
   harness, pool/cache, HUD `.tscn`, `Economy`/`RoundManager`, projétil/melee,
   explosões, granada/foguete/barris, barricadas, janelas + IA de zumbi, mãos
-  compartilhadas/`ViewmodelFactory` e faca com `knife_slash`.
-- **Próximo:** normalizar escala das armas (#16).
-- **Depois:** rodada 1→2, game over/restart e efeitos.
+  compartilhadas/`ViewmodelFactory`, faca com `knife_slash`, rodadas 1→2 e
+  traps explosivas.
+- **Próximo:** VFX/SFX + HUD de granadas (#23).
+- **Depois:** áudio, vinheta e testes de UI; escala das armas (#16) fica como
+  dívida visual.
 - Gates atuais: ver [`08-testing-strategy.md`](08-testing-strategy.md).
 
 ## Índice
@@ -46,7 +48,7 @@ last_reviewed: 2026-11-08
 | [`12-development-workflow.md`](12-development-workflow.md) | Workflow de desenvolvimento |
 | [`16-development-agents.md`](16-development-agents.md) | Agentes de desenvolvimento |
 | [`19-decision-log.md`](19-decision-log.md) | Log de decisões |
-| [`20-work-log.md`](20-work-log.md) | Work log — Etapa 3 |
+| [`20-work-log.md`](20-work-log.md) | Work log — Etapa 4 |
 | [`22-redundancy-audit.md`](22-redundancy-audit.md) | Auditoria curta de redundância |
 
 ### Conteúdo, assets e sistemas
@@ -69,6 +71,7 @@ last_reviewed: 2026-11-08
 | [`archive/15-content-review.md`](archive/15-content-review.md) | Revisão da Etapa 2 — Conteúdo: achados e recomendações _(arquivo)_ |
 | [`archive/17-baseline-review.md`](archive/17-baseline-review.md) | Revisão de linha de base da Etapa 3 — Gameplay _(arquivo)_ |
 | [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md) | Work log _(arquivo)_ |
+| [`archive/20-work-log-2026-11-etapa3.md`](archive/20-work-log-2026-11-etapa3.md) | Work log — Etapa 3 _(arquivo)_ |
 | [`archive/21-code-review.md`](archive/21-code-review.md) | Revisão de código — boas práticas, performance e velocidade _(arquivo)_ |
 | [`archive/README.md`](archive/README.md) | Arquivo de planejamento _(arquivo)_ |
 <!-- INDEX:END -->

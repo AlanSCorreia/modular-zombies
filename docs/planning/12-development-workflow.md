@@ -2,7 +2,7 @@
 kind: planning
 area: execution
 status: active
-stage: 3
+stage: 4
 owner: docs
 last_reviewed: 2026-11-08
 ---

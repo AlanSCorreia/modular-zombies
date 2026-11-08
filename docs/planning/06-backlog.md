@@ -2,7 +2,7 @@
 kind: planning
 area: execution
 status: active
-stage: 3
+stage: 4
 owner: docs
 last_reviewed: 2026-11-08
 ---
@@ -13,8 +13,8 @@ Legenda: **P0** bloqueante, **P1** próxima entrega, **P2** depois.
 Este backlog é estratégico; o status real fica no `KANBAN.md`.
 
 > **Etapas 1 e 2 concluídas:** loader/validador, 2 mapas,
-> 5 armas, Bunker 13 JSON + builder, models reorganizados e testes.
-> Etapa 3 — Gameplay em andamento (slice já jogável).
+> 6 armas, Bunker 13 JSON + builder, assets autorais e testes.
+> Etapa 3 concluída; Etapa 4 — Interações em andamento (traps e UI/áudio).
 
 ## Etapa 1 — Preparação
 
@@ -49,7 +49,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA2.11 | Reorganizar assets e mover `.blend` para `source/` | P0 |
 | ETAPA2.12 | Template de arma + schema completo | P0 |
 
-## Etapa 3 — Gameplay
+## Etapa 3 — Gameplay (concluída)
 
 > Atendido: ETAPA3.34–36 (geometria autoral). A Etapa 4 só começa depois do
 > aceite da Etapa 3.
@@ -58,8 +58,9 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 > granada/foguete/barris (issue #11), `Barricade`/`BarricadeSystem`
 > (issue #12), janelas/IA de zumbi (issue #13), mãos/`ViewmodelFactory`
 > (issue #14), auditoria de redundância (issue #15), organização das docs
-> (issue #18), validação de docs (issue #19), métricas (issue #20) e faca
-> (issue #17) concluídas; agora ETAPA3.46 (escala, issue #16).
+> (issue #18), validação de docs (issue #19), métricas (issue #20), faca
+> (issue #17) e rodadas (issue #21) concluídas. Etapa 3 aceita; agora Etapa 4
+> (trap #22 feita, VFX #23 pendente) e ETAPA3.46 (escala) adiada.
 
 | ID | Tarefa | Pri |
 |---|---|---|
@@ -106,26 +107,24 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.43 | HUD em `.tscn` (feito, issue #7) | P1 |
 | ETAPA3.44 | `RoundManager`/`Economy` fora do `GameRoot` (feito) | P1 |
 | ETAPA3.45 | InputMap + validação de áudio/partes no validador | P2 |
-| ETAPA3.46 | Normalizar escala/origem das armas (issue #16) | P1 |
+| ETAPA3.46 | Normalizar escala/origem das armas (issue #16, adiada) | P1 |
 | ETAPA3.47 | Bench com draw calls/frame time e baseline atualizado | P2 |
-| ETAPA3.15 | Testes de explosivos e faca | P0 |
-| ETAPA3.16 | Teste integrado do loop | P0 |
+| ETAPA3.15 | Testes de explosivos e faca (feito) | P0 |
+| ETAPA3.16 | Teste integrado do loop (feito) | P0 |
 
-## Etapa 4 — Interações
-
-> Inicia após o aceite da Etapa 3.
+## Etapa 4 — Interações (em andamento)
 
 | ID | Tarefa | Pri |
 |---|---|---|
 | ETAPA4.1 | `InteractionSystem` tipado | P0 |
-| ETAPA4.2 | Portas e wallbuys | P0 |
-| ETAPA4.3 | Caixa e perks | P0 |
-| ETAPA4.4 | Traps explosivas | P0 |
-| ETAPA4.5 | Props explosivos no JSON do mapa | P0 |
-| ETAPA4.6 | HUD/menu/pause/game over | P0 |
+| ETAPA4.2 | Portas e wallbuys (feito) | P0 |
+| ETAPA4.3 | Caixa e perks (feito) | P0 |
+| ETAPA4.4 | Traps explosivas (feito, issue #22) | P0 |
+| ETAPA4.5 | Props explosivos no JSON do mapa (feito) | P0 |
+| ETAPA4.6 | HUD/menu/pause/game over (feito) | P0 |
 | ETAPA4.7 | HUD de equipamento (granadas) | P1 |
-| ETAPA4.8 | Áudio/VFX de explosão, faca e barricada | P0 |
-| ETAPA4.11 | HUD de progresso de reparo de barricada | P1 |
+| ETAPA4.8 | Áudio/VFX de explosão, faca e barricada (issue #23) | P0 |
+| ETAPA4.11 | HUD de progresso de reparo de barricada (feito) | P1 |
 | ETAPA4.9 | Prompts/hitmarker/vinheta | P1 |
 | ETAPA4.10 | Testes de interação/UI/combate | P0 |
 

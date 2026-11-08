@@ -28,28 +28,24 @@
 |---|---|---|---|
 | `etapa1` | Etapa 1 — Preparação | **Concluído** | — |
 | `etapa2` | Etapa 2 — Conteúdo | **Concluído** | — |
-| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Normalizar escala das armas |
-| `etapa4` | Etapa 4 — Interações | Backlog | — |
+| `etapa3` | Etapa 3 — Gameplay | **Concluído** | — |
+| `etapa4` | Etapa 4 — Interações | **Em andamento** | VFX/SFX e HUD de granadas |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | Backlog | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | Backlog | — |
 | `etapa7` | Etapa 7 — Escala de conteúdo | Backlog | — |
 | `etapa8` | Etapa 8 — Produção | Backlog | — |
 
-> **Status:** Etapas 1 e 2 concluídas. Geometria autoral, 2 slots, softlock,
-> `MapContext`/`Interactable`, harness, pool/cache, HUD em `.tscn`,
-> `RoundManager`/`Economy`, projectile/melee, `ExplosionSystem`,
-> granada/foguete/barris, `BarricadeSystem`, vãos de janela, IA de zumbi,
-> mãos compartilhadas/`ViewmodelFactory`, auditoria de redundância, organização
-> das docs, pipeline de métricas e faca GLB/`knife_slash` concluídos (issues
-> #1–#15 e #17–#20 fechadas); o foco agora é normalizar a escala das armas
-> (issue #16).
+> **Status:** Etapa 3 **concluída** (issues #1–#15 e #17–#21). Geometria autoral,
+> 2 slots, softlock/BFS, HUD, economia/rodadas, explosivos, barricadas, janelas
+> + IA, mãos/`ViewmodelFactory`, faca e métricas. Etapa 4 em andamento; a escala
+> das armas (#16) fica como dívida visual para depois.
 
 ## Próximo item
 
-- **Etapa ativa:** 3 — Gameplay.
+- **Etapa ativa:** 4 — Interações.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** normalizar escala/origem das armas (issue #16).
-- **Depois:** rodada 1→2, game over/restart e efeitos.
+- **Próximo:** VFX/SFX de explosão/faca/barricada + HUD de granadas (issue #23).
+- **Depois:** áudio 2D/3D, vinheta e testes de UI.
 - **Próxima etapa:** 4 — Interações, somente após o aceite da Etapa 3.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -144,17 +140,15 @@
 - [ ] Perk “Gatilho Duplo” com definição
 - [ ] Estatísticas de sessão
 - [ ] Teste visual do Bunker 13
-- [ ] JSON de traps explosivas
 - [ ] Corrigir teste de integração (morte, kill, porta, reload)
 - [ ] Reforçar `ContentValidator` (schema, IDs, hands, áudio, moving_parts)
 - [ ] Substituir `get_child(0)` por referência tipada
 - [ ] `BoxBuilder`/helpers comuns
-- [ ] `RoundManager` (estado, spawn, escalonamento)
-- [ ] `Economy` (pontos, compra, bônus)
 - [ ] `Effects` (sangue, decais, tracers, cápsulas)
+- [ ] Normalizar escala/origem das armas (bottleneck visual, depois) — [#16](https://github.com/AlanSCorreia/modular-zombies/issues/16)
 
 ### Ready
-- [ ] Normalizar escala/origem das armas (P1) — [#16](https://github.com/AlanSCorreia/modular-zombies/issues/16)
+- *(vazio)*
 
 ### Doing
 - *(vazio)*
@@ -169,7 +163,7 @@
 - [x] Zumbi arranca tábuas, respeita fila e entra com 0 (`ZOMBIE_BARRICADE_OK`)
 - [x] MP5 ponta a ponta + mãos compartilhadas (`VIEWMODEL_OK`)
 - [x] Faca visual + swing (`KNIFE_OK`)
-- [ ] Rodada 1 → 2 e game over completos
+- [x] Rodada 1 → 2 e game over completos (`ROUNDS_OK`)
 
 ### Done
 - [x] `PlayerController` base
@@ -206,6 +200,7 @@
 - [x] Automação/validação das docs: checker, front matter e gates (issue #19)
 - [x] Pipeline de métricas do projeto: histórico + agregados (issue #20)
 - [x] Faca GLB + `knife_slash` + mão compartilhada (issue #17)
+- [x] Rodada 1→2, HUD de rodada e game over (issue #21)
 
 ### Blocked
 - *(vazio)*
@@ -222,28 +217,28 @@
 ### Backlog
 - [ ] Ajustes de mixagem
 - [ ] Acessibilidade (tamanho de fonte/contraste)
+- [ ] `InteractionSystem` tipado (refactor)
+- [ ] Áudio 2D/3D, música e mixagem
+- [ ] Vinheta e polish de prompts
+- [ ] Teste de interação e UI
 
 ### Ready
-- [ ] `InteractionSystem` tipado
-- [ ] Portas, wallbuys, caixa e perks
-- [ ] Traps explosivas e props explosivos do JSON do mapa
-- [ ] VFX/SFX de explosão/faca/barricada e HUD de granadas
-- [ ] HUD de progresso de reparo de barricada
-- [ ] HUD/menu/pause/game over
-- [ ] Áudio 2D/3D e música
-- [ ] Vinheta, hitmarker e prompts
-- [ ] Teste de interação e UI
+- [ ] VFX/SFX de explosão/faca/barricada e HUD de granadas (P1) — [#23](https://github.com/AlanSCorreia/modular-zombies/issues/23)
 
 ### Doing
 - *(vazio)*
 
 ### Review/Test
-- [ ] Comprar porta/wallbuy/perk/caixa
-- [ ] Prompt e feedback de pontos
-- [ ] Pause/resume/restart
+- [x] Comprar porta/wallbuy/perk/caixa
+- [x] Prompt e feedback de pontos
+- [x] Pause/resume/restart
 
 ### Done
-- *(vazio)*
+- [x] Portas, wallbuys, caixa e perks
+- [x] Traps explosivas + props explosivos no JSON do mapa (issue #22)
+- [x] HUD de progresso de reparo de barricada
+- [x] HUD/menu/pause/game over
+- [x] Hitmarker e prompts
 
 ### Blocked
 - *(vazio)*

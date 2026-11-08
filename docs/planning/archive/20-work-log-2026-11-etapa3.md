@@ -1,7 +1,7 @@
 ---
-kind: log
-area: execution
-status: active
+kind: archive
+area: history
+status: archive
 stage: 3
 owner: docs
 last_reviewed: 2026-11-08
@@ -11,8 +11,16 @@ last_reviewed: 2026-11-08
 
 Registro curto da etapa ativa, **mais recente primeiro**. Detalhes históricos
 (issues #1–#15, Etapas 1–2) ficam em
-[`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
-Decisões duráveis: [`19-decision-log.md`](19-decision-log.md).
+[`archive/20-work-log-2026-11-detalhado.md`](20-work-log-2026-11-detalhado.md).
+Decisões duráveis: [`19-decision-log.md`](../19-decision-log.md).
+
+## 2026-11-08 — Rodada 1→2 + game over (issue #21)
+
+- `RoundManager` com `round_no`/`target_count`, `next_round()` e +2 zumbis por
+  rodada; intervalo de 4 s entre rodadas.
+- `round_started`/`round_ended`; HUD mostra “MAPA — RODADA N”.
+- Game over cancela a próxima rodada; teste `ROUNDS_OK` no CI.
+- Etapa 3 aceita; escala das armas (#16) fica como dívida visual.
 
 ## 2026-11-08 — Faca GLB + `knife_slash` (issue #17)
 
@@ -147,5 +155,5 @@ Decisões duráveis: [`19-decision-log.md`](19-decision-log.md).
 - Revisão de base, naming `Etapa N`, `--map`, interações base, Blender LTS e
   regra de assets autorais; issues/milestones no GitHub + `doc-keeper`.
 
-**Próximo item:** normalizar escala/origem das armas (issue #16); depois rodada
-1→2, game over/restart e efeitos.
+**Próximo item:** VFX/SFX de explosão/faca/barricada + HUD de granadas
+(issue #23); depois áudio, vinheta e testes de UI.

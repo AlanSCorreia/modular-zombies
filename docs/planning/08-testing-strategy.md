@@ -2,7 +2,7 @@
 kind: reference
 area: execution
 status: active
-stage: 3
+stage: 4
 owner: infra
 last_reviewed: 2026-11-08
 ---
@@ -51,7 +51,7 @@ last_reviewed: 2026-11-08
 
 **Estado atual:**
 <!-- GATES:START -->
-`BARREL_OK`, `BARRICADE_OK`, `BUNKER13_OK`, `CI_OK`, `CONTENT_OK`, `DOCS_OK`, `EXPLOSION_OK`, `GRENADE_OK`, `INTERACT_OK`, `KNIFE_OK`, `LOGIC_OK`, `MAP_OK`, `MELEE_OK`, `PAUSE_OK`, `PROJECTILE_OK`, `ROCKET_OK`, `SLICE_OK`, `SLOTS_OK`, `SOFTLOCK_OK`, `VIEWMODEL_OK`, `ZOMBIE_BARRICADE_OK`
+`BARREL_OK`, `BARRICADE_OK`, `BUNKER13_OK`, `CI_OK`, `CONTENT_OK`, `DOCS_OK`, `EXPLOSION_OK`, `GRENADE_OK`, `INTERACT_OK`, `KNIFE_OK`, `LOGIC_OK`, `MAP_OK`, `MELEE_OK`, `PAUSE_OK`, `PROJECTILE_OK`, `ROCKET_OK`, `ROUNDS_OK`, `SLICE_OK`, `SLOTS_OK`, `SOFTLOCK_OK`, `TRAP_OK`, `VIEWMODEL_OK`, `ZOMBIE_BARRICADE_OK`
 
 <!-- GATES:END -->
 **Bench (2026-11-06):** ~60 FPS, 16,6 ms, 83 draw calls, 67 MB (vsync/foco).

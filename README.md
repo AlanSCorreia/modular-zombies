@@ -9,7 +9,7 @@ serviços e ferramentas de autoria.
 - **Estratégia e decisões:** [`docs/planning/`](docs/planning/)
 - **Legado histórico:** `../zombie-fps-legacy` (não usar como referência de implementação)
 
-## Estado atual: Etapa 3 — Gameplay em andamento
+## Estado atual: Etapa 4 — Interações em andamento
 
 - Vertical slice jogável e **Bunker 13 completo em JSON + geometria autoral**
   (4 salas, 4 portas, 4 wallbuys, 3 perks, caixa, 9 barricadas, 9 spawns).
@@ -18,8 +18,9 @@ serviços e ferramentas de autoria.
   barris, `BarricadeSystem` com hold F, vãos de janela + IA de zumbi,
   `ViewmodelFactory` com `hands.glb` compartilhado e faca visual com
   `knife_slash`.
-- Pendente: normalização de escala das armas, rodada 1→2/game over, efeitos e
-  UI/áudio finais.
+- Entregue também: rodadas 1→2 com HUD e game over; traps explosivas.
+- Pendente: VFX/SFX + HUD de granadas, áudio, vinheta e testes de UI; a escala
+  das armas (#16) fica como dívida visual.
 - A geometria do mapa é autoral (GLB/`.blend`); builders antigos ficam em
   `src/maps/legacy/` apenas para exportação.
 
@@ -69,8 +70,8 @@ source/blender/ .blend e scripts (fora do import do Godot)
 |---|---|
 | Etapa 1 — Preparação (`etapa1`) | Concluído |
 | Etapa 2 — Conteúdo (`etapa2`) | Concluído |
-| Etapa 3 — Gameplay (`etapa3`) | Em andamento |
-| Etapa 4 — Interações (`etapa4`) | Backlog |
+| Etapa 3 — Gameplay (`etapa3`) | Concluído |
+| Etapa 4 — Interações (`etapa4`) | Em andamento |
 | Etapa 5 — Ferramentas (`etapa5`) | Backlog |
 | Etapa 6 — Quests (`etapa6`) | Backlog |
 | Etapa 7 — Escala (`etapa7`) | Backlog |
@@ -102,14 +103,12 @@ Atalhos: **Bunker 13 v2** e **Bunker 13 v2 — Editor**.
 ## Controles
 
 WASD mover • Shift correr • Space pular • Mouse mirar/atirar
-1/2 ou scroll trocar arma • R recarregar • F interagir • ESC pausar
+1/2 ou scroll trocar arma • R recarregar • V faca • G granada • F interagir • ESC pausar
 Clique em INICIAR para capturar o mouse.
-
-> Barricadas, faca (V), granadas e explosivos ainda não estão neste slice; entram na Etapa 3 — Gameplay.
 
 ## Testes
 
 ```bash
-./tests/ci.sh     # LOGIC_OK, CONTENT_OK, BUNKER13_OK, MAP_OK, SLICE_OK
+./tests/ci.sh     # docs + lógica + conteúdo + mapa + integração
 ./tests/bench.sh
 ```

@@ -49,6 +49,7 @@ def work_log_links() -> dict[int, set[str]]:
     mapping: dict[int, set[str]] = defaultdict(set)
     current: int | None = None
     for rel in ("docs/planning/20-work-log.md",
+                "docs/planning/archive/20-work-log-2026-11-etapa3.md",
                 "docs/planning/archive/20-work-log-2026-11-detalhado.md"):
         path = ROOT / rel
         if not path.exists():
