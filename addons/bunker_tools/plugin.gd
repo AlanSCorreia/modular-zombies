@@ -50,8 +50,8 @@ func _enter_tree() -> void:
 	row.add_child(validate_btn)
 
 	var play_btn := Button.new()
-	play_btn.text = "Playtest"
-	play_btn.pressed.connect(func(): EditorInterface.play_main_scene())
+	play_btn.text = "Playtest mapa"
+	play_btn.pressed.connect(_playtest)
 	row.add_child(play_btn)
 
 	var reload_btn := Button.new()
@@ -111,6 +111,17 @@ func _show_result(result: Dictionary) -> void:
 		output.text = "OK: " + String(result.get("path", ""))
 	else:
 		output.text = "ERRO: " + String(result.get("error", "falha"))
+
+func _playtest() -> void:
+	var map_id := _selected_map_id()
+	if map_id == "":
+		output.text = "Selecione um mapa para o playtest."
+		return
+	if not MapArgs.set_playtest_override(map_id):
+		output.text = "ERRO: falha ao gravar override de playtest."
+		return
+	output.text = "Playtest: " + map_id
+	EditorInterface.play_main_scene()
 
 func _validate() -> void:
 	var reg := ContentRegistry.new()
