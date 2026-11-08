@@ -5,7 +5,7 @@
   "name": "MK-13 WUNDER",
   "type": "projectile",
   "scene": "res://assets/models/weapons/wunder/wunder.glb",
-  "hands": "",
+  "hands": "res://assets/models/hands/hands.glb",
   "grip_profile": "wunder",
   "animation_set": "",
   "moving_parts": [],

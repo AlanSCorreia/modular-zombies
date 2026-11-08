@@ -5,7 +5,7 @@
   "name": "GLOCK 17",
   "type": "hitscan",
   "scene": "res://assets/models/weapons/glock17/glock17.glb",
-  "hands": "",
+  "hands": "res://assets/models/hands/hands.glb",
   "grip_profile": "pistol",
   "animation_set": "",
   "moving_parts": [

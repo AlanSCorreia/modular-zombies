@@ -42,6 +42,8 @@ func _ready() -> void:
 			await _barricade()
 		"zombie_barricade":
 			await _zombie_barricade()
+		"viewmodel":
+			await _viewmodel()
 		"ui":
 			await _ui()
 		"shot":
@@ -558,6 +560,66 @@ func _make_barricade_zombie(b: BarricadeState) -> ZombieEnemy:
 	z.setup_barricade(b, game.barricade_system)
 	game.zombies.append(z)
 	return z
+
+func _viewmodel() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+
+	var shared_ok := true
+	var embedded_ok := true
+	var sockets_ok := true
+	for id in Content.weapons.keys():
+		var w: WeaponData = Content.get_weapon(String(id))
+		if w.hands != ViewmodelFactory.HANDS_PATH:
+			shared_ok = false
+		var holder := Node3D.new()
+		game.add_child(holder)
+		var built := ViewmodelFactory.build(w, holder)
+		if built.hands == null or built.hand_l == null or built.hand_r == null:
+			shared_ok = false
+		holder.queue_free()
+
+		var scene: PackedScene = load(w.scene)
+		if scene != null:
+			var gun := scene.instantiate()
+			if gun.find_child("HandL", true, false) != null \
+				or gun.find_child("HandR", true, false) != null:
+				embedded_ok = false
+			if w.id == "weapon.glock17" or w.id == "weapon.mp5":
+				if gun.find_child("GripSocket", true, false) == null \
+					or gun.find_child("Muzzle", true, false) == null:
+					sockets_ok = false
+			gun.free()
+
+	var mp5: WeaponData = Content.get_weapon("weapon.mp5")
+	game.player.add_weapon(mp5)
+	await get_tree().process_frame
+	var wc: WeaponController = game.player.weapon
+	var equipped := wc != null and wc.data.id == "weapon.mp5" \
+		and wc.hands != null and wc.hand_l != null
+	var gripped := equipped and wc.hands.get_parent() != null \
+		and String(wc.hands.get_parent().name) == "GripSocket"
+
+	var fired := false
+	var reloaded := false
+	if wc != null:
+		wc.ammo_mag = 3
+		wc.try_fire()
+		await get_tree().create_timer(0.1).timeout
+		fired = wc.ammo_mag == 2
+		wc.ammo_mag = 0
+		wc.ammo_reserve = 30
+		wc.start_reload()
+		await get_tree().create_timer(2.6).timeout
+		reloaded = wc.ammo_mag > 0
+
+	var ok: bool = shared_ok and embedded_ok and sockets_ok \
+		and equipped and gripped and fired and reloaded
+	print("VIEWMODEL_TEST shared=%s embedded=%s sockets=%s equipped=%s grip=%s fire=%s reload=%s" % [
+		str(shared_ok), str(embedded_ok), str(sockets_ok), str(equipped),
+		str(gripped), str(fired), str(reloaded),
+	])
+	_finish("VIEWMODEL_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

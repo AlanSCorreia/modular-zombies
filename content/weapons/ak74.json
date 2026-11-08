@@ -5,7 +5,7 @@
   "name": "AK-74",
   "type": "hitscan",
   "scene": "res://assets/models/weapons/ak74/ak74.glb",
-  "hands": "",
+  "hands": "res://assets/models/hands/hands.glb",
   "grip_profile": "rifle",
   "animation_set": "",
   "moving_parts": [],

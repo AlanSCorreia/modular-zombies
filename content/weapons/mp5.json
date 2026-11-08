@@ -5,7 +5,7 @@
   "name": "MP5",
   "type": "hitscan",
   "scene": "res://assets/models/weapons/mp5/mp5.glb",
-  "hands": "",
+  "hands": "res://assets/models/hands/hands.glb",
   "grip_profile": "rifle",
   "animation_set": "",
   "moving_parts": [],

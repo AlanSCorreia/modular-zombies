@@ -14,6 +14,8 @@ var slide: Node3D
 var mag: Node3D
 var trigger: Node3D
 var hand_l: Node3D
+var hand_r: Node3D
+var hands: Node3D
 var muzzle: Node3D
 var flash_light: OmniLight3D
 var flash_mesh: MeshInstance3D
@@ -44,24 +46,28 @@ func setup(p_data: WeaponData, p_camera: Camera3D, p_player: PlayerController) -
 	_base_pos = holder.position
 
 	viewmodel = Node3D.new()
-	viewmodel.position = Vector3(0.06, -0.14, -0.62)
-	viewmodel.rotation.y = 0.08
+	var vm_pos: Array = data.viewmodel.get("position", [0.06, -0.14, -0.62])
+	viewmodel.position = Vector3(
+		float(vm_pos[0]), float(vm_pos[1]), float(vm_pos[2])
+	)
+	var vm_rot: Array = data.viewmodel.get("rotation", [0.0, 0.08, 0.0])
+	viewmodel.rotation = Vector3(
+		float(vm_rot[0]), float(vm_rot[1]), float(vm_rot[2])
+	)
 	var vm_scale := float(data.viewmodel.get("scale", 0.78))
 	viewmodel.scale = Vector3(vm_scale, vm_scale, vm_scale)
 	holder.add_child(viewmodel)
 
-	var packed: PackedScene = load(data.scene)
-	if packed != null:
-		var glb := packed.instantiate()
-		viewmodel.add_child(glb)
+	var built := ViewmodelFactory.build(data, viewmodel)
+	var glb: Node3D = built.weapon
+	if glb != null:
 		slide = glb.find_child("Slide", true, false)
 		mag = glb.find_child("Magazine", true, false)
 		trigger = glb.find_child("Trigger", true, false)
-		hand_l = glb.find_child("HandL", true, false)
-
-	muzzle = Node3D.new()
-	muzzle.position = Vector3(0, 0.108, -0.1025)
-	viewmodel.add_child(muzzle)
+	hands = built.hands
+	hand_l = built.hand_l
+	hand_r = built.hand_r
+	muzzle = built.muzzle
 	_build_flash()
 
 	anim = AnimationPlayer.new()

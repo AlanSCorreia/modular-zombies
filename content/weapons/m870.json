@@ -5,7 +5,7 @@
   "name": "M870",
   "type": "hitscan",
   "scene": "res://assets/models/weapons/m870/m870.glb",
-  "hands": "",
+  "hands": "res://assets/models/hands/hands.glb",
   "grip_profile": "shotgun",
   "animation_set": "",
   "moving_parts": [],

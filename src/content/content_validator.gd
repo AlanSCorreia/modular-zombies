@@ -1,6 +1,8 @@
 class_name ContentValidator
 extends RefCounted
 
+const HANDS_PATH := "res://assets/models/hands/hands.glb"
+
 static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary, melees: Dictionary, explosives: Dictionary) -> Array[String]:
 	var errors: Array[String] = []
 	for id in maps.keys():
@@ -73,6 +75,14 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 			errors.append("weapon %s: cena inexistente (%s)" % [id, w.scene])
 		if w.grip_profile == "":
 			errors.append("weapon %s: grip_profile ausente" % id)
+		elif not ViewmodelFactory.PROFILES.has(w.grip_profile):
+			errors.append("weapon %s: grip_profile desconhecido (%s)" % [id, w.grip_profile])
+		if w.hands == "":
+			errors.append("weapon %s: hands ausente" % id)
+		elif w.hands != HANDS_PATH:
+			errors.append("weapon %s: hands deve ser o asset compartilhado (%s)" % [id, HANDS_PATH])
+		elif not FileAccess.file_exists(w.hands):
+			errors.append("weapon %s: hands inexistente (%s)" % [id, w.hands])
 		for key in ["damage", "rpm", "mag", "reserve", "reload_chambered"]:
 			if not w.stats.has(key):
 				errors.append("weapon %s: stat '%s' ausente" % [id, key])
