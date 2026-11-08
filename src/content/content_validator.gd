@@ -148,32 +148,7 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 		if m.grip_profile == "" or not ViewmodelFactory.PROFILES.has(m.grip_profile):
 			errors.append("melee %s: grip_profile inválido (%s)" % [id, m.grip_profile])
 
-	var allowed_triggers := ["interact", "kill", "enter_area", "collect", "power"]
-	var allowed_rewards := ["points", "music", "weapon", "perk"]
-	for id in quests.keys():
-		var q: QuestData = quests[id]
-		if q.id == "" or q.name == "":
-			errors.append("quest %s: id/name vazios" % id)
-		if q.steps.is_empty():
-			errors.append("quest %s: sem passos" % id)
-		var step_ids := {}
-		for step in q.steps:
-			if step.id == "" or step.target == "":
-				errors.append("quest %s: passo sem id/target" % id)
-			if step_ids.has(step.id):
-				errors.append("quest %s: passo duplicado %s" % [id, step.id])
-			step_ids[step.id] = true
-			if not allowed_triggers.has(step.trigger):
-				errors.append("quest %s: trigger inválido %s" % [id, step.trigger])
-			if step.count < 1:
-				errors.append("quest %s: count < 1 em %s" % [id, step.id])
-		for reward in q.rewards:
-			if not allowed_rewards.has(reward.type):
-				errors.append("quest %s: reward inválido %s" % [id, reward.type])
-			if reward.type == "points" and reward.amount <= 0:
-				errors.append("quest %s: points <= 0" % id)
-			if reward.type in ["music", "weapon", "perk"] and reward.id == "":
-				errors.append("quest %s: reward %s sem id" % [id, reward.type])
+	errors.append_array(QuestValidator.validate(quests, maps, weapons))
 
 	for id in explosives.keys():
 		var e: ExplosiveData = explosives[id]
