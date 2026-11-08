@@ -263,6 +263,12 @@ func _update_interaction() -> void:
 								text = "[F] REPARAR BARRICADA — %d/%d" % [
 									b.plank_count, b.data.max_planks,
 								]
+					Interactable.Kind.RADIO:
+						var radio := data as RadioState
+						if radio != null and radio.used:
+							text = "RÁDIO SINTONIZADO"
+						else:
+							text = "[F] SINTONIZAR RÁDIO"
 				Events.prompt_changed.emit(text, not text.is_empty())
 				if not text.is_empty():
 					if data.kind != Interactable.Kind.BARRICADE:

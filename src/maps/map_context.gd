@@ -10,5 +10,6 @@ var box: BoxState = null
 var barricades: Dictionary[String, BarricadeState] = {}
 var barrels: Dictionary[String, ExplosiveBarrel] = {}
 var traps: Dictionary[String, ExplosiveTrap] = {}
+var radios: Dictionary[String, RadioState] = {}
 var spawns: Array[SpawnData] = []
 var lights: Array[OmniLight3D] = []

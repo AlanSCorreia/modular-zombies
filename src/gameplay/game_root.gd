@@ -222,6 +222,8 @@ func _on_interacted(id: String, _who: Node) -> void:
 		_buy_perk(id)
 	elif ctx.box != null and id == ctx.box.id:
 		_buy_box()
+	elif ctx.radios.has(id):
+		_use_radio(id)
 
 func _can_pay(cost: int) -> bool:
 	if economy.can_afford(cost):
@@ -278,6 +280,16 @@ func _buy_perk(id: String) -> void:
 	_spend(item.cost)
 	owned_perks.append(id)
 	Events.banner.emit(item.name, "ADQUIRIDO", 1.5)
+
+func _use_radio(id: String) -> void:
+	var radio: RadioState = ctx.radios.get(id, null)
+	if radio == null or radio.used:
+		return
+	radio.used = true
+	if radio.label != null:
+		radio.label.visible = false
+	Sfx.play_3d("radio", radio.node.global_position, -4, 1.0, 0.05)
+	Events.banner.emit("RÁDIO", "SINTONIZADO", 1.2)
 
 func _buy_box() -> void:
 	if ctx.box == null:

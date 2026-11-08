@@ -81,6 +81,7 @@ func _init() -> void:
 		check(bunker.barricades.size() == 9, "Bunker 13 tem 9 barricadas")
 		check(bunker.barrels.size() == 2, "Bunker 13 tem 2 barris")
 		check(bunker.traps.size() == 2, "Bunker 13 tem 2 traps")
+		check(bunker.radios.size() == 3, "Bunker 13 tem 3 rádios")
 		check(bunker.zombie_spawns.size() == 9, "Bunker 13 tem 9 spawns")
 	if enemy != null:
 		check(enemy.health == 100.0, "zumbi tem 100 de vida")

@@ -58,6 +58,7 @@ func _ready() -> void:
 		load("res://assets/audio/foley/impactPlank_medium_001.ogg"),
 	]
 	_streams["grenade_throw"] = _streams["reload"]
+	_streams["radio"] = [load("res://assets/audio/ui/box_hum.ogg")]
 	_streams["shell"] = _streams["reload"]
 	_streams["footstep"] = [
 		load("res://assets/audio/foley/footstep_concrete_000.ogg"),
@@ -133,6 +134,7 @@ func _bus_for(key: String) -> String:
 	if key in [
 		"reload", "hit_flesh", "hit_wall", "shell", "footstep", "explosion",
 		"knife_slash", "barricade_break", "barricade_repair", "grenade_throw",
+		"radio",
 	]:
 		return "Foley"
 	return "Master"

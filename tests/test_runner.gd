@@ -56,6 +56,8 @@ func _ready() -> void:
 			await _audio()
 		"quest":
 			await _quest()
+		"radio":
+			await _radio()
 		"ui":
 			await _ui()
 		"shot":
@@ -794,6 +796,33 @@ func _quest() -> void:
 		str(loaded), str(skipped), str(done), str(points_ok), str(music_ok),
 	])
 	_finish("QUEST_OK", ok)
+
+func _radio() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	var ok_radios := game.ctx.radios.size() == 3
+	for id in ["radio_1", "radio_2", "radio_3"]:
+		var radio: RadioState = game.ctx.radios.get(id, null)
+		if radio == null or radio.area == null or not radio.area.has_meta("interact"):
+			ok_radios = false
+	var quest: QuestData = Content.get_quest("quest.bunker13_music")
+	var points0 := game.economy.points
+	for id in ["radio_1", "radio_2", "radio_3"]:
+		Events.interacted.emit(id, game.player)
+	await get_tree().create_timer(0.1).timeout
+	var used := true
+	for id in ["radio_1", "radio_2", "radio_3"]:
+		var radio: RadioState = game.ctx.radios.get(id, null)
+		if radio == null or not radio.used:
+			used = false
+	var done: bool = game.quest_system.is_complete(quest.id)
+	var points_ok := game.economy.points >= points0 + 500
+	var music_ok := Sfx.has("music.bunker13")
+	var ok: bool = ok_radios and used and done and points_ok and music_ok
+	print("RADIO_TEST radios=%s used=%s quest=%s points=%s music=%s" % [
+		str(ok_radios), str(used), str(done), str(points_ok), str(music_ok),
+	])
+	_finish("RADIO_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

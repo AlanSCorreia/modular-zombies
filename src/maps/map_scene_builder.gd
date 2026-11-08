@@ -37,6 +37,7 @@ func build(parent: Node3D, data: MapData, p_explosives: Dictionary = {}) -> MapC
 	_build_barricades()
 	_build_barrels()
 	_build_traps()
+	_build_radios()
 	_collect_lights()
 	return ctx
 
@@ -199,6 +200,26 @@ func _build_traps() -> void:
 		t.setup(data, trap, trap.position)
 		root.add_child(t)
 		ctx.traps[trap.id] = t
+
+func _build_radios() -> void:
+	var scene: PackedScene = load("res://assets/models/props/radio/radio.glb")
+	for radio in map.radios:
+		var holder := Node3D.new()
+		holder.name = "Radio_" + radio.id
+		holder.position = radio.position
+		holder.rotation.y = radio.rotation_y
+		root.add_child(holder)
+		if scene != null:
+			holder.add_child(scene.instantiate())
+		var r := RadioState.new()
+		r.id = radio.id
+		r.name = radio.id
+		r.room = radio.room
+		r.data = radio
+		r.node = holder
+		r.label = _label(holder, "RÁDIO", Vector3(0, 0.45, 0), 34, Color(0.95, 0.72, 0.3))
+		r.area = _area(holder, Vector3.ZERO, Vector3(0.8, 0.9, 0.8), r)
+		ctx.radios[radio.id] = r
 
 func _collect_lights() -> void:
 	for child in map_root.find_children("*", "OmniLight3D", true, false):

@@ -18,6 +18,7 @@ var box: BoxData = null
 var barricades: Array[BarricadeData] = []
 var barrels: Array[BarrelData] = []
 var traps: Array[TrapData] = []
+var radios: Array[RadioData] = []
 
 static func from_dict(d: Dictionary) -> MapData:
 	var m := MapData.new()
@@ -48,4 +49,6 @@ static func from_dict(d: Dictionary) -> MapData:
 		m.barrels.append(BarrelData.from_dict(b))
 	for t in d.get("traps", []):
 		m.traps.append(TrapData.from_dict(t))
+	for r in d.get("radios", []):
+		m.radios.append(RadioData.from_dict(r))
 	return m

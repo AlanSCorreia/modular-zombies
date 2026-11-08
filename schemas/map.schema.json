@@ -18,6 +18,7 @@
     "doors": { "type": "array" },
     "barricades": { "type": "array" },
     "traps": { "type": "array" },
+    "radios": { "type": "array" },
     "zombie_spawns": { "type": "array" }
   }
 }

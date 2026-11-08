@@ -69,6 +69,11 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 				errors.append("map %s: trap %s usa explosivo inexistente (%s)" % [id, trap.id, trap.explosive_id])
 			if trap.trigger_radius <= 0.0:
 				errors.append("map %s: trap %s com trigger_radius <= 0" % [id, trap.id])
+		for radio in m.radios:
+			if radio.id == "":
+				errors.append("map %s: rádio sem id" % id)
+			if not room_ids.has(radio.room):
+				errors.append("map %s: rádio %s aponta para room inexistente" % [id, radio.id])
 		if m.starting_points < 0:
 			errors.append("map %s: starting_points negativo" % id)
 		if m.zombie_count < 1:
