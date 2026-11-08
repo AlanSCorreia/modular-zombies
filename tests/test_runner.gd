@@ -74,6 +74,10 @@ func _ready() -> void:
 			await _save()
 		"settings":
 			await _settings()
+		"perf":
+			await _perf()
+		"soak":
+			await _soak(args)
 		"ui":
 			await _ui()
 		"shot":
@@ -1119,6 +1123,35 @@ func _settings() -> void:
 		str(roundtrip), str(audio_ok), str(quality_ok), str(clamp_ok), str(hud_ok),
 	])
 	_finish("SETTINGS_OK", ok)
+
+func _perf() -> void:
+	game._start()
+	await get_tree().create_timer(3.0).timeout
+	var proc := Performance.get_monitor(Performance.TIME_PROCESS) * 1000.0
+	var mem := Performance.get_monitor(Performance.MEMORY_STATIC) / 1048576.0
+	var fps := Engine.get_frames_per_second()
+	var ok: bool = proc <= 25.0 and mem <= 1024.0
+	print("PERF fps=%.1f process_ms=%.2f memory_mb=%.1f" % [fps, proc, mem])
+	_finish("PERF_OK", ok)
+
+func _soak(args: PackedStringArray) -> void:
+	game._start()
+	await get_tree().create_timer(0.3).timeout
+	var seconds := int(_arg(args, "--seconds", "60"))
+	var end := Time.get_ticks_msec() + seconds * 1000
+	var iterations := 0
+	while Time.get_ticks_msec() < end:
+		for z in game.zombies.duplicate():
+			if not z.is_dead:
+				z.take_damage(100000.0, false, z.global_position)
+		if game.round.is_complete():
+			game.round.next_round()
+		await get_tree().create_timer(0.25).timeout
+		iterations += 1
+	print("SOAK_OK seconds=%d iterations=%d zombies=%d" % [
+		seconds, iterations, game.zombies.size(),
+	])
+	_finish("SOAK_OK", true)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout
