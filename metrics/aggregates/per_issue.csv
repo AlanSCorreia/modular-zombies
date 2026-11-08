@@ -1,8 +1,9 @@
 number,title,state,created,closed,lead_hours,labels,milestone,commits_linked,commit_additions,commit_deletions,docs_mentions
-24,"Áudio 2D/3D, música e mixagem",OPEN,2026-11-08T12:35:42Z,,,etapa:4 prio:P1 area:assets area:gameplay,Etapa 4 — Interações,0,0,0,6
-23,"VFX/SFX de explosão, faca e barricada + HUD de granadas",CLOSED,2026-11-08T12:11:39Z,2026-11-08T12:35:40Z,0.4,etapa:4 prio:P1 area:assets area:gameplay,Etapa 4 — Interações,0,0,0,5
+25,Criar/duplicar mapa a partir de template no bunker_tools,OPEN,2026-11-08T17:52:51Z,,,etapa:5 prio:P0 area:infra area:docs,Etapa 5 — Ferramentas de mapa,0,0,0,6
+24,"Áudio 2D/3D, música e mixagem",CLOSED,2026-11-08T12:35:42Z,2026-11-08T17:52:48Z,5.29,etapa:4 prio:P1 area:assets area:gameplay,Etapa 4 — Interações,0,0,0,5
+23,"VFX/SFX de explosão, faca e barricada + HUD de granadas",CLOSED,2026-11-08T12:11:39Z,2026-11-08T12:35:40Z,0.4,etapa:4 prio:P1 area:assets area:gameplay,Etapa 4 — Interações,0,0,0,6
 22,Traps explosivas no Bunker 13,CLOSED,2026-11-08T12:11:34Z,2026-11-08T12:11:37Z,0.0,etapa:4 prio:P0 area:assets area:gameplay,Etapa 4 — Interações,0,0,0,4
-21,"Rodada 1→2, HUD de rodada e game over",CLOSED,2026-11-08T12:11:18Z,2026-11-08T12:11:21Z,0.0,etapa:3 prio:P0 area:gameplay,Etapa 3 — Gameplay,0,0,0,3
+21,"Rodada 1→2, HUD de rodada e game over",CLOSED,2026-11-08T12:11:18Z,2026-11-08T12:11:21Z,0.0,etapa:3 prio:P0 area:gameplay,Etapa 3 — Gameplay,0,0,0,2
 20,Pipeline de métricas do projeto (histórico + agregados),CLOSED,2026-11-08T11:29:26Z,2026-11-08T11:29:28Z,0.0,prio:P1 area:infra area:docs,,0,0,0,3
 19,Automação e validação de docs (checker offline + GitHub opcional),CLOSED,2026-11-08T11:06:56Z,2026-11-08T11:06:58Z,0.0,prio:P1 area:infra area:docs,,0,0,0,3
 18,"Organizar docs: índice, arquivo e work log",CLOSED,2026-11-08T10:41:27Z,2026-11-08T10:46:56Z,0.09,prio:P1 area:docs,,0,0,0,3
