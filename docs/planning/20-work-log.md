@@ -170,6 +170,18 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
 - `a99f691` `feat: load authored map geometry from GLB`
 - `4019c1c` `docs: record authored map geometry migration`
 
+**Auditoria curta de redundância (issue #15) — concluído**
+- `docs/planning/22-redundancy-audit.md` com métricas de docs, CI, código e
+  execução, mais recomendações priorizadas.
+- Números-chave: 31 docs; 62% dos commits são só docs; 19 processos Godot e
+  38,3 s de CI (≈55% em boots); 40 blocos de 5 linhas duplicados, mas só 1
+  fora de `src/maps/legacy`; 2 de 12 itens de Ready com issue.
+- Decisão D-028: KANBAN + issues como fonte de status, gates isolados no CI
+  oficial e remoção de builders legados só quando a exportação não precisar.
+- Issue #15 fechada; issue #17 aberta (faca GLB + `knife_slash`); a escala das
+  armas segue na issue #16.
+- Sem mudança de gameplay; nenhum commit de código neste bloco.
+
 **Mãos compartilhadas + ViewmodelFactory (issue #14) — concluído**
 - `source/blender/hands/hands.blend` + `assets/models/hands/hands.glb` com
   `GripSocket`, `HandL`/`HandR` e antebraços (asset único).
@@ -332,8 +344,8 @@ continua em `05-roadmap.md`, `06-backlog.md` e `KANBAN.md`.
   screenshot do menu.
 
 **Próximo item (KANBAN)**
-- Auditoria curta de redundância (issue #15, pedido do usuário); depois,
-  faca GLB + `knife_slash`.
+- Faca GLB + `knife_slash` (issue #17); depois, normalização de escala das
+  armas (issue #16).
 
 **Registro confirmado**
 - GitHub: #2 fechada; #3 aberta à época (hoje fechada — ver bloco “Softlock do

@@ -28,7 +28,7 @@
 |---|---|---|---|
 | `etapa1` | Etapa 1 — Preparação | **Concluído** | — |
 | `etapa2` | Etapa 2 — Conteúdo | **Concluído** | — |
-| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Auditoria de redundância |
+| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Faca GLB + `knife_slash` |
 | `etapa4` | Etapa 4 — Interações | Backlog | — |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | Backlog | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | Backlog | — |
@@ -39,16 +39,16 @@
 > `MapContext`/`Interactable`, harness, pool/cache, HUD em `.tscn`,
 > `RoundManager`/`Economy`, projectile/melee, `ExplosionSystem`,
 > granada/foguete/barris, `BarricadeSystem`, vãos de janela e IA de zumbi em
-> barricadas, vãos de janela, IA de zumbi e mãos compartilhadas/
-> `ViewmodelFactory` concluídos (issues #1–#14 fechadas); o foco agora é a
-> auditoria curta de redundância (issue #15), pedida pelo usuário.
+> barricadas, vãos de janela, IA de zumbi, mãos compartilhadas/
+> `ViewmodelFactory` e a auditoria de redundância concluídos (issues #1–#15
+> fechadas); o foco agora é a faca GLB + `knife_slash` (issue #17).
 
 ## Próximo item
 
 - **Etapa ativa:** 3 — Gameplay.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** auditoria curta de redundância (issue #15), pedida pelo usuário.
-- **Depois:** faca GLB + `knife_slash`.
+- **Próximo:** faca GLB + `knife_slash` (issue #17).
+- **Depois:** normalizar escala/origem das armas (issue #16).
 - **Próxima etapa:** 4 — Interações, somente após o aceite da Etapa 3.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -144,8 +144,7 @@ faca, explosivos e barricadas funcionando.
 - [ ] Estatísticas de sessão
 
 ### Ready
-- [ ] Auditoria curta de redundância (P2) — [#15](https://github.com/AlanSCorreia/modular-zombies/issues/15)
-- [ ] Faca GLB + mãos compartilhadas + `knife_slash`
+- [ ] Faca GLB + mãos compartilhadas + `knife_slash` (P1) — [#17](https://github.com/AlanSCorreia/modular-zombies/issues/17)
 - [ ] Normalizar escala/origem das armas (P1) — [#16](https://github.com/AlanSCorreia/modular-zombies/issues/16)
 - [ ] Teste visual do Bunker 13
 - [ ] JSON de traps explosivas
@@ -201,6 +200,7 @@ faca, explosivos e barricadas funcionando.
 - [x] `BarricadeSystem` + hold F + tábuas + HUD de progresso (issue #12)
 - [x] Vãos de janela autorais + spawns por barricada + IA de zumbi (issue #13)
 - [x] `hands.glb` compartilhado + `GripSocket` + `ViewmodelFactory` (issue #14)
+- [x] Auditoria curta de redundância (`22-redundancy-audit.md`, issue #15)
 
 ### Blocked
 - *(vazio)*

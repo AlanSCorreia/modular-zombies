@@ -65,7 +65,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.11 | Lança-foguete (`projectile`) (feito) | P0 |
 | ETAPA3.12 | Barris explosivos ao receber tiro (feito) | P0 |
 | ETAPA3.13 | `MeleeController` (V, cooldown, ray) (feito; modelo/arco pendentes) | P0 |
-| ETAPA3.14 | Faca GLB + mãos compartilhadas + animação `knife_slash` | P0 |
+| ETAPA3.14 | Faca GLB + mãos compartilhadas + animação `knife_slash` (issue #17) | P0 |
 | ETAPA3.17 | `Barricade` + estado das tábuas (feito) | P0 |
 | ETAPA3.18 | `BarricadeSystem` + hold F + pontos (feito) | P0 |
 | ETAPA3.19 | IA de zumbi: arrancar, entrar e fila por janela (feito) | P0 |
@@ -173,4 +173,4 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 
 | ID | Tarefa | Pri |
 |---|---|---|
-| AUD.1 | Auditoria curta de redundância (docs, CI, código e execução) — issue #15 | P2 |
+| AUD.1 | Auditoria curta de redundância (docs, CI, código e execução) — issue #15 (feito) | P2 |

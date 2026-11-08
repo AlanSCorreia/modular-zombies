@@ -75,8 +75,9 @@ pontos e HUD de progresso), vãos de janela autorais, IA de zumbi
 - `RoundManager`/economia completos e efeitos.
 - Testes de faca, traps e loop completo.
 
-**Transversal:** auditoria curta de redundância (issue #15), solicitada pelo
-usuário, antes do próximo item de gameplay.
+**Transversal:** auditoria curta de redundância concluída em
+`22-redundancy-audit.md` (issue #15). Próximo item de gameplay: faca GLB +
+`knife_slash`; a normalização de escala das armas segue na issue #16.
 
 **Pré-requisito atendido:** geometria do mapa autoral (ETAPA3.34–36).
 
