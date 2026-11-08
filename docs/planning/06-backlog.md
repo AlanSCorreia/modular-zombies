@@ -160,8 +160,8 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ID | Tarefa | Pri |
 |---|---|---|
 | ETAPA7.1 | Segundo mapa (feito, issue #33) | P0 |
-| ETAPA7.2 | Duas armas novas (issue #34) | P0 |
-| ETAPA7.3 | Wonder weapon | P1 |
+| ETAPA7.2 | Duas armas novas (feito, issue #34) | P0 |
+| ETAPA7.3 | Wonder weapon (issue #35) | P1 |
 | ETAPA7.4 | Inimigo especial | P1 |
 | ETAPA7.5 | Teste sem mudança no núcleo | P0 |
 

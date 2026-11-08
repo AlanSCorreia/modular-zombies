@@ -378,6 +378,18 @@
     {
       "number": 34,
       "title": "Duas armas novas (pistol e SKS)",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:7",
+        "prio:P0",
+        "area:assets",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 7 — Escala de conteúdo"
+    },
+    {
+      "number": 35,
+      "title": "Wonder weapon autoral (projétil/explosão)",
       "state": "OPEN",
       "labels": [
         "etapa:7",

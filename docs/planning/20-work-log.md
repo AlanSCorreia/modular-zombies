@@ -15,6 +15,15 @@ está em
 o início do projeto, em
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 
+## 2026-11-08 — Duas armas novas (issue #34)
+
+- `weapon.pistol`: GLB normalizado de mm para metros, orientado, com
+  `GripSocket`/`Muzzle`.
+- `weapon.sks`: asset autoral com stock, cano, magazine, bolt e trigger.
+- JSON/schema/validador e shared hands; SKS no wallbuy do Depot.
+- SFX `gun_sks`; `WEAPONS_OK` cobre compra, tiro e recarga das duas.
+- Próximo: wonder weapon (#35).
+
 ## 2026-11-08 — Segundo mapa jogável (issue #33)
 
 - `map.depot`: 2 salas, porta, wallbuy, spawns e luzes, com cena autoral
@@ -125,5 +134,5 @@ o início do projeto, em
 - Asset autoral `trap.blend`/GLB; 2 traps no Bunker 13.
 - Teste `TRAP_OK`; Etapa 4 iniciada.
 
-**Próximo item:** duas armas novas — pistol e SKS (issue #34); depois wonder
-weapon, inimigo especial e teste sem núcleo.
+**Próximo item:** wonder weapon autoral (issue #35); depois inimigo especial e
+teste sem núcleo.

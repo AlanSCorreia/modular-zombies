@@ -32,7 +32,7 @@
 | `etapa4` | Etapa 4 — Interações | **Concluído** | — |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | **Concluído** | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | **Concluído** | — |
-| `etapa7` | Etapa 7 — Escala de conteúdo | **Em andamento** | Duas armas novas |
+| `etapa7` | Etapa 7 — Escala de conteúdo | **Em andamento** | Wonder weapon |
 | `etapa8` | Etapa 8 — Produção | Backlog | — |
 
 > **Status:** Etapas 3, 4, 5 e 6 **concluídas** (issues #1–#15 e #17–#32).
@@ -43,8 +43,8 @@
 
 - **Etapa ativa:** 7 — Escala de conteúdo.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** duas armas novas — pistol e SKS (issue #34).
-- **Depois:** wonder weapon, inimigo especial e teste sem núcleo.
+- **Próximo:** wonder weapon autoral (issue #35).
+- **Depois:** inimigo especial e teste sem núcleo.
 - **Próxima etapa:** 8 — Produção, após o aceite da Etapa 7.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -322,18 +322,18 @@
 ### Backlog
 - [ ] Terceiro mapa
 - [ ] Modo co-op
-- [ ] Uma wonder weapon
 - [ ] Um inimigo especial
 - [ ] Teste “sem mudança no núcleo”
 
 ### Ready
-- [ ] Duas armas novas — pistol e SKS (P0) — [#34](https://github.com/AlanSCorreia/modular-zombies/issues/34)
+- [ ] Wonder weapon autoral (P0) — [#35](https://github.com/AlanSCorreia/modular-zombies/issues/35)
 
 ### Doing
 - *(vazio)*
 
 ### Review/Test
 - [x] Novo mapa jogável (`SECOND_MAP_OK`)
+- [x] Nova arma no wallbuy/caixa (`WEAPONS_OK`)
 - [ ] Nova arma no wallbuy/caixa
 - [ ] Validador e testes verdes
 
