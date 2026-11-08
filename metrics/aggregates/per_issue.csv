@@ -1,5 +1,6 @@
 number,title,state,created,closed,lead_hours,labels,milestone,commits_linked,commit_additions,commit_deletions,docs_mentions
-23,"VFX/SFX de explosão, faca e barricada + HUD de granadas",OPEN,2026-11-08T12:11:39Z,,,etapa:4 prio:P1 area:assets area:gameplay,Etapa 4 — Interações,0,0,0,6
+24,"Áudio 2D/3D, música e mixagem",OPEN,2026-11-08T12:35:42Z,,,etapa:4 prio:P1 area:assets area:gameplay,Etapa 4 — Interações,0,0,0,6
+23,"VFX/SFX de explosão, faca e barricada + HUD de granadas",CLOSED,2026-11-08T12:11:39Z,2026-11-08T12:35:40Z,0.4,etapa:4 prio:P1 area:assets area:gameplay,Etapa 4 — Interações,0,0,0,5
 22,Traps explosivas no Bunker 13,CLOSED,2026-11-08T12:11:34Z,2026-11-08T12:11:37Z,0.0,etapa:4 prio:P0 area:assets area:gameplay,Etapa 4 — Interações,0,0,0,4
 21,"Rodada 1→2, HUD de rodada e game over",CLOSED,2026-11-08T12:11:18Z,2026-11-08T12:11:21Z,0.0,etapa:3 prio:P0 area:gameplay,Etapa 3 — Gameplay,0,0,0,3
 20,Pipeline de métricas do projeto (histórico + agregados),CLOSED,2026-11-08T11:29:26Z,2026-11-08T11:29:28Z,0.0,prio:P1 area:infra area:docs,,0,0,0,3

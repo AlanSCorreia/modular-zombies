@@ -14,6 +14,7 @@ Decisões estruturais longas também viram ADR em `07-adr/`.
 
 | ID | Data | Decisão | Motivo / consequência |
 |---|---|---|---|
+| D-035 | 2026-11-08 | **Feedback de combate:** explosão usa partículas/luz com mesh/material cacheados e SFX via pool; HUD de granadas é um label ligado a `grenades_changed`. | Evita alocação por explosão e mantém HUD desacoplada por sinal. |
 | D-034 | 2026-11-08 | **Etapa 3 aceita:** rodadas escalam +2 a cada rodada, intervalo de 4 s e game over cancela a próxima; a normalização de escala (#16) fica como dívida visual e a Etapa 4 começa com traps/VFX/áudio. | Fecha o aceite de gameplay sem bloquear a apresentação por uma dívida de asset. |
 | D-033 | 2026-11-08 | **Faca no viewmodel compartilhado:** o GLB da faca é anexado ao `HandR` do `hands.glb`; a mão esquerda é ocultada e o golpe é um viewmodel transitório com tween (`knife_slash`), sem lógica de dano duplicada. | Mantém uma única fonte de mãos e separa visual de hit detection. |
 | D-032 | 2026-11-08 | **Métricas como calibração:** manter snapshot por bloco; usar 4–6 KPIs (lead time, tokens/bloco, retrabalho, churn de docs, tempo de CI, gates); instrumentar o próximo projeto desde o dia 1 e revisar por milestone. Não tratar tokens/linhas como medida de qualidade. | Evita overfitting de um único projeto e transforma o histórico em melhoria de workflow. |

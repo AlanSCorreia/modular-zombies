@@ -22,9 +22,9 @@ last_reviewed: 2026-11-08
   explosões, granada/foguete/barris, barricadas, janelas + IA de zumbi, mãos
   compartilhadas/`ViewmodelFactory`, faca com `knife_slash`, rodadas 1→2 e
   traps explosivas.
-- **Próximo:** VFX/SFX + HUD de granadas (#23).
-- **Depois:** áudio, vinheta e testes de UI; escala das armas (#16) fica como
-  dívida visual.
+- **Próximo:** áudio 2D/3D, música e mixagem (#24).
+- **Depois:** vinheta e testes de UI; escala das armas (#16) fica como dívida
+  visual.
 - Gates atuais: ver [`08-testing-strategy.md`](08-testing-strategy.md).
 
 ## Índice

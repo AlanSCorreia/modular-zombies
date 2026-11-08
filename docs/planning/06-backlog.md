@@ -122,8 +122,8 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA4.4 | Traps explosivas (feito, issue #22) | P0 |
 | ETAPA4.5 | Props explosivos no JSON do mapa (feito) | P0 |
 | ETAPA4.6 | HUD/menu/pause/game over (feito) | P0 |
-| ETAPA4.7 | HUD de equipamento (granadas) | P1 |
-| ETAPA4.8 | Áudio/VFX de explosão, faca e barricada (issue #23) | P0 |
+| ETAPA4.7 | HUD de equipamento (granadas) (feito, issue #23) | P1 |
+| ETAPA4.8 | Áudio/VFX de explosão, faca e barricada (VFX feito; áudio #24) | P0 |
 | ETAPA4.11 | HUD de progresso de reparo de barricada (feito) | P1 |
 | ETAPA4.9 | Prompts/hitmarker/vinheta | P1 |
 | ETAPA4.10 | Testes de interação/UI/combate | P0 |

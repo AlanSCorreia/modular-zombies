@@ -29,7 +29,7 @@
 | `etapa1` | Etapa 1 — Preparação | **Concluído** | — |
 | `etapa2` | Etapa 2 — Conteúdo | **Concluído** | — |
 | `etapa3` | Etapa 3 — Gameplay | **Concluído** | — |
-| `etapa4` | Etapa 4 — Interações | **Em andamento** | VFX/SFX e HUD de granadas |
+| `etapa4` | Etapa 4 — Interações | **Em andamento** | Áudio 2D/3D e mixagem |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | Backlog | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | Backlog | — |
 | `etapa7` | Etapa 7 — Escala de conteúdo | Backlog | — |
@@ -44,8 +44,8 @@
 
 - **Etapa ativa:** 4 — Interações.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** VFX/SFX de explosão/faca/barricada + HUD de granadas (issue #23).
-- **Depois:** áudio 2D/3D, vinheta e testes de UI.
+- **Próximo:** áudio 2D/3D, música e mixagem (issue #24).
+- **Depois:** vinheta, polish de prompts e testes de UI.
 - **Próxima etapa:** 4 — Interações, somente após o aceite da Etapa 3.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -218,12 +218,11 @@
 - [ ] Ajustes de mixagem
 - [ ] Acessibilidade (tamanho de fonte/contraste)
 - [ ] `InteractionSystem` tipado (refactor)
-- [ ] Áudio 2D/3D, música e mixagem
 - [ ] Vinheta e polish de prompts
 - [ ] Teste de interação e UI
 
 ### Ready
-- [ ] VFX/SFX de explosão/faca/barricada e HUD de granadas (P1) — [#23](https://github.com/AlanSCorreia/modular-zombies/issues/23)
+- [ ] Áudio 2D/3D, música e mixagem (P1) — [#24](https://github.com/AlanSCorreia/modular-zombies/issues/24)
 
 ### Doing
 - *(vazio)*
@@ -236,6 +235,7 @@
 ### Done
 - [x] Portas, wallbuys, caixa e perks
 - [x] Traps explosivas + props explosivos no JSON do mapa (issue #22)
+- [x] VFX/SFX de explosão/faca/barricada + HUD de granadas (issue #23)
 - [x] HUD de progresso de reparo de barricada
 - [x] HUD/menu/pause/game over
 - [x] Hitmarker e prompts

@@ -249,6 +249,18 @@
     {
       "number": 23,
       "title": "VFX/SFX de explosão, faca e barricada + HUD de granadas",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:4",
+        "prio:P1",
+        "area:assets",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 4 — Interações"
+    },
+    {
+      "number": 24,
+      "title": "Áudio 2D/3D, música e mixagem",
       "state": "OPEN",
       "labels": [
         "etapa:4",

@@ -15,6 +15,15 @@ está em
 o início do projeto, em
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 
+## 2026-11-08 — VFX/SFX + HUD de granadas (issue #23)
+
+- Explosão com partículas/luz em `ExplosionSystem` (mesh/material cacheados) e
+  som de explosão via pool do `Sfx`.
+- SFX para faca, quebra/reparo de barricada e arremesso de granada.
+- HUD ganhou contador `GRANADAS N`, ligado a `grenades_changed`.
+- Teste `FX_OK` cobre contador, FX de explosão e chaves de áudio.
+- Issue #23 fechada; próximo é áudio/mixagem (#24).
+
 ## 2026-11-08 — Traps explosivas (issue #22)
 
 - `TrapData`, `map.traps`, schema/validador e `MapContext.traps`.
@@ -22,5 +31,5 @@ o início do projeto, em
 - Asset autoral `trap.blend`/GLB; 2 traps no Bunker 13.
 - Teste `TRAP_OK`; Etapa 4 iniciada.
 
-**Próximo item:** VFX/SFX de explosão/faca/barricada + HUD de granadas
-(issue #23); depois áudio, vinheta e testes de UI.
+**Próximo item:** áudio 2D/3D, música e mixagem (issue #24); depois vinheta e
+testes de UI.

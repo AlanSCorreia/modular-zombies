@@ -98,12 +98,11 @@ foi aceita; a escala das armas (#16) fica como dívida visual.
 ## Etapa 4 — Interações (em andamento)
 
 **Já entregue:** portas/wallbuys/caixa/perks, HUD/menu/pause/game over,
-HUD de progresso de barricada, prompts/hitmarker e traps explosivas
-(issue #22).
+HUD de progresso de barricada, prompts/hitmarker, traps explosivas
+(issue #22) e VFX/SFX + HUD de granadas (issue #23).
 
 **Pendente**
-- VFX/SFX de explosão/faca/barricada + HUD de granadas (issue #23).
-- Áudio 2D/3D e música.
+- Áudio 2D/3D, música e mixagem (issue #24).
 - Vinheta e polish de prompts.
 - Teste de interação/UI.
 
