@@ -44,6 +44,8 @@ func _ready() -> void:
 			await _zombie_barricade()
 		"viewmodel":
 			await _viewmodel()
+		"knife":
+			await _knife()
 		"ui":
 			await _ui()
 		"shot":
@@ -620,6 +622,35 @@ func _viewmodel() -> void:
 		str(gripped), str(fired), str(reloaded),
 	])
 	_finish("VIEWMODEL_OK", ok)
+
+func _knife() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	var data: MeleeData = Content.get_melee("melee.knife")
+	var mc: MeleeController = game.player.melee
+	var asset_ok: bool = data != null and data.scene != "" \
+		and data.hands == ViewmodelFactory.HANDS_PATH
+	var built_ok: bool = mc != null and mc.knife != null \
+		and mc.hands != null and mc.hand_r != null
+	var attached: bool = built_ok and mc.knife.get_parent() == mc.hand_r
+	var left_hidden: bool = mc != null and mc.hand_l != null \
+		and not mc.hand_l.visible
+	var started_hidden: bool = mc != null and mc.viewmodel != null \
+		and not mc.viewmodel.visible
+	var swung := false
+	if mc != null:
+		mc.try_swing()
+		swung = mc.viewmodel != null and mc.viewmodel.visible
+	await get_tree().create_timer(0.5).timeout
+	var hidden_again: bool = mc != null and mc.viewmodel != null \
+		and not mc.viewmodel.visible
+	var ok: bool = asset_ok and built_ok and attached and left_hidden \
+		and started_hidden and swung and hidden_again
+	print("KNIFE_TEST asset=%s built=%s attached=%s left_hidden=%s swung=%s hidden=%s" % [
+		str(asset_ok), str(built_ok), str(attached), str(left_hidden),
+		str(swung), str(hidden_again),
+	])
+	_finish("KNIFE_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

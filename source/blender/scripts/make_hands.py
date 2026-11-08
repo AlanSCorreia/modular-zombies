@@ -1,5 +1,8 @@
 """Gera o hands.glb compartilhado (mãos + antebraços + GripSocket).
 
+Convenção Blender → glTF: +Y do Blender vira -Z do jogo (frente); +Z vira +Y.
+Portanto dedos apontam para +Y e antebraço para -Y.
+
 Uso (na raiz do projeto):
   blender -b --python source/blender/scripts/make_hands.py
 """
@@ -50,31 +53,32 @@ def cylinder(name: str, parent, location: Vector, radius: float, depth: float, m
     obj.name = name
     obj.parent = parent
     obj.location = location
+    obj.rotation_euler.x = 1.5707963  # eixo Y (frente/corpo)
     obj.data.materials.append(mat)
     return obj
 
 
-def hand(name: str, parent, location: Vector, mirror: bool, glove, sleeve) -> None:
+def hand(name: str, parent, location: Vector, glove, sleeve) -> None:
     root = empty(name, parent, location)
-    root.rotation_euler.y = 0.0 if not mirror else 0.0
 
-    box(name + "_Palm", root, Vector((0, 0, -0.02)), Vector((0.09, 0.045, 0.11)), glove)
+    # Palma e dedos no eixo +Y (frente no jogo).
+    box(name + "_Palm", root, Vector((0, 0.02, 0)), Vector((0.09, 0.11, 0.045)), glove)
     for i, x in enumerate((-0.033, -0.011, 0.011, 0.033)):
         box(
             "%s_Finger%d" % (name, i + 1),
             root,
-            Vector((x, 0.0, -0.115)),
-            Vector((0.018, 0.028, 0.075)),
+            Vector((x, 0.115, 0.0)),
+            Vector((0.018, 0.075, 0.028)),
             glove,
         )
     box(
         name + "_Thumb",
         root,
-        Vector((0.058, 0.005, -0.035)),
-        Vector((0.026, 0.03, 0.065)),
+        Vector((0.058, 0.045, 0.005)),
+        Vector((0.026, 0.065, 0.03)),
         glove,
     )
-    cylinder(name + "_Forearm", root, Vector((0, 0, 0.20)), 0.045, 0.32, sleeve)
+    cylinder(name + "_Forearm", root, Vector((0, -0.20, 0)), 0.045, 0.32, sleeve)
 
 
 def main() -> None:
@@ -83,9 +87,9 @@ def main() -> None:
     sleeve = material("HandsSleeve", (0.13, 0.15, 0.11), 0.9)
 
     grip = empty("GripSocket", None, Vector((0, 0, 0)))
-    # Right hand no grip; left hand apoia o guarda-mão à frente.
-    hand("HandR", grip, Vector((0, 0, 0)), False, glove, sleeve)
-    hand("HandL", grip, Vector((0.035, -0.03, -0.34)), True, glove, sleeve)
+    hand("HandR", grip, Vector((0, 0, 0)), glove, sleeve)
+    # Apoio à frente do guarda-mão (game -Z => Blender +Y).
+    hand("HandL", grip, Vector((0.035, 0.34, -0.03)), glove, sleeve)
 
     BLEND.parent.mkdir(parents=True, exist_ok=True)
     GLB.parent.mkdir(parents=True, exist_ok=True)

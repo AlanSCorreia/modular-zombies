@@ -9,6 +9,12 @@
   "cooldown": 0.6,
   "impact_time": 0.18,
   "lunge": 0.4,
-  "scene": "",
-  "hands": ""
+  "scene": "res://assets/models/weapons/knife/knife.glb",
+  "hands": "res://assets/models/hands/hands.glb",
+  "grip_profile": "knife",
+  "viewmodel": {
+    "position": [0.18, -0.20, -0.48],
+    "rotation": [0.0, 0.08, 0.0],
+    "scale": 0.9
+  }
 }

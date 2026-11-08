@@ -11,6 +11,8 @@ var impact_time := 0.18
 var lunge := 0.4
 var scene := ""
 var hands := ""
+var grip_profile := ""
+var viewmodel: Dictionary = {}
 
 static func from_dict(d: Dictionary) -> MeleeData:
 	var m := MeleeData.new()
@@ -24,4 +26,6 @@ static func from_dict(d: Dictionary) -> MeleeData:
 	m.lunge = float(d.get("lunge", 0.4))
 	m.scene = String(d.get("scene", ""))
 	m.hands = String(d.get("hands", ""))
+	m.grip_profile = String(d.get("grip_profile", ""))
+	m.viewmodel = d.get("viewmodel", {})
 	return m

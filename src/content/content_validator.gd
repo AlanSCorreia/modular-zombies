@@ -118,6 +118,14 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 			errors.append("melee %s: stats inválidos" % id)
 		if m.scene != "" and not FileAccess.file_exists(m.scene):
 			errors.append("melee %s: cena inexistente (%s)" % [id, m.scene])
+		if m.scene == "":
+			errors.append("melee %s: cena ausente" % id)
+		if m.hands != HANDS_PATH:
+			errors.append("melee %s: hands deve ser o asset compartilhado (%s)" % [id, HANDS_PATH])
+		elif not FileAccess.file_exists(m.hands):
+			errors.append("melee %s: hands inexistente (%s)" % [id, m.hands])
+		if m.grip_profile == "" or not ViewmodelFactory.PROFILES.has(m.grip_profile):
+			errors.append("melee %s: grip_profile inválido (%s)" % [id, m.grip_profile])
 
 	for id in explosives.keys():
 		var e: ExplosiveData = explosives[id]

@@ -15,6 +15,8 @@
     "impact_time": { "type": "number", "minimum": 0 },
     "lunge": { "type": "number", "minimum": 0 },
     "scene": { "type": "string" },
-    "hands": { "type": "string" }
+    "hands": { "type": "string" },
+    "grip_profile": { "type": "string" },
+    "viewmodel": { "type": "object" }
   }
 }
