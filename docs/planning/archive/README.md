@@ -20,6 +20,7 @@ issues do GitHub.
 | `21-code-review.md` | Revisão de código/performance da base |
 | `20-work-log-2026-11-detalhado.md` | Log detalhado de nov/2026 (issues #1–#15) |
 | `20-work-log-2026-11-etapa3.md` | Log da Etapa 3 (issues #17–#21) |
+| `20-work-log-2026-11-etapas4-7.md` | Log das Etapas 4–7 (issues #22–#36) |
 
 O log ativo é [`../20-work-log.md`](../20-work-log.md). Revisões novas devem
 entrar no log ativo e, quando ficarem históricas, migrar para cá.

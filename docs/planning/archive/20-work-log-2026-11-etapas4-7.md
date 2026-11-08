@@ -1,19 +1,19 @@
 ---
-kind: log
-area: execution
-status: active
-stage: 4
+kind: archive
+area: history
+status: archive
+stage: 7
 owner: docs
 last_reviewed: 2026-11-08
 ---
 
-# Work log — Etapa 4
+# Work log — Etapas 4–7
 
 Registro curto da etapa ativa, **mais recente primeiro**. A Etapa 3 detalhada
 está em
-[`archive/20-work-log-2026-11-etapa3.md`](archive/20-work-log-2026-11-etapa3.md);
+[`archive/20-work-log-2026-11-etapa3.md`](20-work-log-2026-11-etapa3.md);
 o início do projeto, em
-[`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
+[`archive/20-work-log-2026-11-detalhado.md`](20-work-log-2026-11-detalhado.md).
 
 ## 2026-11-08 — Inimigo especial Brute (issue #36)
 
@@ -153,5 +153,14 @@ o início do projeto, em
 - Asset autoral `trap.blend`/GLB; 2 traps no Bunker 13.
 - Teste `TRAP_OK`; Etapa 4 iniciada.
 
-**Próximo item:** save/load versionado da run (issue #37); depois settings,
-exportação Linux e performance.
+## 2026-11-08 — Save/load versionado (issue #37)
+
+- `SaveGame` versionado em `user://savegame.json`.
+- Salva pontos, vida, granadas, armas/munição, perks, barricadas, energia,
+  rodada e estado das quests.
+- `QuestSystem.snapshot()/restore()`; `F5` salva, `F9` carrega.
+- Teste `SAVE_OK` cobre round-trip, armas/munição e versão incompatível.
+- Próximo: settings (#38).
+
+**Próximo item:** settings — sensibilidade, volume e qualidade (issue #38);
+depois exportação e performance.

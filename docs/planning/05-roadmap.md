@@ -145,7 +145,12 @@ QuestValidator (issue #31) e main quest de 3 passos (issue #32).
 
 ## Etapa 8 — Produção (em andamento)
 
-**Próximo:** save/load versionado da run (issue #37).
+**Já entregue:** save/load versionado da run (issue #37).
+
+**Pendente**
+- Settings (issue #38).
+- Exportação Linux + smoke test.
+- Pools/navmesh, CI e soak test.
 
 **Entregáveis**
 - Save/load versionado.

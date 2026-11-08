@@ -22,9 +22,9 @@ last_reviewed: 2026-11-08
   explosões, granada/foguete/barris, barricadas, janelas + IA de zumbi, mãos
   compartilhadas/`ViewmodelFactory`, faca com `knife_slash`, rodadas 1→2 e
   traps explosivas, VFX/SFX/HUD de granadas e áudio/mixagem.
-- **Próximo:** save/load versionado (#37).
-- **Depois:** settings, exportação Linux e performance; escala (#16) fica como
-  dívida visual.
+- **Próximo:** settings — sensibilidade, volume e qualidade (#38).
+- **Depois:** exportação Linux e performance; escala (#16) fica como dívida
+  visual.
 - Gates atuais: ver [`08-testing-strategy.md`](08-testing-strategy.md).
 
 ## Índice
@@ -48,7 +48,7 @@ last_reviewed: 2026-11-08
 | [`12-development-workflow.md`](12-development-workflow.md) | Workflow de desenvolvimento |
 | [`16-development-agents.md`](16-development-agents.md) | Agentes de desenvolvimento |
 | [`19-decision-log.md`](19-decision-log.md) | Log de decisões |
-| [`20-work-log.md`](20-work-log.md) | Work log — Etapa 4 |
+| [`20-work-log.md`](20-work-log.md) | Work log — Etapa 8 |
 | [`22-redundancy-audit.md`](22-redundancy-audit.md) | Auditoria curta de redundância |
 
 ### Conteúdo, assets e sistemas
@@ -73,6 +73,7 @@ last_reviewed: 2026-11-08
 | [`archive/17-baseline-review.md`](archive/17-baseline-review.md) | Revisão de linha de base da Etapa 3 — Gameplay _(arquivo)_ |
 | [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md) | Work log _(arquivo)_ |
 | [`archive/20-work-log-2026-11-etapa3.md`](archive/20-work-log-2026-11-etapa3.md) | Work log — Etapa 3 _(arquivo)_ |
+| [`archive/20-work-log-2026-11-etapas4-7.md`](archive/20-work-log-2026-11-etapas4-7.md) | Work log — Etapas 4–7 _(arquivo)_ |
 | [`archive/21-code-review.md`](archive/21-code-review.md) | Revisão de código — boas práticas, performance e velocidade _(arquivo)_ |
 | [`archive/README.md`](archive/README.md) | Arquivo de planejamento _(arquivo)_ |
 <!-- INDEX:END -->
