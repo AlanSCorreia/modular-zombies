@@ -355,13 +355,25 @@
     {
       "number": 32,
       "title": "Main quest de 3 passos no Bunker 13",
-      "state": "OPEN",
+      "state": "CLOSED",
       "labels": [
         "etapa:6",
         "prio:P0",
         "area:gameplay"
       ],
       "milestone": "Etapa 6 — Quests e Easter Eggs"
+    },
+    {
+      "number": 33,
+      "title": "Segundo mapa jogável com 2 mecânicas (map.depot)",
+      "state": "OPEN",
+      "labels": [
+        "etapa:7",
+        "prio:P0",
+        "area:assets",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 7 — Escala de conteúdo"
     }
   ]
 }

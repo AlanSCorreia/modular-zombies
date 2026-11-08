@@ -2,7 +2,7 @@
 kind: planning
 area: execution
 status: active
-stage: 6
+stage: 7
 owner: docs
 last_reviewed: 2026-11-08
 ---
@@ -23,8 +23,8 @@ O board operacional é `../../KANBAN.md`.
 | `etapa3` | Etapa 3 — Gameplay | Player, armas, zumbis, barricadas, rodadas, economia | **Concluído** | L |
 | `etapa4` | Etapa 4 — Interações | Portas, compras, caixa, perks, HUD, menus, som | **Concluído** | M |
 | `etapa5` | Etapa 5 — Ferramentas | Criar/validar/testar mapas no editor | **Concluído** | M |
-| `etapa6` | Etapa 6 — Quests | QuestSystem, música, mecânica única, debug | **Em andamento** | L |
-| `etapa7` | Etapa 7 — Escala | 2º mapa, armas novas, wonder weapon, inimigo | Backlog | L |
+| `etapa6` | Etapa 6 — Quests | QuestSystem, música, mecânica única, debug | **Concluído** | L |
+| `etapa7` | Etapa 7 — Escala | 2º mapa, armas novas, wonder weapon, inimigo | **Em andamento** | L |
 | `etapa8` | Etapa 8 — Produção | Save, settings, export, pools, CI, performance | Backlog | L |
 
 ## Etapa 1 — Preparação (concluída — tag `etapa1`)
@@ -116,19 +116,19 @@ one-shot (issue #26) e quickstart do autor (issue #27).
 
 **Aceite:** criar/duplicar/validar/testar um mapa sem tocar no núcleo.
 
-## Etapa 6 — Quests e Easter Eggs (em andamento)
+## Etapa 6 — Quests e Easter Eggs (concluída — tag `etapa6`)
 
 **Já entregue:** `QuestSystem` + DTOs/triggers/recompensas (issue #28), quest
-`quest.bunker13_music`, 3 rádios (issue #29), PowerMechanic (issue #30) e
-QuestValidator (issue #31).
+`quest.bunker13_music`, 3 rádios (issue #29), PowerMechanic (issue #30),
+QuestValidator (issue #31) e main quest de 3 passos (issue #32).
 
-**Pendente**
-- Main quest de 3 passos (issue #32).
-- Debug overlay.
+**Dívida:** debug overlay e grafo visual (P1/P2).
 
-**Aceite:** música secreta + main quest de 3 passos jogáveis.
+**Aceite:** música secreta + main quest de 3 passos jogáveis — atendido.
 
-## Etapa 7 — Escala de conteúdo
+## Etapa 7 — Escala de conteúdo (em andamento)
+
+**Próximo:** segundo mapa jogável com 2 mecânicas (issue #33).
 
 **Entregáveis**
 - Segundo mapa com 2 mecânicas únicas.

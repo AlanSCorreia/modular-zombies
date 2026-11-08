@@ -31,21 +31,21 @@
 | `etapa3` | Etapa 3 — Gameplay | **Concluído** | — |
 | `etapa4` | Etapa 4 — Interações | **Concluído** | — |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | **Concluído** | — |
-| `etapa6` | Etapa 6 — Quests e Easter Eggs | **Em andamento** | Main quest de 3 passos |
-| `etapa7` | Etapa 7 — Escala de conteúdo | Backlog | — |
+| `etapa6` | Etapa 6 — Quests e Easter Eggs | **Concluído** | — |
+| `etapa7` | Etapa 7 — Escala de conteúdo | **Em andamento** | Segundo mapa |
 | `etapa8` | Etapa 8 — Produção | Backlog | — |
 
-> **Status:** Etapas 3, 4 e 5 **concluídas** (issues #1–#15 e #17–#27).
-> Gameplay, apresentação, áudio e ferramentas de mapa prontos. Etapa 6 começa
-> pelo `QuestSystem`; a escala das armas (#16) fica como dívida visual.
+> **Status:** Etapas 3, 4, 5 e 6 **concluídas** (issues #1–#15 e #17–#32).
+> Gameplay, apresentação, ferramentas e quests prontos. Etapa 7 começa pelo
+> segundo mapa; a escala das armas (#16) fica como dívida visual.
 
 ## Próximo item
 
-- **Etapa ativa:** 6 — Quests e Easter Eggs.
+- **Etapa ativa:** 7 — Escala de conteúdo.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** main quest de 3 passos (issue #32).
-- **Depois:** debug overlay e aceite da Etapa 6.
-- **Próxima etapa:** 7 — Escala de conteúdo, após o aceite da Etapa 6.
+- **Próximo:** segundo mapa jogável com 2 mecânicas (issue #33).
+- **Depois:** armas novas, wonder weapon e inimigo especial.
+- **Próxima etapa:** 8 — Produção, após o aceite da Etapa 7.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
 ---
@@ -292,7 +292,7 @@
 - [ ] Debug overlay
 
 ### Ready
-- [ ] Main quest de 3 passos (P0) — [#32](https://github.com/AlanSCorreia/modular-zombies/issues/32)
+- *(vazio)*
 
 ### Doing
 - *(vazio)*
@@ -307,6 +307,7 @@
 - [x] 3 rádios no Bunker 13 + música secreta (issue #29)
 - [x] PowerMechanic: energia, luzes e porta (issue #30)
 - [x] QuestValidator: referências/órfãos/ciclos (issue #31)
+- [x] Main quest de 3 passos (issue #32)
 
 ### Blocked
 - *(vazio)*
@@ -321,13 +322,13 @@
 ### Backlog
 - [ ] Terceiro mapa
 - [ ] Modo co-op
-
-### Ready
-- [ ] Segundo mapa com 2 mecânicas
 - [ ] Duas armas novas
 - [ ] Uma wonder weapon
 - [ ] Um inimigo especial
 - [ ] Teste “sem mudança no núcleo”
+
+### Ready
+- [ ] Segundo mapa com 2 mecânicas (P0) — [#33](https://github.com/AlanSCorreia/modular-zombies/issues/33)
 
 ### Doing
 - *(vazio)*

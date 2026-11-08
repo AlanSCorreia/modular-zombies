@@ -14,6 +14,7 @@ Decisões estruturais longas também viram ADR em `07-adr/`.
 
 | ID | Data | Decisão | Motivo / consequência |
 |---|---|---|---|
+| D-044 | 2026-11-08 | **Etapa 6 aceita:** música secreta (3 rádios), PowerMechanic, QuestValidator e main quest de 3 passos fecham o aceite; debug overlay fica como dívida. Etapa 7 começa pelo segundo mapa. | Prova o framework de quests sem bloquear a escala por ferramentas de debug. |
 | D-043 | 2026-11-08 | **QuestValidator:** valida referências de alvo, rewards, `next`, órfãos e ciclos; o grafo usa `next` explícito ou o próximo índice. | Impede quest quebrada/softlock antes do runtime e prepara branches futuros. |
 | D-042 | 2026-11-08 | **PowerMechanic:** switch data-driven emite `power_on(id)`, acende luzes autoradas e abre a porta configurada sem custo; quest usa o trigger `power`. | Mantém a mecânica no mapa/JSON e evita hardcode de Bunker 13 no núcleo. |
 | D-041 | 2026-11-08 | **Rádios data-driven:** `radios` no mapa viram `RadioState`/área; interação emite o evento padrão, marca uso único e a quest reage sem hardcode. | Mantém quests e interação desacopladas e permite qualquer mapa adicionar rádios. |

@@ -15,6 +15,13 @@ está em
 o início do projeto, em
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 
+## 2026-11-08 — Main quest de 3 passos (issue #32)
+
+- `quest.bunker13_main`: energia → rádio → entrar no setor C, com 1000 pontos.
+- Passos fora de ordem são ignorados; conclusão usa banner/eventos.
+- Teste `MAIN_QUEST_OK` cobre ordem, 3 passos e recompensa.
+- Etapa 6 aceita com tag `etapa6`; próxima é a Etapa 7 (segundo mapa).
+
 ## 2026-11-08 — QuestValidator (issue #31)
 
 - `QuestValidator` valida IDs, triggers, rewards, referências de alvo, `next`
@@ -107,5 +114,5 @@ o início do projeto, em
 - Asset autoral `trap.blend`/GLB; 2 traps no Bunker 13.
 - Teste `TRAP_OK`; Etapa 4 iniciada.
 
-**Próximo item:** main quest de 3 passos (issue #32); depois debug overlay e
-aceite da Etapa 6.
+**Próximo item:** segundo mapa jogável com 2 mecânicas (issue #33); depois
+armas novas, wonder weapon e inimigo especial.

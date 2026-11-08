@@ -2,7 +2,7 @@
 kind: planning
 area: execution
 status: active
-stage: 6
+stage: 7
 owner: docs
 last_reviewed: 2026-11-08
 ---
@@ -153,13 +153,13 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA6.6 | Validador de grafo/softlock (feito, issue #31) | P0 |
 | ETAPA6.7 | Debug overlay | P1 |
 | ETAPA6.8 | Grafo visual (GraphEdit) | P2 |
-| ETAPA6.9 | Main quest de 3 passos (issue #32) | P0 |
+| ETAPA6.9 | Main quest de 3 passos (feito, issue #32) | P0 |
 
 ## Etapa 7 — Escala de conteúdo
 
 | ID | Tarefa | Pri |
 |---|---|---|
-| ETAPA7.1 | Segundo mapa | P0 |
+| ETAPA7.1 | Segundo mapa (issue #33) | P0 |
 | ETAPA7.2 | Duas armas novas | P0 |
 | ETAPA7.3 | Wonder weapon | P1 |
 | ETAPA7.4 | Inimigo especial | P1 |
