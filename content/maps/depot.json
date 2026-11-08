@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "kind": "map",
+  "id": "map.depot",
+  "name": "Depot",
+  "builder": "scene",
+  "scene": "res://assets/models/maps/depot/depot.glb",
+  "player_spawn": [-3.0, 0.1, 0.0],
+  "starting_points": 500,
+  "enemy": "enemy.zombie",
+  "zombie_count": 4,
+  "rooms": [
+    { "id": "A", "rect": [-8, -6, 8, 6], "height": 3.4 },
+    { "id": "B", "rect": [8, -6, 24, 6], "height": 3.4 }
+  ],
+  "doors": [
+    { "id": "door1", "name": "ABRIR", "cost": 500, "room": "B", "position": [8.0, 1.25, 0.0], "size": [0.2, 2.5, 2.6] }
+  ],
+  "zombie_spawns": [
+    { "id": "depot_A1", "position": [-4.0, 0.1, -4.0], "room": "A" },
+    { "id": "depot_B1", "position": [20.0, 0.1, 4.0], "room": "B" }
+  ],
+  "wallbuys": [
+    { "id": "wb_depot", "weapon": "weapon.glock17", "name": "GLOCK 17", "cost": 500, "position": [-7.65, 1.45, 0.0], "rotation_y": 1.5708 }
+  ],
+  "power_switches": [
+    { "id": "power_depot", "room": "A", "position": [-7.6, 1.4, -2.0], "rotation_y": 1.5708, "door": "door1" }
+  ],
+  "radios": [
+    { "id": "radio_depot", "room": "B", "position": [20.0, 0.0, 0.0], "rotation_y": -1.5708, "quest": "quest.depot_signal" }
+  ],
+  "power_lights": [
+    [0.0, 2.8, 0.0],
+    [16.0, 2.8, 0.0]
+  ]
+}

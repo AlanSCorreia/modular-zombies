@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "kind": "quest",
+  "id": "quest.depot_signal",
+  "name": "SINAL DO DEPOT",
+  "type": "main",
+  "requires_coop": false,
+  "repeatable": false,
+  "steps": [
+    { "id": "power", "trigger": "power", "target": "power_depot", "count": 1, "hint": "LIGUE A ENERGIA DO DEPOT" },
+    { "id": "radio", "trigger": "interact", "target": "radio_depot", "count": 1, "hint": "SINTONIZE O RÁDIO DO SETOR B" }
+  ],
+  "rewards": [
+    { "type": "points", "amount": 250 }
+  ]
+}

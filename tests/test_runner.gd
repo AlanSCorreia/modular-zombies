@@ -62,6 +62,8 @@ func _ready() -> void:
 			await _power()
 		"main_quest":
 			await _main_quest()
+		"second_map":
+			await _second_map()
 		"ui":
 			await _ui()
 		"shot":
@@ -883,6 +885,30 @@ func _main_quest() -> void:
 		str(ordered), str(done), str(paid), game.economy.points,
 	])
 	_finish("MAIN_QUEST_OK", ok)
+
+func _second_map() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	var map_ok: bool = game.map.id == "map.depot" and game.ctx.doors.size() == 1 \
+		and game.ctx.wallbuys.size() == 1 and game.ctx.power_switches.size() == 1 \
+		and game.ctx.radios.size() == 1
+	var quest: QuestData = Content.get_quest("quest.depot_signal")
+	var points0 := game.economy.points
+	Events.interacted.emit("power_depot", game.player)
+	await get_tree().create_timer(0.1).timeout
+	var door: DoorState = game.ctx.doors.get("door1", null)
+	var powered: bool = door != null and door.open
+	Events.interacted.emit("radio_depot", game.player)
+	await get_tree().create_timer(0.1).timeout
+	var done: bool = game.quest_system.is_complete(quest.id)
+	var paid := game.economy.points >= points0 + 250
+	var ok: bool = map_ok and powered and done and paid
+	print("SECOND_MAP_TEST map=%s doors=%d wallbuys=%d power=%d radio=%d powered=%s quest=%s" % [
+		game.map.id, game.ctx.doors.size(), game.ctx.wallbuys.size(),
+		game.ctx.power_switches.size(), game.ctx.radios.size(),
+		str(powered), str(done),
+	])
+	_finish("SECOND_MAP_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

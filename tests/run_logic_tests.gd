@@ -25,11 +25,11 @@ func _init() -> void:
 	var main_quest: QuestData = reg.get_quest("quest.bunker13_main")
 
 	check(reg.errors.is_empty(), "conteúdo sem erros")
-	check(reg.maps.size() == 2, "2 mapas carregados")
+	check(reg.maps.size() == 3, "3 mapas carregados")
 	check(reg.weapons.size() == 6, "6 armas carregadas")
 	check(reg.melees.size() == 1, "1 melee carregado")
 	check(reg.explosives.size() == 1, "1 explosivo carregado")
-	check(reg.quests.size() == 3, "3 quests carregadas")
+	check(reg.quests.size() == 4, "4 quests carregadas")
 	check(melee != null, "faca carregada")
 	check(explosive != null, "granada carregada")
 	check(quest != null, "quest carregada")
