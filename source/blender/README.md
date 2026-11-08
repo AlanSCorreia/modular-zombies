@@ -12,6 +12,7 @@ source/blender/
   hands/hands.blend
   scripts/import_glb_to_blend.py
   scripts/make_hands.py
+  scripts/make_knife.py
   scripts/prepare_weapon_hands.py
   scripts/open_windows.py
   scripts/make_overview.py
@@ -52,6 +53,14 @@ blender -b source/blender/weapons/mp5/mp5.blend \
 
 Nenhum GLB de arma deve conter `HandL`/`HandR`; o `ViewmodelFactory` anexa o
 asset compartilhado no `GripSocket` da arma.
+
+A faca segue a mesma convenção e é gerada por:
+
+```bash
+blender -b --python source/blender/scripts/make_knife.py
+```
+
+Ela é anexada ao `HandR` do `hands.glb` (não tem mãos próprias).
 
 Nos mapas, preserve os nomes `Door_<id>`, `WallBuy_<id>`, `Perk_<id>`, `Box`,
 `Lid`, `Barricade_<id>` e `Plank_*`; o runtime depende deles.

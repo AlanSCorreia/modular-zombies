@@ -28,7 +28,7 @@
 |---|---|---|---|
 | `etapa1` | Etapa 1 — Preparação | **Concluído** | — |
 | `etapa2` | Etapa 2 — Conteúdo | **Concluído** | — |
-| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Faca GLB + `knife_slash` |
+| `etapa3` | Etapa 3 — Gameplay | **Em andamento** | Normalizar escala das armas |
 | `etapa4` | Etapa 4 — Interações | Backlog | — |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | Backlog | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | Backlog | — |
@@ -40,15 +40,16 @@
 > `RoundManager`/`Economy`, projectile/melee, `ExplosionSystem`,
 > granada/foguete/barris, `BarricadeSystem`, vãos de janela, IA de zumbi,
 > mãos compartilhadas/`ViewmodelFactory`, auditoria de redundância, organização
-> das docs e pipeline de métricas concluídos (issues #1–#15, #18, #19 e #20
-> fechadas); o foco agora é a faca GLB + `knife_slash` (issue #17).
+> das docs, pipeline de métricas e faca GLB/`knife_slash` concluídos (issues
+> #1–#15 e #17–#20 fechadas); o foco agora é normalizar a escala das armas
+> (issue #16).
 
 ## Próximo item
 
 - **Etapa ativa:** 3 — Gameplay.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** faca GLB + `knife_slash` (issue #17).
-- **Depois:** normalizar escala/origem das armas (issue #16).
+- **Próximo:** normalizar escala/origem das armas (issue #16).
+- **Depois:** rodada 1→2, game over/restart e efeitos.
 - **Próxima etapa:** 4 — Interações, somente após o aceite da Etapa 3.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -153,7 +154,6 @@
 - [ ] `Effects` (sangue, decais, tracers, cápsulas)
 
 ### Ready
-- [ ] Faca GLB + mãos compartilhadas + `knife_slash` (P1) — [#17](https://github.com/AlanSCorreia/modular-zombies/issues/17)
 - [ ] Normalizar escala/origem das armas (P1) — [#16](https://github.com/AlanSCorreia/modular-zombies/issues/16)
 
 ### Doing
@@ -168,6 +168,7 @@
 - [x] Barricadas: hold F, interrupção, pontos e breach (`BARRICADE_OK`)
 - [x] Zumbi arranca tábuas, respeita fila e entra com 0 (`ZOMBIE_BARRICADE_OK`)
 - [x] MP5 ponta a ponta + mãos compartilhadas (`VIEWMODEL_OK`)
+- [x] Faca visual + swing (`KNIFE_OK`)
 - [ ] Rodada 1 → 2 e game over completos
 
 ### Done
@@ -204,6 +205,7 @@
 - [x] Organização das docs: índice, archive e work log (issue #18)
 - [x] Automação/validação das docs: checker, front matter e gates (issue #19)
 - [x] Pipeline de métricas do projeto: histórico + agregados (issue #20)
+- [x] Faca GLB + `knife_slash` + mão compartilhada (issue #17)
 
 ### Blocked
 - *(vazio)*

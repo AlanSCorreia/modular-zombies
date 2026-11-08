@@ -73,23 +73,23 @@ armas hitscan/pellets/projectile + melee controller, `ExplosionSystem` com
 `ExplosiveData`/barris encadeáveis, granada (G), lança-foguete e barris
 autorais com dano por tiro e cadeia, `BarricadeSystem` (hold F, tábuas,
 pontos e HUD de progresso), vãos de janela autorais, IA de zumbi
-(approach/tear/climb/inside com fila por barricada) e mãos compartilhadas
-(`hands.glb`/`GripSocket`/`ViewmodelFactory`), com MP5 ponta a ponta.
+(approach/tear/climb/inside com fila por barricada), mãos compartilhadas
+(`hands.glb`/`GripSocket`/`ViewmodelFactory`) com MP5 ponta a ponta e faca
+autoral com `knife_slash`.
 
 **Pendente**
-- Faca GLB/animação.
 - Normalização de escala/origem das armas (issue #16): AK-74, M870, pistol
   e wunder estão fora de metros.
 - `BoxBuilder` compartilhado.
 - `RoundManager`/economia completos e efeitos.
-- Testes de faca, traps e loop completo.
+- Testes de traps e loop completo.
 
 **Transversal:** auditoria curta de redundância concluída em
 `22-redundancy-audit.md` (issue #15), docs reorganizadas em índice + archive
-(issue #18), validação automatizada com `tools/check_docs.py` (issue #19) e
-pipeline de métricas com snapshot por bloco (issue #20). Próximo item de
-gameplay: faca GLB + `knife_slash`; a normalização de escala das armas segue na
-issue #16.
+(issue #18), validação automatizada com `tools/check_docs.py` (issue #19),
+pipeline de métricas com snapshot por bloco (issue #20) e faca visual com
+`KNIFE_OK` (issue #17). Próximo item: normalização de escala das armas
+(issue #16).
 
 **Pré-requisito atendido:** geometria do mapa autoral (ETAPA3.34–36).
 

@@ -14,6 +14,20 @@ Registro curto da etapa ativa, **mais recente primeiro**. Detalhes históricos
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 Decisões duráveis: [`19-decision-log.md`](19-decision-log.md).
 
+## 2026-11-08 — Faca GLB + `knife_slash` (issue #17)
+
+- `source/blender/weapons/knife/knife.blend` + GLB autoral (cabo, guarda,
+  lâmina e `GripSocket`), sem mãos embutidas.
+- `hands.glb` corrigido para a convenção Blender +Y → frente -Z; dedos e
+  antebraços agora apontam para frente/trás, não para baixo.
+- `ViewmodelFactory.build_melee` anexa a faca ao `HandR`; mão esquerda oculta.
+- `MeleeController` mostra o viewmodel só no golpe, com tween diagonal;
+  dano/raycast continuam no controller.
+- JSON/schema/validador de melee exigem cena, `hands` compartilhado e
+  `grip_profile` conhecido.
+- Teste `KNIFE_OK` cobre asset, anexo, visibilidade do swing e término.
+- Issue #17 fechada; próximo item é a escala das armas (#16).
+
 ## 2026-11-08 — Pipeline de métricas (issue #20)
 
 - `tools/export_history.py`: export somente leitura do SQLite do OpenCode,
@@ -133,5 +147,5 @@ Decisões duráveis: [`19-decision-log.md`](19-decision-log.md).
 - Revisão de base, naming `Etapa N`, `--map`, interações base, Blender LTS e
   regra de assets autorais; issues/milestones no GitHub + `doc-keeper`.
 
-**Próximo item:** faca GLB + `knife_slash` (issue #17); depois normalização de
-escala das armas (issue #16).
+**Próximo item:** normalizar escala/origem das armas (issue #16); depois rodada
+1→2, game over/restart e efeitos.

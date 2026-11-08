@@ -57,9 +57,9 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 > (issue #8), melee/projétil (issue #9), `ExplosionSystem` (issue #10) e
 > granada/foguete/barris (issue #11), `Barricade`/`BarricadeSystem`
 > (issue #12), janelas/IA de zumbi (issue #13), mãos/`ViewmodelFactory`
-> (issue #14), auditoria de redundância (issue #15) e organização das docs
-> (issue #18) concluídas; agora ETAPA3.14 (faca, issue #17) e depois
-> ETAPA3.46 (escala, issue #16).
+> (issue #14), auditoria de redundância (issue #15), organização das docs
+> (issue #18), validação de docs (issue #19), métricas (issue #20) e faca
+> (issue #17) concluídas; agora ETAPA3.46 (escala, issue #16).
 
 | ID | Tarefa | Pri |
 |---|---|---|
@@ -76,7 +76,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.11 | Lança-foguete (`projectile`) (feito) | P0 |
 | ETAPA3.12 | Barris explosivos ao receber tiro (feito) | P0 |
 | ETAPA3.13 | `MeleeController` (V, cooldown, ray) (feito; modelo/arco pendentes) | P0 |
-| ETAPA3.14 | Faca GLB + mãos compartilhadas + animação `knife_slash` (issue #17) | P0 |
+| ETAPA3.14 | Faca GLB + mãos compartilhadas + animação `knife_slash` (issue #17) (feito) | P0 |
 | ETAPA3.17 | `Barricade` + estado das tábuas (feito) | P0 |
 | ETAPA3.18 | `BarricadeSystem` + hold F + pontos (feito) | P0 |
 | ETAPA3.19 | IA de zumbi: arrancar, entrar e fila por janela (feito) | P0 |

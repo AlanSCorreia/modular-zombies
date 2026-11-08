@@ -182,7 +182,7 @@
     {
       "number": 17,
       "title": "Faca GLB + mãos compartilhadas + knife_slash",
-      "state": "OPEN",
+      "state": "CLOSED",
       "labels": [
         "etapa:3",
         "prio:P1",
@@ -204,6 +204,17 @@
     {
       "number": 19,
       "title": "Automação e validação de docs (checker offline + GitHub opcional)",
+      "state": "CLOSED",
+      "labels": [
+        "prio:P1",
+        "area:infra",
+        "area:docs"
+      ],
+      "milestone": ""
+    },
+    {
+      "number": 20,
+      "title": "Pipeline de métricas do projeto (histórico + agregados)",
       "state": "CLOSED",
       "labels": [
         "prio:P1",

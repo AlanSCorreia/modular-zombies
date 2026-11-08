@@ -15,10 +15,11 @@ serviços e ferramentas de autoria.
   (4 salas, 4 portas, 4 wallbuys, 3 perks, caixa, 9 barricadas, 9 spawns).
 - **6 armas em JSON**, loader/validador, testes `BUNKER13_OK`/`CONTENT_OK`.
 - Entregue na Etapa 3: 2 slots, projétil/melee, explosões, granada/foguete/
-  barris, `BarricadeSystem` com hold F, vãos de janela + IA de zumbi e
-  `ViewmodelFactory` com `hands.glb` compartilhado.
-- Pendente: faca visual (`knife_slash`), normalização de escala das armas,
-  rodada 1→2/game over, efeitos e UI/áudio finais.
+  barris, `BarricadeSystem` com hold F, vãos de janela + IA de zumbi,
+  `ViewmodelFactory` com `hands.glb` compartilhado e faca visual com
+  `knife_slash`.
+- Pendente: normalização de escala das armas, rodada 1→2/game over, efeitos e
+  UI/áudio finais.
 - A geometria do mapa é autoral (GLB/`.blend`); builders antigos ficam em
   `src/maps/legacy/` apenas para exportação.
 

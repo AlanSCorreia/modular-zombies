@@ -19,10 +19,10 @@ last_reviewed: 2026-11-08
 - **Etapas 1–2 concluídas**; **Etapa 3 — Gameplay em andamento**.
 - Entregue: geometria autoral, 2 slots, softlock/BFS, `MapContext`/`Interactable`,
   harness, pool/cache, HUD `.tscn`, `Economy`/`RoundManager`, projétil/melee,
-  explosões, granada/foguete/barris, barricadas, janelas + IA de zumbi e mãos
-  compartilhadas/`ViewmodelFactory`.
-- **Próximo:** faca GLB + `knife_slash` (#17); depois normalizar escala das
-  armas (#16).
+  explosões, granada/foguete/barris, barricadas, janelas + IA de zumbi, mãos
+  compartilhadas/`ViewmodelFactory` e faca com `knife_slash`.
+- **Próximo:** normalizar escala das armas (#16).
+- **Depois:** rodada 1→2, game over/restart e efeitos.
 - Gates atuais: ver [`08-testing-strategy.md`](08-testing-strategy.md).
 
 ## Índice

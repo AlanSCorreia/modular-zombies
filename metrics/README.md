@@ -69,3 +69,16 @@ python3 tools/metrics.py
   `#N` dependem do work log.
 - Logs de CI só entram se existirem em `/tmp/opencode/ci_*.log` ou forem
   passados via `--ci-log`.
+
+## Uso ideal (guia para projetos futuros)
+
+1. **Baseline:** rode o snapshot no início e no fim de cada milestone.
+2. **KPIs fixos (4–6):** lead time por issue, tokens/bloco, retrabalho
+   (`fix`/CI vermelho), churn de docs, tempo de CI e gates por entrega.
+3. **Instrumentar desde o dia 1:** banco/sessões, logs de CI e issues; não
+   deixar para o fim.
+4. **Revisão por milestone:** comparar números com o baseline e ajustar o
+   workflow, não só acumular CSV.
+5. **Calibração, não verdade:** tokens ≠ complexidade, linhas ≠ valor e tempo
+   ≠ qualidade. Use junto com retrospectiva qualitativa.
+6. **Amostra:** um projeto é baseline; evite overfittar antes de 2–3 projetos.
