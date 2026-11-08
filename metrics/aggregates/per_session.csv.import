@@ -1,0 +1,19 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://dtxs26fo4t8u"
+
+[deps]
+
+files=["res://metrics/aggregates/per_session.title.translation", "res://metrics/aggregates/per_session.parent.translation", "res://metrics/aggregates/per_session.start.translation", "res://metrics/aggregates/per_session.end.translation", "res://metrics/aggregates/per_session.duration.translation", "res://metrics/aggregates/per_session.messages.translation", "res://metrics/aggregates/per_session.tool.translation", "res://metrics/aggregates/per_session.tokens.translation", "res://metrics/aggregates/per_session.tokens.translation", "res://metrics/aggregates/per_session.tokens.translation", "res://metrics/aggregates/per_session.cache.translation", "res://metrics/aggregates/per_session.cost.translation"]
+
+source_file="res://metrics/aggregates/per_session.csv"
+dest_files=["res://metrics/aggregates/per_session.title.translation", "res://metrics/aggregates/per_session.parent.translation", "res://metrics/aggregates/per_session.start.translation", "res://metrics/aggregates/per_session.end.translation", "res://metrics/aggregates/per_session.duration.translation", "res://metrics/aggregates/per_session.messages.translation", "res://metrics/aggregates/per_session.tool.translation", "res://metrics/aggregates/per_session.tokens.translation", "res://metrics/aggregates/per_session.tokens.translation", "res://metrics/aggregates/per_session.tokens.translation", "res://metrics/aggregates/per_session.cache.translation", "res://metrics/aggregates/per_session.cost.translation"]
+
+[params]
+
+compress=1
+delimiter=0
+unescape_keys=false
+unescape_translations=true

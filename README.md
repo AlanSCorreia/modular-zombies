@@ -84,6 +84,8 @@ source/blender/ .blend e scripts (fora do import do Godot)
   `docs/planning/20-work-log.md`.
 - Validação das docs: `python3 tools/check_docs.py` (offline) ou
   `--with-github`; o CI roda `DOCS_OK`.
+- Métricas: `./tools/metrics_snapshot.sh`; raw em `metrics/raw/` (privado),
+  agregados em `metrics/aggregates/`. Ver `metrics/README.md`.
 - O subagente `doc-keeper` mantém a sincronização.
 
 ## Executar

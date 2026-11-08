@@ -46,5 +46,7 @@
 - **Não perguntar "qual o próximo passo"**: decida pelos arquivos.
 - Toda decisão estrutural nova vai para `19-decision-log.md`; todo avanço
   relevante vai para `20-work-log.md`.
+- No fim de cada bloco, rode `./tools/metrics_snapshot.sh` (raw privado em
+  `metrics/raw/`, agregados em `metrics/aggregates/`).
 - Se surgir etapa ou task nova, atualize `06-backlog.md`, `KANBAN.md` e
   `05-roadmap.md` antes de executar.

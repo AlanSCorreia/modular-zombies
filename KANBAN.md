@@ -39,9 +39,9 @@
 > `MapContext`/`Interactable`, harness, pool/cache, HUD em `.tscn`,
 > `RoundManager`/`Economy`, projectile/melee, `ExplosionSystem`,
 > granada/foguete/barris, `BarricadeSystem`, vãos de janela, IA de zumbi,
-> mãos compartilhadas/`ViewmodelFactory`, auditoria de redundância e organização
-> das docs concluídos (issues #1–#15, #18 e #19 fechadas); o foco agora é a faca
-> GLB + `knife_slash` (issue #17).
+> mãos compartilhadas/`ViewmodelFactory`, auditoria de redundância, organização
+> das docs e pipeline de métricas concluídos (issues #1–#15, #18, #19 e #20
+> fechadas); o foco agora é a faca GLB + `knife_slash` (issue #17).
 
 ## Próximo item
 
@@ -203,6 +203,7 @@
 - [x] Auditoria curta de redundância (`22-redundancy-audit.md`, issue #15)
 - [x] Organização das docs: índice, archive e work log (issue #18)
 - [x] Automação/validação das docs: checker, front matter e gates (issue #19)
+- [x] Pipeline de métricas do projeto: histórico + agregados (issue #20)
 
 ### Blocked
 - *(vazio)*

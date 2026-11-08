@@ -14,6 +14,19 @@ Registro curto da etapa ativa, **mais recente primeiro**. Detalhes históricos
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 Decisões duráveis: [`19-decision-log.md`](19-decision-log.md).
 
+## 2026-11-08 — Pipeline de métricas (issue #20)
+
+- `tools/export_history.py`: export somente leitura do SQLite do OpenCode,
+  filtrando o projeto; sessões, mensagens, tool calls, tokens, commits, issues
+  e logs de CI.
+- `metrics/raw/` é privado e ignorado; `tools/metrics.py` gera
+  `summary.json`, `per_session.csv`, `per_day.csv` e `per_issue.csv`.
+- `tools/metrics_snapshot.sh` roda export + agregação; `AGENTS.md` e
+  `doc-keeper` exigem o snapshot no fim de cada bloco.
+- Baseline atual: 12 sessões, 1.847 mensagens, 2.257 tool calls, 61 commits,
+  19 issues; tokens e gates registrados.
+- Issue #20 fechada.
+
 ## 2026-11-08 — Automação/validação de docs (issue #19)
 
 - Front matter obrigatório (`kind/area/status/stage/owner/last_reviewed`) em

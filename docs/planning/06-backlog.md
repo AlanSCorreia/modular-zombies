@@ -187,3 +187,4 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | AUD.1 | Auditoria curta de redundância (docs, CI, código e execução) — issue #15 (feito) | P2 |
 | DOC.1 | Organização das docs: índice, archive e work log — issue #18 (feito) | P1 |
 | DOC.2 | Automação/validação das docs (checker + GitHub opcional) — issue #19 (feito) | P1 |
+| MET.1 | Pipeline de métricas: export + agregados + snapshot por bloco — issue #20 (feito) | P1 |

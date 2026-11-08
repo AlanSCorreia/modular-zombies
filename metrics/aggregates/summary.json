@@ -1,0 +1,64 @@
+{
+  "generated_at": "2026-11-08T11:31:42.340805+00:00",
+  "sessions": 12,
+  "messages": 1862,
+  "tool_calls": 2277,
+  "commits": 61,
+  "issues": {
+    "total": 20,
+    "open": 2,
+    "closed": 18
+  },
+  "tokens": {
+    "input": 6699013,
+    "output": 633055,
+    "reasoning": 926666,
+    "cache_read": 542124800,
+    "cache_write": 0
+  },
+  "tools": {
+    "shell": 1035,
+    "edit": 652,
+    "read": 309,
+    "write": 181,
+    "grep": 51,
+    "glob": 22,
+    "subagent": 11,
+    "websearch": 7,
+    "webfetch": 5,
+    "execute": 2,
+    "skill": 1,
+    "question": 1
+  },
+  "tool_status": {
+    "completed": 2234,
+    "error": 42,
+    "running": 1
+  },
+  "ci": {
+    "logs": 4,
+    "gate_counts": {
+      "BARREL_OK": 4,
+      "BARRICADE_OK": 4,
+      "BUNKER13_OK": 4,
+      "CI_OK": 4,
+      "CONTENT_OK": 4,
+      "DOCS_OK": 4,
+      "EXPLOSION_OK": 4,
+      "GRENADE_OK": 4,
+      "INTERACT_OK": 4,
+      "LOGIC_OK": 4,
+      "MAP_OK": 4,
+      "MELEE_OK": 4,
+      "PAUSE_OK": 4,
+      "PROJECTILE_OK": 4,
+      "ROCKET_OK": 4,
+      "SLICE_OK": 4,
+      "SLOTS_OK": 4,
+      "SOFTLOCK_OK": 4,
+      "VIEWMODEL_OK": 4,
+      "ZOMBIE_BARRICADE_OK": 4
+    },
+    "failures": 0
+  }
+}

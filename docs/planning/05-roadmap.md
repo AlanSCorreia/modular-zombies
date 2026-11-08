@@ -86,9 +86,10 @@ pontos e HUD de progresso), vãos de janela autorais, IA de zumbi
 
 **Transversal:** auditoria curta de redundância concluída em
 `22-redundancy-audit.md` (issue #15), docs reorganizadas em índice + archive
-(issue #18) e validação automatizada com `tools/check_docs.py` (issue #19).
-Próximo item de gameplay: faca GLB + `knife_slash`; a normalização de escala
-das armas segue na issue #16.
+(issue #18), validação automatizada com `tools/check_docs.py` (issue #19) e
+pipeline de métricas com snapshot por bloco (issue #20). Próximo item de
+gameplay: faca GLB + `knife_slash`; a normalização de escala das armas segue na
+issue #16.
 
 **Pré-requisito atendido:** geometria do mapa autoral (ETAPA3.34–36).
 

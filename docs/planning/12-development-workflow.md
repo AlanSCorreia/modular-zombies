@@ -47,6 +47,9 @@ O CI deve bloquear qualquer mudança com conteúdo inválido ou teste vermelho.
   token tiver escopo `workflow`).
 - Prosa, decisões e work log continuam manuais; o script valida estrutura,
   links e consistência.
+- Métricas: `./tools/metrics_snapshot.sh` no fim do bloco. Raw privado em
+  `metrics/raw/` (ignorado); agregados em `metrics/aggregates/`. Detalhes em
+  `metrics/README.md`.
 
 ## Regra do vertical slice
 
