@@ -14,6 +14,15 @@ Registro curto da etapa ativa, **mais recente primeiro**. Etapas 4–7 estão em
 Etapa 3 em
 [`archive/20-work-log-2026-11-etapa3.md`](archive/20-work-log-2026-11-etapa3.md).
 
+## 2026-11-08 — Settings (issue #38)
+
+- `GameSettings` persistido em `user://settings.cfg`: sensibilidade, volume
+  master/música e qualidade (baixa/média/alta).
+- Player usa sensibilidade; Sfx aplica volumes; viewport aplica FSR/escala.
+- Pause ganhou sliders de música/sensibilidade e seletor de qualidade.
+- Teste `SETTINGS_OK` cobre round-trip, clamps, áudio e qualidade.
+- Próximo: exportação Linux (#39).
+
 ## 2026-11-08 — Save/load versionado (issue #37)
 
 - `SaveGame` versionado em `user://savegame.json`.
@@ -23,5 +32,5 @@ Etapa 3 em
 - Teste `SAVE_OK` cobre round-trip, armas/munição e versão incompatível.
 - Próximo: settings (#38).
 
-**Próximo item:** settings — sensibilidade, volume e qualidade (issue #38);
-depois exportação e performance.
+**Próximo item:** exportação Linux + smoke test (issue #39); depois pools/
+navmesh, CI e soak test.

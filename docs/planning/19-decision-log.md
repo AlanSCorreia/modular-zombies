@@ -14,6 +14,7 @@ Decisões estruturais longas também viram ADR em `07-adr/`.
 
 | ID | Data | Decisão | Motivo / consequência |
 |---|---|---|---|
+| D-050 | 2026-11-08 | **Settings centralizados:** `GameSettings` estático persiste sensibilidade/volumes/qualidade; player, Sfx e viewport aplicam; HUD usa sliders no pause. | Evita duplicar configurações em áudio/input/vídeo e mantém defaults seguros. |
 | D-049 | 2026-11-08 | **Save versionado:** JSON `version:1` salva economia, vida, armas, perks, barricadas, energia, rodada e quests; carga rejeita versão/mapa incompatível e restaura o meta-estado. | Cobre produção sem tentar serializar zumbis/vivo; o estado de combate reinicia com a rodada. |
 | D-048 | 2026-11-08 | **Etapa 7 aceita:** segundo mapa, armas novas, wonder weapon, inimigo especial data-driven e `NO_CORE_OK`; `starting_weapon` passou para o mapa. Etapa 8 começa por save/load. | Fecha a prova de escala sem dívida de IDs no núcleo. |
 | D-047 | 2026-11-08 | **Wonder weapon por dados:** Ray Gun usa `projectile`/`explosive` existentes e entra na caixa sem `if weapon_id`; o asset tem sockets e shared hands. | Prova que armas especiais não exigem um novo caminho de código. |

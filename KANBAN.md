@@ -33,7 +33,7 @@
 | `etapa5` | Etapa 5 — Ferramentas de mapa | **Concluído** | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | **Concluído** | — |
 | `etapa7` | Etapa 7 — Escala de conteúdo | **Concluído** | — |
-| `etapa8` | Etapa 8 — Produção | **Em andamento** | Settings |
+| `etapa8` | Etapa 8 — Produção | **Em andamento** | Exportação Linux |
 
 > **Status:** Etapas 3–7 **concluídas** (issues #1–#15 e #17–#36).
 > Gameplay, apresentação, ferramentas, quests e escala de conteúdo prontos.
@@ -43,8 +43,8 @@
 
 - **Etapa ativa:** 8 — Produção.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** settings — sensibilidade, volume e qualidade (issue #38).
-- **Depois:** exportação Linux, pools/navmesh e performance.
+- **Próximo:** exportação Linux + smoke test (issue #39).
+- **Depois:** pools/navmesh, CI e soak test.
 - **Última etapa:** 8 — Produção, após o aceite da Etapa 7.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -339,6 +339,7 @@
 
 ### Done
 - [x] Save/load versionado da run (issue #37)
+- [x] Settings de sensibilidade/volume/qualidade (issue #38)
 
 ### Blocked
 - *(vazio)*
@@ -354,20 +355,20 @@
 - [ ] Localização
 - [ ] Suporte a controle
 - [ ] Mods
-- [ ] Exportação Linux + smoke test
 - [ ] Pool de áudio/efeitos
 - [ ] Navmesh pré-bakeada
 - [ ] CI (testes + validador)
 - [ ] Soak test 30 min
 
 ### Ready
-- [ ] Settings — sensibilidade, volume e qualidade (P0) — [#38](https://github.com/AlanSCorreia/modular-zombies/issues/38)
+- [ ] Exportação Linux + smoke test (P0) — [#39](https://github.com/AlanSCorreia/modular-zombies/issues/39)
 
 ### Doing
 - *(vazio)*
 
 ### Review/Test
 - [x] Save/load round-trip (`SAVE_OK`)
+- [x] Settings round-trip (`SETTINGS_OK`)
 - [ ] Build abre e joga
 - [ ] Performance medida
 - [ ] Auditoria de licenças/assets

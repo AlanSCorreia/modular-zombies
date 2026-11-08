@@ -170,8 +170,8 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ID | Tarefa | Pri |
 |---|---|---|
 | ETAPA8.1 | Save/load versionado (feito, issue #37) | P0 |
-| ETAPA8.2 | Settings (issue #38) | P1 |
-| ETAPA8.3 | Exportação Linux + smoke | P0 |
+| ETAPA8.2 | Settings (feito, issue #38) | P1 |
+| ETAPA8.3 | Exportação Linux + smoke (issue #39) | P0 |
 | ETAPA8.4 | Pool de áudio/efeitos | P1 |
 | ETAPA8.5 | Navmesh pré-bakeada | P1 |
 | ETAPA8.6 | CI + validador | P0 |
