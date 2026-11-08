@@ -70,6 +70,8 @@ func _ready() -> void:
 			await _wonder()
 		"enemy":
 			await _enemy()
+		"save":
+			await _save()
 		"ui":
 			await _ui()
 		"shot":
@@ -1026,6 +1028,59 @@ func _enemy() -> void:
 		brute.health,
 	])
 	_finish("ENEMY_OK", ok)
+
+func _save() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	game.round.stop()
+	game.economy.set_points(1234)
+	game.player.health = 77.0
+	game.player.grenades = 1
+	game.player.add_weapon(Content.get_weapon("weapon.sks"))
+	await get_tree().process_frame
+	var wc: WeaponController = game.player.weapon
+	wc.ammo_mag = 5
+	wc.ammo_reserve = 20
+	var bar: BarricadeState = game.ctx.barricades.get("bar_A1", null)
+	if bar != null:
+		bar.set_plank_count(3)
+
+	var save := SaveGame.new()
+	var path := "user://test_save.json"
+	var saved := save.save_game(game, path)
+	game.economy.set_points(1)
+	game.player.health = 100.0
+	game.player.grenades = 2
+	wc.ammo_mag = 0
+	wc.ammo_reserve = 0
+	if bar != null:
+		bar.set_plank_count(bar.data.max_planks)
+	var loaded := save.load_game(game, path)
+	var restored_weapon: WeaponController = game.player.weapon
+	var ok_roundtrip: bool = saved and loaded \
+		and game.economy.points == 1234 \
+		and game.player.health == 77.0 \
+		and game.player.grenades == 1 \
+		and bar != null and bar.plank_count == 3 \
+		and restored_weapon != null \
+		and restored_weapon.data.id == "weapon.sks" \
+		and restored_weapon.ammo_mag == 5 \
+		and restored_weapon.ammo_reserve == 20
+
+	var bad_path := "user://test_bad_save.json"
+	var f := FileAccess.open(bad_path, FileAccess.WRITE)
+	f.store_string('{"version": 999}\n')
+	f.close()
+	var points_before := game.economy.points
+	var bad := not save.load_game(game, bad_path) \
+		and game.economy.points == points_before
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+	DirAccess.remove_absolute(ProjectSettings.globalize_path(bad_path))
+	var ok := ok_roundtrip and bad
+	print("SAVE_TEST saved=%s loaded=%s roundtrip=%s version_guard=%s" % [
+		str(saved), str(loaded), str(ok_roundtrip), str(bad),
+	])
+	_finish("SAVE_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

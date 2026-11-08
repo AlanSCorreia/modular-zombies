@@ -93,6 +93,27 @@ func notify_enter_area(area_id: String) -> void:
 func notify_collect(item_id: String) -> void:
 	notify("collect", item_id)
 
+func snapshot() -> Dictionary:
+	var out := {}
+	for quest_id in _states:
+		var state: Dictionary = _states[quest_id]
+		out[quest_id] = {
+			"index": int(state.get("index", 0)),
+			"counts": state.get("counts", {}).duplicate(),
+			"done": bool(state.get("done", false)),
+		}
+	return out
+
+func restore(data: Dictionary) -> void:
+	for quest_id in _states:
+		if not data.has(quest_id):
+			continue
+		var saved: Dictionary = data[quest_id]
+		var state: Dictionary = _states[quest_id]
+		state["index"] = int(saved.get("index", 0))
+		state["counts"] = saved.get("counts", {}).duplicate()
+		state["done"] = bool(saved.get("done", false))
+
 func _grant_rewards(quest: QuestData) -> void:
 	for reward in quest.rewards:
 		reward_granted.emit(reward.type, reward.id, reward.amount)

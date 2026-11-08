@@ -357,6 +357,28 @@ func _restart() -> void:
 	get_tree().reload_current_scene()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventKey and event.pressed and not event.echo:
+		if started and player != null and not player.is_dead:
+			if event.keycode == KEY_F5:
+				_save_game()
+				return
+			if event.keycode == KEY_F9:
+				_load_game()
+				return
 	if round != null and round.is_complete() and event is InputEventKey \
 		and event.pressed and event.keycode == KEY_R:
 		_restart()
+
+func _save_game() -> void:
+	var save := SaveGame.new()
+	if save.save_game(self):
+		Events.banner.emit("JOGO SALVO", "F9 PARA CARREGAR", 1.6)
+	else:
+		Events.banner.emit("FALHA AO SALVAR", save.last_error, 2.0)
+
+func _load_game() -> void:
+	var save := SaveGame.new()
+	if save.load_game(self):
+		Events.banner.emit("JOGO CARREGADO", "F5 PARA SALVAR", 1.6)
+	else:
+		Events.banner.emit("FALHA AO CARREGAR", save.last_error, 2.0)
