@@ -40,8 +40,8 @@
 > `RoundManager`/`Economy`, projectile/melee, `ExplosionSystem`,
 > granada/foguete/barris, `BarricadeSystem`, vãos de janela, IA de zumbi,
 > mãos compartilhadas/`ViewmodelFactory`, auditoria de redundância e organização
-> das docs concluídos (issues #1–#15 e #18 fechadas); o foco agora é a faca GLB
-> + `knife_slash` (issue #17).
+> das docs concluídos (issues #1–#15, #18 e #19 fechadas); o foco agora é a faca
+> GLB + `knife_slash` (issue #17).
 
 ## Próximo item
 
@@ -142,10 +142,6 @@
 ### Backlog
 - [ ] Perk “Gatilho Duplo” com definição
 - [ ] Estatísticas de sessão
-
-### Ready
-- [ ] Faca GLB + mãos compartilhadas + `knife_slash` (P1) — [#17](https://github.com/AlanSCorreia/modular-zombies/issues/17)
-- [ ] Normalizar escala/origem das armas (P1) — [#16](https://github.com/AlanSCorreia/modular-zombies/issues/16)
 - [ ] Teste visual do Bunker 13
 - [ ] JSON de traps explosivas
 - [ ] Corrigir teste de integração (morte, kill, porta, reload)
@@ -155,6 +151,10 @@
 - [ ] `RoundManager` (estado, spawn, escalonamento)
 - [ ] `Economy` (pontos, compra, bônus)
 - [ ] `Effects` (sangue, decais, tracers, cápsulas)
+
+### Ready
+- [ ] Faca GLB + mãos compartilhadas + `knife_slash` (P1) — [#17](https://github.com/AlanSCorreia/modular-zombies/issues/17)
+- [ ] Normalizar escala/origem das armas (P1) — [#16](https://github.com/AlanSCorreia/modular-zombies/issues/16)
 
 ### Doing
 - *(vazio)*
@@ -202,6 +202,7 @@
 - [x] `hands.glb` compartilhado + `GripSocket` + `ViewmodelFactory` (issue #14)
 - [x] Auditoria curta de redundância (`22-redundancy-audit.md`, issue #15)
 - [x] Organização das docs: índice, archive e work log (issue #18)
+- [x] Automação/validação das docs: checker, front matter e gates (issue #19)
 
 ### Blocked
 - *(vazio)*

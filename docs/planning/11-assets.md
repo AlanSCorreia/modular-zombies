@@ -1,3 +1,12 @@
+---
+kind: reference
+area: content
+status: active
+stage: 3
+owner: assets
+last_reviewed: 2026-11-08
+---
+
 # Organização de assets
 
 ## Princípio

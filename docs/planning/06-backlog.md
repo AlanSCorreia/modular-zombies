@@ -1,3 +1,12 @@
+---
+kind: planning
+area: execution
+status: active
+stage: 3
+owner: docs
+last_reviewed: 2026-11-08
+---
+
 # Backlog — v2
 
 Legenda: **P0** bloqueante, **P1** próxima entrega, **P2** depois.  
@@ -98,7 +107,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.44 | `RoundManager`/`Economy` fora do `GameRoot` (feito) | P1 |
 | ETAPA3.45 | InputMap + validação de áudio/partes no validador | P2 |
 | ETAPA3.46 | Normalizar escala/origem das armas (issue #16) | P1 |
-| ETAPA3.46 | Bench com draw calls/frame time e baseline atualizado | P2 |
+| ETAPA3.47 | Bench com draw calls/frame time e baseline atualizado | P2 |
 | ETAPA3.15 | Testes de explosivos e faca | P0 |
 | ETAPA3.16 | Teste integrado do loop | P0 |
 
@@ -177,3 +186,4 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 |---|---|---|
 | AUD.1 | Auditoria curta de redundância (docs, CI, código e execução) — issue #15 (feito) | P2 |
 | DOC.1 | Organização das docs: índice, archive e work log — issue #18 (feito) | P1 |
+| DOC.2 | Automação/validação das docs (checker + GitHub opcional) — issue #19 (feito) | P1 |

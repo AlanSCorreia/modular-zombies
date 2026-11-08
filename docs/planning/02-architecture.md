@@ -1,3 +1,12 @@
+---
+kind: reference
+area: vision
+status: active
+stage: 3
+owner: gameplay
+last_reviewed: 2026-11-08
+---
+
 # Arquitetura — v2
 
 ## Contexto

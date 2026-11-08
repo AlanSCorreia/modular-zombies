@@ -58,6 +58,8 @@ Antes de escrever:
 - Veja `git status`, `git diff`, `git log --oneline -10` e as issues abertas
   (`gh issue list --state open`).
 - Rode `./tests/ci.sh` se houver mudança de código; registre o resultado.
+- Rode `python3 tools/check_docs.py`; use `--write` só para índice/gates e
+  `--with-github` quando houver rede. Corrija estrutura, não invente prosa.
 
 Faça:
 1. Atualize `20-work-log.md` com o bloco no topo (mais recente primeiro). Ao

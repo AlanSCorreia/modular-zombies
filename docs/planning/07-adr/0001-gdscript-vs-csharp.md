@@ -1,3 +1,12 @@
+---
+kind: reference
+area: vision
+status: reference
+stage: 1
+owner: docs
+last_reviewed: 2026-11-08
+---
+
 # ADR 0001 — GDScript vs C#
 
 ## Contexto

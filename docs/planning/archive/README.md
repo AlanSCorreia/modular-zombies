@@ -1,3 +1,12 @@
+---
+kind: archive
+area: history
+status: archive
+stage: 0
+owner: docs
+last_reviewed: 2026-11-08
+---
+
 # Arquivo de planejamento
 
 Documentos históricos mantidos para rastreabilidade. **Não são fonte de

@@ -1,3 +1,12 @@
+---
+kind: reference
+area: execution
+status: active
+stage: 3
+owner: infra
+last_reviewed: 2026-11-08
+---
+
 # Agentes de desenvolvimento
 
 ## Decisão

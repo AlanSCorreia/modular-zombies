@@ -1,0 +1,216 @@
+{
+  "generated_at": "2026-11-08",
+  "issues": [
+    {
+      "number": 1,
+      "title": "Migrar geometria do mapa para cena autoral (GLB/.tscn)",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:3",
+        "prio:P0",
+        "area:assets"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 2,
+      "title": "WeaponController com 2 slots",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:3",
+        "prio:P0",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 3,
+      "title": "Corrigir softlock do Bunker 13 e spawns inalcançáveis",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:3",
+        "prio:P0",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 4,
+      "title": "Tipar MapContext e Interactable",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:3",
+        "prio:P0",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 5,
+      "title": "Extrair harness de GameRoot para tests/",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:3",
+        "prio:P1",
+        "area:infra"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 6,
+      "title": "Pool/cache de tracers, áudio e animações",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:3",
+        "prio:P1",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 7,
+      "title": "Mover HUD para .tscn",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:3",
+        "prio:P1",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 8,
+      "title": "Extrair RoundManager e Economy do GameRoot",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:3",
+        "prio:P1",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 9,
+      "title": "WeaponController projectile/melee",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:3",
+        "prio:P1",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 10,
+      "title": "ExplosionSystem",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:3",
+        "prio:P1",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 11,
+      "title": "Granada, lança-foguete e barris explosivos",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:3",
+        "prio:P1",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 12,
+      "title": "Barricade + BarricadeSystem (hold F, tábuas e pontos)",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:3",
+        "prio:P0",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 13,
+      "title": "IA de zumbi em barricadas (arranque, fila e entrada)",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:3",
+        "prio:P0",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 14,
+      "title": "Mãos compartilhadas + ViewmodelFactory (GripSocket)",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:3",
+        "prio:P0",
+        "area:assets",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 15,
+      "title": "Auditoria curta de redundância (docs, CI, código e execução)",
+      "state": "CLOSED",
+      "labels": [
+        "prio:P2",
+        "area:infra",
+        "area:docs"
+      ],
+      "milestone": ""
+    },
+    {
+      "number": 16,
+      "title": "Normalizar escala e origem das armas",
+      "state": "OPEN",
+      "labels": [
+        "etapa:3",
+        "prio:P1",
+        "area:assets",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 17,
+      "title": "Faca GLB + mãos compartilhadas + knife_slash",
+      "state": "OPEN",
+      "labels": [
+        "etapa:3",
+        "prio:P1",
+        "area:assets",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 3 — Gameplay"
+    },
+    {
+      "number": 18,
+      "title": "Organizar docs: índice, arquivo e work log",
+      "state": "CLOSED",
+      "labels": [
+        "prio:P1",
+        "area:docs"
+      ],
+      "milestone": ""
+    },
+    {
+      "number": 19,
+      "title": "Automação e validação de docs (checker offline + GitHub opcional)",
+      "state": "CLOSED",
+      "labels": [
+        "prio:P1",
+        "area:infra",
+        "area:docs"
+      ],
+      "milestone": ""
+    }
+  ]
+}

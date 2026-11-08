@@ -1,3 +1,12 @@
+---
+kind: reference
+area: execution
+status: active
+stage: 3
+owner: infra
+last_reviewed: 2026-11-08
+---
+
 # Estratégia de testes — v2
 
 ## Pirâmide
@@ -40,10 +49,11 @@
 ./run.sh res://tests/test_runner.tscn -- --case smoke --map map.bunker13
 ```
 
-**Estado atual:** `LOGIC_OK`, `CONTENT_OK`, `BUNKER13_OK`, `MAP_OK`,
-`SOFTLOCK_OK`, `PAUSE_OK`, `INTERACT_OK`, `SLOTS_OK`, `MELEE_OK`,
-`PROJECTILE_OK`, `EXPLOSION_OK`, `GRENADE_OK`, `ROCKET_OK`, `BARREL_OK`,
-`BARRICADE_OK`, `ZOMBIE_BARRICADE_OK`, `VIEWMODEL_OK`, `SLICE_OK`.
+**Estado atual:**
+<!-- GATES:START -->
+`BARREL_OK`, `BARRICADE_OK`, `BUNKER13_OK`, `CI_OK`, `CONTENT_OK`, `DOCS_OK`, `EXPLOSION_OK`, `GRENADE_OK`, `INTERACT_OK`, `LOGIC_OK`, `MAP_OK`, `MELEE_OK`, `PAUSE_OK`, `PROJECTILE_OK`, `ROCKET_OK`, `SLICE_OK`, `SLOTS_OK`, `SOFTLOCK_OK`, `VIEWMODEL_OK`, `ZOMBIE_BARRICADE_OK`
+
+<!-- GATES:END -->
 **Bench (2026-11-06):** ~60 FPS, 16,6 ms, 83 draw calls, 67 MB (vsync/foco).
 
 ## Testes de geometria

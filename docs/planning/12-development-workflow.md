@@ -1,3 +1,12 @@
+---
+kind: planning
+area: execution
+status: active
+stage: 3
+owner: docs
+last_reviewed: 2026-11-08
+---
+
 # Workflow de desenvolvimento
 
 ## Git
@@ -19,11 +28,25 @@ Subagentes do OpenCode com escopo fechado ficam em `.opencode/agents/`:
 ## CI local
 
 ```bash
-./tests/ci.sh     # import + lógica + conteúdo + integração
+./tests/ci.sh     # docs + import + lógica + conteúdo + integração
 ./tests/bench.sh  # FPS/frame/draw calls/memória
 ```
 
 O CI deve bloquear qualquer mudança com conteúdo inválido ou teste vermelho.
+
+## Docs
+
+- Todo `.md` em `docs/planning/` tem front matter (`kind`, `area`, `status`,
+  `stage`, `owner`, `last_reviewed`).
+- Validação offline: `python3 tools/check_docs.py`.
+- Regenerar índice/gates: `python3 tools/check_docs.py --write`.
+- GitHub opcional: `python3 tools/check_docs.py --with-github`.
+- Atualizar cache offline: `--with-github --write-cache`.
+- O CI roda o checker offline; o workflow de GitHub é o template
+  `tools/github-docs.yml` (copie para `.github/workflows/docs.yml` quando o
+  token tiver escopo `workflow`).
+- Prosa, decisões e work log continuam manuais; o script valida estrutura,
+  links e consistência.
 
 ## Regra do vertical slice
 

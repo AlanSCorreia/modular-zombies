@@ -1,3 +1,12 @@
+---
+kind: planning
+area: vision
+status: reference
+stage: 1
+owner: docs
+last_reviewed: 2026-11-08
+---
+
 # Visão de produto — v2
 
 ## Objetivo

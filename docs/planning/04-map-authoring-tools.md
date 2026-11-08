@@ -1,3 +1,12 @@
+---
+kind: reference
+area: content
+status: reference
+stage: 5
+owner: infra
+last_reviewed: 2026-11-08
+---
+
 # Ferramentas de autoria de mapas
 
 ## Estado na v2

@@ -1,3 +1,12 @@
+---
+kind: reference
+area: content
+status: reference
+stage: 6
+owner: gameplay
+last_reviewed: 2026-11-08
+---
+
 # Easter Eggs e mecânicas por mapa
 
 ## Pesquisa consolidada

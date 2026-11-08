@@ -1,0 +1,24 @@
+# Template do workflow de docs. Copie para .github/workflows/docs.yml
+# quando o token tiver escopo `workflow` (ou configure via UI do GitHub).
+name: docs
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+  issues: read
+
+jobs:
+  docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validar docs (offline + GitHub)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/check_docs.py --with-github

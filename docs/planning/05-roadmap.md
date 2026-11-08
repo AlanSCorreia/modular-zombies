@@ -1,3 +1,12 @@
+---
+kind: planning
+area: execution
+status: active
+stage: 3
+owner: docs
+last_reviewed: 2026-11-08
+---
+
 # Roadmap — v2
 
 **Estratégia:** reescrever o runtime; a v1 fica arquivada apenas como histórico.
@@ -76,9 +85,10 @@ pontos e HUD de progresso), vãos de janela autorais, IA de zumbi
 - Testes de faca, traps e loop completo.
 
 **Transversal:** auditoria curta de redundância concluída em
-`22-redundancy-audit.md` (issue #15) e docs reorganizadas em índice + archive
-(issue #18). Próximo item de gameplay: faca GLB + `knife_slash`; a normalização
-de escala das armas segue na issue #16.
+`22-redundancy-audit.md` (issue #15), docs reorganizadas em índice + archive
+(issue #18) e validação automatizada com `tools/check_docs.py` (issue #19).
+Próximo item de gameplay: faca GLB + `knife_slash`; a normalização de escala
+das armas segue na issue #16.
 
 **Pré-requisito atendido:** geometria do mapa autoral (ETAPA3.34–36).
 

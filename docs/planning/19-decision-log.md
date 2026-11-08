@@ -1,3 +1,12 @@
+---
+kind: log
+area: execution
+status: active
+stage: 3
+owner: docs
+last_reviewed: 2026-11-08
+---
+
 # Log de decisões
 
 Registro durável de decisões que afetam arquitetura, escopo e pipeline.
@@ -5,6 +14,7 @@ Decisões estruturais longas também viram ADR em `07-adr/`.
 
 | ID | Data | Decisão | Motivo / consequência |
 |---|---|---|---|
+| D-030 | 2026-11-08 | **Validação de docs em CI:** front matter obrigatório, `tools/check_docs.py` offline (links, índice, gates, KANBAN, work log, decisões, backlog), `--write` para blocos gerados e `--with-github` opcional com cache versionado. | Torna a consistência verificável sem acoplar o build ao GitHub; o cache cobre agentes offline. |
 | D-029 | 2026-11-08 | **Taxonomia das docs:** `docs/planning/README.md` é índice; revisões históricas e log detalhado vão para `archive/`; `20-work-log.md` fica curto, mais recente primeiro e rotaciona por etapa; status continua em KANBAN + issues. | Reduz navegação e duplicação sem perder rastreabilidade. |
 | D-028 | 2026-11-07 | **Política após auditoria de redundância:** KANBAN + issues são a fonte de status; roadmap/backlog não devem repetir “feito” além do necessário. CI oficial mantém gates isolados; suíte agrupada é opcional para uso local. Builders legados só saem quando a regeneração de mapas não precisar mais deles. | Reduz sincronização manual sem sacrificar diagnóstico por gate nem ferramenta de export. |
 | D-027 | 2026-11-07 | **Mãos compartilhadas via factory:** um único `assets/models/hands/hands.glb` (`GripSocket`/`HandL`/`HandR`); `ViewmodelFactory` instancia arma + mãos e usa o `GripSocket` da arma ou o offset do `grip_profile`; validador exige `hands` compartilhado e perfil conhecido. | Cumpre a regra de um único asset de mãos, remove mãos embutidas da Glock e destrava MP5/faca sem duplicar modelos. |

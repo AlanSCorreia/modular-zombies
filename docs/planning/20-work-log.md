@@ -1,9 +1,32 @@
+---
+kind: log
+area: execution
+status: active
+stage: 3
+owner: docs
+last_reviewed: 2026-11-08
+---
+
 # Work log — Etapa 3
 
 Registro curto da etapa ativa, **mais recente primeiro**. Detalhes históricos
 (issues #1–#15, Etapas 1–2) ficam em
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 Decisões duráveis: [`19-decision-log.md`](19-decision-log.md).
+
+## 2026-11-08 — Automação/validação de docs (issue #19)
+
+- Front matter obrigatório (`kind/area/status/stage/owner/last_reviewed`) em
+  `docs/planning/**`.
+- `tools/check_docs.py`: links, índice gerado, gates do `ci.sh`, KANBAN
+  (1 Doing/Próximo), work log, decisões, IDs do backlog, frases obsoletas e
+  idade de revisão.
+- `--write` regenera índice e bloco de gates; `--with-github` valida issues via
+  `gh`; `--write-cache` mantém `github-issues.json` para uso offline.
+- `DOCS_OK` entrou no `tests/ci.sh`; o template `tools/github-docs.yml` permite
+  rodar o checker com GitHub quando o token tiver escopo `workflow` (o push
+  automático foi bloqueado sem esse escopo).
+- KANBAN reduzido para 2 itens de Ready, ambos com issue; CI completo verde.
 
 ## 2026-11-08 — Organização das docs (issue #18)
 

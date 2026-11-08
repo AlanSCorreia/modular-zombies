@@ -82,6 +82,8 @@ source/blender/ .blend e scripts (fora do import do Godot)
 - Snapshot local: [`KANBAN.md`](KANBAN.md).
 - Decisões: `docs/planning/19-decision-log.md`; avanços:
   `docs/planning/20-work-log.md`.
+- Validação das docs: `python3 tools/check_docs.py` (offline) ou
+  `--with-github`; o CI roda `DOCS_OK`.
 - O subagente `doc-keeper` mantém a sincronização.
 
 ## Executar

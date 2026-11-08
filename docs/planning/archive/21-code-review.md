@@ -1,3 +1,12 @@
+---
+kind: archive
+area: history
+status: archive
+stage: 3
+owner: docs
+last_reviewed: 2026-11-08
+---
+
 # Revisão de código — boas práticas, performance e velocidade
 
 **Data:** 2026-11-06  

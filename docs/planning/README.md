@@ -1,3 +1,12 @@
+---
+kind: index
+area: execution
+status: active
+stage: 3
+owner: docs
+last_reviewed: 2026-11-08
+---
+
 # Planejamento — Bunker 13 v2
 
 > **Execução:** [`../../KANBAN.md`](../../KANBAN.md) + issues do GitHub.
@@ -18,45 +27,51 @@
 
 ## Índice
 
+<!-- INDEX:START -->
 ### Visão e arquitetura
 
-| Documento | Conteúdo |
+| Documento | Título |
 |---|---|
-| [`01-product-vision.md`](01-product-vision.md) | Objetivo, pilares e métricas |
-| [`02-architecture.md`](02-architecture.md) | v1 vs v2, contratos, DTOs e riscos |
-| [`07-adr/0001-gdscript-vs-csharp.md`](07-adr/0001-gdscript-vs-csharp.md) | Decisão de linguagem |
+| [`01-product-vision.md`](01-product-vision.md) | Visão de produto — v2 |
+| [`02-architecture.md`](02-architecture.md) | Arquitetura — v2 |
+| [`07-adr/0001-gdscript-vs-csharp.md`](07-adr/0001-gdscript-vs-csharp.md) | ADR 0001 — GDScript vs C# |
 
 ### Execução e processo
 
-| Documento | Conteúdo |
+| Documento | Título |
 |---|---|
-| [`05-roadmap.md`](05-roadmap.md) | Etapas 1–8, entregáveis e aceite |
-| [`06-backlog.md`](06-backlog.md) | Épicos e tarefas por fase |
-| [`08-testing-strategy.md`](08-testing-strategy.md) | Pirâmide, gates, golden path e CI |
-| [`12-development-workflow.md`](12-development-workflow.md) | Git, CI, DoD e performance |
-| [`16-development-agents.md`](16-development-agents.md) | Subagentes e escopos |
-| [`19-decision-log.md`](19-decision-log.md) | Decisões duráveis (D-001…) |
-| [`20-work-log.md`](20-work-log.md) | Log curto da etapa ativa |
-| [`22-redundancy-audit.md`](22-redundancy-audit.md) | Auditoria de redundância (issue #15) |
+| [`05-roadmap.md`](05-roadmap.md) | Roadmap — v2 |
+| [`06-backlog.md`](06-backlog.md) | Backlog — v2 |
+| [`08-testing-strategy.md`](08-testing-strategy.md) | Estratégia de testes — v2 |
+| [`12-development-workflow.md`](12-development-workflow.md) | Workflow de desenvolvimento |
+| [`16-development-agents.md`](16-development-agents.md) | Agentes de desenvolvimento |
+| [`19-decision-log.md`](19-decision-log.md) | Log de decisões |
+| [`20-work-log.md`](20-work-log.md) | Work log — Etapa 3 |
+| [`22-redundancy-audit.md`](22-redundancy-audit.md) | Auditoria curta de redundância |
 
 ### Conteúdo, assets e sistemas
 
-| Documento | Conteúdo |
+| Documento | Título |
 |---|---|
-| [`09-json-content-pipeline.md`](09-json-content-pipeline.md) | JSON canônico, schemas e validador |
-| [`10-combat-systems.md`](10-combat-systems.md) | Explosivos, barris, granada, foguete e faca |
-| [`11-assets.md`](11-assets.md) | Árvore de assets, convenções e licenças |
-| [`13-barricades.md`](13-barricades.md) | Hold F, tábuas, IA e pontos |
-| [`14-weapon-workflow.md`](14-weapon-workflow.md) | Pipeline de armas + mãos compartilhadas |
-| [`18-authored-assets.md`](18-authored-assets.md) | Blender → GLB, escala e nomes |
-| [`04-map-authoring-tools.md`](04-map-authoring-tools.md) | Ferramentas de mapa (Etapa 5) |
-| [`03-easter-eggs.md`](03-easter-eggs.md) | Quests e mecânicas únicas |
+| [`03-easter-eggs.md`](03-easter-eggs.md) | Easter Eggs e mecânicas por mapa |
+| [`04-map-authoring-tools.md`](04-map-authoring-tools.md) | Ferramentas de autoria de mapas |
+| [`09-json-content-pipeline.md`](09-json-content-pipeline.md) | Pipeline de conteúdo JSON e assets |
+| [`10-combat-systems.md`](10-combat-systems.md) | Sistemas de combate — explosivos e faca |
+| [`11-assets.md`](11-assets.md) | Organização de assets |
+| [`13-barricades.md`](13-barricades.md) | Barricadas (janelas) |
+| [`14-weapon-workflow.md`](14-weapon-workflow.md) | Workflow de criação de armas |
+| [`18-authored-assets.md`](18-authored-assets.md) | Assets autorais — regra do projeto |
 
 ### Histórico
 
-| Documento | Conteúdo |
+| Documento | Título |
 |---|---|
-| [`archive/`](archive/README.md) | Revisões e log detalhado de nov/2026 |
+| [`archive/15-content-review.md`](archive/15-content-review.md) | Revisão da Etapa 2 — Conteúdo: achados e recomendações _(arquivo)_ |
+| [`archive/17-baseline-review.md`](archive/17-baseline-review.md) | Revisão de linha de base da Etapa 3 — Gameplay _(arquivo)_ |
+| [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md) | Work log _(arquivo)_ |
+| [`archive/21-code-review.md`](archive/21-code-review.md) | Revisão de código — boas práticas, performance e velocidade _(arquivo)_ |
+| [`archive/README.md`](archive/README.md) | Arquivo de planejamento _(arquivo)_ |
+<!-- INDEX:END -->
 
 ## Como usar
 
@@ -73,4 +88,6 @@
 - Assets de runtime em `assets/`; fontes `.blend`/scripts em `source/blender/`.
 - Nenhum modelo 3D gerado em runtime.
 - Toda arma usa o mesmo `hands.glb`.
+- Docs: front matter obrigatório; valide com `python3 tools/check_docs.py`.
+  Índice e gates são gerados com `--write`.
 - C# só após profiling e ADR de revisão.

@@ -1,3 +1,12 @@
+---
+kind: reference
+area: content
+status: active
+stage: 2
+owner: gameplay
+last_reviewed: 2026-11-08
+---
+
 # Pipeline de conteúdo JSON e assets
 
 ## Decisão

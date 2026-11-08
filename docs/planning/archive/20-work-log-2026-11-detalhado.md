@@ -1,3 +1,12 @@
+---
+kind: archive
+area: history
+status: archive
+stage: 3
+owner: docs
+last_reviewed: 2026-11-08
+---
+
 # Work log
 
 Registro cronológico curto do que foi feito, testes e commits. O plano vivo

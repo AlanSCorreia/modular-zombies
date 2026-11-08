@@ -1,3 +1,12 @@
+---
+kind: archive
+area: history
+status: archive
+stage: 2
+owner: docs
+last_reviewed: 2026-11-08
+---
+
 # Revisão da Etapa 2 — Conteúdo: achados e recomendações
 
 ## Estado

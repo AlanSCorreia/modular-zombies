@@ -1,3 +1,12 @@
+---
+kind: audit
+area: execution
+status: reference
+stage: 3
+owner: docs
+last_reviewed: 2026-11-08
+---
+
 # Auditoria curta de redundância
 
 **Data:** 2026-11-07  

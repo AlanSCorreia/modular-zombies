@@ -1,3 +1,12 @@
+---
+kind: archive
+area: history
+status: archive
+stage: 3
+owner: docs
+last_reviewed: 2026-11-08
+---
+
 # Revisão de linha de base da Etapa 3 — Gameplay
 
 **Data:** 2026-11-06  
