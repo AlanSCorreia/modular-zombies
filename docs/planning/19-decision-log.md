@@ -14,6 +14,7 @@ Decisões estruturais longas também viram ADR em `07-adr/`.
 
 | ID | Data | Decisão | Motivo / consequência |
 |---|---|---|---|
+| D-043 | 2026-11-08 | **QuestValidator:** valida referências de alvo, rewards, `next`, órfãos e ciclos; o grafo usa `next` explícito ou o próximo índice. | Impede quest quebrada/softlock antes do runtime e prepara branches futuros. |
 | D-042 | 2026-11-08 | **PowerMechanic:** switch data-driven emite `power_on(id)`, acende luzes autoradas e abre a porta configurada sem custo; quest usa o trigger `power`. | Mantém a mecânica no mapa/JSON e evita hardcode de Bunker 13 no núcleo. |
 | D-041 | 2026-11-08 | **Rádios data-driven:** `radios` no mapa viram `RadioState`/área; interação emite o evento padrão, marca uso único e a quest reage sem hardcode. | Mantém quests e interação desacopladas e permite qualquer mapa adicionar rádios. |
 | D-040 | 2026-11-08 | **QuestSystem sequencial:** passos são avaliados na ordem; eventos fora de ordem são ignorados; recompensas são emitidas por sinal e aplicadas pelo `GameRoot`. | Evita softlock por eventos perdidos e mantém o sistema desacoplado de economia/arma/perk. |

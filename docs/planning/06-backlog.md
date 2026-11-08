@@ -150,9 +150,10 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA6.3 | Recompensas (feito, issue #28) | P0 |
 | ETAPA6.4 | 3 rádios no Bunker 13 (feito, issue #29) | P0 |
 | ETAPA6.5 | `Bunker13PowerMechanic` (feito, issue #30) | P1 |
-| ETAPA6.6 | Validador de grafo/softlock (issue #31) | P0 |
+| ETAPA6.6 | Validador de grafo/softlock (feito, issue #31) | P0 |
 | ETAPA6.7 | Debug overlay | P1 |
 | ETAPA6.8 | Grafo visual (GraphEdit) | P2 |
+| ETAPA6.9 | Main quest de 3 passos (issue #32) | P0 |
 
 ## Etapa 7 — Escala de conteúdo
 

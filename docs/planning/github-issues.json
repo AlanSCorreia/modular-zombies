@@ -343,12 +343,23 @@
     {
       "number": 31,
       "title": "Validador de quests (órfãos, ciclos e referências)",
-      "state": "OPEN",
+      "state": "CLOSED",
       "labels": [
         "etapa:6",
         "prio:P0",
         "area:gameplay",
         "area:docs"
+      ],
+      "milestone": "Etapa 6 — Quests e Easter Eggs"
+    },
+    {
+      "number": 32,
+      "title": "Main quest de 3 passos no Bunker 13",
+      "state": "OPEN",
+      "labels": [
+        "etapa:6",
+        "prio:P0",
+        "area:gameplay"
       ],
       "milestone": "Etapa 6 — Quests e Easter Eggs"
     }

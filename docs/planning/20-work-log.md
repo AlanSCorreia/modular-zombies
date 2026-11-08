@@ -15,6 +15,14 @@ está em
 o início do projeto, em
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 
+## 2026-11-08 — QuestValidator (issue #31)
+
+- `QuestValidator` valida IDs, triggers, rewards, referências de alvo, `next`
+  inexistente, passos órfãos e ciclos.
+- `ContentValidator` delega a validação de quests; erros trazem contexto.
+- Teste `QUEST_VALIDATOR_OK` cobre quest válida, ciclo, órfão, next e reward.
+- Próximo: main quest de 3 passos (#32).
+
 ## 2026-11-08 — PowerMechanic do Bunker 13 (issue #30)
 
 - Asset autoral `power_switch.blend`/GLB; `PowerSwitchData`/`State` no
@@ -99,5 +107,5 @@ o início do projeto, em
 - Asset autoral `trap.blend`/GLB; 2 traps no Bunker 13.
 - Teste `TRAP_OK`; Etapa 4 iniciada.
 
-**Próximo item:** validador de quests — órfãos/ciclos/referências (issue #31);
-depois debug overlay e main quest.
+**Próximo item:** main quest de 3 passos (issue #32); depois debug overlay e
+aceite da Etapa 6.

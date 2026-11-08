@@ -22,8 +22,8 @@ last_reviewed: 2026-11-08
   explosões, granada/foguete/barris, barricadas, janelas + IA de zumbi, mãos
   compartilhadas/`ViewmodelFactory`, faca com `knife_slash`, rodadas 1→2 e
   traps explosivas, VFX/SFX/HUD de granadas e áudio/mixagem.
-- **Próximo:** validador de quests (#31).
-- **Depois:** debug overlay e main quest; escala (#16) fica como dívida visual.
+- **Próximo:** main quest de 3 passos (#32).
+- **Depois:** debug overlay; escala (#16) fica como dívida visual.
 - Gates atuais: ver [`08-testing-strategy.md`](08-testing-strategy.md).
 
 ## Índice
