@@ -133,10 +133,10 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ID | Tarefa | Pri |
 |---|---|---|
 | ETAPA5.1 | Plugin `bunker_tools` + dock (feito) | P0 |
-| ETAPA5.2 | Criar/duplicar mapa (issue #25) | P0 |
+| ETAPA5.2 | Criar/duplicar mapa (feito, issue #25) | P0 |
 | ETAPA5.3 | Validador no dock (feito) | P0 |
-| ETAPA5.4 | Playtest por mapa | P0 |
-| ETAPA5.5 | Templates | P1 |
+| ETAPA5.4 | Playtest por mapa (issue #26) | P0 |
+| ETAPA5.5 | Templates (feito, issue #25) | P1 |
 | ETAPA5.6 | Marcadores 3D com gizmos | P1 |
 | ETAPA5.7 | Content browser | P2 |
 | ETAPA5.8 | Documentação do autor | P1 |

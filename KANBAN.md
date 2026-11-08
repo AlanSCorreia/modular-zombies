@@ -30,7 +30,7 @@
 | `etapa2` | Etapa 2 — Conteúdo | **Concluído** | — |
 | `etapa3` | Etapa 3 — Gameplay | **Concluído** | — |
 | `etapa4` | Etapa 4 — Interações | **Concluído** | — |
-| `etapa5` | Etapa 5 — Ferramentas de mapa | **Em andamento** | Criar/duplicar mapa |
+| `etapa5` | Etapa 5 — Ferramentas de mapa | **Em andamento** | Playtest por mapa |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | Backlog | — |
 | `etapa7` | Etapa 7 — Escala de conteúdo | Backlog | — |
 | `etapa8` | Etapa 8 — Produção | Backlog | — |
@@ -44,8 +44,8 @@
 
 - **Etapa ativa:** 5 — Ferramentas de mapa.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** criar/duplicar mapa a partir de template (issue #25).
-- **Depois:** playtest por mapa e documentação do autor.
+- **Próximo:** playtest por mapa no dock (issue #26).
+- **Depois:** documentação do autor.
 - **Próxima etapa:** 6 — Quests e Easter Eggs, após o aceite da Etapa 5.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -254,17 +254,16 @@
 - [ ] Marcadores 3D com gizmos
 - [ ] Content browser
 - [ ] Templates visuais
-- [ ] Playtest por mapa no dock
 - [ ] Documentação do autor
 
 ### Ready
-- [ ] Criar/duplicar mapa a partir de template (P0) — [#25](https://github.com/AlanSCorreia/modular-zombies/issues/25)
+- [ ] Playtest por mapa no dock (P0) — [#26](https://github.com/AlanSCorreia/modular-zombies/issues/26)
 
 ### Doing
 - *(vazio)*
 
 ### Review/Test
-- [ ] Criar mapa a partir de template
+- [x] Criar mapa a partir de template
 - [x] Validador aponta erros reais
 - [ ] Playtest abre o mapa correto
 
@@ -272,6 +271,7 @@
 - [x] Plugin `bunker_tools` + dock
 - [x] Validador no dock
 - [x] Launcher do editor
+- [x] Criar/duplicar mapa + template (issue #25)
 
 ### Blocked
 - *(vazio)*

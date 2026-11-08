@@ -15,6 +15,17 @@ está em
 o início do projeto, em
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 
+## 2026-11-08 — Criar/duplicar mapa no bunker_tools (issue #25)
+
+- `MapTools` headless: create a partir de `templates/map/template.json` e
+  duplicate de mapa existente, com bloqueio de overwrite.
+- Dock ganhou campos de id/nome e botões “Novo (template)” e “Duplicar
+  selecionado”; validação roda após a operação.
+- Template `templates/map/template.json` + README, usando a cena do slice até
+  o autor exportar geometria própria.
+- Teste `TOOLS_OK` cobre create, duplicate e overwrite; CI verde.
+- Próximo: playtest por mapa (#26).
+
 ## 2026-11-08 — Áudio 2D/3D, música e mixagem (issue #24)
 
 - Buses `Music`/`Weapons`/`Zombies`/`UI`/`Foley` criados no `Sfx`; roteamento
@@ -40,5 +51,5 @@ o início do projeto, em
 - Asset autoral `trap.blend`/GLB; 2 traps no Bunker 13.
 - Teste `TRAP_OK`; Etapa 4 iniciada.
 
-**Próximo item:** criar/duplicar mapa no `bunker_tools` (issue #25); depois
-playtest por mapa e documentação do autor.
+**Próximo item:** playtest por mapa no dock (issue #26); depois documentação do
+autor.

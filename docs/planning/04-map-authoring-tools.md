@@ -11,8 +11,13 @@ last_reviewed: 2026-11-08
 
 ## Estado na v2
 
-**Planejado para a Etapa 5 — Ferramentas; ainda não implementado.** O plugin `bunker_tools` não
-existe no scaffold atual. A ordem é: Etapa 2 — Conteúdo (dados) → Etapas 3–4 — Gameplay/Interações (loop/UI) → Etapa 5 — Ferramentas.
+**Implementado:** launcher do editor, plugin `bunker_tools` com dock, validador
+de conteúdo e criação/duplicação de mapas a partir do template
+(`templates/map/template.json`). Falta o playtest por mapa e a documentação
+completa do autor.
+
+A ordem foi: Etapa 2 — Conteúdo (dados) → Etapas 3–4 — Gameplay/Interações
+(loop/UI) → Etapa 5 — Ferramentas.
 
 ## Objetivo
 
@@ -45,6 +50,16 @@ sem editar código do núcleo.
 | Content browser | Listar/criar mapas, armas, inimigos e perks |
 | Quest graph | GraphEdit com passos e conexões |
 | Debug runtime | Mostrar passo atual, triggers e estado da quest |
+
+## Criar/duplicar mapa
+
+1. Abra o dock **Bunker Tools** no rodapé do editor.
+2. Preencha `map.novo_mapa` e o nome exibido.
+3. Use **Novo (template)** ou selecione um mapa e use **Duplicar selecionado**.
+4. O JSON é criado em `content/maps/<slug>.json` e validado automaticamente.
+5. O template/duplicata reutiliza uma cena GLB até o autor exportar a geometria
+   própria e trocar o campo `scene`.
+6. Ajuste âncoras no JSON e rode **Validar**.
 
 ## Design técnico
 

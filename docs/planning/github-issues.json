@@ -273,12 +273,23 @@
     {
       "number": 25,
       "title": "Criar/duplicar mapa a partir de template no bunker_tools",
-      "state": "OPEN",
+      "state": "CLOSED",
       "labels": [
         "etapa:5",
         "prio:P0",
         "area:infra",
         "area:docs"
+      ],
+      "milestone": "Etapa 5 — Ferramentas de mapa"
+    },
+    {
+      "number": 26,
+      "title": "Playtest por mapa no dock bunker_tools",
+      "state": "OPEN",
+      "labels": [
+        "etapa:5",
+        "prio:P0",
+        "area:infra"
       ],
       "milestone": "Etapa 5 — Ferramentas de mapa"
     }

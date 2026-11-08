@@ -14,6 +14,7 @@ Decisões estruturais longas também viram ADR em `07-adr/`.
 
 | ID | Data | Decisão | Motivo / consequência |
 |---|---|---|---|
+| D-037 | 2026-11-08 | **Templates de mapa reutilizam a cena:** create/duplicate copiam/renomeiam apenas o JSON; a cena GLB de origem é reutilizada até o autor exportar a geometria própria. `MapTools` é headless e testável. | Evita copiar texturas/GLB e mantém o fluxo de autoria simples; a troca de cena é explícita. |
 | D-036 | 2026-11-08 | **Etapa 4 aceita:** áudio por buses, volume persistido, stingers de rodada e VFX/SFX cobrem o aceite; vinheta/teste de UI ficam como polish. Etapa 5 começa pelo create/duplicate no `bunker_tools`. | Fecha a apresentação sem bloquear a autoria de mapas por polish visual. |
 | D-035 | 2026-11-08 | **Feedback de combate:** explosão usa partículas/luz com mesh/material cacheados e SFX via pool; HUD de granadas é um label ligado a `grenades_changed`. | Evita alocação por explosão e mantém HUD desacoplada por sinal. |
 | D-034 | 2026-11-08 | **Etapa 3 aceita:** rodadas escalam +2 a cada rodada, intervalo de 4 s e game over cancela a próxima; a normalização de escala (#16) fica como dívida visual e a Etapa 4 começa com traps/VFX/áudio. | Fecha o aceite de gameplay sem bloquear a apresentação por uma dívida de asset. |
