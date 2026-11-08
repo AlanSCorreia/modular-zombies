@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "kind": "quest",
+  "id": "quest.bunker13_main",
+  "name": "PROTOCOLO BUNKER",
+  "type": "main",
+  "requires_coop": false,
+  "repeatable": false,
+  "steps": [
+    { "id": "power", "trigger": "power", "target": "power_1", "count": 1, "hint": "LIGUE A ENERGIA" },
+    { "id": "tune", "trigger": "interact", "target": "radio_1", "count": 1, "hint": "SINTONIZE O RÁDIO DO SETOR A" },
+    { "id": "enter_c", "trigger": "enter_area", "target": "C", "count": 1, "hint": "ENTRE NO SETOR C" }
+  ],
+  "rewards": [
+    { "type": "points", "amount": 1000 }
+  ]
+}

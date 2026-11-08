@@ -60,6 +60,8 @@ func _ready() -> void:
 			await _radio()
 		"power":
 			await _power()
+		"main_quest":
+			await _main_quest()
 		"ui":
 			await _ui()
 		"shot":
@@ -859,6 +861,28 @@ func _power() -> void:
 		str(done), str(paid), str(idempotent),
 	])
 	_finish("POWER_OK", ok)
+
+func _main_quest() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	var q: QuestData = Content.get_quest("quest.bunker13_main")
+	if q == null:
+		_finish("MAIN_QUEST_OK", false)
+		return
+	Events.interacted.emit("radio_1", game.player)
+	var ordered: bool = game.quest_system.step_index(q.id) == 0
+	var points0 := game.economy.points
+	Events.interacted.emit("power_1", game.player)
+	Events.interacted.emit("radio_1", game.player)
+	game.quest_system.notify_enter_area("C")
+	await get_tree().create_timer(0.1).timeout
+	var done := game.quest_system.is_complete(q.id)
+	var paid := game.economy.points >= points0 + 1000
+	var ok: bool = ordered and done and paid
+	print("MAIN_QUEST_TEST ordered=%s done=%s paid=%s points=%d" % [
+		str(ordered), str(done), str(paid), game.economy.points,
+	])
+	_finish("MAIN_QUEST_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout
