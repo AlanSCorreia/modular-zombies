@@ -14,6 +14,14 @@ Registro curto da etapa ativa, **mais recente primeiro**. Etapas 4–7 estão em
 Etapa 3 em
 [`archive/20-work-log-2026-11-etapa3.md`](archive/20-work-log-2026-11-etapa3.md).
 
+## 2026-11-08 — Exportação Linux + smoke (issue #39)
+
+- `export_presets.cfg` Linux com binário + PCK em `build/linux/`.
+- `tools/build_linux.sh` exporta e roda smoke headless.
+- `BUILD_OK` no CI valida binário, PCK e inicialização.
+- Templates 4.7.2 instalados no ambiente para o export.
+- Próximo: performance/soak (#40).
+
 ## 2026-11-08 — Settings (issue #38)
 
 - `GameSettings` persistido em `user://settings.cfg`: sensibilidade, volume
@@ -32,5 +40,5 @@ Etapa 3 em
 - Teste `SAVE_OK` cobre round-trip, armas/munição e versão incompatível.
 - Próximo: settings (#38).
 
-**Próximo item:** exportação Linux + smoke test (issue #39); depois pools/
-navmesh, CI e soak test.
+**Próximo item:** performance, soak test e checklist de release (issue #40);
+depois aceite final da Etapa 8.

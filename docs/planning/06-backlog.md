@@ -171,14 +171,14 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 |---|---|---|
 | ETAPA8.1 | Save/load versionado (feito, issue #37) | P0 |
 | ETAPA8.2 | Settings (feito, issue #38) | P1 |
-| ETAPA8.3 | Exportação Linux + smoke (issue #39) | P0 |
-| ETAPA8.4 | Pool de áudio/efeitos | P1 |
+| ETAPA8.3 | Exportação Linux + smoke (feito, issue #39) | P0 |
+| ETAPA8.4 | Pool de áudio/efeitos (áudio feito; VFX depois) | P1 |
 | ETAPA8.5 | Navmesh pré-bakeada | P1 |
-| ETAPA8.6 | CI + validador | P0 |
-| ETAPA8.7 | Soak test 30 min | P1 |
+| ETAPA8.6 | CI + validador (feito) | P0 |
+| ETAPA8.7 | Soak test 30 min (issue #40) | P0 |
 | ETAPA8.8 | Auditoria de licenças/assets | P1 |
 | ETAPA8.9 | Save/load do estado das barricadas | P1 |
-| ETAPA8.10 | Checklist de release | P1 |
+| ETAPA8.10 | Checklist de release (issue #40) | P0 |
 
 ## Transversal
 

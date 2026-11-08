@@ -19,8 +19,8 @@ serviços e ferramentas de autoria.
   `ViewmodelFactory` com `hands.glb` compartilhado e faca visual com
   `knife_slash`.
 - Entregue também: rodadas 1→2 com HUD e game over; traps explosivas.
-- Pendente: exportação Linux e performance; a escala das armas (#16) fica como
-  dívida visual.
+- Pendente: performance/soak e checklist de release; a escala das armas (#16)
+  fica como dívida visual.
 - A geometria do mapa é autoral (GLB/`.blend`); builders antigos ficam em
   `src/maps/legacy/` apenas para exportação.
 
@@ -96,6 +96,7 @@ source/blender/ .blend e scripts (fora do import do Godot)
 ./run.sh                         # jogo (slice)
 ./run.sh -- --map map.bunker13   # Bunker 13
 ./editor.sh                      # editor Godot
+./tools/build_linux.sh           # build Linux + smoke
 ```
 
 Atalhos: **Bunker 13 v2** e **Bunker 13 v2 — Editor**.

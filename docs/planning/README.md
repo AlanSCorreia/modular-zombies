@@ -22,8 +22,8 @@ last_reviewed: 2026-11-08
   explosões, granada/foguete/barris, barricadas, janelas + IA de zumbi, mãos
   compartilhadas/`ViewmodelFactory`, faca com `knife_slash`, rodadas 1→2 e
   traps explosivas, VFX/SFX/HUD de granadas e áudio/mixagem.
-- **Próximo:** exportação Linux + smoke test (#39).
-- **Depois:** performance e soak; escala (#16) fica como dívida visual.
+- **Próximo:** performance, soak test e checklist de release (#40).
+- **Depois:** escala (#16) fica como dívida visual.
 - Gates atuais: ver [`08-testing-strategy.md`](08-testing-strategy.md).
 
 ## Índice

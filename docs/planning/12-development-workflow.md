@@ -51,6 +51,16 @@ O CI deve bloquear qualquer mudança com conteúdo inválido ou teste vermelho.
   `metrics/raw/` (ignorado); agregados em `metrics/aggregates/`. Detalhes em
   `metrics/README.md`.
 
+## Build Linux
+
+```bash
+./tools/build_linux.sh
+```
+
+Requer os templates de exportação 4.7.2 instalados. O script gera
+`build/linux/bunker13.x86_64` + `bunker13.pck` e roda um smoke headless.
+`BUILD_OK` no CI valida o artefato.
+
 ## Regra do vertical slice
 
 Nenhuma fase avança só com “framework”. Cada entrega precisa ser jogável ou

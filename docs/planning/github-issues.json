@@ -438,6 +438,17 @@
     {
       "number": 39,
       "title": "Exportação Linux + smoke test",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:8",
+        "prio:P0",
+        "area:infra"
+      ],
+      "milestone": "Etapa 8 — Produção"
+    },
+    {
+      "number": 40,
+      "title": "Performance, soak test e checklist de release",
       "state": "OPEN",
       "labels": [
         "etapa:8",
