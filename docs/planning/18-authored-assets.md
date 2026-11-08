@@ -62,6 +62,8 @@ verga; ver `source/blender/scripts/open_windows.py`.
 ## Regras
 
 - Toda arma/inimigo novo entra com `.blend` + GLB + JSON.
+- Armas devem ser normalizadas em **metros reais** antes do export; o mesmo
+  `viewmodel.scale` não corrige fontes em cm/mm/unidades arbitrárias.
 - Não commitar `*.blend1`/`*.blend2` (backups do Blender).
 - Assets de terceiros exigem licença em `CREDITS.md`.
 - O validador deve falhar se um asset referenciado não existir.

@@ -146,6 +146,7 @@ faca, explosivos e barricadas funcionando.
 ### Ready
 - [ ] Auditoria curta de redundância (P2) — [#15](https://github.com/AlanSCorreia/modular-zombies/issues/15)
 - [ ] Faca GLB + mãos compartilhadas + `knife_slash`
+- [ ] Normalizar escala/origem das armas (P1) — [#16](https://github.com/AlanSCorreia/modular-zombies/issues/16)
 - [ ] Teste visual do Bunker 13
 - [ ] JSON de traps explosivas
 - [ ] Corrigir teste de integração (morte, kill, porta, reload)

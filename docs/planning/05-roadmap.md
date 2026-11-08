@@ -69,6 +69,8 @@ pontos e HUD de progresso), vãos de janela autorais, IA de zumbi
 
 **Pendente**
 - Faca GLB/animação.
+- Normalização de escala/origem das armas (issue #16): AK-74, M870, pistol
+  e wunder estão fora de metros.
 - `BoxBuilder` compartilhado.
 - `RoundManager`/economia completos e efeitos.
 - Testes de faca, traps e loop completo.
