@@ -128,7 +128,12 @@ QuestValidator (issue #31) e main quest de 3 passos (issue #32).
 
 ## Etapa 7 — Escala de conteúdo (em andamento)
 
-**Próximo:** segundo mapa jogável com 2 mecânicas (issue #33).
+**Já entregue:** segundo mapa jogável `map.depot` com 2 mecânicas (issue #33).
+
+**Pendente**
+- Duas armas novas (issue #34).
+- Wonder weapon e inimigo especial.
+- Teste “sem mudança no núcleo”.
 
 **Entregáveis**
 - Segundo mapa com 2 mecânicas únicas.

@@ -366,6 +366,18 @@
     {
       "number": 33,
       "title": "Segundo mapa jogável com 2 mecânicas (map.depot)",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:7",
+        "prio:P0",
+        "area:assets",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 7 — Escala de conteúdo"
+    },
+    {
+      "number": 34,
+      "title": "Duas armas novas (pistol e SKS)",
       "state": "OPEN",
       "labels": [
         "etapa:7",

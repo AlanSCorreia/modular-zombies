@@ -15,6 +15,17 @@ está em
 o início do projeto, em
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 
+## 2026-11-08 — Segundo mapa jogável (issue #33)
+
+- `map.depot`: 2 salas, porta, wallbuy, spawns e luzes, com cena autoral
+  `depot.blend`/GLB.
+- Mecânicas reutilizadas: PowerMechanic (`power_depot`) e rádio
+  (`radio_depot`) com quest `quest.depot_signal`.
+- `--map map.depot` abre e é jogável; validador e loader aceitam 3 mapas e 4
+  quests.
+- Teste `SECOND_MAP_OK` cobre mapa, energia, porta, rádio e recompensa.
+- Próximo: duas armas novas (#34).
+
 ## 2026-11-08 — Main quest de 3 passos (issue #32)
 
 - `quest.bunker13_main`: energia → rádio → entrar no setor C, com 1000 pontos.
@@ -114,5 +125,5 @@ o início do projeto, em
 - Asset autoral `trap.blend`/GLB; 2 traps no Bunker 13.
 - Teste `TRAP_OK`; Etapa 4 iniciada.
 
-**Próximo item:** segundo mapa jogável com 2 mecânicas (issue #33); depois
-armas novas, wonder weapon e inimigo especial.
+**Próximo item:** duas armas novas — pistol e SKS (issue #34); depois wonder
+weapon, inimigo especial e teste sem núcleo.

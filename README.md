@@ -19,8 +19,8 @@ serviços e ferramentas de autoria.
   `ViewmodelFactory` com `hands.glb` compartilhado e faca visual com
   `knife_slash`.
 - Entregue também: rodadas 1→2 com HUD e game over; traps explosivas.
-- Pendente: segundo mapa, armas novas, wonder weapon e inimigo especial; a
-  escala das armas (#16) fica como dívida visual.
+- Pendente: duas armas novas, wonder weapon e inimigo especial; a escala das
+  armas (#16) fica como dívida visual.
 - A geometria do mapa é autoral (GLB/`.blend`); builders antigos ficam em
   `src/maps/legacy/` apenas para exportação.
 
