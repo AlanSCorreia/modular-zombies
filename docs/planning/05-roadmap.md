@@ -118,14 +118,12 @@ one-shot (issue #26) e quickstart do autor (issue #27).
 
 ## Etapa 6 — Quests e Easter Eggs (em andamento)
 
-**Próximo:** `QuestSystem` + DTOs/triggers/recompensas (issue #28).
+**Já entregue:** `QuestSystem` + DTOs/triggers/recompensas (issue #28) e o
+primeiro quest JSON (`quest.bunker13_music`).
 
-**Entregáveis**
-- `QuestSystem` + `QuestStep`/`Reward`.
-- Triggers: interagir, matar, entrar, coletar.
-- Recompensas: pontos, música, arma, perk.
-- 3 rádios no Bunker 13 (música secreta).
-- `Bunker13PowerMechanic` (mecânica única de mapa).
+**Pendente**
+- 3 rádios no Bunker 13 (issue #29).
+- `Bunker13PowerMechanic`.
 - Validador de grafo/softlock e debug overlay.
 
 **Aceite:** música secreta + main quest de 3 passos jogáveis.

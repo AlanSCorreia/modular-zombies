@@ -15,6 +15,16 @@ está em
 o início do projeto, em
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 
+## 2026-11-08 — QuestSystem + DTOs/triggers/recompensas (issue #28)
+
+- `QuestData`/`QuestStepData`/`RewardData`, schema e
+  `content/quests/bunker13_music.json`.
+- `QuestSystem` executa passos em sequência (interact/kill/enter_area/collect),
+  ignora eventos fora de ordem e emite progresso/recompensa.
+- `GameRoot` aplica recompensas de pontos, música, arma e perk.
+- Teste `QUEST_OK` cobre passo pulado, 3 passos e 500 pontos + música.
+- Próximo: 3 rádios no Bunker 13 (#29).
+
 ## 2026-11-08 — Documentação do autor (issue #27)
 
 - `23-map-author-quickstart.md`: criar/duplicar, trocar cena GLB, preencher
@@ -68,5 +78,5 @@ o início do projeto, em
 - Asset autoral `trap.blend`/GLB; 2 traps no Bunker 13.
 - Teste `TRAP_OK`; Etapa 4 iniciada.
 
-**Próximo item:** QuestSystem + DTOs/triggers/recompensas (issue #28); depois
-rádios, mecânica do Bunker 13 e debug.
+**Próximo item:** 3 rádios no Bunker 13 + música secreta (issue #29); depois
+mecânica do Bunker 13, validador de grafo e debug.

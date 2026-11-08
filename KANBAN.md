@@ -31,7 +31,7 @@
 | `etapa3` | Etapa 3 — Gameplay | **Concluído** | — |
 | `etapa4` | Etapa 4 — Interações | **Concluído** | — |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | **Concluído** | — |
-| `etapa6` | Etapa 6 — Quests e Easter Eggs | **Em andamento** | QuestSystem |
+| `etapa6` | Etapa 6 — Quests e Easter Eggs | **Em andamento** | 3 rádios no Bunker 13 |
 | `etapa7` | Etapa 7 — Escala de conteúdo | Backlog | — |
 | `etapa8` | Etapa 8 — Produção | Backlog | — |
 
@@ -43,8 +43,8 @@
 
 - **Etapa ativa:** 6 — Quests e Easter Eggs.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** QuestSystem + DTOs/triggers/recompensas (issue #28).
-- **Depois:** rádios, mecânica do Bunker 13, debug e validador de grafo.
+- **Próximo:** 3 rádios no Bunker 13 + música secreta (issue #29).
+- **Depois:** mecânica do Bunker 13, validador de grafo e debug.
 - **Próxima etapa:** 7 — Escala de conteúdo, após o aceite da Etapa 6.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -295,18 +295,18 @@
 - [ ] Debug overlay
 
 ### Ready
-- [ ] `QuestSystem` + DTOs, triggers e recompensas (P0) — [#28](https://github.com/AlanSCorreia/modular-zombies/issues/28)
+- [ ] 3 rádios no Bunker 13 + música secreta (P0) — [#29](https://github.com/AlanSCorreia/modular-zombies/issues/29)
 
 ### Doing
 - *(vazio)*
 
 ### Review/Test
 - [ ] 3 rádios → música + pontos
-- [ ] Passo pulado não quebra a quest
+- [x] Passo pulado não quebra a quest (`QUEST_OK`)
 - [ ] Validador detecta ciclo/step órfão
 
 ### Done
-- *(vazio)*
+- [x] `QuestSystem` + DTOs, triggers e recompensas (issue #28)
 
 ### Blocked
 - *(vazio)*
@@ -338,7 +338,6 @@
 - [ ] Validador e testes verdes
 
 ### Done
-- *(vazio)*
 
 ### Blocked
 - *(vazio)*
@@ -374,7 +373,6 @@
 - [ ] Checklist manual de release
 
 ### Done
-- *(vazio)*
 
 ### Blocked
 - *(vazio)*

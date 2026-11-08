@@ -14,6 +14,7 @@ Decisões estruturais longas também viram ADR em `07-adr/`.
 
 | ID | Data | Decisão | Motivo / consequência |
 |---|---|---|---|
+| D-040 | 2026-11-08 | **QuestSystem sequencial:** passos são avaliados na ordem; eventos fora de ordem são ignorados; recompensas são emitidas por sinal e aplicadas pelo `GameRoot`. | Evita softlock por eventos perdidos e mantém o sistema desacoplado de economia/arma/perk. |
 | D-039 | 2026-11-08 | **Etapa 5 aceita:** create/duplicate, validador, playtest e quickstart cobrem o aceite; marcadores 3D/content browser ficam como dívida de ferramenta. Etapa 6 começa pelo `QuestSystem`. | Fecha a autoria de mapas sem bloquear quests por UI avançada. |
 | D-038 | 2026-11-08 | **Playtest por mapa:** o dock grava `user://playtest.cfg`; `MapArgs` consome o override uma vez, mas `--map` continua tendo prioridade. | Permite testar o mapa selecionado no editor sem mudar o núcleo nem deixar estado permanente. |
 | D-037 | 2026-11-08 | **Templates de mapa reutilizam a cena:** create/duplicate copiam/renomeiam apenas o JSON; a cena GLB de origem é reutilizada até o autor exportar a geometria própria. `MapTools` é headless e testável. | Evita copiar texturas/GLB e mantém o fluxo de autoria simples; a troca de cena é explícita. |
