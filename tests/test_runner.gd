@@ -64,6 +64,8 @@ func _ready() -> void:
 			await _main_quest()
 		"second_map":
 			await _second_map()
+		"weapons":
+			await _weapons()
 		"ui":
 			await _ui()
 		"shot":
@@ -909,6 +911,52 @@ func _second_map() -> void:
 		str(powered), str(done),
 	])
 	_finish("SECOND_MAP_OK", ok)
+
+func _weapons() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	game.round.stop()
+	game.economy.set_points(5000)
+	game._on_interacted("wb_depot", game.player)
+	await get_tree().process_frame
+	var sks: WeaponController = game.player.weapon
+	var sks_ok: bool = sks != null and sks.data.id == "weapon.sks" \
+		and sks.hands != null and sks.hand_r != null
+	var sks_mag := sks.ammo_mag if sks != null else 0
+	if sks != null:
+		sks.try_fire()
+	await get_tree().create_timer(0.1).timeout
+	var sks_fired := sks != null and sks.ammo_mag == sks_mag - 1
+	if sks != null:
+		sks.ammo_mag = 0
+		sks.ammo_reserve = 40
+		sks.start_reload()
+	await get_tree().create_timer(2.9).timeout
+	var sks_reload := sks != null and sks.ammo_mag > 0
+
+	game.player.add_weapon(Content.get_weapon("weapon.pistol"))
+	await get_tree().process_frame
+	var pistol: WeaponController = game.player.weapon
+	var pistol_ok: bool = pistol != null and pistol.data.id == "weapon.pistol" \
+		and pistol.hands != null and pistol.hand_r != null
+	var pistol_mag := pistol.ammo_mag if pistol != null else 0
+	if pistol != null:
+		pistol.try_fire()
+	await get_tree().create_timer(0.1).timeout
+	var pistol_fired := pistol != null and pistol.ammo_mag == pistol_mag - 1
+	if pistol != null:
+		pistol.ammo_mag = 0
+		pistol.ammo_reserve = 20
+		pistol.start_reload()
+	await get_tree().create_timer(2.1).timeout
+	var pistol_reload := pistol != null and pistol.ammo_mag > 0
+	var ok: bool = sks_ok and sks_fired and sks_reload \
+		and pistol_ok and pistol_fired and pistol_reload
+	print("WEAPONS_TEST sks=%s fire=%s reload=%s pistol=%s fire=%s reload=%s" % [
+		str(sks_ok), str(sks_fired), str(sks_reload),
+		str(pistol_ok), str(pistol_fired), str(pistol_reload),
+	])
+	_finish("WEAPONS_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

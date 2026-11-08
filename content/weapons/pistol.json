@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "kind": "weapon",
+  "id": "weapon.pistol",
+  "name": "M1911",
+  "type": "hitscan",
+  "scene": "res://assets/models/weapons/pistol/pistol.glb",
+  "hands": "res://assets/models/hands/hands.glb",
+  "grip_profile": "pistol",
+  "animation_set": "",
+  "moving_parts": ["Magazine", "Trigger"],
+  "stats": {
+    "damage": 48,
+    "head_multiplier": 2.0,
+    "rpm": 300,
+    "mag": 8,
+    "reserve": 64,
+    "spread": 0.012,
+    "range": 100,
+    "reload_chambered": 1.4,
+    "reload_empty": 1.8
+  },
+  "viewmodel": {
+    "position": [0.18, -0.19, -0.52],
+    "rotation": [0.0, 0.08, 0.0],
+    "scale": 0.9
+  },
+  "reload": { "strategy": "magazine" },
+  "audio": { "fire": "gun_pistol", "reload": "reload", "empty": "reload" }
+}

@@ -32,6 +32,7 @@ func _ready() -> void:
 	_streams["gun_smg"] = [load("res://assets/audio/guns/cz.wav")]
 	_streams["gun_shotgun"] = [load("res://assets/audio/guns/shotty.wav")]
 	_streams["gun_rifle"] = [load("res://assets/audio/guns/mosin.wav")]
+	_streams["gun_sks"] = [load("res://assets/audio/guns/sks.wav")]
 	_streams["gun_raygun"] = [load("res://assets/audio/guns/raygun_synth.ogg")]
 
 	_streams["reload"] = [

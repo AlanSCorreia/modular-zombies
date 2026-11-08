@@ -21,7 +21,7 @@
     { "id": "depot_B1", "position": [20.0, 0.1, 4.0], "room": "B" }
   ],
   "wallbuys": [
-    { "id": "wb_depot", "weapon": "weapon.glock17", "name": "GLOCK 17", "cost": 500, "position": [-7.65, 1.45, 0.0], "rotation_y": 1.5708 }
+    { "id": "wb_depot", "weapon": "weapon.sks", "name": "SKS", "cost": 800, "position": [-7.65, 1.45, 0.0], "rotation_y": 1.5708 }
   ],
   "power_switches": [
     { "id": "power_depot", "room": "A", "position": [-7.6, 1.4, -2.0], "rotation_y": 1.5708, "door": "door1" }
