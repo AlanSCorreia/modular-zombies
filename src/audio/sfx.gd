@@ -5,7 +5,6 @@ extends Node
 const POOL_2D := 12
 const POOL_3D := 16
 const BUS_NAMES := ["Music", "Weapons", "Zombies", "UI", "Foley"]
-const SETTINGS_PATH := "user://audio.cfg"
 
 var _streams: Dictionary = {}
 var _music: AudioStreamPlayer
@@ -18,7 +17,7 @@ var _pool_3d_idx := 0
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_ensure_buses()
-	_load_settings()
+	set_master_volume(0.8, false)
 
 	var master := AudioServer.get_bus_index("Master")
 	var rev := AudioEffectReverb.new()
@@ -140,24 +139,10 @@ func _bus_for(key: String) -> String:
 		return "Foley"
 	return "Master"
 
-func _load_settings() -> void:
-	var cfg := ConfigFile.new()
-	if cfg.load(SETTINGS_PATH) != OK:
-		set_master_volume(0.8, false)
-		return
-	set_master_volume(float(cfg.get_value("audio", "master", 0.8)), false)
-
-func _save_settings() -> void:
-	var cfg := ConfigFile.new()
-	cfg.set_value("audio", "master", get_master_volume())
-	cfg.save(SETTINGS_PATH)
-
-func set_master_volume(value: float, save := true) -> void:
+func set_master_volume(value: float, _save := true) -> void:
 	var linear := clampf(value, 0.0, 1.0)
 	AudioServer.set_bus_volume_db(0, linear_to_db(maxf(linear, 0.0001)))
 	AudioServer.set_bus_mute(0, linear <= 0.001)
-	if save:
-		_save_settings()
 
 func get_master_volume() -> float:
 	return clampf(db_to_linear(AudioServer.get_bus_volume_db(0)), 0.0, 1.0)
@@ -177,8 +162,18 @@ func get_bus_volume(bus_name: String) -> float:
 func has_bus(bus_name: String) -> bool:
 	return AudioServer.get_bus_index(bus_name) != -1
 
-func set_music_volume(db: float) -> void:
-	_music.volume_db = db
+func set_music_volume(value: float) -> void:
+	var linear := clampf(value, 0.0, 1.0)
+	var idx := AudioServer.get_bus_index("Music")
+	if idx != -1:
+		AudioServer.set_bus_volume_db(idx, linear_to_db(maxf(linear, 0.0001)))
+		AudioServer.set_bus_mute(idx, linear <= 0.001)
+
+func get_music_volume() -> float:
+	var idx := AudioServer.get_bus_index("Music")
+	if idx == -1:
+		return 0.0
+	return clampf(db_to_linear(AudioServer.get_bus_volume_db(idx)), 0.0, 1.0)
 
 func _acquire_2d() -> AudioStreamPlayer:
 	for i in range(_pool_2d.size()):

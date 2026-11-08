@@ -20,8 +20,9 @@ var owned_perks: Array[String] = []
 
 func _ready() -> void:
 	randomize()
-	get_viewport().scaling_3d_mode = Viewport.SCALING_3D_MODE_FSR
-	get_viewport().scaling_3d_scale = 0.75
+	GameSettings.ensure_loaded()
+	GameSettings.apply_quality(get_viewport())
+	GameSettings.apply_audio()
 	_setup_environment()
 
 	var args := OS.get_cmdline_user_args()

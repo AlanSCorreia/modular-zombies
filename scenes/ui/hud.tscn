@@ -648,6 +648,81 @@ max_value = 1.0
 step = 0.01
 value = 0.8
 
+[node name="MusicRow" type="HBoxContainer" parent="Pause/Center/VBox" unique_id=1732194060]
+custom_minimum_size = Vector2(420, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+
+[node name="MusicLabel" type="Label" parent="Pause/Center/VBox/MusicRow" unique_id=1732194061]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.84, 0.76, 1)
+theme_override_fonts/font = ExtResource("2_136eg")
+theme_override_font_sizes/font_size = 18
+text = "MÚSICA"
+vertical_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="Pause/Center/VBox/MusicRow" unique_id=1732194062]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 0.8
+
+[node name="SensitivityRow" type="HBoxContainer" parent="Pause/Center/VBox" unique_id=1732194063]
+custom_minimum_size = Vector2(420, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+
+[node name="SensitivityLabel" type="Label" parent="Pause/Center/VBox/SensitivityRow" unique_id=1732194064]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.84, 0.76, 1)
+theme_override_fonts/font = ExtResource("2_136eg")
+theme_override_font_sizes/font_size = 18
+text = "SENSIB."
+vertical_alignment = 1
+
+[node name="SensitivitySlider" type="HSlider" parent="Pause/Center/VBox/SensitivityRow" unique_id=1732194065]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.2
+max_value = 2.0
+step = 0.05
+value = 1.0
+
+[node name="QualityRow" type="HBoxContainer" parent="Pause/Center/VBox" unique_id=1732194066]
+custom_minimum_size = Vector2(420, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+
+[node name="QualityLabel" type="Label" parent="Pause/Center/VBox/QualityRow" unique_id=1732194067]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.84, 0.76, 1)
+theme_override_fonts/font = ExtResource("2_136eg")
+theme_override_font_sizes/font_size = 18
+text = "QUALIDADE"
+vertical_alignment = 1
+
+[node name="QualityOption" type="OptionButton" parent="Pause/Center/VBox/QualityRow" unique_id=1732194068]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 3
+selected = 1
+popup/item_0/text = "BAIXA"
+popup/item_1/text = "MÉDIA"
+popup/item_2/text = "ALTA"
+
 [node name="ContinueButton" type="Button" parent="Pause/Center/VBox" unique_id=280024302]
 custom_minimum_size = Vector2(300, 52)
 layout_mode = 2

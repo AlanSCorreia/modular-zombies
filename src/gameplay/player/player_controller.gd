@@ -177,8 +177,9 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not can_control or is_dead:
 		return
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		rotate_y(-event.relative.x * MOUSE_SENS)
-		_pitch = clampf(_pitch - event.relative.y * MOUSE_SENS, -1.45, 1.45)
+		var sens := MOUSE_SENS * clampf(GameSettings.mouse_sensitivity, 0.2, 2.0)
+		rotate_y(-event.relative.x * sens)
+		_pitch = clampf(_pitch - event.relative.y * sens, -1.45, 1.45)
 	if event is InputEventKey and event.pressed and not event.echo:
 		if event.keycode == KEY_1:
 			switch_slot(0)

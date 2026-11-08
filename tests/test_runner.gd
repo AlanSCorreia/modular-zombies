@@ -72,6 +72,8 @@ func _ready() -> void:
 			await _enemy()
 		"save":
 			await _save()
+		"settings":
+			await _settings()
 		"ui":
 			await _ui()
 		"shot":
@@ -1081,6 +1083,42 @@ func _save() -> void:
 		str(saved), str(loaded), str(ok_roundtrip), str(bad),
 	])
 	_finish("SAVE_OK", ok)
+
+func _settings() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	GameSettings.reset()
+	GameSettings.set_sensitivity(1.5)
+	GameSettings.set_master_volume(0.6)
+	GameSettings.set_music_volume(0.5)
+	GameSettings.set_quality(2)
+	GameSettings.save_settings()
+	GameSettings.reset(false)
+	GameSettings.load_settings()
+	var roundtrip := absf(GameSettings.mouse_sensitivity - 1.5) < 0.001 \
+		and absf(GameSettings.master_volume - 0.6) < 0.001 \
+		and absf(GameSettings.music_volume - 0.5) < 0.001 \
+		and GameSettings.quality == 2
+	GameSettings.apply_audio()
+	GameSettings.apply_quality(game.get_viewport())
+	var audio_ok := absf(Sfx.get_master_volume() - 0.6) < 0.05 \
+		and absf(Sfx.get_music_volume() - 0.5) < 0.05
+	var quality_ok := absf(game.get_viewport().scaling_3d_scale - 1.0) < 0.001
+	GameSettings.set_sensitivity(99.0, false)
+	GameSettings.set_master_volume(-1.0, false)
+	var clamp_ok := absf(GameSettings.mouse_sensitivity - 2.0) < 0.001 \
+		and absf(GameSettings.master_volume) < 0.001
+	var hud_ok := game.hud.sensitivity_slider_value() > 0.0 \
+		and game.hud.music_slider_value() >= 0.0 \
+		and game.hud.quality_option_value() >= 0
+	GameSettings.reset()
+	GameSettings.apply_audio()
+	GameSettings.apply_quality(game.get_viewport())
+	var ok: bool = roundtrip and audio_ok and quality_ok and clamp_ok and hud_ok
+	print("SETTINGS_TEST roundtrip=%s audio=%s quality=%s clamp=%s hud=%s" % [
+		str(roundtrip), str(audio_ok), str(quality_ok), str(clamp_ok), str(hud_ok),
+	])
+	_finish("SETTINGS_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

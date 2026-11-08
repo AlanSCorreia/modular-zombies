@@ -38,6 +38,9 @@ const COL_AMBER := Color(0.95, 0.68, 0.20)
 @onready var _pause_continue: Button = $Pause/Center/VBox/ContinueButton
 @onready var _pause_restart: Button = $Pause/Center/VBox/RestartButton
 @onready var _volume_slider: HSlider = $Pause/Center/VBox/VolumeRow/VolumeSlider
+@onready var _music_slider: HSlider = $Pause/Center/VBox/MusicRow/MusicSlider
+@onready var _sensitivity_slider: HSlider = $Pause/Center/VBox/SensitivityRow/SensitivitySlider
+@onready var _quality_option: OptionButton = $Pause/Center/VBox/QualityRow/QualityOption
 
 var _health_frac := 1.0
 var _banner_time := 0.0
@@ -52,8 +55,26 @@ func _ready() -> void:
 	_over_restart.pressed.connect(func(): restart_requested.emit())
 	_pause_continue.pressed.connect(func(): resume_requested.emit())
 	_pause_restart.pressed.connect(func(): restart_requested.emit())
-	_volume_slider.value = Sfx.get_master_volume()
-	_volume_slider.value_changed.connect(func(value: float): Sfx.set_master_volume(value))
+	GameSettings.ensure_loaded()
+	_volume_slider.value = GameSettings.master_volume
+	_volume_slider.value_changed.connect(func(value: float):
+		GameSettings.set_master_volume(value)
+		GameSettings.apply_audio()
+	)
+	_music_slider.value = GameSettings.music_volume
+	_music_slider.value_changed.connect(func(value: float):
+		GameSettings.set_music_volume(value)
+		GameSettings.apply_audio()
+	)
+	_sensitivity_slider.value = GameSettings.mouse_sensitivity
+	_sensitivity_slider.value_changed.connect(func(value: float):
+		GameSettings.set_sensitivity(value)
+	)
+	_quality_option.selected = GameSettings.quality
+	_quality_option.item_selected.connect(func(index: int):
+		GameSettings.set_quality(index)
+		GameSettings.apply_quality(get_viewport())
+	)
 	_start.visible = true
 	_over.visible = false
 	_pause.visible = false
@@ -83,6 +104,15 @@ func is_pause_visible() -> bool:
 
 func volume_slider_value() -> float:
 	return _volume_slider.value
+
+func music_slider_value() -> float:
+	return _music_slider.value
+
+func sensitivity_slider_value() -> float:
+	return _sensitivity_slider.value
+
+func quality_option_value() -> int:
+	return _quality_option.selected
 
 func mouse_filters_ok() -> bool:
 	return _crosshair.mouse_filter == Control.MOUSE_FILTER_IGNORE \
