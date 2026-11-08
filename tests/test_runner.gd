@@ -52,6 +52,8 @@ func _ready() -> void:
 			await _trap()
 		"fx":
 			await _fx()
+		"audio":
+			await _audio()
 		"ui":
 			await _ui()
 		"shot":
@@ -744,6 +746,27 @@ func _fx() -> void:
 		str(label2), str(label1), str(has_fx), str(sounds),
 	])
 	_finish("FX_OK", ok)
+
+func _audio() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	var buses := true
+	for bus_name in ["Master", "Music", "Weapons", "Zombies", "UI", "Foley"]:
+		if not Sfx.has_bus(bus_name):
+			buses = false
+	var keys := Sfx.has("round_start") and Sfx.has("round_end") \
+		and Sfx.has("explosion") and Sfx.has("zombie_growl")
+	var slider := game.hud.volume_slider_value()
+	var slider_ok := slider >= 0.0 and slider <= 1.0
+	game.hud.get_node("Pause/Center/VBox/VolumeRow/VolumeSlider").value = 0.25
+	await get_tree().create_timer(0.05).timeout
+	var volume_ok := absf(Sfx.get_master_volume() - 0.25) < 0.05
+	Sfx.set_master_volume(0.8)
+	var ok: bool = buses and keys and slider_ok and volume_ok
+	print("AUDIO_TEST buses=%s keys=%s slider=%.2f volume=%s" % [
+		str(buses), str(keys), slider, str(volume_ok),
+	])
+	_finish("AUDIO_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

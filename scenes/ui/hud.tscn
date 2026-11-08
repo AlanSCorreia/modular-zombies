@@ -623,6 +623,31 @@ theme_override_font_sizes/font_size = 20
 text = "ESC para continuar"
 horizontal_alignment = 1
 
+[node name="VolumeRow" type="HBoxContainer" parent="Pause/Center/VBox" unique_id=1732194050]
+custom_minimum_size = Vector2(420, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+
+[node name="VolumeLabel" type="Label" parent="Pause/Center/VBox/VolumeRow" unique_id=1732194051]
+custom_minimum_size = Vector2(110, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.86, 0.84, 0.76, 1)
+theme_override_fonts/font = ExtResource("2_136eg")
+theme_override_font_sizes/font_size = 18
+text = "VOLUME"
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="Pause/Center/VBox/VolumeRow" unique_id=1732194052]
+custom_minimum_size = Vector2(280, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 0.8
+
 [node name="ContinueButton" type="Button" parent="Pause/Center/VBox" unique_id=280024302]
 custom_minimum_size = Vector2(300, 52)
 layout_mode = 2

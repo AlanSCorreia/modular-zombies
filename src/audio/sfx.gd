@@ -4,6 +4,8 @@ extends Node
 
 const POOL_2D := 12
 const POOL_3D := 16
+const BUS_NAMES := ["Music", "Weapons", "Zombies", "UI", "Foley"]
+const SETTINGS_PATH := "user://audio.cfg"
 
 var _streams: Dictionary = {}
 var _music: AudioStreamPlayer
@@ -15,6 +17,8 @@ var _pool_3d_idx := 0
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
+	_ensure_buses()
+	_load_settings()
 
 	var master := AudioServer.get_bus_index("Master")
 	var rev := AudioEffectReverb.new()
@@ -97,13 +101,77 @@ func _ready() -> void:
 	amb.loop = true
 	_music.stream = amb
 	_music.volume_db = -20.0
+	_music.bus = "Music"
 	add_child(_music)
 	_music.play()
 
 	_heart = AudioStreamPlayer.new()
 	_heart.stream = _streams["heartbeat"][0]
 	_heart.volume_db = -8.0
+	_heart.bus = "UI"
 	add_child(_heart)
+
+func _ensure_buses() -> void:
+	for bus_name in BUS_NAMES:
+		if AudioServer.get_bus_index(bus_name) != -1:
+			continue
+		AudioServer.add_bus()
+		var idx := AudioServer.bus_count - 1
+		AudioServer.set_bus_name(idx, bus_name)
+		AudioServer.set_bus_send(idx, "Master")
+
+func _bus_for(key: String) -> String:
+	if key.begins_with("gun_"):
+		return "Weapons"
+	if key.begins_with("zombie_"):
+		return "Zombies"
+	if key in ["powerup", "box_hum", "heartbeat", "ui"]:
+		return "UI"
+	if key in ["round_start", "round_end"]:
+		return "Music"
+	if key in [
+		"reload", "hit_flesh", "hit_wall", "shell", "footstep", "explosion",
+		"knife_slash", "barricade_break", "barricade_repair", "grenade_throw",
+	]:
+		return "Foley"
+	return "Master"
+
+func _load_settings() -> void:
+	var cfg := ConfigFile.new()
+	if cfg.load(SETTINGS_PATH) != OK:
+		set_master_volume(0.8, false)
+		return
+	set_master_volume(float(cfg.get_value("audio", "master", 0.8)), false)
+
+func _save_settings() -> void:
+	var cfg := ConfigFile.new()
+	cfg.set_value("audio", "master", get_master_volume())
+	cfg.save(SETTINGS_PATH)
+
+func set_master_volume(value: float, save := true) -> void:
+	var linear := clampf(value, 0.0, 1.0)
+	AudioServer.set_bus_volume_db(0, linear_to_db(maxf(linear, 0.0001)))
+	AudioServer.set_bus_mute(0, linear <= 0.001)
+	if save:
+		_save_settings()
+
+func get_master_volume() -> float:
+	return clampf(db_to_linear(AudioServer.get_bus_volume_db(0)), 0.0, 1.0)
+
+func set_bus_volume(bus_name: String, value: float) -> void:
+	var idx := AudioServer.get_bus_index(bus_name)
+	if idx == -1:
+		return
+	AudioServer.set_bus_volume_db(idx, linear_to_db(clampf(value, 0.0001, 1.0)))
+
+func get_bus_volume(bus_name: String) -> float:
+	var idx := AudioServer.get_bus_index(bus_name)
+	if idx == -1:
+		return 0.0
+	return clampf(db_to_linear(AudioServer.get_bus_volume_db(idx)), 0.0, 1.0)
+
+func has_bus(bus_name: String) -> bool:
+	return AudioServer.get_bus_index(bus_name) != -1
 
 func set_music_volume(db: float) -> void:
 	_music.volume_db = db
@@ -141,6 +209,7 @@ func play(key: String, volume_db: float = 0.0, pitch: float = 1.0, pitch_var: fl
 	var p := _acquire_2d()
 	p.stream = arr[randi() % arr.size()]
 	p.volume_db = volume_db
+	p.bus = _bus_for(key)
 	p.pitch_scale = maxf(0.05, pitch + randf_range(-pitch_var, pitch_var))
 	p.play()
 
@@ -153,6 +222,7 @@ func play_3d(key: String, world_pos: Vector3, volume_db: float = 0.0, pitch: flo
 	var p := _acquire_3d()
 	p.stream = arr[randi() % arr.size()]
 	p.volume_db = volume_db
+	p.bus = _bus_for(key)
 	p.pitch_scale = maxf(0.05, pitch + randf_range(-pitch_var, pitch_var))
 	p.global_position = world_pos
 	p.play()
@@ -174,6 +244,7 @@ func play_music(key: String, volume_db: float = -6.0) -> void:
 	var p := AudioStreamPlayer.new()
 	p.stream = _streams[key][0]
 	p.volume_db = volume_db
+	p.bus = "Music"
 	add_child(p)
 	p.finished.connect(p.queue_free)
 	p.play()

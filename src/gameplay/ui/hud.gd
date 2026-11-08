@@ -37,6 +37,7 @@ const COL_AMBER := Color(0.95, 0.68, 0.20)
 @onready var _over_restart: Button = $Over/Center/VBox/RestartButton
 @onready var _pause_continue: Button = $Pause/Center/VBox/ContinueButton
 @onready var _pause_restart: Button = $Pause/Center/VBox/RestartButton
+@onready var _volume_slider: HSlider = $Pause/Center/VBox/VolumeRow/VolumeSlider
 
 var _health_frac := 1.0
 var _banner_time := 0.0
@@ -51,6 +52,8 @@ func _ready() -> void:
 	_over_restart.pressed.connect(func(): restart_requested.emit())
 	_pause_continue.pressed.connect(func(): resume_requested.emit())
 	_pause_restart.pressed.connect(func(): restart_requested.emit())
+	_volume_slider.value = Sfx.get_master_volume()
+	_volume_slider.value_changed.connect(func(value: float): Sfx.set_master_volume(value))
 	_start.visible = true
 	_over.visible = false
 	_pause.visible = false
@@ -77,6 +80,9 @@ func hide_pause() -> void:
 
 func is_pause_visible() -> bool:
 	return _pause.visible
+
+func volume_slider_value() -> float:
+	return _volume_slider.value
 
 func mouse_filters_ok() -> bool:
 	return _crosshair.mouse_filter == Control.MOUSE_FILTER_IGNORE \
