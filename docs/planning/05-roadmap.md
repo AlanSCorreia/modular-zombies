@@ -2,7 +2,7 @@
 kind: planning
 area: execution
 status: active
-stage: 7
+stage: 8
 owner: docs
 last_reviewed: 2026-11-08
 ---
@@ -24,8 +24,8 @@ O board operacional é `../../KANBAN.md`.
 | `etapa4` | Etapa 4 — Interações | Portas, compras, caixa, perks, HUD, menus, som | **Concluído** | M |
 | `etapa5` | Etapa 5 — Ferramentas | Criar/validar/testar mapas no editor | **Concluído** | M |
 | `etapa6` | Etapa 6 — Quests | QuestSystem, música, mecânica única, debug | **Concluído** | L |
-| `etapa7` | Etapa 7 — Escala | 2º mapa, armas novas, wonder weapon, inimigo | **Em andamento** | L |
-| `etapa8` | Etapa 8 — Produção | Save, settings, export, pools, CI, performance | Backlog | L |
+| `etapa7` | Etapa 7 — Escala | 2º mapa, armas novas, wonder weapon, inimigo | **Concluído** | L |
+| `etapa8` | Etapa 8 — Produção | Save, settings, export, pools, CI, performance | **Em andamento** | L |
 
 ## Etapa 1 — Preparação (concluída — tag `etapa1`)
 
@@ -126,14 +126,13 @@ QuestValidator (issue #31) e main quest de 3 passos (issue #32).
 
 **Aceite:** música secreta + main quest de 3 passos jogáveis — atendido.
 
-## Etapa 7 — Escala de conteúdo (em andamento)
+## Etapa 7 — Escala de conteúdo (concluída — tag `etapa7`)
 
 **Já entregue:** segundo mapa jogável `map.depot` (issue #33), duas armas novas
-(issue #34) e wonder weapon Ray Gun (issue #35).
+(issue #34), wonder weapon Ray Gun (issue #35), inimigo especial Brute
+(issue #36) e teste `NO_CORE_OK`.
 
-**Pendente**
-- Inimigo especial (issue #36).
-- Teste “sem mudança no núcleo”.
+**Aceite:** 2º mapa + armas novas sem mudar o núcleo — atendido.
 
 **Entregáveis**
 - Segundo mapa com 2 mecânicas únicas.
@@ -144,7 +143,9 @@ QuestValidator (issue #31) e main quest de 3 passos (issue #32).
 
 **Aceite:** novo mapa/arma sem alterar o núcleo; validador e testes verdes.
 
-## Etapa 8 — Produção
+## Etapa 8 — Produção (em andamento)
+
+**Próximo:** save/load versionado da run (issue #37).
 
 **Entregáveis**
 - Save/load versionado.

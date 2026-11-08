@@ -402,7 +402,7 @@
     {
       "number": 36,
       "title": "Inimigo especial (Brute) data-driven",
-      "state": "OPEN",
+      "state": "CLOSED",
       "labels": [
         "etapa:7",
         "prio:P0",
@@ -410,6 +410,18 @@
         "area:gameplay"
       ],
       "milestone": "Etapa 7 — Escala de conteúdo"
+    },
+    {
+      "number": 37,
+      "title": "Save/load versionado da run",
+      "state": "OPEN",
+      "labels": [
+        "etapa:8",
+        "prio:P0",
+        "area:gameplay",
+        "area:infra"
+      ],
+      "milestone": "Etapa 8 — Produção"
     }
   ]
 }

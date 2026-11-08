@@ -14,6 +14,7 @@ Decisões estruturais longas também viram ADR em `07-adr/`.
 
 | ID | Data | Decisão | Motivo / consequência |
 |---|---|---|---|
+| D-048 | 2026-11-08 | **Etapa 7 aceita:** segundo mapa, armas novas, wonder weapon, inimigo especial data-driven e `NO_CORE_OK`; `starting_weapon` passou para o mapa. Etapa 8 começa por save/load. | Fecha a prova de escala sem dívida de IDs no núcleo. |
 | D-047 | 2026-11-08 | **Wonder weapon por dados:** Ray Gun usa `projectile`/`explosive` existentes e entra na caixa sem `if weapon_id`; o asset tem sockets e shared hands. | Prova que armas especiais não exigem um novo caminho de código. |
 | D-046 | 2026-11-08 | **Duas armas novas:** pistol normalizada para metros e SKS autoral entram por JSON/GLB, com shared hands, wallbuy e `WEAPONS_OK`; nenhum caso especial no núcleo. | Prova o contrato de armas para modelos novos e valida o wallbuy data-driven. |
 | D-045 | 2026-11-08 | **Segundo mapa por composição:** `map.depot` reutiliza GLB/builder e adiciona mecânicas por JSON (`power_switches`/`radios`/quest), sem código específico de mapa no núcleo. | Prova a escala do framework e vira base para as armas novas. |

@@ -2,7 +2,7 @@
 kind: planning
 area: execution
 status: active
-stage: 7
+stage: 8
 owner: docs
 last_reviewed: 2026-11-08
 ---
@@ -162,14 +162,14 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA7.1 | Segundo mapa (feito, issue #33) | P0 |
 | ETAPA7.2 | Duas armas novas (feito, issue #34) | P0 |
 | ETAPA7.3 | Wonder weapon (feito, issue #35) | P1 |
-| ETAPA7.4 | Inimigo especial (issue #36) | P1 |
-| ETAPA7.5 | Teste sem mudança no núcleo | P0 |
+| ETAPA7.4 | Inimigo especial (feito, issue #36) | P1 |
+| ETAPA7.5 | Teste sem mudança no núcleo (feito, NO_CORE_OK) | P0 |
 
 ## Etapa 8 — Produção
 
 | ID | Tarefa | Pri |
 |---|---|---|
-| ETAPA8.1 | Save/load versionado | P0 |
+| ETAPA8.1 | Save/load versionado (issue #37) | P0 |
 | ETAPA8.2 | Settings | P1 |
 | ETAPA8.3 | Exportação Linux + smoke | P0 |
 | ETAPA8.4 | Pool de áudio/efeitos | P1 |

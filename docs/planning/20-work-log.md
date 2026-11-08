@@ -15,6 +15,17 @@ está em
 o início do projeto, em
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 
+## 2026-11-08 — Inimigo especial Brute (issue #36)
+
+- Asset `brute.blend`/GLB (variante do zumbi) e `enemy.brute` com mais vida,
+  dano e escala.
+- `SpecialEnemyData`/`special_enemies` no mapa/schema/validador.
+- `RoundManager` sorteia o especial por rodada/chance; `GameRoot` instancia o
+  `EnemyData` escolhido.
+- `starting_weapon` saiu do `GameRoot` e virou campo do mapa.
+- Testes `ENEMY_OK` e `NO_CORE_OK`; Etapa 7 aceita com tag `etapa7`.
+- Próxima: Etapa 8 (save/load).
+
 ## 2026-11-08 — Wonder weapon Ray Gun (issue #35)
 
 - Asset autoral `raygun.blend`/GLB com corpo, cano, coils emissivos e sockets.
@@ -142,5 +153,5 @@ o início do projeto, em
 - Asset autoral `trap.blend`/GLB; 2 traps no Bunker 13.
 - Teste `TRAP_OK`; Etapa 4 iniciada.
 
-**Próximo item:** inimigo especial Brute (issue #36); depois teste sem núcleo e
-aceite da Etapa 7.
+**Próximo item:** save/load versionado da run (issue #37); depois settings,
+exportação Linux e performance.

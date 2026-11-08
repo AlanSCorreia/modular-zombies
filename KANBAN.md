@@ -32,20 +32,20 @@
 | `etapa4` | Etapa 4 — Interações | **Concluído** | — |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | **Concluído** | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | **Concluído** | — |
-| `etapa7` | Etapa 7 — Escala de conteúdo | **Em andamento** | Inimigo especial |
-| `etapa8` | Etapa 8 — Produção | Backlog | — |
+| `etapa7` | Etapa 7 — Escala de conteúdo | **Concluído** | — |
+| `etapa8` | Etapa 8 — Produção | **Em andamento** | Save/load |
 
-> **Status:** Etapas 3, 4, 5 e 6 **concluídas** (issues #1–#15 e #17–#32).
-> Gameplay, apresentação, ferramentas e quests prontos. Etapa 7 começa pelo
-> segundo mapa; a escala das armas (#16) fica como dívida visual.
+> **Status:** Etapas 3–7 **concluídas** (issues #1–#15 e #17–#36).
+> Gameplay, apresentação, ferramentas, quests e escala de conteúdo prontos.
+> Etapa 8 começa por save/load; a escala das armas (#16) fica como dívida visual.
 
 ## Próximo item
 
-- **Etapa ativa:** 7 — Escala de conteúdo.
+- **Etapa ativa:** 8 — Produção.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** inimigo especial Brute (issue #36).
-- **Depois:** teste “sem mudança no núcleo” e aceite da Etapa 7.
-- **Próxima etapa:** 8 — Produção, após o aceite da Etapa 7.
+- **Próximo:** save/load versionado da run (issue #37).
+- **Depois:** settings, exportação Linux e performance.
+- **Última etapa:** 8 — Produção, após o aceite da Etapa 7.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
 ---
@@ -325,7 +325,7 @@
 - [ ] Teste “sem mudança no núcleo”
 
 ### Ready
-- [ ] Inimigo especial Brute (P0) — [#36](https://github.com/AlanSCorreia/modular-zombies/issues/36)
+- *(vazio)*
 
 ### Doing
 - *(vazio)*
@@ -353,15 +353,15 @@
 - [ ] Localização
 - [ ] Suporte a controle
 - [ ] Mods
-
-### Ready
-- [ ] Save/load versionado
 - [ ] Settings (sensibilidade, volume, qualidade)
 - [ ] Exportação Linux + smoke test
 - [ ] Pool de áudio/efeitos
 - [ ] Navmesh pré-bakeada
 - [ ] CI (testes + validador)
 - [ ] Soak test 30 min
+
+### Ready
+- [ ] Save/load versionado (P0) — [#37](https://github.com/AlanSCorreia/modular-zombies/issues/37)
 
 ### Doing
 - *(vazio)*
