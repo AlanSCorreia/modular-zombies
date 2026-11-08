@@ -26,7 +26,7 @@ func _init() -> void:
 
 	check(reg.errors.is_empty(), "conteúdo sem erros")
 	check(reg.maps.size() == 3, "3 mapas carregados")
-	check(reg.weapons.size() == 8, "8 armas carregadas")
+	check(reg.weapons.size() == 9, "9 armas carregadas")
 	check(reg.melees.size() == 1, "1 melee carregado")
 	check(reg.explosives.size() == 1, "1 explosivo carregado")
 	check(reg.quests.size() == 4, "4 quests carregadas")
@@ -44,7 +44,7 @@ func _init() -> void:
 	if quest != null:
 		check(quest.steps.size() == 3, "quest tem 3 passos")
 		check(quest.rewards.size() == 2, "quest tem 2 recompensas")
-	for wid in ["weapon.glock17", "weapon.mp5", "weapon.m870", "weapon.ak74", "weapon.wunder", "weapon.rocket", "weapon.pistol", "weapon.sks"]:
+	for wid in ["weapon.glock17", "weapon.mp5", "weapon.m870", "weapon.ak74", "weapon.wunder", "weapon.rocket", "weapon.pistol", "weapon.sks", "weapon.raygun"]:
 		var w: WeaponData = reg.get_weapon(wid)
 		check(w != null, "arma " + wid)
 		if w != null:

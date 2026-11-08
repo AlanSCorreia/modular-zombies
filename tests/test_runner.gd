@@ -66,6 +66,8 @@ func _ready() -> void:
 			await _second_map()
 		"weapons":
 			await _weapons()
+		"wonder":
+			await _wonder()
 		"ui":
 			await _ui()
 		"shot":
@@ -957,6 +959,40 @@ func _weapons() -> void:
 		str(pistol_ok), str(pistol_fired), str(pistol_reload),
 	])
 	_finish("WEAPONS_OK", ok)
+
+func _wonder() -> void:
+	game._start()
+	await get_tree().create_timer(0.2).timeout
+	game.round.stop()
+	var data: WeaponData = Content.get_weapon("weapon.raygun")
+	var loaded: bool = data != null and data.explosive == "explosive.frag" \
+		and data.hands == ViewmodelFactory.HANDS_PATH
+	game.player.add_weapon(data)
+	await get_tree().process_frame
+	var wc: WeaponController = game.player.weapon
+	var equipped: bool = wc != null and wc.data.id == "weapon.raygun" \
+		and wc.hands != null
+	var mag0 := wc.ammo_mag if wc != null else 0
+	game.player._pitch = -1.3
+	await get_tree().process_frame
+	if wc != null:
+		wc.try_fire()
+	await get_tree().create_timer(0.8).timeout
+	var fired := wc != null and wc.ammo_mag == mag0 - 1
+	var fx := not get_tree().get_nodes_in_group("explosion_fx").is_empty()
+	if wc != null:
+		wc.ammo_mag = 0
+		wc.ammo_reserve = 20
+		wc.start_reload()
+	await get_tree().create_timer(3.1).timeout
+	var reloaded := wc != null and wc.ammo_mag > 0
+	var audio := Sfx.has("gun_raygun")
+	var ok: bool = loaded and equipped and fired and fx and reloaded and audio
+	print("WONDER_TEST loaded=%s equipped=%s fire=%s fx=%s reload=%s audio=%s" % [
+		str(loaded), str(equipped), str(fired), str(fx), str(reloaded),
+		str(audio),
+	])
+	_finish("WONDER_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout
