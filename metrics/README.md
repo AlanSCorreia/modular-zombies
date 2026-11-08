@@ -36,6 +36,8 @@ O script:
 4. Junta `git log --numstat`, issues via `gh` e logs de CI.
 5. Gera os agregados versionáveis.
 
+`metrics/.gdignore` impede o Godot de importar os CSV como traduções.
+
 Sem GitHub/rede:
 
 ```bash
