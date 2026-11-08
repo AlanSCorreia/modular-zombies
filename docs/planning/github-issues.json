@@ -319,6 +319,18 @@
     {
       "number": 29,
       "title": "3 rádios no Bunker 13 + música secreta",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:6",
+        "prio:P0",
+        "area:assets",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 6 — Quests e Easter Eggs"
+    },
+    {
+      "number": 30,
+      "title": "Bunker13PowerMechanic (interruptor de energia)",
       "state": "OPEN",
       "labels": [
         "etapa:6",

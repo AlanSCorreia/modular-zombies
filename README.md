@@ -19,8 +19,8 @@ serviços e ferramentas de autoria.
   `ViewmodelFactory` com `hands.glb` compartilhado e faca visual com
   `knife_slash`.
 - Entregue também: rodadas 1→2 com HUD e game over; traps explosivas.
-- Pendente: rádios, mecânica do Bunker 13 e validador de grafo; a escala das
-  armas (#16) fica como dívida visual.
+- Pendente: mecânica de energia, validador de grafo e debug; a escala das armas
+  (#16) fica como dívida visual.
 - A geometria do mapa é autoral (GLB/`.blend`); builders antigos ficam em
   `src/maps/legacy/` apenas para exportação.
 

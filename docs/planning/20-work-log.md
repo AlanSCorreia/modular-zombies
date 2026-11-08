@@ -15,6 +15,17 @@ está em
 o início do projeto, em
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 
+## 2026-11-08 — Rádios no Bunker 13 (issue #29)
+
+- Asset autoral `radio.blend`/GLB; `RadioData`/`RadioState` e `radios` no
+  JSON/schema/validador.
+- `MapSceneBuilder` cria holder, área interativa e label; `PlayerController`
+  mostra prompt de sintonia.
+- `GameRoot` marca rádio usado, toca SFX e emite banner; quest recebe os 3
+  eventos e paga pontos + música.
+- Teste `RADIO_OK` cobre 3 rádios, uso único, quest e recompensa.
+- Próximo: `Bunker13PowerMechanic` (#30).
+
 ## 2026-11-08 — QuestSystem + DTOs/triggers/recompensas (issue #28)
 
 - `QuestData`/`QuestStepData`/`RewardData`, schema e
@@ -78,5 +89,5 @@ o início do projeto, em
 - Asset autoral `trap.blend`/GLB; 2 traps no Bunker 13.
 - Teste `TRAP_OK`; Etapa 4 iniciada.
 
-**Próximo item:** 3 rádios no Bunker 13 + música secreta (issue #29); depois
-mecânica do Bunker 13, validador de grafo e debug.
+**Próximo item:** `Bunker13PowerMechanic` — interruptor de energia (issue #30);
+depois validador de grafo e debug.

@@ -22,9 +22,8 @@ last_reviewed: 2026-11-08
   explosões, granada/foguete/barris, barricadas, janelas + IA de zumbi, mãos
   compartilhadas/`ViewmodelFactory`, faca com `knife_slash`, rodadas 1→2 e
   traps explosivas, VFX/SFX/HUD de granadas e áudio/mixagem.
-- **Próximo:** 3 rádios no Bunker 13 + música secreta (#29).
-- **Depois:** mecânica do Bunker 13, validador de grafo e debug; escala (#16)
-  fica como dívida visual.
+- **Próximo:** `Bunker13PowerMechanic` (#30).
+- **Depois:** validador de grafo e debug; escala (#16) fica como dívida visual.
 - Gates atuais: ver [`08-testing-strategy.md`](08-testing-strategy.md).
 
 ## Índice
