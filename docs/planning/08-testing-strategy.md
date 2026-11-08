@@ -5,7 +5,7 @@
 | Nível | Escopo | Ferramenta |
 |---|---|---|
 | Unitário | JSON, regras, economia, explosões, melee, quest graph | `tests/run_logic_tests.gd` |
-| Integração | Cena real, portas, navmesh, tiro, compras | `--test` headless |
+| Integração | Cena real, portas, nav, tiro, compras | `tests/test_runner.tscn -- --case <caso>` |
 | Conteúdo | JSON schema, IDs, referências, ciclos, softlocks | `ContentValidator` |
 | Aceite | Golden path por fase | Checklist + testes |
 | Visual | Start, armas, HUD, slice | `--ui`, `--shot` |
@@ -57,7 +57,8 @@
 ## Testes de arma
 
 - Conteúdo: schema, stats, cena, mãos, `GripSocket`, partes móveis.
-- Asset: GLB importa, escala/origem/eixos, `Muzzle`/`EjectPort`.
+- Asset: GLB importa, escala/origem/eixos, `Muzzle`; escala real em metros é
+  pendência da issue #16.
 - Animações: `fire`, `fire_last`, `reload_chambered`, `reload_empty`.
 - Integração: tiro, headshot, recarga com/sem bala no cano, 2 slots.
 - Visual: arma + mãos na tela; muzzle flash e recuo.
@@ -105,14 +106,14 @@ Deve falhar em:
 Antes de expandir conteúdo:
 
 - [ ] Iniciar pelo menu.
-- [ ] Atirar e recarregar (com e sem bala no cano).
-- [ ] Matar o zumbi e ganhar pontos.
-- [ ] Abrir a porta e spawnar o segundo zumbi.
+- [x] Atirar e recarregar (com e sem bala no cano).
+- [x] Matar o zumbi e ganhar pontos.
+- [x] Abrir a porta e spawnar o segundo zumbi.
 - [x] Reparar uma barricada com hold F e ganhar pontos.
 - [x] Ver o zumbi arrancar tábuas e entrar com 0.
-- [ ] HUD/health/ammo/pontos corretos.
+- [x] HUD/health/ammo/pontos corretos.
 - [ ] Game over e restart.
-- [ ] `ci.sh` verde e bench dentro do orçamento.
+- [x] `ci.sh` verde e bench dentro do orçamento.
 
 ## CI
 

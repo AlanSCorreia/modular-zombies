@@ -47,8 +47,10 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 > Ordem de execução: ETAPA3.40–43 (issues #3–#7), `Economy`/`RoundManager`
 > (issue #8), melee/projétil (issue #9), `ExplosionSystem` (issue #10) e
 > granada/foguete/barris (issue #11), `Barricade`/`BarricadeSystem`
-> (issue #12), janelas/IA de zumbi (issue #13) e mãos/`ViewmodelFactory`
-> (issue #14) concluídas; agora AUD.1 (auditoria de redundância, issue #15).
+> (issue #12), janelas/IA de zumbi (issue #13), mãos/`ViewmodelFactory`
+> (issue #14), auditoria de redundância (issue #15) e organização das docs
+> (issue #18) concluídas; agora ETAPA3.14 (faca, issue #17) e depois
+> ETAPA3.46 (escala, issue #16).
 
 | ID | Tarefa | Pri |
 |---|---|---|
@@ -174,3 +176,4 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ID | Tarefa | Pri |
 |---|---|---|
 | AUD.1 | Auditoria curta de redundância (docs, CI, código e execução) — issue #15 (feito) | P2 |
+| DOC.1 | Organização das docs: índice, archive e work log — issue #18 (feito) | P1 |

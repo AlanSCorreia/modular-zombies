@@ -38,10 +38,10 @@
 > **Status:** Etapas 1 e 2 concluídas. Geometria autoral, 2 slots, softlock,
 > `MapContext`/`Interactable`, harness, pool/cache, HUD em `.tscn`,
 > `RoundManager`/`Economy`, projectile/melee, `ExplosionSystem`,
-> granada/foguete/barris, `BarricadeSystem`, vãos de janela e IA de zumbi em
-> barricadas, vãos de janela, IA de zumbi, mãos compartilhadas/
-> `ViewmodelFactory` e a auditoria de redundância concluídos (issues #1–#15
-> fechadas); o foco agora é a faca GLB + `knife_slash` (issue #17).
+> granada/foguete/barris, `BarricadeSystem`, vãos de janela, IA de zumbi,
+> mãos compartilhadas/`ViewmodelFactory`, auditoria de redundância e organização
+> das docs concluídos (issues #1–#15 e #18 fechadas); o foco agora é a faca GLB
+> + `knife_slash` (issue #17).
 
 ## Próximo item
 
@@ -136,8 +136,8 @@
 # Etapa 3 — Gameplay
 
 **Objetivo:** loop completo + combate com explosivos e faca.  
-**Aceite:** Bunker 13 jogável com geometria autoral; armas usam JSON + `HandsRig`;
-faca, explosivos e barricadas funcionando.
+**Aceite:** Bunker 13 jogável com geometria autoral; armas usam JSON +
+`ViewmodelFactory` (`hands.glb`); faca, explosivos e barricadas funcionando.
 
 ### Backlog
 - [ ] Perk “Gatilho Duplo” com definição
@@ -201,6 +201,7 @@ faca, explosivos e barricadas funcionando.
 - [x] Vãos de janela autorais + spawns por barricada + IA de zumbi (issue #13)
 - [x] `hands.glb` compartilhado + `GripSocket` + `ViewmodelFactory` (issue #14)
 - [x] Auditoria curta de redundância (`22-redundancy-audit.md`, issue #15)
+- [x] Organização das docs: índice, archive e work log (issue #18)
 
 ### Blocked
 - *(vazio)*

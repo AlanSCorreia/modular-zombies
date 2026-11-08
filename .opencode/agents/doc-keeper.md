@@ -60,7 +60,8 @@ Antes de escrever:
 - Rode `./tests/ci.sh` se houver mudança de código; registre o resultado.
 
 Faça:
-1. Atualize `20-work-log.md` com o bloco: o que mudou, testes e commits.
+1. Atualize `20-work-log.md` com o bloco no topo (mais recente primeiro). Ao
+   fechar uma etapa, mova o detalhe histórico para `docs/planning/archive/`.
 2. Garanta que `KANBAN.md` tenha no máximo **1 item em Doing**, que o próximo
    item esteja no topo de `Ready` e que a etapa ativa esteja correta.
 3. Registre em `19-decision-log.md` apenas decisões **já tomadas** pelo agente

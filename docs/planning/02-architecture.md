@@ -19,14 +19,15 @@ stringly typed. A v2 **reescreve o runtime** para eliminar esses limites.
 | Testes dentro do jogo | `tests/` + harness |
 | Navmesh rebake em runtime | Variantes pré-bakeadas (Etapa 8 — Produção) |
 
-## Estado atual (Etapa 1 — Preparação concluída)
+## Estado atual (Etapa 3 — Gameplay em andamento)
 
-Já existe: `project.godot`, `main.tscn`, `Events`, `Content`, `Sfx`, `GameRoot`,
-`PlayerController`, `WeaponController` (Glock), `ZombieEnemy`, `SliceHUD`,
-loader/validador JSON, plugin `bunker_tools`, CI local e vertical slice jogável.
+Já existe: `GameRoot` data-driven, `PlayerController`, 2 slots, projétil/melee,
+explosões, granada/foguete/barris, `BarricadeSystem`, IA de zumbi em janelas,
+`MapNav` BFS, HUD `.tscn`, `Economy`/`RoundManager`, `ViewmodelFactory` com
+`hands.glb` compartilhado, JSON/validador e CI local.
 
-Pendente para as Etapas 2–3: Bunker 13 completo em JSON, reorganização de assets,
-5 armas, faca, explosivos, barricadas, rodadas/economia completas e UI/áudio finais.
+Pendente: faca visual (`knife_slash`), normalização de escala das armas,
+rodada 1→2/game over, efeitos e UI/áudio finais.
 
 ## Arquitetura alvo
 

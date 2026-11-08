@@ -4,6 +4,9 @@
 **Issue:** #15  
 **Escopo:** documentação, CI, código e execução. Sem mudanças de gameplay.
 
+> **Atualização 2026-11-08:** work log rotacionado (issue #18); os números de
+> linhas abaixo são o retrato da auditoria, não o estado atual.
+
 ## Método
 
 - Contagem de arquivos/linhas e chaves de gate em `*.md`.

@@ -30,10 +30,10 @@ O CI deve bloquear qualquer mudança com conteúdo inválido ou teste vermelho.
 Nenhuma fase avança só com “framework”. Cada entrega precisa ser jogável ou
 testável:
 
-- Slice atual: Bunker 13 com geometria autoral, portas, compras, 2 slots e HUD
-  base.
-- Próximo: HUD em `.tscn`, barricadas, faca e explosivos (Etapa 3 — Gameplay).
-- Ferramentas de mapa só depois das Etapas 2–4 estáveis.
+- Slice atual: Bunker 13 com geometria autoral, portas, compras, 2 slots, HUD,
+  explosivos, barricadas, janelas com IA e mãos compartilhadas.
+- Próximo: faca GLB + `knife_slash`; depois normalização de escala das armas.
+- Ferramentas de mapa só depois das Etapas 4–6 estáveis.
 
 ## Orçamento de performance
 
@@ -67,7 +67,9 @@ grande.
 
 ## Decisões
 
-- Toda decisão estrutural vira ADR curto em `docs/planning/07-adr/`.
+- Decisão estrutural de gameplay/projeto → `19-decision-log.md` (D-001…).
+- Decisão de arquitetura/linguagem que mereça contexto longo → ADR curto em
+  `07-adr/`.
 - Dúvida de escopo: registrar no Kanban como `Blocked` com motivo.
 
 ## Assets
@@ -76,9 +78,10 @@ grande.
 - Exportar GLB para `assets/` via script; validar escala/pivôs.
 - Nenhum asset de terceiros sem licença em `CREDITS.md`.
 
-## Próximos passos (Etapa 3 — Gameplay em andamento)
+## Próximos passos (Etapa 3 — Gameplay)
 
-1. Barricadas, faca e explosivos (Etapa 3 — Gameplay).
-2. Mãos separadas (`hands.glb`) e Bunker 13 jogável (Etapa 3 — Gameplay).
-3. UI/áudio de combate (Etapa 4 — Interações).
-4. Ferramentas de mapa (Etapa 5 — Ferramentas).
+1. Faca GLB + `knife_slash` (issue #17).
+2. Normalizar escala/origem das armas (issue #16).
+3. Fechar rodada 1 → 2, game over e efeitos.
+4. UI/áudio de combate (Etapa 4 — Interações).
+5. Ferramentas de mapa (Etapa 5 — Ferramentas).

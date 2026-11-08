@@ -76,13 +76,14 @@ pontos e HUD de progresso), vãos de janela autorais, IA de zumbi
 - Testes de faca, traps e loop completo.
 
 **Transversal:** auditoria curta de redundância concluída em
-`22-redundancy-audit.md` (issue #15). Próximo item de gameplay: faca GLB +
-`knife_slash`; a normalização de escala das armas segue na issue #16.
+`22-redundancy-audit.md` (issue #15) e docs reorganizadas em índice + archive
+(issue #18). Próximo item de gameplay: faca GLB + `knife_slash`; a normalização
+de escala das armas segue na issue #16.
 
 **Pré-requisito atendido:** geometria do mapa autoral (ETAPA3.34–36).
 
-**Aceite:** Bunker 13 jogável com geometria autoral; armas em JSON + `HandsRig`;
-faca, explosivos e barricadas funcionando.
+**Aceite:** Bunker 13 jogável com geometria autoral; armas em JSON +
+`ViewmodelFactory` (`hands.glb`); faca, explosivos e barricadas funcionando.
 
 ## Etapa 4 — Interações
 

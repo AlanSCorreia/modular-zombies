@@ -9,20 +9,18 @@ serviços e ferramentas de autoria.
 - **Estratégia e decisões:** [`docs/planning/`](docs/planning/)
 - **Legado histórico:** `../zombie-fps-legacy` (não usar como referência de implementação)
 
-## Estado atual: Etapa 2 — Conteúdo concluída
+## Estado atual: Etapa 3 — Gameplay em andamento
 
-- Vertical slice jogável (sala, porta, zumbi, Glock, HUD).
-- **Bunker 13 completo em JSON + geometria autoral** (4 salas, 4 portas,
-  4 wallbuys, 3 perks, caixa, 9 barricadas e 9 spawns).
-- 5 armas em JSON, loader/validador, testes `BUNKER13_OK`.
-- Modelos reorganizados em `assets/models/<categoria>/<id>/`.
-- **Fontes `.blend` de todas as armas, do zumbi e dos mapas** em `source/blender/`.
-- Git, CI, plugin `bunker_tools` e bench.
-
-Etapa 3 — Gameplay em andamento: o Bunker 13 já abre com `--map map.bunker13`; faltam
-janelas, barricadas, faca, explosivos, mãos separadas e 2 slots. A geometria do
-mapa já é autoral (GLB/`.blend`); os builders antigos ficam em `src/maps/legacy/`
-apenas para exportação.
+- Vertical slice jogável e **Bunker 13 completo em JSON + geometria autoral**
+  (4 salas, 4 portas, 4 wallbuys, 3 perks, caixa, 9 barricadas, 9 spawns).
+- **6 armas em JSON**, loader/validador, testes `BUNKER13_OK`/`CONTENT_OK`.
+- Entregue na Etapa 3: 2 slots, projétil/melee, explosões, granada/foguete/
+  barris, `BarricadeSystem` com hold F, vãos de janela + IA de zumbi e
+  `ViewmodelFactory` com `hands.glb` compartilhado.
+- Pendente: faca visual (`knife_slash`), normalização de escala das armas,
+  rodada 1→2/game over, efeitos e UI/áudio finais.
+- A geometria do mapa é autoral (GLB/`.blend`); builders antigos ficam em
+  `src/maps/legacy/` apenas para exportação.
 
 ## Decisões-chave
 
@@ -60,7 +58,8 @@ assets/         models, textures, materials, animations, audio, ui, vfx, shaders
 source/blender/ .blend e scripts (fora do import do Godot)
 ```
 
-> Modelos reorganizados; faltam as mãos separadas e as fontes `.blend` em `source/`.
+> Modelos organizados em `assets/models/`; fontes `.blend` e scripts em
+> `source/blender/`. O `hands.glb` é único e compartilhado por todas as armas.
 > Detalhes: `docs/planning/11-assets.md`.
 
 ## Etapas

@@ -18,19 +18,17 @@ JSON define **o que existe e como se comporta**; `assets/` guarda **os bytes**;
 ```text
 content/
   maps/bunker13.json
+  maps/slice.json
   weapons/glock17.json
-  weapons/knife.json
-  explosives/barrel_fuel.json
-  equipment/grenade.json
+  melee/knife.json
+  explosives/frag.json
   enemies/zombie.json
-  perks/jugg.json
-  quests/bunker13_music.json
 schemas/
   map.schema.json
   weapon.schema.json
   explosive.schema.json
   melee.schema.json
-  quest.schema.json
+  enemy.schema.json
 assets/
   prefabs/*.tscn
   models/
@@ -93,8 +91,8 @@ source/
 - Padrão: animações embutidas no GLB (personagem/arma).
 - `.tres` em `assets/animations` só para **composição/override** (viewmodels,
   bibliotecas compartilhadas).
-- Mãos compartilhadas: um `hands.glb` com poses por classe (`pistol`, `rifle`,
-  `shotgun`, `knife`); armas não duplicam mãos.
+- Mãos compartilhadas: um `hands.glb` com `GripSocket`/`HandL`/`HandR`; o
+  `ViewmodelFactory` aplica offsets por `grip_profile`; armas não duplicam mãos.
 - Nomes `snake_case` (`fire`, `reload_empty`, `knife_slash`).
 
 ### Áudio
@@ -136,6 +134,8 @@ source/
 ## Migração
 
 **Status:** modelos reorganizados em `assets/models/<categoria>/<id>/` e fontes
-`.blend` de todas as armas, do zumbi e dos mapas em `source/blender/`.
-`./blender.sh` abre a visão geral. Falta `hands.glb`. A geometria do mapa já é
-autoral (GLB/`.blend`). Nada de conteúdo em `.tres`. Ver `18-authored-assets.md`.
+`.blend` de todas as armas, do zumbi, das mãos e dos mapas em
+`source/blender/`. `./blender.sh` abre a visão geral. `hands.glb` é único e
+compartilhado. A geometria do mapa é autoral (GLB/`.blend`) e nada de conteúdo
+fica em `.tres`. Ver `18-authored-assets.md`. Escala das armas ainda tem
+pendência na issue #16.
