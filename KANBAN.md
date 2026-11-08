@@ -31,7 +31,7 @@
 | `etapa3` | Etapa 3 — Gameplay | **Concluído** | — |
 | `etapa4` | Etapa 4 — Interações | **Concluído** | — |
 | `etapa5` | Etapa 5 — Ferramentas de mapa | **Concluído** | — |
-| `etapa6` | Etapa 6 — Quests e Easter Eggs | **Em andamento** | PowerMechanic |
+| `etapa6` | Etapa 6 — Quests e Easter Eggs | **Em andamento** | Validador de quests |
 | `etapa7` | Etapa 7 — Escala de conteúdo | Backlog | — |
 | `etapa8` | Etapa 8 — Produção | Backlog | — |
 
@@ -43,8 +43,8 @@
 
 - **Etapa ativa:** 6 — Quests e Easter Eggs.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** `Bunker13PowerMechanic` — interruptor de energia (issue #30).
-- **Depois:** validador de grafo/softlock e debug overlay.
+- **Próximo:** validador de quests — órfãos/ciclos/referências (issue #31).
+- **Depois:** debug overlay e main quest de 3 passos.
 - **Próxima etapa:** 7 — Escala de conteúdo, após o aceite da Etapa 6.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -289,11 +289,11 @@
 - [ ] Grafo visual (GraphEdit)
 - [ ] Cifras/rádios/lore
 - [ ] Co-op
-- [ ] Validador de grafo/softlock
 - [ ] Debug overlay
+- [ ] Main quest de 3 passos
 
 ### Ready
-- [ ] `Bunker13PowerMechanic` — interruptor de energia (P0) — [#30](https://github.com/AlanSCorreia/modular-zombies/issues/30)
+- [ ] Validador de quests (P0) — [#31](https://github.com/AlanSCorreia/modular-zombies/issues/31)
 
 ### Doing
 - *(vazio)*
@@ -306,6 +306,7 @@
 ### Done
 - [x] `QuestSystem` + DTOs, triggers e recompensas (issue #28)
 - [x] 3 rádios no Bunker 13 + música secreta (issue #29)
+- [x] PowerMechanic: energia, luzes e porta (issue #30)
 
 ### Blocked
 - *(vazio)*

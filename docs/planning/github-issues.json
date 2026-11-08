@@ -331,12 +331,24 @@
     {
       "number": 30,
       "title": "Bunker13PowerMechanic (interruptor de energia)",
-      "state": "OPEN",
+      "state": "CLOSED",
       "labels": [
         "etapa:6",
         "prio:P0",
         "area:assets",
         "area:gameplay"
+      ],
+      "milestone": "Etapa 6 — Quests e Easter Eggs"
+    },
+    {
+      "number": 31,
+      "title": "Validador de quests (órfãos, ciclos e referências)",
+      "state": "OPEN",
+      "labels": [
+        "etapa:6",
+        "prio:P0",
+        "area:gameplay",
+        "area:docs"
       ],
       "milestone": "Etapa 6 — Quests e Easter Eggs"
     }

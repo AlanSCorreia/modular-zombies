@@ -119,11 +119,11 @@ one-shot (issue #26) e quickstart do autor (issue #27).
 ## Etapa 6 — Quests e Easter Eggs (em andamento)
 
 **Já entregue:** `QuestSystem` + DTOs/triggers/recompensas (issue #28), quest
-`quest.bunker13_music` e 3 rádios no Bunker 13 (issue #29).
+`quest.bunker13_music`, 3 rádios (issue #29) e PowerMechanic (issue #30).
 
 **Pendente**
-- `Bunker13PowerMechanic` (issue #30).
-- Validador de grafo/softlock e debug overlay.
+- Validador de quests (issue #31).
+- Debug overlay e main quest de 3 passos.
 
 **Aceite:** música secreta + main quest de 3 passos jogáveis.
 

@@ -15,6 +15,16 @@ está em
 o início do projeto, em
 [`archive/20-work-log-2026-11-detalhado.md`](archive/20-work-log-2026-11-detalhado.md).
 
+## 2026-11-08 — PowerMechanic do Bunker 13 (issue #30)
+
+- Asset autoral `power_switch.blend`/GLB; `PowerSwitchData`/`State` no
+  JSON/schema/validador.
+- Interruptor no setor B: liga luzes de energia, abre `door2` sem custo e emite
+  `Events.power_on`.
+- Quest `quest.bunker13_power` usa trigger `power`; recompensa 300 pontos.
+- Teste `POWER_OK` cobre luzes, porta, quest e idempotência.
+- Próximo: validador de quests (#31).
+
 ## 2026-11-08 — Rádios no Bunker 13 (issue #29)
 
 - Asset autoral `radio.blend`/GLB; `RadioData`/`RadioState` e `radios` no
@@ -89,5 +99,5 @@ o início do projeto, em
 - Asset autoral `trap.blend`/GLB; 2 traps no Bunker 13.
 - Teste `TRAP_OK`; Etapa 4 iniciada.
 
-**Próximo item:** `Bunker13PowerMechanic` — interruptor de energia (issue #30);
-depois validador de grafo e debug.
+**Próximo item:** validador de quests — órfãos/ciclos/referências (issue #31);
+depois debug overlay e main quest.
