@@ -51,6 +51,7 @@ last_reviewed: 2026-11-09
 | [`20-work-log.md`](20-work-log.md) | Work log — Etapa 8 |
 | [`22-redundancy-audit.md`](22-redundancy-audit.md) | Auditoria curta de redundância |
 | [`24-release-checklist.md`](24-release-checklist.md) | Checklist de release |
+| [`25-project-analysis.md`](25-project-analysis.md) | Análise negativa do projeto — 2026-11-09 |
 
 ### Conteúdo, assets e sistemas
 

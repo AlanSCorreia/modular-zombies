@@ -1,38 +1,38 @@
 {
-  "generated_at": "2026-11-09T16:43:16.450340+00:00",
-  "sessions": 14,
-  "messages": 2943,
-  "tool_calls": 3389,
-  "commits": 116,
+  "generated_at": "2026-11-09T17:04:04.053054+00:00",
+  "sessions": 21,
+  "messages": 3143,
+  "tool_calls": 3815,
+  "commits": 117,
   "issues": {
     "total": 47,
     "open": 1,
     "closed": 46
   },
   "tokens": {
-    "input": 12732420,
-    "output": 984693,
-    "reasoning": 1186412,
-    "cache_read": 971689344,
+    "input": 13823941,
+    "output": 1030040,
+    "reasoning": 1285641,
+    "cache_read": 994478336,
     "cache_write": 0
   },
   "tools": {
-    "shell": 1671,
+    "shell": 1706,
     "edit": 915,
-    "read": 368,
-    "write": 292,
-    "grep": 54,
+    "read": 598,
+    "write": 293,
+    "grep": 127,
+    "glob": 74,
+    "skill": 33,
     "websearch": 25,
-    "glob": 24,
+    "subagent": 20,
     "webfetch": 16,
-    "subagent": 13,
     "question": 5,
-    "skill": 4,
-    "execute": 2
+    "execute": 3
   },
   "tool_status": {
-    "completed": 3333,
-    "error": 55,
+    "completed": 3743,
+    "error": 71,
     "running": 1
   },
   "ci": {
