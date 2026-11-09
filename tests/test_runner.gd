@@ -74,6 +74,8 @@ func _ready() -> void:
 			await _save()
 		"settings":
 			await _settings()
+		"menu":
+			await _menu()
 		"perf":
 			await _perf()
 		"soak":
@@ -1123,6 +1125,64 @@ func _settings() -> void:
 		str(roundtrip), str(audio_ok), str(quality_ok), str(clamp_ok), str(hud_ok),
 	])
 	_finish("SETTINGS_OK", ok)
+
+func _menu() -> void:
+	var saved_master := GameSettings.master_volume
+	var saved_music := GameSettings.music_volume
+	var saved_sens := GameSettings.mouse_sensitivity
+	var saved_quality := GameSettings.quality
+
+	var packed: PackedScene = load("res://scenes/ui/main_menu.tscn")
+	var menu := packed.instantiate() as MainMenu
+	add_child(menu)
+	await get_tree().process_frame
+
+	var play: Button = menu.find_child("PlayButton", true, false)
+	var options: Button = menu.find_child("OptionsButton", true, false)
+	var quit: Button = menu.find_child("QuitButton", true, false)
+	var back: Button = menu.find_child("BackButton", true, false)
+	var options_box: VBoxContainer = menu.find_child("OptionsBox", true, false)
+	var vol: HSlider = menu.find_child("VolumeSlider", true, false)
+	var music: HSlider = menu.find_child("MusicSlider", true, false)
+	var sens: HSlider = menu.find_child("SensitivitySlider", true, false)
+	var quality: OptionButton = menu.find_child("QualityOption", true, false)
+
+	var ok: bool = play != null and options != null and quit != null and back != null \
+		and options_box != null and vol != null and music != null and sens != null \
+		and quality != null
+	ok = ok and not options_box.visible
+
+	menu.show_options()
+	await get_tree().process_frame
+	ok = ok and options_box.visible
+	menu.show_menu()
+	await get_tree().process_frame
+	ok = ok and not options_box.visible
+
+	vol.value = 0.33
+	music.value = 0.22
+	sens.value = 1.4
+	quality.selected = 0
+	quality.item_selected.emit(0)
+	await get_tree().process_frame
+	ok = ok and absf(GameSettings.master_volume - 0.33) < 0.01
+	ok = ok and absf(GameSettings.music_volume - 0.22) < 0.01
+	ok = ok and absf(GameSettings.mouse_sensitivity - 1.4) < 0.01
+	ok = ok and GameSettings.quality == 0
+
+	var over_menu: Button = game.hud.get_node_or_null("Over/Center/VBox/MenuButton")
+	var pause_menu: Button = game.hud.get_node_or_null("Pause/Center/VBox/MenuButton")
+	ok = ok and over_menu != null and pause_menu != null
+	ok = ok and game.hud.is_start_visible()
+	ok = ok and not GameFlow.auto_start
+
+	Sfx.stop_music()
+	menu.queue_free()
+	GameSettings.set_master_volume(saved_master)
+	GameSettings.set_music_volume(saved_music)
+	GameSettings.set_sensitivity(saved_sens)
+	GameSettings.set_quality(saved_quality)
+	_finish("MENU_OK", ok)
 
 func _perf() -> void:
 	game._start()

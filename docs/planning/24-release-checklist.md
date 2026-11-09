@@ -33,6 +33,7 @@ last_reviewed: 2026-11-09
 
 - [x] 3 mapas (`slice`, `bunker13`, `depot`).
 - [x] 9 armas autorais em escala real + faca/granada/foguete/ray gun.
+- [x] Menu principal (JOGAR/OPÇÕES/SAIR) e retorno ao menu pelo pause/game over.
 - [x] 2 inimigos (zumbi/brute) e quests.
 - [x] Controles WASD/mouse/1-2/R/V/G/F/ESC/F5/F9.
 - [x] `NO_CORE_OK` e `CONTENT_OK`.
@@ -43,9 +44,12 @@ last_reviewed: 2026-11-09
       (Poly Haven CC0, OpenGameArt CC0, Kenney CC0, áudio autoral).
 - [x] Modelos de terceiros com atribuição (CC BY 3.0) e `assets/third_party/README.md`.
 - [x] Rodar soak de 30 min.
-- [ ] Revisar acessibilidade/tamanho de fonte.
-- [ ] Confirmar `build/linux/bunker13.x86_64` + `.pck` em máquina limpa.
-- [ ] Publicar release com checksums e notas.
+- [x] Revisar acessibilidade/tamanho de fonte: HUD com mínimo 16/17 px,
+      contraste elevado nos textos secundários e botões do menu com foco visível.
+- [x] Confirmar `build/linux/bunker13.x86_64` + `.pck` em máquina limpa
+      (`HOME` temporário, `GAME_STARTED` e `CONTENT_LOADED errors=0`).
+- [x] Gerar SHA-256 (`build/linux/SHA256SUMS`) e notas (`RELEASE_NOTES.md`).
+- [ ] Publicar release no GitHub com os artefatos.
 
-**Estado:** build e soak aprovados; licenças documentadas. Falta apenas o
-pacote de distribuição (checksums, notas e revisão de acessibilidade).
+**Estado:** build, soak, licenças, acessibilidade, menu, artefato em máquina
+limpa, checksums e notas aprovados. Falta publicar no GitHub.

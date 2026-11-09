@@ -14,6 +14,21 @@ Registro curto da etapa ativa, **mais recente primeiro**. Etapas 4–7 estão em
 Etapa 3 em
 [`archive/20-work-log-2026-11-etapa3.md`](archive/20-work-log-2026-11-etapa3.md).
 
+## 2026-11-09 — Menu principal e pacote de release (issue #43)
+
+- `scenes/ui/main_menu.tscn` virou a cena principal: JOGAR, OPÇÕES e SAIR,
+  com áudio ambiente e retorno ao menu pelo pause/game over.
+- `GameFlow.auto_start` evita o overlay "INICIAR" duplicado ao entrar pelo menu.
+- Opções do menu reutilizam `GameSettings` (volume, música, sensibilidade e
+  qualidade).
+- Acessibilidade: HUD com fontes mínimas maiores e contraste elevado; menu com
+  botões grandes e foco visível.
+- `RELEASE_NOTES.md` criado com conteúdo, controles, licenças e checksums.
+- Build final com smoke que exige `GAME_STARTED`; artefato validado em `HOME`
+  temporário com `CONTENT_LOADED errors=0`.
+- `SHA256SUMS` gerado e checksums registrados em `RELEASE_NOTES.md`.
+- Próximo: publicar a release no GitHub.
+
 ## 2026-11-09 — Fechamento da Etapa 8 (tag `etapa8`)
 
 - CI final verde depois das armas autorais.

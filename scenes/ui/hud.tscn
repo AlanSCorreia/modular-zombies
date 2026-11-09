@@ -162,12 +162,12 @@ offset_left = 30.0
 offset_top = -66.0
 offset_right = 130.0
 offset_bottom = -46.0
-theme_override_colors/font_color = Color(0.55, 0.54, 0.48, 1)
+theme_override_colors/font_color = Color(0.66, 0.64, 0.56, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("2_136eg")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 17
 text = "VIDA"
 
 [node name="HealthLabel" type="Label" parent="Root" unique_id=672890951]
@@ -218,12 +218,12 @@ offset_left = -100.0
 offset_top = -64.0
 offset_right = 100.0
 offset_bottom = -44.0
-theme_override_colors/font_color = Color(0.55, 0.54, 0.48, 1)
+theme_override_colors/font_color = Color(0.66, 0.64, 0.56, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("2_136eg")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 17
 text = "PONTOS"
 horizontal_alignment = 1
 
@@ -256,7 +256,7 @@ offset_left = -320.0
 offset_top = -96.0
 offset_right = -40.0
 offset_bottom = -74.0
-theme_override_colors/font_color = Color(0.55, 0.54, 0.48, 1)
+theme_override_colors/font_color = Color(0.66, 0.64, 0.56, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
@@ -275,12 +275,12 @@ offset_left = -320.0
 offset_top = -118.0
 offset_right = -40.0
 offset_bottom = -100.0
-theme_override_colors/font_color = Color(0.55, 0.54, 0.48, 1)
+theme_override_colors/font_color = Color(0.66, 0.64, 0.56, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("2_136eg")
-theme_override_font_sizes/font_size = 13
+theme_override_font_sizes/font_size = 16
 text = "SLOT 1/1"
 horizontal_alignment = 2
 
@@ -299,7 +299,7 @@ theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
 theme_override_fonts/font = ExtResource("2_136eg")
-theme_override_font_sizes/font_size = 15
+theme_override_font_sizes/font_size = 17
 text = "GRANADAS 2"
 horizontal_alignment = 2
 
@@ -332,7 +332,7 @@ offset_left = -112.0
 offset_top = -66.0
 offset_right = -22.0
 offset_bottom = -26.0
-theme_override_colors/font_color = Color(0.55, 0.54, 0.48, 1)
+theme_override_colors/font_color = Color(0.66, 0.64, 0.56, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
@@ -503,7 +503,7 @@ horizontal_alignment = 1
 
 [node name="Sub" type="Label" parent="Start/Center/VBox" unique_id=750426239]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.55, 0.54, 0.48, 1)
+theme_override_colors/font_color = Color(0.66, 0.64, 0.56, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
@@ -559,7 +559,7 @@ horizontal_alignment = 1
 
 [node name="Sub" type="Label" parent="Over/Center/VBox" unique_id=1980043949]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.55, 0.54, 0.48, 1)
+theme_override_colors/font_color = Color(0.66, 0.64, 0.56, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
@@ -576,6 +576,15 @@ theme_override_fonts/font = ExtResource("3_oj5la")
 theme_override_font_sizes/font_size = 26
 theme_override_styles/normal = SubResource("StyleBoxFlat_kicr4")
 text = "REINICIAR"
+
+[node name="MenuButton" type="Button" parent="Over/Center/VBox"]
+custom_minimum_size = Vector2(300, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_oj5la")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_kicr4")
+text = "MENU"
 
 [node name="Pause" type="Control" parent="." unique_id=2060514259]
 visible = false
@@ -614,7 +623,7 @@ horizontal_alignment = 1
 
 [node name="Sub" type="Label" parent="Pause/Center/VBox" unique_id=1628703004]
 layout_mode = 2
-theme_override_colors/font_color = Color(0.55, 0.54, 0.48, 1)
+theme_override_colors/font_color = Color(0.66, 0.64, 0.56, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.8)
 theme_override_constants/shadow_offset_x = 2
 theme_override_constants/shadow_offset_y = 2
@@ -740,3 +749,12 @@ theme_override_fonts/font = ExtResource("3_oj5la")
 theme_override_font_sizes/font_size = 26
 theme_override_styles/normal = SubResource("StyleBoxFlat_0h1do")
 text = "REINICIAR"
+
+[node name="MenuButton" type="Button" parent="Pause/Center/VBox"]
+custom_minimum_size = Vector2(300, 52)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_oj5la")
+theme_override_font_sizes/font_size = 26
+theme_override_styles/normal = SubResource("StyleBoxFlat_0h1do")
+text = "MENU"

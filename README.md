@@ -14,6 +14,7 @@ serviços e ferramentas de autoria.
 - Vertical slice jogável e **Bunker 13 completo em JSON + geometria autoral**
   (4 salas, 4 portas, 4 wallbuys, 3 perks, caixa, 9 barricadas, 9 spawns).
 - **9 armas em JSON**, loader/validador, testes `BUNKER13_OK`/`CONTENT_OK`.
+- **Menu principal** com JOGAR, OPÇÕES e SAIR; pause/game over voltam ao menu.
 - Entregue na Etapa 3: 2 slots, projétil/melee, explosões, granada/foguete/
   barris, `BarricadeSystem` com hold F, vãos de janela + IA de zumbi,
   `ViewmodelFactory` com `hands.glb` compartilhado e faca visual com
@@ -21,7 +22,7 @@ serviços e ferramentas de autoria.
 - Entregue também: rodadas 1→2 com HUD e game over; traps explosivas.
 - Armas autorais em escala real (AK-74, M1911, MP5, M870, Wunder e demais),
   licenças documentadas e soak de 30 min aprovado.
-- Pendente fora do aceite: pacote de distribuição final (#43).
+- Pendente fora do aceite: publicação do pacote de distribuição final (#43).
 - A geometria do mapa é autoral (GLB/`.blend`); builders antigos ficam em
   `src/maps/legacy/` apenas para exportação.
 

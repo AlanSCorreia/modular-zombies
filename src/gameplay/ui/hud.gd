@@ -5,9 +5,10 @@ signal start_requested
 signal restart_requested
 signal resume_requested
 signal pause_toggled
+signal menu_requested
 
 const COL_TEXT := Color(0.86, 0.84, 0.76)
-const COL_DIM := Color(0.55, 0.54, 0.48)
+const COL_DIM := Color(0.66, 0.64, 0.56)
 const COL_AMBER := Color(0.95, 0.68, 0.20)
 
 @onready var _crosshair: Control = $Root/Crosshair
@@ -35,8 +36,10 @@ const COL_AMBER := Color(0.95, 0.68, 0.20)
 @onready var _pause: Control = $Pause
 @onready var _start_button: Button = $Start/Center/VBox/StartButton
 @onready var _over_restart: Button = $Over/Center/VBox/RestartButton
+@onready var _over_menu: Button = $Over/Center/VBox/MenuButton
 @onready var _pause_continue: Button = $Pause/Center/VBox/ContinueButton
 @onready var _pause_restart: Button = $Pause/Center/VBox/RestartButton
+@onready var _pause_menu: Button = $Pause/Center/VBox/MenuButton
 @onready var _volume_slider: HSlider = $Pause/Center/VBox/VolumeRow/VolumeSlider
 @onready var _music_slider: HSlider = $Pause/Center/VBox/MusicRow/MusicSlider
 @onready var _sensitivity_slider: HSlider = $Pause/Center/VBox/SensitivityRow/SensitivitySlider
@@ -53,8 +56,10 @@ func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	_start_button.pressed.connect(func(): start_requested.emit())
 	_over_restart.pressed.connect(func(): restart_requested.emit())
+	_over_menu.pressed.connect(func(): menu_requested.emit())
 	_pause_continue.pressed.connect(func(): resume_requested.emit())
 	_pause_restart.pressed.connect(func(): restart_requested.emit())
+	_pause_menu.pressed.connect(func(): menu_requested.emit())
 	GameSettings.ensure_loaded()
 	_volume_slider.value = GameSettings.master_volume
 	_volume_slider.value_changed.connect(func(value: float):
@@ -101,6 +106,9 @@ func hide_pause() -> void:
 
 func is_pause_visible() -> bool:
 	return _pause.visible
+
+func is_start_visible() -> bool:
+	return _start.visible
 
 func volume_slider_value() -> float:
 	return _volume_slider.value

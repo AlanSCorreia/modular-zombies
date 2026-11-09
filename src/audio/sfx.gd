@@ -8,6 +8,7 @@ const BUS_NAMES := ["Music", "Weapons", "Zombies", "UI", "Foley"]
 
 var _streams: Dictionary = {}
 var _music: AudioStreamPlayer
+var _music_players: Array[AudioStreamPlayer] = []
 var _heart: AudioStreamPlayer
 var _pool_2d: Array[AudioStreamPlayer] = []
 var _pool_3d: Array[AudioStreamPlayer3D] = []
@@ -245,8 +246,19 @@ func play_music(key: String, volume_db: float = -6.0) -> void:
 	p.volume_db = volume_db
 	p.bus = "Music"
 	add_child(p)
-	p.finished.connect(p.queue_free)
+	_music_players.append(p)
+	p.finished.connect(func():
+		_music_players.erase(p)
+		p.queue_free()
+	)
 	p.play()
+
+func stop_music() -> void:
+	for p in _music_players:
+		if is_instance_valid(p):
+			p.stop()
+			p.queue_free()
+	_music_players.clear()
 
 func heartbeat() -> void:
 	_heart.play()

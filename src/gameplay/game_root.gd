@@ -55,6 +55,7 @@ func _ready() -> void:
 	hud.restart_requested.connect(_restart)
 	hud.pause_toggled.connect(_on_pause_toggled)
 	hud.resume_requested.connect(_resume)
+	hud.menu_requested.connect(_return_to_menu)
 
 	player.setup_weapon(weapon_data)
 	player.setup_melee(Content.get_melee("melee.knife"))
@@ -86,6 +87,9 @@ func _ready() -> void:
 	Events.interacted.connect(_on_interacted)
 	Events.player_died.connect(_on_player_died)
 	hud.show_start()
+	if GameFlow.auto_start:
+		GameFlow.reset()
+		_start()
 
 
 func _setup_environment() -> void:
@@ -137,6 +141,7 @@ func _start() -> void:
 	round.start()
 	if quest_system != null:
 		quest_system.start_all()
+	print("GAME_STARTED map=%s" % map.id)
 	Events.banner.emit(map.name.to_upper(), "SOBREVIVA E ABRA AS PORTAS", 2.5)
 
 func _on_pause_toggled() -> void:
@@ -350,6 +355,14 @@ func _on_player_died() -> void:
 	get_tree().paused = false
 	hud.hide_pause()
 	hud.show_gameover()
+
+func _return_to_menu() -> void:
+	get_tree().paused = false
+	GameFlow.reset()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	Sfx.stop_music()
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
+
 
 func _restart() -> void:
 	get_tree().paused = false

@@ -1,0 +1,239 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://src/gameplay/ui/main_menu.gd" id="1_menu"]
+[ext_resource type="FontFile" path="res://assets/fonts/SpecialElite.ttf" id="2_title"]
+[ext_resource type="FontFile" path="res://assets/fonts/Rajdhani-SemiBold.ttf" id="3_body"]
+[ext_resource type="FontFile" path="res://assets/fonts/Oswald.ttf" id="4_button"]
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_menu")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.022, 0.026, 0.024, 1)
+
+[node name="TopAccent" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 2.0
+grow_horizontal = 2
+mouse_filter = 2
+color = Color(0.75, 0.56, 0.16, 0.75)
+
+[node name="BottomAccent" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -2.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+color = Color(0.75, 0.56, 0.16, 0.75)
+
+[node name="Center" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBox" type="VBoxContainer" parent="Center"]
+custom_minimum_size = Vector2(720, 0)
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="Center/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.90, 0.82, 0.60, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 0.9)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_title")
+theme_override_font_sizes/font_size = 92
+text = "BUNKER 13"
+horizontal_alignment = 1
+
+[node name="Subtitle" type="Label" parent="Center/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.66, 0.64, 0.56, 1)
+theme_override_fonts/font = ExtResource("3_body")
+theme_override_font_sizes/font_size = 22
+text = "SOBREVIVA ÀS RODADAS"
+horizontal_alignment = 1
+
+[node name="Spacer" type="Control" parent="Center/VBox"]
+custom_minimum_size = Vector2(0, 22)
+layout_mode = 2
+
+[node name="MenuBox" type="VBoxContainer" parent="Center/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PlayButton" type="Button" parent="Center/VBox/MenuBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_button")
+text = "JOGAR"
+
+[node name="OptionsButton" type="Button" parent="Center/VBox/MenuBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_button")
+text = "OPÇÕES"
+
+[node name="QuitButton" type="Button" parent="Center/VBox/MenuBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_button")
+text = "SAIR"
+
+[node name="OptionsBox" type="VBoxContainer" parent="Center/VBox"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="OptionsTitle" type="Label" parent="Center/VBox/OptionsBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.90, 0.82, 0.60, 1)
+theme_override_fonts/font = ExtResource("2_title")
+theme_override_font_sizes/font_size = 44
+text = "OPÇÕES"
+horizontal_alignment = 1
+
+[node name="VolumeRow" type="HBoxContainer" parent="Center/VBox/OptionsBox"]
+custom_minimum_size = Vector2(460, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+
+[node name="VolumeLabel" type="Label" parent="Center/VBox/OptionsBox/VolumeRow"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.86, 0.78, 1)
+theme_override_fonts/font = ExtResource("3_body")
+theme_override_font_sizes/font_size = 18
+text = "VOLUME"
+vertical_alignment = 1
+
+[node name="VolumeSlider" type="HSlider" parent="Center/VBox/OptionsBox/VolumeRow"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 0.8
+
+[node name="MusicRow" type="HBoxContainer" parent="Center/VBox/OptionsBox"]
+custom_minimum_size = Vector2(460, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+
+[node name="MusicLabel" type="Label" parent="Center/VBox/OptionsBox/MusicRow"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.86, 0.78, 1)
+theme_override_fonts/font = ExtResource("3_body")
+theme_override_font_sizes/font_size = 18
+text = "MÚSICA"
+vertical_alignment = 1
+
+[node name="MusicSlider" type="HSlider" parent="Center/VBox/OptionsBox/MusicRow"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 0.8
+
+[node name="SensitivityRow" type="HBoxContainer" parent="Center/VBox/OptionsBox"]
+custom_minimum_size = Vector2(460, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+
+[node name="SensitivityLabel" type="Label" parent="Center/VBox/OptionsBox/SensitivityRow"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.86, 0.78, 1)
+theme_override_fonts/font = ExtResource("3_body")
+theme_override_font_sizes/font_size = 18
+text = "SENSIBILIDADE"
+vertical_alignment = 1
+
+[node name="SensitivitySlider" type="HSlider" parent="Center/VBox/OptionsBox/SensitivityRow"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = 0.2
+max_value = 2.0
+step = 0.05
+value = 1.0
+
+[node name="QualityRow" type="HBoxContainer" parent="Center/VBox/OptionsBox"]
+custom_minimum_size = Vector2(460, 30)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 12
+
+[node name="QualityLabel" type="Label" parent="Center/VBox/OptionsBox/QualityRow"]
+custom_minimum_size = Vector2(130, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.88, 0.86, 0.78, 1)
+theme_override_fonts/font = ExtResource("3_body")
+theme_override_font_sizes/font_size = 18
+text = "QUALIDADE"
+vertical_alignment = 1
+
+[node name="QualityOption" type="OptionButton" parent="Center/VBox/OptionsBox/QualityRow"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+item_count = 3
+selected = 1
+popup/item_0/text = "BAIXA"
+popup/item_1/text = "MÉDIA"
+popup/item_2/text = "ALTA"
+
+[node name="BackButton" type="Button" parent="Center/VBox/OptionsBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_button")
+text = "VOLTAR"
+
+[node name="Footer" type="Label" parent="Center/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.52, 0.50, 0.44, 1)
+theme_override_fonts/font = ExtResource("3_body")
+theme_override_font_sizes/font_size = 16
+text = "v2.0 · ETAPA 8 · MODELOS AUTORAIS"
+horizontal_alignment = 1
+
+[node name="Controls" type="Label" parent="Center/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.60, 0.58, 0.50, 1)
+theme_override_fonts/font = ExtResource("3_body")
+theme_override_font_sizes/font_size = 16
+text = "WASD MOVER · MOUSE ATIRAR · R RECARREGAR · ESC PAUSAR"
+horizontal_alignment = 1

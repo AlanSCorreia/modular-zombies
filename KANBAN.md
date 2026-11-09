@@ -33,7 +33,7 @@
 | `etapa5` | Etapa 5 — Ferramentas de mapa | **Concluído** | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | **Concluído** | — |
 | `etapa7` | Etapa 7 — Escala de conteúdo | **Concluído** | — |
-| `etapa8` | Etapa 8 — Produção | **Concluído** | — |
+| `etapa8` | Etapa 8 — Produção | **Concluído** | Release #43 |
 
 > **Status:** Etapas 1–8 **concluídas**. Build, performance, soak de 30 min,
 > licenças e armas autorais prontos. Falta apenas o pacote de distribuição
@@ -43,7 +43,7 @@
 
 - **Etapa ativa:** 8 — Produção (concluída; nenhuma etapa em andamento).
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** pacote de distribuição final (issue #43).
+- **Próximo:** publicar o pacote de distribuição final (issue #43).
 - **Dívidas opcionais:** navmesh, pool de VFX, localização, controle e mods.
 - **Última etapa:** 8 — Produção, concluída com a tag `etapa8`.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
@@ -359,10 +359,10 @@
 - [ ] Pool de efeitos visuais (se necessário)
 
 ### Ready
-- [ ] Pacote de distribuição final (P1) — [#43](https://github.com/AlanSCorreia/modular-zombies/issues/43)
+- *(vazio)*
 
 ### Doing
-- *(vazio)*
+- [ ] Pacote de distribuição final (P0) — [#43](https://github.com/AlanSCorreia/modular-zombies/issues/43)
 
 ### Review/Test
 - [x] Save/load round-trip (`SAVE_OK`)

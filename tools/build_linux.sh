@@ -27,7 +27,7 @@ if [ ! -f "$DIR/build/linux/bunker13.pck" ]; then
   exit 1
 fi
 
-"$OUT" --headless --quit-after 3 >"$LOG.smoke" 2>&1 || {
+"$OUT" --headless --quit-after 30 -- --map map.bunker13 >"$LOG.smoke" 2>&1 || {
   cat "$LOG.smoke"
   echo "BUILD_FAIL smoke"
   exit 1
@@ -40,6 +40,11 @@ fi
 if grep -qE "CONTENT_LOADED .*errors=[1-9]" "$LOG.smoke"; then
   cat "$LOG.smoke"
   echo "BUILD_FAIL smoke_content"
+  exit 1
+fi
+if ! grep -q "GAME_STARTED" "$LOG.smoke"; then
+  cat "$LOG.smoke"
+  echo "BUILD_FAIL smoke_not_started"
   exit 1
 fi
 
