@@ -20,9 +20,11 @@ last_reviewed: 2026-11-08
 
 ## Agentes de desenvolvimento
 
-Subagentes do OpenCode com escopo fechado ficam em `.opencode/agents/`:
-`explorer` (somente leitura), `test-reviewer` (revisão + testes) e
-`content-checker` (validação de JSON/assets). Detalhes e limites em
+Skills Godot vêm do plugin **GodotPrompter v1.16.1** (MIT), configurado em
+`.opencode/opencode.json`. Subagentes próprios ficam em `.opencode/agents/`:
+`godot-code-reviewer` (revisão Godot, somente leitura), `content-checker`
+(validação de JSON/assets) e `doc-keeper` (KANBAN/issues). Para exploração, use
+o `explore` embutido. Detalhes em
 [`16-development-agents.md`](16-development-agents.md).
 
 ## CI local

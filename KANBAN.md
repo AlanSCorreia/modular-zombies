@@ -384,6 +384,7 @@
 - [x] Menu principal + pacote de release (issue #43)
 - [x] Mapa Kino der Toten + geração variada (issue #45)
 - [x] Corrigir R na virada de rodada reiniciando no mapa de teste (issue #46)
+- [x] Agentes/skills Godot da comunidade (issue #47)
 
 ### Blocked
 - *(vazio)*

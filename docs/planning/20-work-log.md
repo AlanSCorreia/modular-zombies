@@ -14,6 +14,17 @@ Registro curto da etapa ativa, **mais recente primeiro**. Etapas 4–7 estão em
 Etapa 3 em
 [`archive/20-work-log-2026-11-etapa3.md`](archive/20-work-log-2026-11-etapa3.md).
 
+## 2026-11-09 — Agentes/skills Godot da comunidade (issue #47)
+
+- GodotPrompter v1.16.1 (MIT) instalado como plugin OpenCode, fixado por tag;
+  registra 59 skills Godot 4.x.
+- `explorer` e `test-reviewer` removidos; `godot-code-reviewer` adotado do
+  pack (corpo MIT, frontmatter OpenCode); `content-checker` e `doc-keeper`
+  mantidos por serem específicos do projeto.
+- Agente validado carregando `godot-code-review` e revisando
+  `src/core/game_flow.gd` em modo somente leitura.
+- Docs 12, 16, 19 e AGENTS atualizados.
+
 ## 2026-11-09 — R na virada de rodada reiniciava no mapa de teste (issue #46)
 
 - Removido o atalho hardcoded que tratava `R` durante `round.is_complete()` como

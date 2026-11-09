@@ -526,6 +526,18 @@
         "prio:P0"
       ],
       "milestone": "Etapa 8 — Produção"
+    },
+    {
+      "number": 47,
+      "title": "Adotar agentes e skills Godot da comunidade",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:8",
+        "prio:P1",
+        "area:infra",
+        "area:docs"
+      ],
+      "milestone": "Etapa 8 — Produção"
     }
   ]
 }
