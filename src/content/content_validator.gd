@@ -11,7 +11,7 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 			errors.append("map %s: id/name vazios" % id)
 		if m.builder == "":
 			errors.append("map %s: builder ausente" % id)
-		if m.scene == "" or not FileAccess.file_exists(m.scene):
+		if m.scene == "" or not ResourceLoader.exists(m.scene):
 			errors.append("map %s: cena inexistente (%s)" % [id, m.scene])
 		if m.rooms.is_empty():
 			errors.append("map %s: sem rooms" % id)
@@ -99,7 +99,7 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 		var w: WeaponData = weapons[id]
 		if w.id == "" or w.name == "":
 			errors.append("weapon %s: id/name vazios" % id)
-		if w.scene == "" or not FileAccess.file_exists(w.scene):
+		if w.scene == "" or not ResourceLoader.exists(w.scene):
 			errors.append("weapon %s: cena inexistente (%s)" % [id, w.scene])
 		if w.grip_profile == "":
 			errors.append("weapon %s: grip_profile ausente" % id)
@@ -109,7 +109,7 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 			errors.append("weapon %s: hands ausente" % id)
 		elif w.hands != HANDS_PATH:
 			errors.append("weapon %s: hands deve ser o asset compartilhado (%s)" % [id, HANDS_PATH])
-		elif not FileAccess.file_exists(w.hands):
+		elif not ResourceLoader.exists(w.hands):
 			errors.append("weapon %s: hands inexistente (%s)" % [id, w.hands])
 		for key in ["damage", "rpm", "mag", "reserve", "reload_chambered"]:
 			if not w.stats.has(key):
@@ -133,7 +133,7 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 		var e: EnemyData = enemies[id]
 		if e.id == "" or e.name == "":
 			errors.append("enemy %s: id/name vazios" % id)
-		if e.scene == "" or not FileAccess.file_exists(e.scene):
+		if e.scene == "" or not ResourceLoader.exists(e.scene):
 			errors.append("enemy %s: cena inexistente (%s)" % [id, e.scene])
 		if e.health <= 0.0 or e.speed <= 0.0 or e.damage <= 0.0:
 			errors.append("enemy %s: stats inválidos" % id)
@@ -144,13 +144,13 @@ static func validate(maps: Dictionary, weapons: Dictionary, enemies: Dictionary,
 			errors.append("melee %s: id/name vazios" % id)
 		if m.damage <= 0.0 or m.range <= 0.0 or m.cooldown <= 0.0:
 			errors.append("melee %s: stats inválidos" % id)
-		if m.scene != "" and not FileAccess.file_exists(m.scene):
+		if m.scene != "" and not ResourceLoader.exists(m.scene):
 			errors.append("melee %s: cena inexistente (%s)" % [id, m.scene])
 		if m.scene == "":
 			errors.append("melee %s: cena ausente" % id)
 		if m.hands != HANDS_PATH:
 			errors.append("melee %s: hands deve ser o asset compartilhado (%s)" % [id, HANDS_PATH])
-		elif not FileAccess.file_exists(m.hands):
+		elif not ResourceLoader.exists(m.hands):
 			errors.append("melee %s: hands inexistente (%s)" % [id, m.hands])
 		if m.grip_profile == "" or not ViewmodelFactory.PROFILES.has(m.grip_profile):
 			errors.append("melee %s: grip_profile inválido (%s)" % [id, m.grip_profile])

@@ -1,26 +1,63 @@
-# Créditos e licenças
+# Créditos e licenças — Bunker 13 v2
 
-## Código e ferramentas
+Projeto de fã, sem afiliação com Activision/Treyarch. **Nenhum asset original
+de Call of Duty foi usado.** O conteúdo abaixo é livre ou foi criado para este
+projeto.
 
-- Código GDScript, scripts Python e shaders deste repositório: autorais do
-  projeto.
-- Godot Engine: MIT (https://godotengine.org/license).
+## Modelos 3D de terceiros
 
-## Modelos 3D
+- **Zumbi** — “Zombie” por **bachosoftdesign**, **CC BY 3.0**, via Poly Pizza:
+  https://poly.pizza/m/xqEzosAVYX
+- **Pistola M1911** — por **dook**, **CC BY 3.0**, via Poly Pizza:
+  https://poly.pizza/m/aLbeOSoOpXN
+- **Rifle AK** — por **AdamKokrito**, **CC BY 3.0**, via Poly Pizza:
+  https://poly.pizza/m/5HaOYIsAtE
+- **SMG (MP5)** — **CC0**, via Poly Pizza: https://poly.pizza/m/0SC1d2gERM
+- **Escopeta** — **CC0**, via Poly Pizza: https://poly.pizza/m/29FXKu7G91
+- **Arma especial (Wunder)** — **CC0**, via Poly Pizza:
+  https://poly.pizza/m/1vBdqOfUNd
 
-- `.blend` e GLBs em `assets/models/` foram produzidos/adaptados no Blender
-  para este projeto (armas, mãos, zumbi, props e mapas), salvo indicação em
-  contrário.
+Licenças:
+- CC BY 3.0: https://creativecommons.org/licenses/by/3.0/
+- CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
 
-## Texturas e áudio
+## Modelos autorais
 
-- `assets/textures/` e `assets/audio/` vieram do protótipo do projeto. **A
-  origem e a licença de cada arquivo não estão documentadas no repositório.**
-- Antes de distribuição pública, auditar/substituir por assets autorais, CC0
-  ou com licença registrada em `assets/third_party/<pack>/LICENSE`.
+Criados/adaptados para este projeto no Blender 4.5 LTS, com fonte `.blend` em
+`source/blender/`:
 
-## Estado
+- Glock 17, `hands.glb`, faca, SKS, Ray Gun, barril, trap, rádio, interruptor
+  de energia, mapas `slice`, `bunker13` e `depot`.
+- Brute é uma variante do zumbi CC BY acima (mesma atribuição).
+- `assets/third_party/README.md` registra os packs externos.
 
-- Build e testes técnicos passam.
-- **Licenciamento de texturas/áudio é um bloqueio de release.** Ver
-  `docs/planning/24-release-checklist.md`.
+## Texturas PBR (Poly Haven, CC0)
+
+`concrete_wall_008`, `brick_wall_001`, `concrete_floor_worn_001`,
+`dirty_concrete`, `wood_planks`, `rusty_metal_02`, `metal_plate`.
+https://polyhaven.com/
+
+## Sons CC0
+
+- **Zombies Sound Pack** (24 growls/gemidos) — **CC0**, OpenGameArt:
+  https://opengameart.org/content/zombies-sound-pack
+- **Gunshots / sounds.zip** (`cz`, `mosin`, `shotty`, `sks`) — **CC0**,
+  OpenGameArt: https://opengameart.org/content/gunshot-sounds
+- **Impact Sounds** (passos, impactos, metais) — **CC0**, Kenney:
+  https://kenney.nl/assets/impact-sounds
+
+## Áudio original
+
+`ambient_drone`, `round_start`, `round_end`, `heartbeat`, `box_hum`,
+`powerup`, `raygun_synth` — sintetizados para este projeto, livres para uso.
+
+## Fontes
+
+- **Oswald** — SIL Open Font License 1.1
+- **Rajdhani** — SIL Open Font License 1.1
+- **Special Elite** — Apache License 2.0
+
+## Código
+
+Código GDScript, scripts Python e shaders foram escritos para este projeto
+(MIT-style, use como quiser). Godot Engine é MIT.

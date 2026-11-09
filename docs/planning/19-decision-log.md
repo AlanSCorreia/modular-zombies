@@ -14,6 +14,8 @@ Decisões estruturais longas também viram ADR em `07-adr/`.
 
 | ID | Data | Decisão | Motivo / consequência |
 |---|---|---|---|
+| D-054 | 2026-11-09 | **Licenças auditadas:** texturas e áudio têm provenance documentada (Poly Haven CC0, OpenGameArt CC0, Kenney CC0, sintetizados no projeto) e modelos de terceiros mantêm atribuição CC BY 3.0 em `CREDITS.md` + `assets/third_party/README.md`. | Remove o bloqueio legal de release sem substituir assets. |
+| D-053 | 2026-11-09 | **Validação de assets via `ResourceLoader.exists`:** o validador de conteúdo deixa de usar `FileAccess.file_exists`, que retorna falso para recursos importados dentro do PCK; o smoke do build passa a exigir `CONTENT_LOADED ... errors=0`. | Evita falso bloqueio e garante que o binário exportado carregue modelos, mapas e áudio de fato. |
 | D-052 | 2026-11-08 | **Release técnico, licença pendente:** performance headless/windowed e soak curto passam; `CREDITS.md` marca texturas/áudio sem provenance documentada, então o release público fica bloqueado até auditoria e soak de 30 min. | Não declarar release pronto sem licença; separa dívida técnica de dívida legal. |
 | D-051 | 2026-11-08 | **Build Linux reproduzível:** preset `Linux` + `tools/build_linux.sh` geram binário e PCK em `build/linux/` e rodam smoke headless; `BUILD_OK` entra no CI. | Fecha a produção executável sem depender do editor; templates 4.7.2 são pré-requisito do ambiente. |
 | D-050 | 2026-11-08 | **Settings centralizados:** `GameSettings` estático persiste sensibilidade/volumes/qualidade; player, Sfx e viewport aplicam; HUD usa sliders no pause. | Evita duplicar configurações em áudio/input/vídeo e mantém defaults seguros. |

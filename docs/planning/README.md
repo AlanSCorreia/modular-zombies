@@ -22,8 +22,8 @@ last_reviewed: 2026-11-08
   explosões, granada/foguete/barris, barricadas, janelas + IA de zumbi, mãos
   compartilhadas/`ViewmodelFactory`, faca com `knife_slash`, rodadas 1→2 e
   traps explosivas, VFX/SFX/HUD de granadas e áudio/mixagem.
-- **Próximo:** auditoria de licenças + soak 30 min (#41).
-- **Depois:** aceite final; escala (#16) fica como dívida visual.
+- **Próximo:** armas autorais no lugar dos placeholders (#42).
+- **Depois:** aceite final e tag `etapa8`; a escala (#16) é resolvida junto.
 - Gates atuais: ver [`08-testing-strategy.md`](08-testing-strategy.md).
 
 ## Índice

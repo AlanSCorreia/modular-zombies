@@ -175,10 +175,11 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA8.4 | Pool de áudio/efeitos (áudio feito; VFX depois) | P1 |
 | ETAPA8.5 | Navmesh pré-bakeada | P1 |
 | ETAPA8.6 | CI + validador (feito) | P0 |
-| ETAPA8.7 | Soak test 30 min (issue #41) | P0 |
-| ETAPA8.8 | Auditoria de licenças/assets (issue #41) | P0 |
+| ETAPA8.7 | Soak test 30 min (feito, issue #41) | P0 |
+| ETAPA8.8 | Auditoria de licenças/assets (feito, issue #41) | P0 |
 | ETAPA8.9 | Save/load do estado das barricadas | P1 |
 | ETAPA8.10 | Checklist de release (issue #40) | P0 |
+| ETAPA8.11 | Armas autorais no lugar dos placeholders (issue #42) | P0 |
 
 ## Transversal
 

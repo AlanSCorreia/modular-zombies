@@ -33,7 +33,7 @@
 | `etapa5` | Etapa 5 — Ferramentas de mapa | **Concluído** | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | **Concluído** | — |
 | `etapa7` | Etapa 7 — Escala de conteúdo | **Concluído** | — |
-| `etapa8` | Etapa 8 — Produção | **Em andamento** | Licenças + soak 30 min |
+| `etapa8` | Etapa 8 — Produção | **Em andamento** | Armas autorais (#42) |
 
 > **Status:** Etapas 3–7 **concluídas** (issues #1–#15 e #17–#36).
 > Gameplay, apresentação, ferramentas, quests e escala de conteúdo prontos.
@@ -43,8 +43,8 @@
 
 - **Etapa ativa:** 8 — Produção.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** auditoria de licenças + soak 30 min (issue #41).
-- **Depois:** aceite final da Etapa 8.
+- **Próximo:** substituir armas placeholder por modelos autorais (issue #42).
+- **Depois:** aceite final e tag `etapa8`.
 - **Última etapa:** 8 — Produção, após o aceite da Etapa 7.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -342,6 +342,7 @@
 - [x] Settings de sensibilidade/volume/qualidade (issue #38)
 - [x] Exportação Linux + smoke test (issue #39)
 - [x] Performance/soak 5min + checklist de release (issue #40)
+- [x] Licenças + soak 30 min (issue #41)
 
 ### Blocked
 - *(vazio)*
@@ -361,17 +362,18 @@
 - [ ] Pool de efeitos visuais (se necessário)
 
 ### Ready
-- [ ] Auditoria de licenças + soak 30 min final (P0) — [#41](https://github.com/AlanSCorreia/modular-zombies/issues/41)
+- *(vazio)*
 
 ### Doing
-- *(vazio)*
+- [ ] Armas autorais no lugar dos placeholders (P0) — [#42](https://github.com/AlanSCorreia/modular-zombies/issues/42)
 
 ### Review/Test
 - [x] Save/load round-trip (`SAVE_OK`)
 - [x] Settings round-trip (`SETTINGS_OK`)
 - [x] Build abre e joga (`BUILD_OK`)
 - [x] Performance medida (`PERF_OK` + bench)
-- [ ] Auditoria de licenças/assets
+- [x] Auditoria de licenças/assets (`CREDITS.md` + `assets/third_party/`)
+- [x] Soak de 30 min (`SOAK_OK`, 7.063 iterações)
 - [ ] Checklist manual de release
 
 ### Done
@@ -379,6 +381,7 @@
 - [x] Settings de sensibilidade/volume/qualidade (issue #38)
 - [x] Exportação Linux + smoke test (issue #39)
 - [x] Performance/soak 5min + checklist de release (issue #40)
+- [x] Licenças + soak 30 min (issue #41)
 
 ### Blocked
 - *(vazio)*

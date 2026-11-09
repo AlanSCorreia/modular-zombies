@@ -4,7 +4,7 @@ area: execution
 status: active
 stage: 8
 owner: docs
-last_reviewed: 2026-11-08
+last_reviewed: 2026-11-09
 ---
 
 # Work log — Etapa 8
@@ -13,6 +13,18 @@ Registro curto da etapa ativa, **mais recente primeiro**. Etapas 4–7 estão em
 [`archive/20-work-log-2026-11-etapas4-7.md`](archive/20-work-log-2026-11-etapas4-7.md);
 Etapa 3 em
 [`archive/20-work-log-2026-11-etapa3.md`](archive/20-work-log-2026-11-etapa3.md).
+
+## 2026-11-09 — Licenças e soak de 30 min (issue #41)
+
+- Auditoria confirmou a origem das texturas e do áudio no CREDITS do legado:
+  Poly Haven CC0, OpenGameArt CC0, Kenney CC0 e trilha/UI sintetizadas.
+- `CREDITS.md` reescrito com atribuições (CC BY 3.0 dos modelos de terceiros)
+  e `assets/third_party/README.md` registra os packs externos.
+- Validador de conteúdo passou a usar `ResourceLoader.exists`; o build
+  exportado agora exige `CONTENT_LOADED errors=0` no smoke.
+- `tests/soak.sh 1800`: 1800 s / 7.063 iterações sem crash (`SOAK_OK`).
+- Build confere em ambiente limpo (HOME temporário) sem erros de conteúdo.
+- Próximo: substituir os modelos placeholder por armas autorais.
 
 ## 2026-11-08 — Performance, soak e checklist (issue #40)
 

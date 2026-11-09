@@ -32,9 +32,14 @@ fi
   echo "BUILD_FAIL smoke"
   exit 1
 }
-if grep -qE "SCRIPT ERROR|Failed to load" "$LOG.smoke"; then
+if grep -qE "SCRIPT ERROR|Failed to load|CONTEÚDO:" "$LOG.smoke"; then
   cat "$LOG.smoke"
   echo "BUILD_FAIL smoke_errors"
+  exit 1
+fi
+if grep -qE "CONTENT_LOADED .*errors=[1-9]" "$LOG.smoke"; then
+  cat "$LOG.smoke"
+  echo "BUILD_FAIL smoke_content"
   exit 1
 fi
 
