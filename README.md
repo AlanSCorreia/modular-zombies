@@ -22,7 +22,9 @@ serviços e ferramentas de autoria.
 - Entregue também: rodadas 1→2 com HUD e game over; traps explosivas.
 - Armas autorais em escala real (AK-74, M1911, MP5, M870, Wunder e demais),
   licenças documentadas e soak de 30 min aprovado.
-- Pendente fora do aceite: publicação do pacote de distribuição final (#43).
+- **Release `etapa8` publicada:** binário Linux + PCK + checksums.
+- Pós-release: dívidas opcionais na #44 (arte manual, animações, navmesh, VFX,
+  localização, controle e mods).
 - A geometria do mapa é autoral (GLB/`.blend`); builders antigos ficam em
   `src/maps/legacy/` apenas para exportação.
 

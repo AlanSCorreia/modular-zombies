@@ -14,6 +14,7 @@ Decisões estruturais longas também viram ADR em `07-adr/`.
 
 | ID | Data | Decisão | Motivo / consequência |
 |---|---|---|---|
+| D-057 | 2026-11-09 | **Release `etapa8` publicada:** binário Linux + PCK + `SHA256SUMS`, smoke exige `GAME_STARTED`, e o restante vira dívida opcional na #44. | Fecha a produção distribuível com rastreabilidade de checksums e escopo pós-release explícito. |
 | D-056 | 2026-11-09 | **Menu principal separado:** `main_menu.tscn` vira a cena inicial; JOGAR usa `GameFlow.auto_start` para pular o overlay "INICIAR", e pause/game over têm botão MENU. Opções reutilizam `GameSettings`. | Dá entrada e saída claras sem duplicar configuração nem quebrar o fluxo direto de `main.tscn`. |
 | D-055 | 2026-11-09 | **Armas autorais em escala real:** AK-74, M1911, MP5, M870 e Wunder foram remodeladas por scripts (`weapon_kit.py` + `make_*.py`), com `GripSocket`/`Muzzle`, partes móveis e dimensões documentadas; placeholders de terceiros saíram do `CREDITS.md`. | Elimina dependência de assets externos nas armas e encerra a dívida de escala/origem (#16). |
 | D-054 | 2026-11-09 | **Licenças auditadas:** texturas e áudio têm provenance documentada (Poly Haven CC0, OpenGameArt CC0, Kenney CC0, sintetizados no projeto) e modelos de terceiros mantêm atribuição CC BY 3.0 em `CREDITS.md` + `assets/third_party/README.md`. | Remove o bloqueio legal de release sem substituir assets. |

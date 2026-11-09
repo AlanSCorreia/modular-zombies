@@ -149,10 +149,10 @@ QuestValidator (issue #31) e main quest de 3 passos (issue #32).
 **Já entregue:** save/load (issue #37), settings (issue #38), exportação Linux
 (issue #39), performance/soak (issue #40), licenças + soak de 30 min
 (issue #41), armas autorais em escala real (issue #42, resolve #16) e menu
-principal + pacote de release (issue #43).
+principal + release publicada (issue #43).
 
 **Pendente (fora do aceite)**
-- Pacote de distribuição: checksums, notas e publicação (issue #43).
+- Dívidas opcionais pós-release (issue #44).
 - Navmesh para mapas irregulares e pool de efeitos, se necessário.
 
 **Entregáveis**

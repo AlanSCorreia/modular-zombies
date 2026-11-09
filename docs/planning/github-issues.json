@@ -483,12 +483,24 @@
     {
       "number": 43,
       "title": "Pacote de distribuição final",
-      "state": "OPEN",
+      "state": "CLOSED",
       "labels": [
         "etapa:8",
         "prio:P1",
         "area:infra",
         "area:docs"
+      ],
+      "milestone": "Etapa 8 — Produção"
+    },
+    {
+      "number": 44,
+      "title": "Dívidas opcionais pós-release",
+      "state": "OPEN",
+      "labels": [
+        "etapa:8",
+        "prio:P2",
+        "area:assets",
+        "area:gameplay"
       ],
       "milestone": "Etapa 8 — Produção"
     }

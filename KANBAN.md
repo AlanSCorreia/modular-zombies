@@ -33,18 +33,18 @@
 | `etapa5` | Etapa 5 — Ferramentas de mapa | **Concluído** | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | **Concluído** | — |
 | `etapa7` | Etapa 7 — Escala de conteúdo | **Concluído** | — |
-| `etapa8` | Etapa 8 — Produção | **Concluído** | Release #43 |
+| `etapa8` | Etapa 8 — Produção | **Concluído** | Publicado |
 
-> **Status:** Etapas 1–8 **concluídas**. Build, performance, soak de 30 min,
-> licenças e armas autorais prontos. Falta apenas o pacote de distribuição
-> (checksums, notas e revisão de acessibilidade).
+> **Status:** Etapas 1–8 **concluídas** e release `etapa8` publicada no GitHub.
+> Build, soak, licenças, armas autorais e menu principal prontos. O que resta
+> são dívidas opcionais pós-release (#44).
 
 ## Próximo item
 
 - **Etapa ativa:** 8 — Produção (concluída; nenhuma etapa em andamento).
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** publicar o pacote de distribuição final (issue #43).
-- **Dívidas opcionais:** navmesh, pool de VFX, localização, controle e mods.
+- **Próximo:** dívidas opcionais pós-release (issue #44).
+- **Dívidas opcionais:** arte manual, animações, navmesh, VFX, localização, controle e mods.
 - **Última etapa:** 8 — Produção, concluída com a tag `etapa8`.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -352,6 +352,7 @@
 **Aceite:** build standalone, FPS ≥ 40 na iGPU, zero softlocks.
 
 ### Backlog
+- [ ] Dívidas opcionais pós-release — [#44](https://github.com/AlanSCorreia/modular-zombies/issues/44)
 - [ ] Localização
 - [ ] Suporte a controle
 - [ ] Mods
@@ -362,7 +363,7 @@
 - *(vazio)*
 
 ### Doing
-- [ ] Pacote de distribuição final (P0) — [#43](https://github.com/AlanSCorreia/modular-zombies/issues/43)
+- *(vazio)*
 
 ### Review/Test
 - [x] Save/load round-trip (`SAVE_OK`)
@@ -371,7 +372,7 @@
 - [x] Performance medida (`PERF_OK` + bench)
 - [x] Auditoria de licenças/assets (`CREDITS.md` + `assets/third_party/`)
 - [x] Soak de 30 min (`SOAK_OK`, 7.063 iterações)
-- [ ] Checklist manual de release
+- [x] Checklist manual de release
 
 ### Done
 - [x] Save/load versionado (issue #37)
@@ -380,6 +381,7 @@
 - [x] Performance/soak 5min + checklist de release (issue #40)
 - [x] Licenças + soak 30 min (issue #41)
 - [x] Armas autorais no lugar dos placeholders (issue #42, resolve #16)
+- [x] Menu principal + pacote de release (issue #43)
 
 ### Blocked
 - *(vazio)*

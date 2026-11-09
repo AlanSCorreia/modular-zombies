@@ -49,7 +49,7 @@ last_reviewed: 2026-11-09
 - [x] Confirmar `build/linux/bunker13.x86_64` + `.pck` em máquina limpa
       (`HOME` temporário, `GAME_STARTED` e `CONTENT_LOADED errors=0`).
 - [x] Gerar SHA-256 (`build/linux/SHA256SUMS`) e notas (`RELEASE_NOTES.md`).
-- [ ] Publicar release no GitHub com os artefatos.
+- [x] Publicar release no GitHub com os artefatos.
 
-**Estado:** build, soak, licenças, acessibilidade, menu, artefato em máquina
-limpa, checksums e notas aprovados. Falta publicar no GitHub.
+**Estado:** release `etapa8` publicada no GitHub com binário, PCK e
+`SHA256SUMS`. Checklist de release concluído.
