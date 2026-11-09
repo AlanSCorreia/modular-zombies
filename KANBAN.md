@@ -41,9 +41,9 @@
 
 ## Próximo item
 
-- **Etapa ativa:** nenhuma; todas as etapas planejadas concluídas.
+- **Etapa ativa:** 8 — Produção (concluída; nenhuma etapa em andamento).
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** pacote de distribuição (checksums, notas, acessibilidade).
+- **Próximo:** pacote de distribuição final (issue #43).
 - **Dívidas opcionais:** navmesh, pool de VFX, localização, controle e mods.
 - **Última etapa:** 8 — Produção, concluída com a tag `etapa8`.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
@@ -59,7 +59,7 @@
 - *(vazio)*
 
 ### Ready
-- *(vazio)*
+- [ ] Pacote de distribuição final (P1) — [#43](https://github.com/AlanSCorreia/modular-zombies/issues/43)
 
 ### Doing
 - *(vazio)*
@@ -106,7 +106,7 @@
 - *(vazio)*
 
 ### Ready
-- *(vazio)*
+- [ ] Pacote de distribuição final (P1) — [#43](https://github.com/AlanSCorreia/modular-zombies/issues/43)
 
 ### Doing
 - *(vazio)*
@@ -146,7 +146,7 @@
 - [ ] `Effects` (sangue, decais, tracers, cápsulas)
 
 ### Ready
-- *(vazio)*
+- [ ] Pacote de distribuição final (P1) — [#43](https://github.com/AlanSCorreia/modular-zombies/issues/43)
 
 ### Doing
 - *(vazio)*
@@ -219,7 +219,7 @@
 - [ ] Teste de interação e UI
 
 ### Ready
-- *(vazio)*
+- [ ] Pacote de distribuição final (P1) — [#43](https://github.com/AlanSCorreia/modular-zombies/issues/43)
 
 ### Doing
 - *(vazio)*
@@ -291,7 +291,7 @@
 - [ ] Debug overlay
 
 ### Ready
-- *(vazio)*
+- [ ] Pacote de distribuição final (P1) — [#43](https://github.com/AlanSCorreia/modular-zombies/issues/43)
 
 ### Doing
 - *(vazio)*
@@ -324,7 +324,7 @@
 - [ ] Teste “sem mudança no núcleo”
 
 ### Ready
-- *(vazio)*
+- [ ] Pacote de distribuição final (P1) — [#43](https://github.com/AlanSCorreia/modular-zombies/issues/43)
 
 ### Doing
 - *(vazio)*
@@ -362,7 +362,7 @@
 - [ ] Pool de efeitos visuais (se necessário)
 
 ### Ready
-- *(vazio)*
+- [ ] Pacote de distribuição final (P1) — [#43](https://github.com/AlanSCorreia/modular-zombies/issues/43)
 
 ### Doing
 - *(vazio)*

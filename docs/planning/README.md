@@ -22,7 +22,7 @@ last_reviewed: 2026-11-08
   explosões, granada/foguete/barris, barricadas, janelas + IA de zumbi, mãos
   compartilhadas/`ViewmodelFactory`, faca com `knife_slash`, rodadas 1→2 e
   traps explosivas, VFX/SFX/HUD de granadas e áudio/mixagem.
-- **Próximo:** pacote de distribuição (checksums, notas, acessibilidade).
+- **Próximo:** pacote de distribuição final (#43); checksums, notas e acessibilidade.
 - **Etapas 1–8 concluídas** (tag `etapa8`); dívidas opcionais no backlog.
 - Gates atuais: ver [`08-testing-strategy.md`](08-testing-strategy.md).
 

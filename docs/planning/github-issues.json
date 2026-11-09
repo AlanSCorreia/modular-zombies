@@ -472,11 +472,23 @@
     {
       "number": 42,
       "title": "Armas autorais no lugar dos placeholders",
-      "state": "OPEN",
+      "state": "CLOSED",
       "labels": [
         "etapa:8",
         "prio:P0",
         "area:assets"
+      ],
+      "milestone": "Etapa 8 — Produção"
+    },
+    {
+      "number": 43,
+      "title": "Pacote de distribuição final",
+      "state": "OPEN",
+      "labels": [
+        "etapa:8",
+        "prio:P1",
+        "area:infra",
+        "area:docs"
       ],
       "milestone": "Etapa 8 — Produção"
     }
