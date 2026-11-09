@@ -26,12 +26,12 @@ def main() -> None:
     # Receiver e coronha.
     kit.box("Receiver", root, (0.0, 0.020, 0.030), (0.056, 0.180, 0.088),
             steel, bevel=0.006)
-    kit.box("Stock", root, (0.0, -0.205, 0.008), (0.046, 0.270, 0.082),
-            wood, rotation=(0.05, 0.0, 0.0), bevel=0.008)
-    kit.box("ButtPlate", root, (0.0, -0.345, 0.000), (0.050, 0.015, 0.092),
+    kit.profile("Stock", root, [
+        (-0.070, 0.062), (-0.120, 0.072), (-0.240, 0.056), (-0.345, 0.030),
+        (-0.350, -0.055), (-0.230, -0.038), (-0.120, -0.012), (-0.070, -0.028),
+    ], 0.046, wood, bevel=0.008)
+    kit.box("ButtPlate", root, (0.0, -0.350, -0.012), (0.050, 0.015, 0.092),
             dark, bevel=0.003)
-    kit.box("Wrist", root, (0.0, -0.080, -0.006), (0.040, 0.075, 0.055),
-            wood, rotation=(-0.18, 0.0, 0.0), bevel=0.007)
 
     # Cano e tubo de munição.
     kit.cylinder("Barrel", root, (0.0, 0.380, 0.060), 0.014, 0.500, dark)
@@ -41,10 +41,12 @@ def main() -> None:
 
     # Pump (forend) de madeira com frisos.
     pump = kit.empty("Pump", root, (0.0, 0.270, 0.028))
-    kit.box("PumpBody", pump, (0.0, 0.0, 0.0), (0.055, 0.165, 0.048),
-            wood, bevel=0.008)
+    kit.profile("PumpBody", pump, [
+        (-0.080, 0.024), (0.080, 0.024), (0.092, 0.010), (0.088, -0.020),
+        (0.070, -0.026), (-0.080, -0.026),
+    ], 0.055, wood, bevel=0.008)
     for i, y in enumerate((-0.055, -0.018, 0.019, 0.056)):
-        kit.box("PumpRib%d" % i, pump, (0.0, y, 0.026), (0.048, 0.014, 0.008),
+        kit.box("PumpRib%d" % i, pump, (0.0, y, 0.022), (0.048, 0.014, 0.008),
                 dark, bevel=0.001)
 
     # Gatilho, guarda e mira de pérola.

@@ -6,7 +6,7 @@ Modelo estilizado low-poly, autoral, gerado por
 ## Dimensões
 
 - Comprimento: 0,729 m
-- Altura: 0,259 m (com magazine)
+- Altura: 0,290 m (com magazine)
 - Largura: 0,058 m
 - Origem: `GunRoot` no receiver, `+Y` frente, `+Z` cima.
 
@@ -15,7 +15,7 @@ Modelo estilizado low-poly, autoral, gerado por
 - `Receiver` tubular, tampa traseira, tubo de caça, `Bolt`.
 - Guarda-mão, cano, coroa de boca.
 - Punho, `Trigger`, guarda.
-- `Magazine` (empty com três segmentos curvos).
+- `Magazine` (perfil extrudado contínuo em curva).
 - Coronha retrátil (`StockRailL/R`, `ButtPlate`).
 - Tambor de mira traseira e anel de mira frontal.
 - `GripSocket` em `(0, -0,108, -0,062)`.

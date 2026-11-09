@@ -5,16 +5,16 @@ Modelo estilizado low-poly, autoral, gerado por
 
 ## Dimensões
 
-- Comprimento: 0,982 m
-- Altura: 0,127 m
+- Comprimento: 0,987 m
+- Altura: 0,139 m
 - Largura: 0,057 m
 - Origem: `GunRoot` no receiver, `+Y` frente, `+Z` cima.
 
 ## Partes
 
 - `Receiver`, porta de ejeção, cano e tubo de munição.
-- Coronha de madeira, `ButtPlate`, punho.
-- `Pump` (empty com corpo e frisos), `Trigger`, guarda.
+- Coronha com perfil extrudado, `ButtPlate`.
+- `Pump` (empty com corpo extrudado e frisos), `Trigger`, guarda.
 - Massa de mira esférica, abraçadeira do cano.
 - `GripSocket` em `(0, -0,075, -0,012)`.
 - `Muzzle` em `(0, 0,632, 0,060)`.

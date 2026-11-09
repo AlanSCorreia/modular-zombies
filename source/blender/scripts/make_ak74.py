@@ -34,13 +34,18 @@ def main() -> None:
     kit.cylinder("Bolt", root, (0.038, 0.055, 0.052), 0.0065, 0.060, steel,
                  axis="Y", rotation=(0.0, 0.0, 0.0))
 
-    # Coronha de madeira e punho.
-    kit.box("Stock", root, (0.0, -0.255, 0.018), (0.046, 0.275, 0.076),
-            wood, rotation=(0.06, 0.0, 0.0), bevel=0.006)
-    kit.box("ButtPlate", root, (0.0, -0.390, 0.008), (0.050, 0.014, 0.086),
+    # Coronha de madeira e punho (perfis extrudados).
+    kit.profile("Stock", root, [
+        (-0.105, 0.078), (-0.160, 0.082), (-0.270, 0.066),
+        (-0.390, 0.038), (-0.398, -0.050), (-0.300, -0.040),
+        (-0.180, -0.004), (-0.105, -0.012),
+    ], 0.046, wood, bevel=0.007)
+    kit.box("ButtPlate", root, (0.0, -0.398, -0.006), (0.050, 0.014, 0.090),
             dark, bevel=0.003)
-    kit.box("PistolGrip", root, (0.0, -0.108, -0.060), (0.036, 0.055, 0.105),
-            dark, rotation=(-0.28, 0.0, 0.0), bevel=0.006)
+    kit.profile("PistolGrip", root, [
+        (-0.120, 0.010), (-0.078, 0.010), (-0.070, -0.045),
+        (-0.090, -0.105), (-0.130, -0.118), (-0.150, -0.060),
+    ], 0.036, dark, bevel=0.007)
 
     # Guarda-mão, tubo de gás e cano.
     kit.box("Handguard", root, (0.0, 0.212, 0.024), (0.060, 0.175, 0.062),
@@ -60,14 +65,12 @@ def main() -> None:
     kit.box("FrontSightPost", root, (0.0, 0.468, 0.098), (0.006, 0.008, 0.030),
             dark, bevel=0.0)
 
-    # Magazine curvo em três segmentos.
-    mag = kit.empty("Magazine", root, (0.0, 0.040, -0.005))
-    kit.box("MagTop", mag, (0.0, 0.0, -0.030), (0.052, 0.090, 0.060),
-            bakelite, rotation=(-0.12, 0.0, 0.0), bevel=0.003)
-    kit.box("MagMid", mag, (0.0, 0.012, -0.075), (0.052, 0.085, 0.060),
-            bakelite, rotation=(-0.30, 0.0, 0.0), bevel=0.003)
-    kit.box("MagBottom", mag, (0.0, 0.034, -0.120), (0.052, 0.080, 0.060),
-            bakelite, rotation=(-0.48, 0.0, 0.0), bevel=0.003)
+    # Magazine curvo: um único perfil extrudado (banana contínua).
+    kit.profile("Magazine", root, [
+        (0.095, 0.005), (0.105, -0.050), (0.125, -0.110), (0.155, -0.170),
+        (0.185, -0.220), (0.135, -0.235), (0.115, -0.180), (0.090, -0.120),
+        (0.065, -0.060), (0.035, 0.005),
+    ], 0.052, bakelite, bevel=0.004)
 
     # Gatilho e guarda.
     kit.box("Trigger", root, (0.0, -0.045, 0.000), (0.007, 0.010, 0.030),

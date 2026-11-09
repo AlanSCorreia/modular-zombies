@@ -12,6 +12,7 @@ Convenção do projeto (ver source/blender/README.md):
 import math
 from pathlib import Path
 
+import bmesh
 import bpy
 from mathutils import Vector
 
@@ -158,6 +159,50 @@ def torus(
     bpy.ops.object.transform_apply(location=False, rotation=True, scale=False)
     obj.data.materials.append(mat)
     _smooth(obj)
+    return obj
+
+
+def profile(
+    name: str,
+    parent,
+    points,
+    width: float,
+    mat,
+    location=(0.0, 0.0, 0.0),
+    rotation=(0.0, 0.0, 0.0),
+    bevel: float = 0.003,
+):
+    """Cria uma peça extrudando um perfil 2D (Y,Z) na espessura X.
+
+    É o equivalente procedural de desenhar o contorno lateral e usar Extrude.
+    """
+    mesh = bpy.data.meshes.new(name)
+    verts = []
+    for x in (-width * 0.5, width * 0.5):
+        for (y, z) in points:
+            verts.append((x, y, z))
+    n = len(points)
+    faces = [tuple(range(n - 1, -1, -1)), tuple(range(n, 2 * n))]
+    for i in range(n):
+        j = (i + 1) % n
+        faces.append((i, j, n + j, n + i))
+    mesh.from_pydata(verts, [], faces)
+    mesh.validate()
+    mesh.update()
+
+    obj = bpy.data.objects.new(name, mesh)
+    bpy.context.collection.objects.link(obj)
+    obj.parent = parent
+    obj.location = Vector(location)
+    obj.rotation_euler = rotation
+    obj.data.materials.append(mat)
+
+    bm = bmesh.new()
+    bm.from_mesh(mesh)
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    bm.to_mesh(mesh)
+    bm.free()
+    _bevel(obj, bevel)
     return obj
 
 

@@ -28,9 +28,11 @@ def main() -> None:
 
     root = kit.root()
 
-    # Corpo principal e painéis laterais.
-    kit.box("Body", root, (0.0, -0.020, 0.050), (0.076, 0.340, 0.105),
-            steel, bevel=0.008)
+    # Corpo principal (perfil extrudado) e painéis laterais.
+    kit.profile("Body", root, [
+        (-0.195, 0.020), (-0.175, 0.095), (0.095, 0.102), (0.175, 0.078),
+        (0.180, 0.020), (0.120, 0.000), (-0.050, 0.000), (-0.130, 0.010),
+    ], 0.076, steel, bevel=0.008)
     kit.box("SidePanelL", root, (-0.039, -0.010, 0.050),
             (0.006, 0.220, 0.070), dark, bevel=0.003)
     kit.box("SidePanelR", root, (0.039, -0.010, 0.050),
@@ -51,8 +53,10 @@ def main() -> None:
                  glow)
 
     # Punho e célula de energia.
-    kit.box("PistolGrip", root, (0.0, -0.118, -0.060), (0.038, 0.055, 0.105),
-            dark, rotation=(-0.26, 0.0, 0.0), bevel=0.006)
+    kit.profile("PistolGrip", root, [
+        (-0.135, 0.012), (-0.095, 0.012), (-0.085, -0.045),
+        (-0.105, -0.100), (-0.145, -0.110), (-0.160, -0.055),
+    ], 0.038, dark, bevel=0.007)
     mag = kit.empty("Magazine", root, (0.0, -0.005, -0.060))
     kit.box("CellBody", mag, (0.0, 0.0, 0.0), (0.050, 0.070, 0.095),
             steel, bevel=0.004)

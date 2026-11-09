@@ -31,18 +31,19 @@ def main() -> None:
     kit.cylinder("Barrel", root, (0.0, 0.086, 0.050), 0.0068, 0.055, dark)
     kit.cylinder("BarrelBushing", root, (0.0, 0.101, 0.051), 0.0102, 0.012, steel_light)
 
-    # Grip inclinado para trás e magazine interno.
-    grip_rot = (-0.30, 0.0, 0.0)
-    kit.box("Grip", root, (0.0, -0.048, -0.035), (0.029, 0.052, 0.078), steel,
-            rotation=grip_rot, bevel=0.003)
-    kit.box("GripPanelL", root, (-0.0155, -0.053, -0.037),
-            (0.006, 0.040, 0.060), wood, rotation=grip_rot, bevel=0.0015)
-    kit.box("GripPanelR", root, (0.0155, -0.053, -0.037),
-            (0.006, 0.040, 0.060), wood, rotation=grip_rot, bevel=0.0015)
-    kit.box("Magazine", root, (0.0, -0.054, -0.043), (0.019, 0.038, 0.072),
-            dark, rotation=grip_rot, bevel=0.001)
-    kit.box("MagazineBase", root, (0.0, -0.068, -0.078), (0.024, 0.042, 0.009),
-            steel, rotation=grip_rot, bevel=0.001)
+    # Grip com perfil extrudado (madeira) e magazine interno.
+    kit.profile("Grip", root, [
+        (-0.025, 0.012), (-0.080, 0.005), (-0.095, -0.045),
+        (-0.078, -0.085), (-0.035, -0.075), (-0.020, -0.025),
+    ], 0.030, wood, bevel=0.004)
+    kit.cylinder("GripScrewL", root, (-0.016, -0.056, -0.038), 0.004, 0.003,
+                 steel, axis="X")
+    kit.cylinder("GripScrewR", root, (0.016, -0.056, -0.038), 0.004, 0.003,
+                 steel, axis="X")
+    kit.box("Magazine", root, (0.0, -0.058, -0.040), (0.019, 0.036, 0.070),
+            dark, rotation=(-0.30, 0.0, 0.0), bevel=0.001)
+    kit.box("MagazineBase", root, (0.0, -0.072, -0.075), (0.024, 0.040, 0.009),
+            steel, rotation=(-0.30, 0.0, 0.0), bevel=0.001)
 
     # Gatilho, guarda e martelo.
     kit.box("Trigger", root, (0.0, -0.004, 0.004), (0.006, 0.008, 0.024), steel,
@@ -71,7 +72,7 @@ def main() -> None:
     kit.box("EjectionPort", root, (0.0160, 0.024, 0.053),
             (0.0015, 0.042, 0.018), dark, bevel=0.0)
 
-    kit.empty("GripSocket", root, (0.0, -0.054, -0.038))
+    kit.empty("GripSocket", root, (0.0, -0.056, -0.040))
     kit.empty("Muzzle", root, (0.0, 0.114, 0.051))
 
     kit.export(BLEND, GLB, ("m1911",))

@@ -7,13 +7,13 @@ lança-foguete (`content/weapons/rocket.json`).
 ## Dimensões
 
 - Comprimento: 0,796 m
-- Altura: 0,262 m (com scope)
+- Altura: 0,252 m (com scope)
 - Largura: 0,094 m
 - Origem: `GunRoot` no corpo, `+Y` frente, `+Z` cima.
 
 ## Partes
 
-- Corpo, painéis laterais, trilho superior.
+- Corpo e punho com perfis extrudados, painéis laterais, trilho superior.
 - Cano com shroud, núcleo emissivo e quatro bobinas (`Coil0..3`).
 - Punho, `Magazine` (célula de energia), `Trigger`, guarda.
 - Coronha curta com duas hastes e `ButtPlate`.

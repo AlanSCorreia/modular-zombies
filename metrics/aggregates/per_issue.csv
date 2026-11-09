@@ -1,15 +1,15 @@
 number,title,state,created,closed,lead_hours,labels,milestone,commits_linked,commit_additions,commit_deletions,docs_mentions
-43,Pacote de distribuição final,OPEN,2026-11-09T12:32:14Z,,,prio:P1 area:infra area:docs,Etapa 8 — Produção,0,0,0,15
-42,Armas autorais no lugar dos placeholders,CLOSED,2026-11-09T12:17:38Z,2026-11-09T12:31:24Z,0.23,etapa:8 prio:P0 area:assets,Etapa 8 — Produção,0,0,0,4
-41,Auditoria de licenças + soak 30 min final,CLOSED,2026-11-08T23:45:48Z,2026-11-09T12:17:36Z,12.53,etapa:8 prio:P0 area:infra area:docs,Etapa 8 — Produção,0,0,0,8
-40,"Performance, soak test e checklist de release",CLOSED,2026-11-08T23:32:37Z,2026-11-08T23:45:26Z,0.21,etapa:8 prio:P0 area:infra,Etapa 8 — Produção,0,0,0,5
-39,Exportação Linux + smoke test,CLOSED,2026-11-08T23:20:04Z,2026-11-08T23:32:17Z,0.2,etapa:8 prio:P0 area:infra,Etapa 8 — Produção,0,0,0,5
-38,"Settings (sensibilidade, volume, qualidade)",CLOSED,2026-11-08T23:12:14Z,2026-11-08T23:19:45Z,0.13,etapa:8 prio:P0 area:gameplay area:infra,Etapa 8 — Produção,0,0,0,5
-37,Save/load versionado da run,CLOSED,2026-11-08T23:06:46Z,2026-11-08T23:11:55Z,0.09,etapa:8 prio:P0 area:gameplay area:infra,Etapa 8 — Produção,0,0,0,4
-36,Inimigo especial (Brute) data-driven,CLOSED,2026-11-08T22:55:06Z,2026-11-08T23:06:44Z,0.19,etapa:7 prio:P0 area:assets area:gameplay,Etapa 7 — Escala de conteúdo,0,0,0,1
-35,Wonder weapon autoral (projétil/explosão),CLOSED,2026-11-08T22:47:47Z,2026-11-08T22:54:47Z,0.12,etapa:7 prio:P0 area:assets area:gameplay,Etapa 7 — Escala de conteúdo,0,0,0,1
-34,Duas armas novas (pistol e SKS),CLOSED,2026-11-08T22:40:11Z,2026-11-08T22:47:45Z,0.13,etapa:7 prio:P0 area:assets area:gameplay,Etapa 7 — Escala de conteúdo,0,0,0,1
-33,Segundo mapa jogável com 2 mecânicas (map.depot),CLOSED,2026-11-08T22:31:01Z,2026-11-08T22:40:09Z,0.15,etapa:7 prio:P0 area:assets area:gameplay,Etapa 7 — Escala de conteúdo,0,0,0,1
+43,Pacote de distribuição final,OPEN,2026-11-09T12:32:14Z,,,etapa:8 prio:P1 area:infra area:docs,Etapa 8 — Produção,0,0,0,6
+42,Armas autorais no lugar dos placeholders,CLOSED,2026-11-09T12:17:38Z,2026-11-09T12:31:24Z,0.23,etapa:8 prio:P0 area:assets,Etapa 8 — Produção,0,0,0,3
+41,Auditoria de licenças + soak 30 min final,CLOSED,2026-11-08T23:45:48Z,2026-11-09T12:17:36Z,12.53,etapa:8 prio:P0 area:infra area:docs,Etapa 8 — Produção,0,0,0,6
+40,"Performance, soak test e checklist de release",CLOSED,2026-11-08T23:32:37Z,2026-11-08T23:45:26Z,0.21,etapa:8 prio:P0 area:infra,Etapa 8 — Produção,0,0,0,4
+39,Exportação Linux + smoke test,CLOSED,2026-11-08T23:20:04Z,2026-11-08T23:32:17Z,0.2,etapa:8 prio:P0 area:infra,Etapa 8 — Produção,0,0,0,4
+38,"Settings (sensibilidade, volume, qualidade)",CLOSED,2026-11-08T23:12:14Z,2026-11-08T23:19:45Z,0.13,etapa:8 prio:P0 area:gameplay area:infra,Etapa 8 — Produção,0,0,0,4
+37,Save/load versionado da run,CLOSED,2026-11-08T23:06:46Z,2026-11-08T23:11:55Z,0.09,etapa:8 prio:P0 area:gameplay area:infra,Etapa 8 — Produção,0,0,0,3
+36,Inimigo especial (Brute) data-driven,CLOSED,2026-11-08T22:55:06Z,2026-11-08T23:06:44Z,0.19,etapa:7 prio:P0 area:assets area:gameplay,Etapa 7 — Escala de conteúdo,0,0,0,2
+35,Wonder weapon autoral (projétil/explosão),CLOSED,2026-11-08T22:47:47Z,2026-11-08T22:54:47Z,0.12,etapa:7 prio:P0 area:assets area:gameplay,Etapa 7 — Escala de conteúdo,0,0,0,2
+34,Duas armas novas (pistol e SKS),CLOSED,2026-11-08T22:40:11Z,2026-11-08T22:47:45Z,0.13,etapa:7 prio:P0 area:assets area:gameplay,Etapa 7 — Escala de conteúdo,0,0,0,2
+33,Segundo mapa jogável com 2 mecânicas (map.depot),CLOSED,2026-11-08T22:31:01Z,2026-11-08T22:40:09Z,0.15,etapa:7 prio:P0 area:assets area:gameplay,Etapa 7 — Escala de conteúdo,0,0,0,2
 32,Main quest de 3 passos no Bunker 13,CLOSED,2026-11-08T22:25:56Z,2026-11-08T22:30:58Z,0.08,etapa:6 prio:P0 area:gameplay,Etapa 6 — Quests e Easter Eggs,0,0,0,2
 31,"Validador de quests (órfãos, ciclos e referências)",CLOSED,2026-11-08T22:20:21Z,2026-11-08T22:25:33Z,0.09,etapa:6 prio:P0 area:gameplay area:docs,Etapa 6 — Quests e Easter Eggs,0,0,0,2
 30,Bunker13PowerMechanic (interruptor de energia),CLOSED,2026-11-08T22:09:11Z,2026-11-08T22:20:19Z,0.19,etapa:6 prio:P0 area:assets area:gameplay,Etapa 6 — Quests e Easter Eggs,0,0,0,2
@@ -26,7 +26,7 @@ number,title,state,created,closed,lead_hours,labels,milestone,commits_linked,com
 19,Automação e validação de docs (checker offline + GitHub opcional),CLOSED,2026-11-08T11:06:56Z,2026-11-08T11:06:58Z,0.0,prio:P1 area:infra area:docs,,0,0,0,3
 18,"Organizar docs: índice, arquivo e work log",CLOSED,2026-11-08T10:41:27Z,2026-11-08T10:46:56Z,0.09,prio:P1 area:docs,,0,0,0,3
 17,Faca GLB + mãos compartilhadas + knife_slash,CLOSED,2026-11-08T02:50:59Z,2026-11-08T11:42:03Z,8.85,etapa:3 prio:P1 area:assets area:gameplay,Etapa 3 — Gameplay,0,0,0,3
-16,Normalizar escala e origem das armas,CLOSED,2026-11-08T02:43:06Z,2026-11-09T12:28:29Z,33.76,etapa:3 prio:P1 area:assets area:gameplay,Etapa 3 — Gameplay,0,0,0,6
+16,Normalizar escala e origem das armas,CLOSED,2026-11-08T02:43:06Z,2026-11-09T12:28:29Z,33.76,etapa:3 prio:P1 area:assets area:gameplay,Etapa 3 — Gameplay,0,0,0,5
 15,"Auditoria curta de redundância (docs, CI, código e execução)",CLOSED,2026-11-08T02:29:40Z,2026-11-08T02:50:58Z,0.35,prio:P2 area:infra area:docs,,0,0,0,3
 14,Mãos compartilhadas + ViewmodelFactory (GripSocket),CLOSED,2026-11-07T09:38:57Z,2026-11-08T02:29:38Z,16.84,etapa:3 prio:P0 area:assets area:gameplay,Etapa 3 — Gameplay,1,407,17,2
 13,"IA de zumbi em barricadas (arranque, fila e entrada)",CLOSED,2026-11-07T02:07:56Z,2026-11-07T09:38:55Z,7.52,etapa:3 prio:P0 area:gameplay,Etapa 3 — Gameplay,1,384,14,2

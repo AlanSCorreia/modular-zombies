@@ -27,6 +27,8 @@ Etapa 3 em
   `source/blender/weapons/`.
 - Escala real em metros, `+Y` frente e `+Z` cima; `GunRoot`, `GripSocket` e
   `Muzzle` presentes em todas; `Magazine`/`Bolt`/`Pump`/`Trigger` nomeados.
+- Coronhas, punhos e magazines usam perfis extrudados (`weapon_kit.profile`),
+  em vez de caixas empilhadas, para silhuetas curvas e contínuas.
 - `CREDITS.md` e `assets/third_party/README.md` sem atribuição de armas
   externas; só o zumbi continua CC BY 3.0.
 - `overview.blend` regenerado; JSONs atualizaram `moving_parts`.
