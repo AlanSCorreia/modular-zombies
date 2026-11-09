@@ -29,6 +29,8 @@ Etapa 3 em
   `Muzzle` presentes em todas; `Magazine`/`Bolt`/`Pump`/`Trigger` nomeados.
 - Coronhas, punhos e magazines usam perfis extrudados (`weapon_kit.profile`),
   em vez de caixas empilhadas, para silhuetas curvas e contínuas.
+- Experimento low-poly na M1911: guarda do gatilho em anel, painéis com frisos,
+  serrilhas, porta de ejeção, comandos laterais e miras com notch.
 - `CREDITS.md` e `assets/third_party/README.md` sem atribuição de armas
   externas; só o zumbi continua CC BY 3.0.
 - `overview.blend` regenerado; JSONs atualizaram `moving_parts`.

@@ -206,6 +206,68 @@ def profile(
     return obj
 
 
+def ring_profile(
+    name: str,
+    parent,
+    outer_points,
+    inner_points,
+    width: float,
+    mat,
+    location=(0.0, 0.0, 0.0),
+    rotation=(0.0, 0.0, 0.0),
+    bevel: float = 0.0015,
+):
+    """Extruda um anel (contorno externo + interno) na espessura X."""
+    if len(outer_points) != len(inner_points):
+        raise ValueError("outer_points e inner_points precisam ter o mesmo tamanho")
+    n = len(outer_points)
+    mesh = bpy.data.meshes.new(name)
+    verts = []
+    for x in (-width * 0.5, width * 0.5):
+        for (y, z) in outer_points:
+            verts.append((x, y, z))
+        for (y, z) in inner_points:
+            verts.append((x, y, z))
+
+    def oa(i):
+        return i
+
+    def ob(i):
+        return n + i
+
+    def ia(i):
+        return 2 * n + i
+
+    def ib(i):
+        return 3 * n + i
+
+    faces = []
+    for i in range(n):
+        j = (i + 1) % n
+        faces.append((oa(i), oa(j), ia(j), ia(i)))
+        faces.append((ob(i), ib(i), ib(j), ob(j)))
+        faces.append((oa(i), ob(i), ob(j), oa(j)))
+        faces.append((ia(i), ia(j), ib(j), ib(i)))
+    mesh.from_pydata(verts, [], faces)
+    mesh.validate()
+    mesh.update()
+
+    obj = bpy.data.objects.new(name, mesh)
+    bpy.context.collection.objects.link(obj)
+    obj.parent = parent
+    obj.location = Vector(location)
+    obj.rotation_euler = rotation
+    obj.data.materials.append(mat)
+
+    bm = bmesh.new()
+    bm.from_mesh(mesh)
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    bm.to_mesh(mesh)
+    bm.free()
+    _bevel(obj, bevel)
+    return obj
+
+
 def sphere(name: str, parent, location, radius: float, mat, scale=(1.0, 1.0, 1.0)):
     bpy.ops.mesh.primitive_uv_sphere_add(
         segments=20, ring_count=10, radius=radius, location=location,
