@@ -150,7 +150,8 @@ QuestValidator (issue #31) e main quest de 3 passos (issue #32).
 (issue #39), performance/soak (issue #40), licenças + soak de 30 min
 (issue #41), armas autorais em escala real (issue #42, resolve #16), menu
 principal + release publicada (issue #43), mapa Kino der Toten (issue #45) e
-agentes/skills Godot da comunidade (issue #47).
+agentes/skills Godot da comunidade (issue #47) e retrospectiva/playbook
+(issue #49).
 
 **Pendente (fora do aceite)**
 - Dívidas opcionais pós-release (issue #44).

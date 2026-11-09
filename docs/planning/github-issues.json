@@ -550,6 +550,18 @@
         "area:infra"
       ],
       "milestone": "Etapa 8 — Produção"
+    },
+    {
+      "number": 49,
+      "title": "Retrospectiva e playbook do próximo projeto",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:8",
+        "prio:P2",
+        "area:infra",
+        "area:docs"
+      ],
+      "milestone": "Etapa 8 — Produção"
     }
   ]
 }

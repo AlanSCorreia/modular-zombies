@@ -386,6 +386,7 @@
 - [x] Corrigir R na virada de rodada reiniciando no mapa de teste (issue #46)
 - [x] Agentes/skills Godot da comunidade (issue #47)
 - [x] Correções da análise negativa (issue #48)
+- [x] Retrospectiva e playbook (issue #49)
 
 ### Blocked
 - *(vazio)*

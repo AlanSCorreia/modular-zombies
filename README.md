@@ -7,6 +7,8 @@ serviços e ferramentas de autoria.
 
 - **Board de execução (fonte operacional):** [`KANBAN.md`](KANBAN.md)
 - **Estratégia e decisões:** [`docs/planning/`](docs/planning/)
+- **Retrospectiva:** [`docs/RETROSPECTIVE.md`](docs/RETROSPECTIVE.md)
+- **Playbook do próximo projeto:** [`PLAYBOOK-NEXT.md`](PLAYBOOK-NEXT.md)
 - **Legado histórico:** `../zombie-fps-legacy` (não usar como referência de implementação)
 
 ## Estado atual: Etapas 1–8 concluídas (tag `etapa8`)

@@ -1,4 +1,5 @@
 number,title,state,created,closed,lead_hours,labels,milestone,commits_linked,commit_additions,commit_deletions,docs_mentions
+49,Retrospectiva e playbook do próximo projeto,CLOSED,2026-11-09T21:59:01Z,2026-11-09T21:59:30Z,0.01,etapa:8 prio:P2 area:infra area:docs,Etapa 8 — Produção,0,0,0,3
 48,Corrigir achados da análise negativa,CLOSED,2026-11-09T18:13:56Z,2026-11-09T18:14:34Z,0.01,etapa:8 prio:P0 area:gameplay area:infra,Etapa 8 — Produção,0,0,0,2
 47,Adotar agentes e skills Godot da comunidade,CLOSED,2026-11-09T16:38:46Z,2026-11-09T16:42:42Z,0.07,etapa:8 prio:P1 area:infra area:docs,Etapa 8 — Produção,0,0,0,3
 46,R na virada de rodada reinicia no mapa de teste,CLOSED,2026-11-09T16:12:17Z,2026-11-09T16:15:30Z,0.05,bug etapa:8 prio:P0,Etapa 8 — Produção,0,0,0,2

@@ -182,6 +182,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA8.11 | Armas autorais no lugar dos placeholders (feito, issue #42) | P0 |
 | ETAPA8.12 | Mapa Kino der Toten + geração variada (feito, issue #45) | P1 |
 | ETAPA8.13 | Agentes/skills Godot da comunidade (feito, issue #47) | P1 |
+| ETAPA8.14 | Retrospectiva e playbook do próximo projeto (feito, issue #49) | P2 |
 
 ## Transversal
 

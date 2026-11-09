@@ -14,6 +14,15 @@ Registro curto da etapa ativa, **mais recente primeiro**. Etapas 4–7 estão em
 Etapa 3 em
 [`archive/20-work-log-2026-11-etapa3.md`](archive/20-work-log-2026-11-etapa3.md).
 
+## 2026-11-09 — Retrospectiva e playbook (issue #49)
+
+- `tools/retro_metrics.py` gera métricas de git, issues, conteúdo, assets,
+  CI, tokens e hotspots; `metrics/aggregates/retrospective.md` é o artefato.
+- `docs/RETROSPECTIVE.md` consolida números, decisões boas/ruins e dívidas.
+- `PLAYBOOK-NEXT.md` define arquitetura, schema, assets, performance, testes,
+  processo, IA e release para o próximo projeto.
+- Nenhum código de jogo foi alterado neste bloco.
+
 ## 2026-11-09 — Correções da análise negativa (issue #48)
 
 - Save/load v2 com rodada reiniciada, portas/energia/slot ativo e clamps.
