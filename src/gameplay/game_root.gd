@@ -17,22 +17,26 @@ var quest_system: QuestSystem
 var zombies: Array[ZombieEnemy] = []
 var started := false
 var owned_perks: Array[String] = []
+var power_on := false
 
 func _ready() -> void:
 	randomize()
 	GameSettings.ensure_loaded()
 	GameSettings.apply_quality(get_viewport())
 	GameSettings.apply_audio()
-	_setup_environment()
 
 	var args := OS.get_cmdline_user_args()
-	var map_id := MapArgs.map_id_from_args(args)
+	var map_id := GameFlow.selected_map
+	if map_id == "":
+		map_id = MapArgs.map_id_from_args(args)
+	GameFlow.selected_map = ""
 	map = Content.get_map(map_id)
 	weapon_data = Content.get_weapon(map.starting_weapon) if map != null else null
 	enemy_data = Content.get_enemy(map.enemy_id) if map != null else null
 	if map == null or weapon_data == null or enemy_data == null:
 		push_error("Conteúdo incompleto para o mapa '%s'" % map_id)
 		return
+	_setup_environment(map)
 
 	var builder := MapBuilderRegistry.create(map.builder)
 	if builder == null:
@@ -92,7 +96,8 @@ func _ready() -> void:
 		_start()
 
 
-func _setup_environment() -> void:
+func _setup_environment(map_data: MapData = null) -> void:
+	var cfg: Dictionary = map_data.environment if map_data != null else {}
 	var we := WorldEnvironment.new()
 	var env := Environment.new()
 	env.background_mode = Environment.BG_SKY
@@ -106,14 +111,14 @@ func _setup_environment() -> void:
 	env.sky = sky
 	env.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
 	env.ambient_light_color = Color(0.42, 0.47, 0.60)
-	env.ambient_light_energy = 0.75
+	env.ambient_light_energy = float(cfg.get("ambient_energy", 0.75))
 	env.tonemap_mode = Environment.TONE_MAPPER_ACES
-	env.tonemap_exposure = 1.25
+	env.tonemap_exposure = float(cfg.get("exposure", 1.25))
 	env.glow_enabled = true
-	env.glow_intensity = 0.4
+	env.glow_intensity = float(cfg.get("glow", 0.4))
 	env.fog_enabled = true
 	env.fog_light_color = Color(0.028, 0.036, 0.045)
-	env.fog_density = 0.0028
+	env.fog_density = float(cfg.get("fog_density", 0.0028))
 	env.ssao_enabled = false
 	env.volumetric_fog_enabled = false
 	env.adjustment_enabled = true
@@ -124,7 +129,7 @@ func _setup_environment() -> void:
 
 	var moon := DirectionalLight3D.new()
 	moon.light_color = Color(0.42, 0.55, 0.82)
-	moon.light_energy = 0.3
+	moon.light_energy = float(cfg.get("moon_energy", 0.3))
 	moon.rotation_degrees = Vector3(-58, -32, 0)
 	moon.shadow_enabled = true
 	add_child(moon)
@@ -251,6 +256,9 @@ func _buy_door(id: String) -> void:
 	var door: DoorState = ctx.doors.get(id, null)
 	if door == null or door.open:
 		return
+	if door.requires_power and not power_on:
+		Events.banner.emit("ENERGIA DESLIGADA", "LIGUE O INTERRUPTOR NO PALCO", 1.6)
+		return
 	if not _can_pay(door.cost):
 		return
 	_spend(door.cost)
@@ -299,10 +307,14 @@ func _activate_power(id: String) -> void:
 	if sw == null or sw.used:
 		return
 	sw.used = true
+	power_on = true
 	if sw.label != null:
 		sw.label.visible = false
 	for light in ctx.power_lights:
 		light.visible = true
+	for door in ctx.doors.values():
+		if door.requires_power and not door.open:
+			_open_door_free(door.id)
 	Events.power_on.emit(id)
 	Sfx.play("powerup", -3)
 	Events.banner.emit("ENERGIA LIGADA", "SETORES LIBERADOS", 2.0)

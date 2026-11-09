@@ -35,9 +35,9 @@
 | `etapa7` | Etapa 7 — Escala de conteúdo | **Concluído** | — |
 | `etapa8` | Etapa 8 — Produção | **Concluído** | Publicado |
 
-> **Status:** Etapas 1–8 **concluídas** e release `etapa8` publicada no GitHub.
-> Build, soak, licenças, armas autorais e menu principal prontos. O que resta
-> são dívidas opcionais pós-release (#44).
+> **Status:** Etapas 1–8 **concluídas**, release `etapa8` publicada e mapa
+> **Kino der Toten** adicionado. O que resta são dívidas opcionais pós-release
+> (#44).
 
 ## Próximo item
 
@@ -381,6 +381,7 @@
 - [x] Licenças + soak 30 min (issue #41)
 - [x] Armas autorais no lugar dos placeholders (issue #42, resolve #16)
 - [x] Menu principal + pacote de release (issue #43)
+- [x] Mapa Kino der Toten + geração variada (issue #45)
 
 ### Blocked
 - *(vazio)*

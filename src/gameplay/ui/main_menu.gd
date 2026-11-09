@@ -10,10 +10,13 @@ const COL_AMBER := Color(0.95, 0.68, 0.20)
 const COL_BG := Color(0.025, 0.030, 0.027)
 
 @onready var _menu_box: VBoxContainer = $Center/VBox/MenuBox
+@onready var _map_box: VBoxContainer = $Center/VBox/MapBox
 @onready var _options_box: VBoxContainer = $Center/VBox/OptionsBox
 @onready var _play_button: Button = $Center/VBox/MenuBox/PlayButton
 @onready var _options_button: Button = $Center/VBox/MenuBox/OptionsButton
 @onready var _quit_button: Button = $Center/VBox/MenuBox/QuitButton
+@onready var _map_list: VBoxContainer = $Center/VBox/MapBox/MapList
+@onready var _map_back: Button = $Center/VBox/MapBox/MapBackButton
 @onready var _back_button: Button = $Center/VBox/OptionsBox/BackButton
 @onready var _volume_slider: HSlider = $Center/VBox/OptionsBox/VolumeRow/VolumeSlider
 @onready var _music_slider: HSlider = $Center/VBox/OptionsBox/MusicRow/MusicSlider
@@ -28,15 +31,16 @@ func _ready() -> void:
 	GameSettings.apply_audio()
 	GameSettings.apply_quality(get_viewport())
 
-	_style_button(_play_button)
-	_style_button(_options_button)
-	_style_button(_quit_button)
-	_style_button(_back_button)
+	for button in [_play_button, _options_button, _quit_button, _back_button,
+			_map_back]:
+		_style_button(button)
 
-	_play_button.pressed.connect(play_game)
+	_play_button.pressed.connect(show_maps)
 	_options_button.pressed.connect(show_options)
 	_quit_button.pressed.connect(quit_game)
 	_back_button.pressed.connect(show_menu)
+	_map_back.pressed.connect(show_menu)
+	_populate_maps()
 
 	_volume_slider.value = GameSettings.master_volume
 	_volume_slider.value_changed.connect(func(value: float):
@@ -65,22 +69,64 @@ func _ready() -> void:
 	# Lançamento direto (build smoke/CLI): `--map` ou `--auto-start` pula o menu.
 	var args := OS.get_cmdline_user_args()
 	if args.has("--map") or args.has("--auto-start"):
-		call_deferred("play_game")
+		GameFlow.auto_start = true
+		Sfx.stop_music()
+		call_deferred("_enter_game")
 
 func show_menu() -> void:
 	_menu_box.visible = true
+	_map_box.visible = false
 	_options_box.visible = false
 	_play_button.grab_focus()
 
+func show_maps() -> void:
+	_menu_box.visible = false
+	_map_box.visible = true
+	_options_box.visible = false
+	var first := _map_list.get_child(0) as Button
+	if first != null:
+		first.grab_focus()
+
+func _populate_maps() -> void:
+	for child in _map_list.get_children():
+		child.queue_free()
+	var entries: Array = []
+	for map_id in Content.maps.keys():
+		var map_data: MapData = Content.get_map(String(map_id))
+		if map_data != null:
+			entries.append([map_data.name, map_id])
+	entries.sort_custom(func(a: Array, b: Array) -> bool:
+		return String(a[0]) < String(b[0])
+	)
+	for entry in entries:
+		var button := Button.new()
+		button.text = String(entry[0]).to_upper()
+		button.set_meta("map_id", entry[1])
+		button.add_theme_font_size_override("font_size", 22)
+		_style_button(button)
+		button.pressed.connect(start_map.bind(entry[1]))
+		_map_list.add_child(button)
+
 func show_options() -> void:
 	_menu_box.visible = false
+	_map_box.visible = false
 	_options_box.visible = true
 	_volume_slider.grab_focus()
 
-func play_game() -> void:
+func start_map(map_id: String) -> void:
 	Sfx.play("ui", -6)
 	Sfx.stop_music()
+	GameFlow.selected_map = map_id
 	GameFlow.auto_start = true
+	get_tree().change_scene_to_file("res://scenes/main.tscn")
+
+func play_game() -> void:
+	if GameFlow.selected_map == "":
+		show_maps()
+		return
+	start_map(GameFlow.selected_map)
+
+func _enter_game() -> void:
 	get_tree().change_scene_to_file("res://scenes/main.tscn")
 
 func quit_game() -> void:
@@ -88,9 +134,10 @@ func quit_game() -> void:
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo \
-			and event.keycode == KEY_ESCAPE and _options_box.visible:
-		show_menu()
-		get_viewport().set_input_as_handled()
+			and event.keycode == KEY_ESCAPE:
+		if _options_box.visible or _map_box.visible:
+			show_menu()
+			get_viewport().set_input_as_handled()
 
 func _style_button(button: Button) -> void:
 	button.custom_minimum_size = Vector2(340.0, 54.0)

@@ -503,6 +503,18 @@
         "area:gameplay"
       ],
       "milestone": "Etapa 8 — Produção"
+    },
+    {
+      "number": 45,
+      "title": "Mapa Kino der Toten e geração de mapas variados",
+      "state": "CLOSED",
+      "labels": [
+        "etapa:8",
+        "prio:P1",
+        "area:assets",
+        "area:gameplay"
+      ],
+      "milestone": "Etapa 8 — Produção"
     }
   ]
 }

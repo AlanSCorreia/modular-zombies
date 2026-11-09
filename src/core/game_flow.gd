@@ -5,7 +5,9 @@ extends RefCounted
 ## `auto_start` evita pedir "INICIAR" duas vezes quando o jogador veio do menu.
 
 static var auto_start := false
+static var selected_map := ""
 
 
 static func reset() -> void:
 	auto_start = false
+	selected_map = ""

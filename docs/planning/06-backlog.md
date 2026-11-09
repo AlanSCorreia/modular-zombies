@@ -12,7 +12,7 @@ last_reviewed: 2026-11-09
 Legenda: **P0** bloqueante, **P1** próxima entrega, **P2** depois.  
 Este backlog é estratégico; o status real fica no `KANBAN.md`.
 
-> **Etapas 1–8 concluídas:** loader/validador, 3 mapas, 9 armas autorais,
+> **Etapas 1–8 concluídas:** loader/validador, 4 mapas, 9 armas autorais,
 > Bunker 13 JSON + builder, save/settings, export Linux, performance e soak.
 > Resta o pacote de distribuição final (#43) e dívidas opcionais.
 
@@ -180,6 +180,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA8.9 | Save/load do estado das barricadas | P1 |
 | ETAPA8.10 | Checklist de release (feito, issue #40) | P0 |
 | ETAPA8.11 | Armas autorais no lugar dos placeholders (feito, issue #42) | P0 |
+| ETAPA8.12 | Mapa Kino der Toten + geração variada (feito, issue #45) | P1 |
 
 ## Transversal
 

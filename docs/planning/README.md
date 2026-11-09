@@ -22,7 +22,8 @@ last_reviewed: 2026-11-09
   explosões, granada/foguete/barris, barricadas, janelas + IA de zumbi, mãos
   compartilhadas/`ViewmodelFactory`, faca com `knife_slash`, rodadas 1→2 e
   traps explosivas, VFX/SFX/HUD de granadas e áudio/mixagem.
-- **Release `etapa8` publicada.** Próximo: dívidas opcionais pós-release (#44).
+- **Release `etapa8` publicada** e mapa **Kino der Toten** adicionado.
+- Próximo: dívidas opcionais pós-release (#44).
 - **Dívidas opcionais:** navmesh, pool de VFX, localização, controle e mods.
 - Gates atuais: ver [`08-testing-strategy.md`](08-testing-strategy.md).
 

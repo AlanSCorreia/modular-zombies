@@ -148,8 +148,8 @@ QuestValidator (issue #31) e main quest de 3 passos (issue #32).
 
 **Já entregue:** save/load (issue #37), settings (issue #38), exportação Linux
 (issue #39), performance/soak (issue #40), licenças + soak de 30 min
-(issue #41), armas autorais em escala real (issue #42, resolve #16) e menu
-principal + release publicada (issue #43).
+(issue #41), armas autorais em escala real (issue #42, resolve #16), menu
+principal + release publicada (issue #43) e mapa Kino der Toten (issue #45).
 
 **Pendente (fora do aceite)**
 - Dívidas opcionais pós-release (issue #44).

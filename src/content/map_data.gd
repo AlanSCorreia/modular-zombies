@@ -23,6 +23,7 @@ var radios: Array[RadioData] = []
 var power_switches: Array[PowerSwitchData] = []
 var power_lights: Array[Vector3] = []
 var special_enemies: Array[SpecialEnemyData] = []
+var environment: Dictionary = {}
 
 static func from_dict(d: Dictionary) -> MapData:
 	var m := MapData.new()
@@ -62,4 +63,5 @@ static func from_dict(d: Dictionary) -> MapData:
 		m.power_lights.append(Vector3(float(l[0]), float(l[1]), float(l[2])))
 	for e in d.get("special_enemies", []):
 		m.special_enemies.append(SpecialEnemyData.from_dict(e))
+	m.environment = d.get("environment", {})
 	return m

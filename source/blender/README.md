@@ -12,6 +12,8 @@ source/blender/
   hands/hands.blend
   scripts/import_glb_to_blend.py
   scripts/weapon_kit.py
+  scripts/map_kit.py
+  scripts/make_kino.py
   scripts/make_ak74.py
   scripts/make_m1911.py
   scripts/make_mp5.py
@@ -71,6 +73,18 @@ blender -b --python source/blender/scripts/make_wunder.py
 ```
 
 Cada pasta de arma tem `reference.md` com dimensões, sockets e partes móveis.
+
+## Mapas
+
+Kino der Toten é gerado por:
+
+```bash
+blender -b --python source/blender/scripts/make_kino.py
+```
+
+O script usa `map_kit.py`, grava `source/blender/maps/kino/kino.blend`,
+`assets/models/maps/kino/kino.glb` e `content/maps/kino.json`. A referência
+resumida fica em `source/blender/maps/kino/reference.md`.
 
 A faca segue a mesma convenção e é gerada por:
 

@@ -7,6 +7,8 @@ var cost := 0
 var room := ""
 var position := Vector3.ZERO
 var size := Vector3(0.2, 2.5, 2.6)
+var open := false
+var requires_power := false
 
 static func from_dict(d: Dictionary) -> DoorData:
 	var o := DoorData.new()
@@ -18,4 +20,6 @@ static func from_dict(d: Dictionary) -> DoorData:
 	o.position = Vector3(float(p[0]), float(p[1]), float(p[2]))
 	var s: Array = d.get("size", [0.2, 2.5, 2.6])
 	o.size = Vector3(float(s[0]), float(s[1]), float(s[2]))
+	o.open = bool(d.get("open", false))
+	o.requires_power = bool(d.get("requires_power", false))
 	return o

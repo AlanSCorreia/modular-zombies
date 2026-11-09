@@ -60,6 +60,7 @@ func _should_collide(mi: MeshInstance3D) -> bool:
 	return true
 
 func _add_collision(mi: MeshInstance3D) -> StaticBody3D:
+	var n := String(mi.name)
 	var aabb := mi.get_aabb()
 	if aabb.size.x < 0.01 or aabb.size.y < 0.01 or aabb.size.z < 0.01:
 		return null
@@ -68,16 +69,37 @@ func _add_collision(mi: MeshInstance3D) -> StaticBody3D:
 	body.collision_layer = 1
 	body.collision_mask = 0
 	var cs := CollisionShape3D.new()
-	var shape := BoxShape3D.new()
-	shape.size = aabb.size
-	cs.shape = shape
-	cs.position = aabb.position + aabb.size * 0.5
+	if (n.begins_with("Ramp") or n.begins_with("Stair")) and mi.mesh != null:
+		var shape := mi.mesh.create_trimesh_shape()
+		if shape != null:
+			cs.shape = shape
+		else:
+			var box := BoxShape3D.new()
+			box.size = aabb.size
+			cs.shape = box
+			cs.position = aabb.position + aabb.size * 0.5
+	else:
+		var box := BoxShape3D.new()
+		box.size = aabb.size
+		cs.shape = box
+		cs.position = aabb.position + aabb.size * 0.5
 	body.add_child(cs)
 	mi.add_child(body)
 	return body
 
 func _build_doors() -> void:
 	for d in map.doors:
+		var door := DoorState.new()
+		door.id = d.id
+		door.name = d.name
+		door.cost = d.cost
+		door.room = d.room
+		door.data = d
+		door.requires_power = d.requires_power
+		door.open = d.open
+		ctx.doors[d.id] = door
+		if d.open:
+			continue
 		var node := map_root.find_child("Door_" + d.id, true, false) as MeshInstance3D
 		if node == null:
 			push_warning("Porta sem geometria: " + d.id)
@@ -85,18 +107,14 @@ func _build_doors() -> void:
 		var body := node.get_node_or_null("Collision") as StaticBody3D
 		if body == null:
 			body = _add_collision(node)
-		var door := DoorState.new()
-		door.id = d.id
-		door.name = d.name
-		door.cost = d.cost
-		door.room = d.room
-		door.data = d
 		door.node = node
 		door.body = body
-		door.label = _label(node, "%s\n%d" % [d.name, d.cost], Vector3(0, 0.25, 0), 54)
+		var text := "%s\n%d" % [d.name, d.cost]
+		if d.requires_power:
+			text = "%s\nENERGIA" % d.name
+		door.label = _label(node, text, Vector3(0, 0.25, 0), 54)
 		if body != null:
 			body.set_meta("interact", door)
-		ctx.doors[d.id] = door
 
 func _build_wallbuys() -> void:
 	for wb in map.wallbuys:

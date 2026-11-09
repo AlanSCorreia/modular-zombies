@@ -76,6 +76,8 @@ func _ready() -> void:
 			await _settings()
 		"menu":
 			await _menu()
+		"kino":
+			await _kino()
 		"perf":
 			await _perf()
 		"soak":
@@ -1142,16 +1144,27 @@ func _menu() -> void:
 	var quit: Button = menu.find_child("QuitButton", true, false)
 	var back: Button = menu.find_child("BackButton", true, false)
 	var options_box: VBoxContainer = menu.find_child("OptionsBox", true, false)
+	var map_box: VBoxContainer = menu.find_child("MapBox", true, false)
+	var map_list: VBoxContainer = menu.find_child("MapList", true, false)
 	var vol: HSlider = menu.find_child("VolumeSlider", true, false)
 	var music: HSlider = menu.find_child("MusicSlider", true, false)
 	var sens: HSlider = menu.find_child("SensitivitySlider", true, false)
 	var quality: OptionButton = menu.find_child("QualityOption", true, false)
 
 	var ok: bool = play != null and options != null and quit != null and back != null \
-		and options_box != null and vol != null and music != null and sens != null \
-		and quality != null
-	ok = ok and not options_box.visible
+		and options_box != null and map_box != null and map_list != null \
+		and vol != null and music != null and sens != null and quality != null
+	ok = ok and not options_box.visible and not map_box.visible
 
+	menu.show_maps()
+	await get_tree().process_frame
+	ok = ok and map_box.visible and not options_box.visible
+	ok = ok and map_list.get_child_count() >= 4
+	var kino_ok := false
+	for child in map_list.get_children():
+		if child is Button and String(child.text).to_lower().contains("kino"):
+			kino_ok = true
+	ok = ok and kino_ok
 	menu.show_options()
 	await get_tree().process_frame
 	ok = ok and options_box.visible
@@ -1183,6 +1196,65 @@ func _menu() -> void:
 	GameSettings.set_sensitivity(saved_sens)
 	GameSettings.set_quality(saved_quality)
 	_finish("MENU_OK", ok)
+
+func _kino() -> void:
+	var data: MapData = Content.get_map("map.kino")
+	var loaded: bool = data != null and ResourceLoader.exists(data.scene)
+	var ok: bool = loaded and game.map != null and game.map.id == "map.kino"
+	ok = ok and game.map.rooms.size() >= 10 and game.map.doors.size() >= 12
+	ok = ok and game.map.wallbuys.size() >= 6 and game.map.perks.size() == 4
+	ok = ok and game.map.box != null and game.map.power_switches.size() == 1
+	ok = ok and game.ctx != null
+	if not ok:
+		_finish("KINO_OK", false)
+		return
+	ok = ok and game.ctx.barricades.size() == game.map.barricades.size()
+	ok = ok and game.ctx.wallbuys.size() == game.map.wallbuys.size()
+	ok = ok and game.ctx.perks.size() == game.map.perks.size()
+	ok = ok and game.ctx.box != null
+	ok = ok and game.ctx.power_switches.size() == 1
+
+	var lower_open: bool = game.ctx.doors.has("arch_lower_conn") \
+		and game.ctx.doors["arch_lower_conn"].open
+	var theater: DoorState = game.ctx.doors.get("door_lobby_theater", null)
+	ok = ok and lower_open and theater != null and theater.requires_power \
+		and not theater.open
+
+	game._start()
+	await get_tree().create_timer(0.6).timeout
+	ok = ok and game.started and game.player != null
+	ok = ok and game.nav.room_at(game.player.position) == "lobby"
+
+	# Rota oeste completa antes da energia (4 portas, 4.250 pontos).
+	var space := game.get_world_3d().direct_space_state
+	var ray := PhysicsRayQueryParameters3D.create(
+		Vector3(-7.0, 1.0, -15.0), Vector3(-9.0, 1.0, -15.0), 1)
+	var blocked_before := not space.intersect_ray(ray).is_empty()
+	game.economy.set_points(20000)
+	for door_id in ["door_lobby_lower", "door_lower_alley", "door_alley_back",
+			"door_back_stage"]:
+		game._buy_door(door_id)
+	await get_tree().process_frame
+	ok = ok and blocked_before
+	var blocked_after := not space.intersect_ray(ray).is_empty()
+	ok = ok and not blocked_after
+	ok = ok and game.ctx.doors["door_back_stage"].open
+	var west_path: Array[Vector3] = game.nav.path(
+		game.player.position, Vector3(0, 0.1, 14))
+	ok = ok and not west_path.is_empty()
+
+	# Antes da energia, o atalho lobby→teatro está fechado.
+	var before: Array[Vector3] = game.nav.path(
+		game.player.position, Vector3(0, 0.1, -5))
+	ok = ok and before.is_empty()
+
+	game._activate_power("power_stage")
+	await get_tree().process_frame
+	ok = ok and game.power_on and theater.open
+	var after: Array[Vector3] = game.nav.path(game.player.position, Vector3(0, 0.1, 14))
+	ok = ok and not after.is_empty()
+	ok = ok and game.ctx.doors["arch_theater_hall"].open
+	_finish("KINO_OK", ok)
 
 func _perf() -> void:
 	game._start()

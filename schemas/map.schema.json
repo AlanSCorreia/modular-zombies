@@ -23,6 +23,7 @@
     "power_switches": { "type": "array" },
     "power_lights": { "type": "array" },
     "special_enemies": { "type": "array" },
+    "environment": { "type": "object" },
     "zombie_spawns": { "type": "array" }
   }
 }

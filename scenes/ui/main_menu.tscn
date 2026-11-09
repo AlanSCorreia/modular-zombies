@@ -103,6 +103,29 @@ size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("4_button")
 text = "SAIR"
 
+[node name="MapBox" type="VBoxContainer" parent="Center/VBox"]
+visible = false
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="MapTitle" type="Label" parent="Center/VBox/MapBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.90, 0.82, 0.60, 1)
+theme_override_fonts/font = ExtResource("2_title")
+theme_override_font_sizes/font_size = 44
+text = "SELECIONE O MAPA"
+horizontal_alignment = 1
+
+[node name="MapList" type="VBoxContainer" parent="Center/VBox/MapBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="MapBackButton" type="Button" parent="Center/VBox/MapBox"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("4_button")
+text = "VOLTAR"
+
 [node name="OptionsBox" type="VBoxContainer" parent="Center/VBox"]
 visible = false
 layout_mode = 2

@@ -14,6 +14,18 @@ Registro curto da etapa ativa, **mais recente primeiro**. Etapas 4–7 estão em
 Etapa 3 em
 [`archive/20-work-log-2026-11-etapa3.md`](archive/20-work-log-2026-11-etapa3.md).
 
+## 2026-11-09 — Mapa Kino der Toten e geração variada (issue #45)
+
+- Fonte Blender `source/blender/maps/kino/kino.blend` gerada por
+  `make_kino.py` + `map_kit.py`; GLB e JSON derivados do mesmo layout.
+- 15 salas/conectores, rotas oeste/leste com 4 portas e 4.250 pontos,
+  atalho lobby↔teatro por energia, 17 barricadas, 7 wallbuys, 4 perks e caixa.
+- Suporte novo a portas `open` e `requires_power`, colisão trimesh em
+  `Ramp_*`/`Stair_*` e ambiente por mapa.
+- Menu principal passa a listar mapas dinamicamente pelo `Content`.
+- `KINO_OK` no CI cobre layout, portas, colisão, energia e rota oeste.
+- Simplificações: andar único; teleporter/Pack-a-Punch decorativos.
+
 ## 2026-11-09 — Release etapa8 publicada
 
 - Release publicada em `https://github.com/AlanSCorreia/modular-zombies/releases/tag/etapa8`
