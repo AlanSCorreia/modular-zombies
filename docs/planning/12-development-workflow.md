@@ -116,10 +116,7 @@ grande.
 - Exportar GLB para `assets/` via script; validar escala/pivôs.
 - Nenhum asset de terceiros sem licença em `CREDITS.md`.
 
-## Próximos passos (Etapa 3 — Gameplay)
+## Próximos passos
 
-1. Faca GLB + `knife_slash` (issue #17).
-2. Normalizar escala/origem das armas (issue #16).
-3. Fechar rodada 1 → 2, game over e efeitos.
-4. UI/áudio de combate (Etapa 4 — Interações).
-5. Ferramentas de mapa (Etapa 5 — Ferramentas).
+- Etapas 1–8 concluídas; dívidas opcionais na issue #44.
+- Novas mudanças de gameplay exigem teste e CI verde.

@@ -100,7 +100,7 @@ func _ready() -> void:
 
 	_music = AudioStreamPlayer.new()
 	_music.name = "AmbientMusic"
-	var amb: AudioStreamOggVorbis = load("res://assets/audio/music/ambient_drone.ogg")
+	var amb: AudioStreamOggVorbis = load("res://assets/audio/music/ambient_drone.ogg").duplicate()
 	amb.loop = true
 	_music.stream = amb
 	_music.volume_db = -20.0

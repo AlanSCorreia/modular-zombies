@@ -14,7 +14,7 @@ func setup(p_data: ExplosiveData, p_trap: TrapData, pos: Vector3) -> void:
 	data = p_data
 	trap_data = p_trap
 	position = pos
-	collision_layer = 16
+	collision_layer = 16 | 32
 	collision_mask = 0
 	add_to_group("explosive_chain")
 

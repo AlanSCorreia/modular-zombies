@@ -73,7 +73,7 @@ static func explode(world: World3D, tree: SceneTree, pos: Vector3, data: Explosi
 	var q := PhysicsShapeQueryParameters3D.new()
 	q.shape = shape
 	q.transform = Transform3D(Basis(), pos)
-	q.collision_mask = 4 | 16
+	q.collision_mask = 2 | 4 | 16
 	q.collide_with_bodies = true
 	q.collide_with_areas = false
 	var hits := world.direct_space_state.intersect_shape(q, data.max_targets)

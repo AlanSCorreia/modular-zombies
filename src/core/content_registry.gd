@@ -26,6 +26,7 @@ func reload() -> void:
 	quests.clear()
 	errors.clear()
 	loaded = false
+	var seen_ids := {}
 	for path in _scan(ROOT):
 		var text := FileAccess.get_file_as_string(path)
 		if text == "":
@@ -36,11 +37,19 @@ func reload() -> void:
 			errors.append("%s: JSON inválido" % path)
 			continue
 		var d: Dictionary = parsed
+		var schema_version := int(d.get("schema_version", 0))
+		if schema_version != 1:
+			errors.append("%s: schema_version inválido (%d)" % [path, schema_version])
+			continue
 		var kind := String(d.get("kind", ""))
 		var id := String(d.get("id", ""))
 		if id == "":
 			errors.append("%s: id ausente" % path)
 			continue
+		if seen_ids.has(id):
+			errors.append("%s: id duplicado (%s)" % [path, id])
+			continue
+		seen_ids[id] = true
 		match kind:
 			"map":
 				maps[id] = MapData.from_dict(d)

@@ -1,10 +1,11 @@
 extends SceneTree
 
-const OUT_DIR := "res://tests/tmp_maps"
+const OUT_DIR := "user://tests/tmp_maps"
 
 func _init() -> void:
 	var ok := true
-	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT_DIR))
+	var mk := DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(OUT_DIR))
+	ok = ok and mk == OK
 
 	var created := MapTools.create_from_template("map.tmp_tool", "Mapa Teste", OUT_DIR)
 	ok = ok and created.get("ok", false)
@@ -28,8 +29,10 @@ func _init() -> void:
 
 	for path in [created.get("path", ""), dup.get("path", "")]:
 		if path != "" and FileAccess.file_exists(path):
-			DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
-	DirAccess.remove_absolute(ProjectSettings.globalize_path(OUT_DIR))
+			var rm := DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
+			ok = ok and rm == OK
+	var rmdir := DirAccess.remove_absolute(ProjectSettings.globalize_path(OUT_DIR))
+	ok = ok and rmdir == OK
 
 	if ok:
 		print("TOOLS_OK create=%s duplicate=%s" % [

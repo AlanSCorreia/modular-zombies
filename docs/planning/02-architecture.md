@@ -2,9 +2,9 @@
 kind: reference
 area: vision
 status: active
-stage: 3
+stage: 8
 owner: gameplay
-last_reviewed: 2026-11-08
+last_reviewed: 2026-11-09
 ---
 
 # Arquitetura — v2
@@ -26,17 +26,18 @@ stringly typed. A v2 **reescreve o runtime** para eliminar esses limites.
 | Glock como caso especial no viewmodel | Todas as armas iguais + mãos compartilhadas |
 | Strings de estado | Enums/state machines |
 | Testes dentro do jogo | `tests/` + harness |
-| Navmesh rebake em runtime | Variantes pré-bakeadas (Etapa 8 — Produção) |
+| Navmesh rebake em runtime | Variantes pré-bakeadas (dívida opcional #44) |
 
-## Estado atual (Etapa 3 — Gameplay em andamento)
+## Estado atual (Etapa 8 — concluída)
 
-Já existe: `GameRoot` data-driven, `PlayerController`, 2 slots, projétil/melee,
-explosões, granada/foguete/barris, `BarricadeSystem`, IA de zumbi em janelas,
-`MapNav` BFS, HUD `.tscn`, `Economy`/`RoundManager`, `ViewmodelFactory` com
-`hands.glb` compartilhado, JSON/validador e CI local.
+`GameRoot` data-driven, 4 mapas (incluindo Kino), 9 armas autorais, 2 slots,
+projétil/melee, explosões, granada/foguete/barris, `BarricadeSystem`, IA de
+zumbi em janelas, `MapNav` BFS, HUD `.tscn`, menu principal, save/load,
+`Economy`/`RoundManager`, `ViewmodelFactory` com `hands.glb` compartilhado,
+JSON/validador e CI local.
 
-Pendente: faca visual (`knife_slash`), normalização de escala das armas,
-rodada 1→2/game over, efeitos e UI/áudio finais.
+Pendências fora do aceite: arte final dos modelos, animações dedicadas,
+navmesh, VFX pool, localização, controle e mods (issue #44).
 
 ## Arquitetura alvo
 

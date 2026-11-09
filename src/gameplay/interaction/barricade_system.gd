@@ -43,9 +43,9 @@ func repair_tick(target: BarricadeState, delta: float) -> void:
 
 	target.repair_progress += delta
 	var repair_time := maxf(target.data.repair_time, 0.01)
-	while target.repair_progress >= repair_time \
+	if target.repair_progress >= repair_time \
 		and target.plank_count < target.data.max_planks:
-		target.repair_progress -= repair_time
+		target.repair_progress = 0.0
 		repair_one(target)
 
 	var frac := clampf(target.repair_progress / repair_time, 0.0, 1.0)

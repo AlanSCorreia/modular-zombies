@@ -14,6 +14,17 @@ Registro curto da etapa ativa, **mais recente primeiro**. Etapas 4–7 estão em
 Etapa 3 em
 [`archive/20-work-log-2026-11-etapa3.md`](archive/20-work-log-2026-11-etapa3.md).
 
+## 2026-11-09 — Correções da análise negativa (issue #48)
+
+- Save/load v2 com rodada reiniciada, portas/energia/slot ativo e clamps.
+- Explosões ferem o jogador; barris/traps colidem; recarga/headshot/pathfinding
+  e animação de ataque corrigidos.
+- UI: foco, `ui_cancel`, game over pausado, perda de foco e `is_start_visible`.
+- Dados: registry com IDs/schema, bounds de DTO, quests por mapa e Ray Gun.
+- Testes: trap, soak, no-core, import do CI, contagens e `user://`.
+- Docs/assets: Kino no CREDITS, references faltantes, release notes e backlog.
+- CI completo verde; riscos residuais em `26-analysis-fixes.md`.
+
 ## 2026-11-09 — Análise negativa do projeto
 
 - 7 subagentes somente leitura revisaram código, conteúdo/assets e docs.
@@ -148,4 +159,4 @@ Etapa 3 em
 - Teste `SAVE_OK` cobre round-trip, armas/munição e versão incompatível.
 - Próximo: settings (#38).
 
-**Próximo item:** pacote de distribuição final (issue #43).
+**Próximo item:** dívidas opcionais pós-release (issue #44).

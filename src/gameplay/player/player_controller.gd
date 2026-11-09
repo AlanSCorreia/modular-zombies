@@ -30,7 +30,7 @@ var _f_down := false
 
 func _ready() -> void:
 	collision_layer = 2
-	collision_mask = 1 | 4
+	collision_mask = 1 | 4 | 32
 	floor_snap_length = 0.3
 
 	var cs := CollisionShape3D.new()
@@ -295,7 +295,7 @@ func get_interactable() -> Interactable:
 func is_interact_held() -> bool:
 	return Input.is_physical_key_pressed(KEY_F)
 
-func take_damage(amount: float) -> void:
+func take_damage(amount: float, _head: bool = false, _pos: Vector3 = Vector3.ZERO) -> void:
 	if is_dead:
 		return
 	health = maxf(0.0, health - amount)

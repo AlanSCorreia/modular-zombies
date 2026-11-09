@@ -99,8 +99,8 @@ source/blender/ .blend e scripts (fora do import do Godot)
 ## Executar
 
 ```bash
-./run.sh                         # jogo (slice)
-./run.sh -- --map map.bunker13   # Bunker 13
+./run.sh                         # menu principal
+./run.sh -- --map map.bunker13   # entra direto no Bunker 13
 ./editor.sh                      # editor Godot
 ./tools/build_linux.sh           # build Linux + smoke
 ```
@@ -111,7 +111,7 @@ Atalhos: **Bunker 13 v2** e **Bunker 13 v2 — Editor**.
 
 WASD mover • Shift correr • Space pular • Mouse mirar/atirar
 1/2 ou scroll trocar arma • R recarregar • V faca • G granada • F interagir • ESC pausar
-Clique em INICIAR para capturar o mouse.
+Clique em JOGAR no menu para capturar o mouse.
 
 ## Testes
 

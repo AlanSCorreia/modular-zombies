@@ -57,6 +57,8 @@ func _should_collide(mi: MeshInstance3D) -> bool:
 		return false
 	if n.begins_with("BoxTrim") or n.begins_with("Lid") or n.begins_with("Plank"):
 		return false
+	if n.begins_with("Door_"):
+		return false
 	return true
 
 func _add_collision(mi: MeshInstance3D) -> StaticBody3D:

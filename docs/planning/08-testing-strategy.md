@@ -117,14 +117,14 @@ Deve falhar em:
 
 Antes de expandir conteúdo:
 
-- [ ] Iniciar pelo menu.
+- [x] Iniciar pelo menu.
 - [x] Atirar e recarregar (com e sem bala no cano).
 - [x] Matar o zumbi e ganhar pontos.
 - [x] Abrir a porta e spawnar o segundo zumbi.
 - [x] Reparar uma barricada com hold F e ganhar pontos.
 - [x] Ver o zumbi arrancar tábuas e entrar com 0.
 - [x] HUD/health/ammo/pontos corretos.
-- [ ] Game over e restart.
+- [x] Game over e restart.
 - [x] `ci.sh` verde e bench dentro do orçamento.
 
 ## CI

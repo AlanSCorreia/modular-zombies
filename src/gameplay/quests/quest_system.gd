@@ -76,7 +76,6 @@ func notify(trigger: String, target: String, amount := 1) -> bool:
 				state["counts"] = {}
 				state["done"] = false
 		else:
-			Events.quest_step.emit(quest.id, quest.steps[state["index"]].id)
 			_announce_step(quest)
 	return matched
 

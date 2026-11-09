@@ -20,7 +20,7 @@ Toda arma é composta por **GLB do Blender + JSON + AnimationSet**, usando as
 |---|---|---|---|
 | 0 | Briefing | Tipo (hitscan/projectile/melee), referência, stats | Escopo fechado |
 | 1 | Referência | `source/blender/weapons/<id>/reference.md` | Dimensões/partes documentadas |
-| 2 | Modelagem | `source/blender/weapons/<id>/<id>.blend` | Escala 1m, `-Z` frente, `+Y` cima |
+| 2 | Modelagem | `source/blender/weapons/<id>/<id>.blend` | Escala 1m; Blender `+Y` frente/`+Z` cima; Godot `-Z` frente/`+Y` cima |
 | 3 | Partes móveis | Nós `Slide`, `Magazine`, `Trigger`, `Pump`, `Bolt` | Pivôs corretos e nomeados |
 | 4 | Mãos | `assets/models/hands/hands.glb` | Mesmo asset para todas as armas |
 | 5 | Export | `assets/models/weapons/<id>/<id>.glb` | Só a arma, sem mãos duplicadas |

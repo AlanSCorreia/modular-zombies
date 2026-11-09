@@ -319,7 +319,7 @@ func _make_fire(last: bool) -> Animation:
 
 func _make_reload(empty: bool) -> Animation:
 	var a := Animation.new()
-	a.length = 2.05 if empty else 1.55
+	a.length = float(data.stats.get("reload_empty" if empty else "reload_chambered", 2.05))
 	var hl := hand_l.position if hand_l != null else Vector3.ZERO
 	var hr := hand_l.rotation if hand_l != null else Vector3.ZERO
 	var mp := mag.position if mag != null else Vector3.ZERO

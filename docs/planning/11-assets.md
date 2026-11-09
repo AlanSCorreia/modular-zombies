@@ -87,8 +87,8 @@ source/
   corretos para animação.
 - `GripSocket`/`grip_profile` para encaixar as mãos compartilhadas.
 - Pipeline de armas: `14-weapon-workflow.md`.
-- Barricadas: tábua reutilizável em `models/props/barricade_plank.glb`; textura
-  wood em `textures/world`; lascas em `vfx/impacts`.
+- Barricadas: tábuas `Plank_*` embutidas no GLB do mapa; textura wood em
+  `textures/world`; lascas em `vfx/impacts`.
 
 ### Texturas
 - Um conjunto PBR por material: `{diff,nor,rough,ao}.png`.

@@ -52,6 +52,7 @@ last_reviewed: 2026-11-09
 | [`22-redundancy-audit.md`](22-redundancy-audit.md) | Auditoria curta de redundância |
 | [`24-release-checklist.md`](24-release-checklist.md) | Checklist de release |
 | [`25-project-analysis.md`](25-project-analysis.md) | Análise negativa do projeto — 2026-11-09 |
+| [`26-analysis-fixes.md`](26-analysis-fixes.md) | Correções da análise negativa |
 
 ### Conteúdo, assets e sistemas
 

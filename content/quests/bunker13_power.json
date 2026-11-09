@@ -7,9 +7,19 @@
   "requires_coop": false,
   "repeatable": false,
   "steps": [
-    { "id": "power_1", "trigger": "power", "target": "power_1", "count": 1, "hint": "LIGUE A ENERGIA NO SETOR B" }
+    {
+      "id": "power_1",
+      "trigger": "power",
+      "target": "power_1",
+      "count": 1,
+      "hint": "LIGUE A ENERGIA NO SETOR B"
+    }
   ],
   "rewards": [
-    { "type": "points", "amount": 300 }
-  ]
+    {
+      "type": "points",
+      "amount": 300
+    }
+  ],
+  "map": "map.bunker13"
 }

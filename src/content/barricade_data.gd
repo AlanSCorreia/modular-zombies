@@ -18,7 +18,8 @@ static func from_dict(d: Dictionary) -> BarricadeData:
 	o.id = String(d.get("id", ""))
 	o.room = String(d.get("room", ""))
 	var p: Array = d.get("position", [0, 0, 0])
-	o.position = Vector3(float(p[0]), float(p[1]), float(p[2]))
+	if p.size() >= 3:
+		o.position = Vector3(float(p[0]), float(p[1]), float(p[2]))
 	o.rotation_y = float(d.get("rotation_y", 0.0))
 	o.max_planks = int(d.get("max_planks", 6))
 	o.repair_time = float(d.get("repair_time", 0.8))
@@ -26,6 +27,7 @@ static func from_dict(d: Dictionary) -> BarricadeData:
 	o.tear_time_base = float(d.get("tear_time_base", 2.2))
 	o.tear_time_round_scale = float(d.get("tear_time_round_scale", 0.08))
 	var s: Array = d.get("spawn_position", [0, 0, 0])
-	o.spawn_position = Vector3(float(s[0]), float(s[1]), float(s[2]))
+	if s.size() >= 3:
+		o.spawn_position = Vector3(float(s[0]), float(s[1]), float(s[2]))
 	o.climb_time = float(d.get("climb_time", 0.9))
 	return o

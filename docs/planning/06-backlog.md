@@ -13,8 +13,8 @@ Legenda: **P0** bloqueante, **P1** próxima entrega, **P2** depois.
 Este backlog é estratégico; o status real fica no `KANBAN.md`.
 
 > **Etapas 1–8 concluídas:** loader/validador, 4 mapas, 9 armas autorais,
-> Bunker 13 JSON + builder, save/settings, export Linux, performance e soak.
-> Resta o pacote de distribuição final (#43) e dívidas opcionais.
+> Bunker 13 JSON + builder, save/settings, export Linux, performance, soak e
+> release `etapa8` publicada. Restam dívidas opcionais na #44.
 
 ## Etapa 1 — Preparação
 
@@ -112,7 +112,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.15 | Testes de explosivos e faca (feito) | P0 |
 | ETAPA3.16 | Teste integrado do loop (feito) | P0 |
 
-## Etapa 4 — Interações (em andamento)
+## Etapa 4 — Interações (concluída)
 
 | ID | Tarefa | Pri |
 |---|---|---|

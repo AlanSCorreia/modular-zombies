@@ -21,7 +21,7 @@ Criados para este projeto no Blender 4.5 LTS, com fonte `.blend` em
   lança-foguete (reutiliza a Wunder), mais faca.
 - `hands.glb` compartilhado por todas as armas.
 - Props: barril, granada, trap, rádio, interruptor de energia.
-- Mapas: `slice`, `bunker13` e `depot`.
+- Mapas: `slice`, `bunker13`, `depot` e `kino` (recriação low-poly autoral).
 - Brute: variante autoral sobre o zumbi CC BY acima.
 
 Cada arma tem `reference.md` com dimensões, sockets e partes móveis.

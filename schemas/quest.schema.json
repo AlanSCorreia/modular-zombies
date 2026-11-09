@@ -9,6 +9,7 @@
     "id": { "type": "string", "minLength": 1 },
     "name": { "type": "string", "minLength": 1 },
     "type": { "type": "string", "minLength": 1 },
+    "map": { "type": "string" },
     "requires_coop": { "type": "boolean" },
     "repeatable": { "type": "boolean" },
     "steps": {

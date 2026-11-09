@@ -1,9 +1,10 @@
 number,title,state,created,closed,lead_hours,labels,milestone,commits_linked,commit_additions,commit_deletions,docs_mentions
+48,Corrigir achados da análise negativa,CLOSED,2026-11-09T18:13:56Z,2026-11-09T18:14:34Z,0.01,etapa:8 prio:P0 area:gameplay area:infra,Etapa 8 — Produção,0,0,0,2
 47,Adotar agentes e skills Godot da comunidade,CLOSED,2026-11-09T16:38:46Z,2026-11-09T16:42:42Z,0.07,etapa:8 prio:P1 area:infra area:docs,Etapa 8 — Produção,0,0,0,3
 46,R na virada de rodada reinicia no mapa de teste,CLOSED,2026-11-09T16:12:17Z,2026-11-09T16:15:30Z,0.05,bug etapa:8 prio:P0,Etapa 8 — Produção,0,0,0,2
 45,Mapa Kino der Toten e geração de mapas variados,CLOSED,2026-11-09T15:09:07Z,2026-11-09T15:38:03Z,0.48,etapa:8 prio:P1 area:assets area:gameplay,Etapa 8 — Produção,0,0,0,3
-44,Dívidas opcionais pós-release,OPEN,2026-11-09T13:35:47Z,,,etapa:8 prio:P2 area:assets area:gameplay,Etapa 8 — Produção,0,0,0,6
-43,Pacote de distribuição final,CLOSED,2026-11-09T12:32:14Z,2026-11-09T13:35:45Z,1.06,etapa:8 prio:P1 area:infra area:docs,Etapa 8 — Produção,0,0,0,6
+44,Dívidas opcionais pós-release,OPEN,2026-11-09T13:35:47Z,,,etapa:8 prio:P2 area:assets area:gameplay,Etapa 8 — Produção,0,0,0,8
+43,Pacote de distribuição final,CLOSED,2026-11-09T12:32:14Z,2026-11-09T13:35:45Z,1.06,etapa:8 prio:P1 area:infra area:docs,Etapa 8 — Produção,0,0,0,4
 42,Armas autorais no lugar dos placeholders,CLOSED,2026-11-09T12:17:38Z,2026-11-09T12:31:24Z,0.23,etapa:8 prio:P0 area:assets,Etapa 8 — Produção,0,0,0,3
 41,Auditoria de licenças + soak 30 min final,CLOSED,2026-11-08T23:45:48Z,2026-11-09T12:17:36Z,12.53,etapa:8 prio:P0 area:infra area:docs,Etapa 8 — Produção,0,0,0,6
 40,"Performance, soak test e checklist de release",CLOSED,2026-11-08T23:32:37Z,2026-11-08T23:45:26Z,0.21,etapa:8 prio:P0 area:infra,Etapa 8 — Produção,0,0,0,4
@@ -19,7 +20,7 @@ number,title,state,created,closed,lead_hours,labels,milestone,commits_linked,com
 30,Bunker13PowerMechanic (interruptor de energia),CLOSED,2026-11-08T22:09:11Z,2026-11-08T22:20:19Z,0.19,etapa:6 prio:P0 area:assets area:gameplay,Etapa 6 — Quests e Easter Eggs,0,0,0,2
 29,3 rádios no Bunker 13 + música secreta,CLOSED,2026-11-08T21:43:51Z,2026-11-08T22:09:09Z,0.42,etapa:6 prio:P0 area:assets area:gameplay,Etapa 6 — Quests e Easter Eggs,0,0,0,2
 28,"QuestSystem + DTOs, triggers e recompensas",CLOSED,2026-11-08T18:30:57Z,2026-11-08T21:43:49Z,3.21,etapa:6 prio:P0 area:gameplay area:docs,Etapa 6 — Quests e Easter Eggs,0,0,0,4
-27,Documentação do autor de mapas (quickstart),CLOSED,2026-11-08T18:28:05Z,2026-11-08T18:30:54Z,0.05,etapa:5 prio:P1 area:docs,Etapa 5 — Ferramentas de mapa,0,0,0,4
+27,Documentação do autor de mapas (quickstart),CLOSED,2026-11-08T18:28:05Z,2026-11-08T18:30:54Z,0.05,etapa:5 prio:P1 area:docs,Etapa 5 — Ferramentas de mapa,0,0,0,2
 26,Playtest por mapa no dock bunker_tools,CLOSED,2026-11-08T18:16:29Z,2026-11-08T18:28:03Z,0.19,etapa:5 prio:P0 area:infra,Etapa 5 — Ferramentas de mapa,0,0,0,2
 25,Criar/duplicar mapa a partir de template no bunker_tools,CLOSED,2026-11-08T17:52:51Z,2026-11-08T18:16:27Z,0.39,etapa:5 prio:P0 area:infra area:docs,Etapa 5 — Ferramentas de mapa,0,0,0,3
 24,"Áudio 2D/3D, música e mixagem",CLOSED,2026-11-08T12:35:42Z,2026-11-08T17:52:48Z,5.29,etapa:4 prio:P1 area:assets area:gameplay,Etapa 4 — Interações,0,0,0,2

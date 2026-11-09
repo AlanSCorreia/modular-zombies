@@ -9,7 +9,7 @@ var detonated := false
 func setup(p_data: ExplosiveData, pos: Vector3) -> void:
 	data = p_data
 	position = pos
-	collision_layer = 16
+	collision_layer = 16 | 32
 	collision_mask = 0
 	add_to_group("explosive_chain")
 

@@ -100,15 +100,17 @@ func _ready() -> void:
 
 func show_pause() -> void:
 	_pause.visible = true
+	_pause_continue.grab_focus()
 
 func hide_pause() -> void:
 	_pause.visible = false
+	_pause_continue.release_focus()
 
 func is_pause_visible() -> bool:
 	return _pause.visible
 
 func is_start_visible() -> bool:
-	return _start.visible
+	return _start != null and _start.visible
 
 func volume_slider_value() -> float:
 	return _volume_slider.value
@@ -128,8 +130,8 @@ func mouse_filters_ok() -> bool:
 		and _damage.mouse_filter == Control.MOUSE_FILTER_IGNORE \
 		and _prompt_box.mouse_filter == Control.MOUSE_FILTER_IGNORE
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo and event.keycode == KEY_ESCAPE:
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(&"ui_cancel"):
 		pause_toggled.emit()
 		get_viewport().set_input_as_handled()
 
@@ -217,15 +219,16 @@ func show_start() -> void:
 	_start.visible = true
 	_over.visible = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	_start_button.grab_focus()
 
 func hide_start() -> void:
 	if _start == null:
 		return
 	_start.visible = false
-	_start.queue_free()
-	_start = null
+	_start_button.release_focus()
 
 func show_gameover() -> void:
 	_repair_box.visible = false
 	_over.visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	_over_restart.grab_focus()

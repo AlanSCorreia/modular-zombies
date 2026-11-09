@@ -75,7 +75,7 @@ var damage := 20.0
 
 func _ready() -> void:
 	collision_layer = 4
-	collision_mask = 1 | 2
+	collision_mask = 1 | 2 | 32
 	floor_snap_length = 0.3
 	add_to_group("zombies")
 
@@ -146,12 +146,14 @@ func _strip_root_motion() -> void:
 				a.track_set_key_value(i, k, v)
 
 func _play(nm: String) -> void:
-	if anim == null or nm == _anim_state:
+	if anim == null:
 		return
 	var actual: String = _anim_map.get(nm, "")
-	_anim_state = nm
 	if actual == "":
 		return
+	if nm == _anim_state and anim.is_playing():
+		return
+	_anim_state = nm
 	anim.play(actual)
 
 func _physics_process(delta: float) -> void:
@@ -174,7 +176,7 @@ func _physics_process(delta: float) -> void:
 	var move_target := target.global_position
 	if nav != null:
 		_path_timer -= delta
-		if _path_timer <= 0.0 or _path.is_empty():
+		if _path_timer <= 0.0:
 			_path_timer = 0.5
 			_path = nav.path(global_position, target.global_position)
 		while not _path.is_empty():
@@ -298,7 +300,7 @@ func _process_climb(delta: float) -> void:
 	global_position = _climb_to
 	bar_state = BAR_INSIDE
 	collision_layer = 4
-	collision_mask = 1 | 2
+	collision_mask = 1 | 2 | 32
 	velocity = Vector3.ZERO
 	_override = false
 	_play("Walk")
@@ -356,7 +358,10 @@ func _die(head: bool) -> void:
 	Events.zombie_killed.emit(self, head)
 	var t := get_tree().create_timer(3.1)
 	t.timeout.connect(func():
-		var tw := create_tween()
-		tw.tween_property(model, "position:y", -1.2, 0.8)
-		tw.tween_callback(queue_free)
+		if model != null:
+			var tw := create_tween()
+			tw.tween_property(model, "position:y", -1.2, 0.8)
+			tw.tween_callback(queue_free)
+		else:
+			queue_free()
 	)

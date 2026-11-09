@@ -31,8 +31,10 @@ last_reviewed: 2026-11-09
 
 ## Conteúdo e controles
 
-- [x] 3 mapas (`slice`, `bunker13`, `depot`).
-- [x] 9 armas autorais em escala real + faca/granada/foguete/ray gun.
+- [x] 3 mapas no build `etapa8` (`slice`, `bunker13`, `depot`); Kino entrou
+      depois da tag e não faz parte dos artefatos publicados.
+- [x] 9 armas autorais em escala real (incluindo foguete e Ray Gun), mais
+      faca e granada.
 - [x] Menu principal (JOGAR/OPÇÕES/SAIR) e retorno ao menu pelo pause/game over.
 - [x] 2 inimigos (zumbi/brute) e quests.
 - [x] Controles WASD/mouse/1-2/R/V/G/F/ESC/F5/F9.

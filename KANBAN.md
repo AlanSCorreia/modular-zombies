@@ -255,7 +255,7 @@
 - [ ] Templates visuais
 
 ### Ready
-- [ ] Documentação do autor de mapas (P1) — [#27](https://github.com/AlanSCorreia/modular-zombies/issues/27)
+- *(vazio)*
 
 ### Doing
 - *(vazio)*
@@ -385,6 +385,7 @@
 - [x] Mapa Kino der Toten + geração variada (issue #45)
 - [x] Corrigir R na virada de rodada reiniciando no mapa de teste (issue #46)
 - [x] Agentes/skills Godot da comunidade (issue #47)
+- [x] Correções da análise negativa (issue #48)
 
 ### Blocked
 - *(vazio)*

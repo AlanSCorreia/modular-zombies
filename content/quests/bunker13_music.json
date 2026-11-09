@@ -7,12 +7,37 @@
   "requires_coop": false,
   "repeatable": false,
   "steps": [
-    { "id": "radio_1", "trigger": "interact", "target": "radio_1", "count": 1, "hint": "ENCONTRE O RÁDIO 1" },
-    { "id": "radio_2", "trigger": "interact", "target": "radio_2", "count": 1, "hint": "ENCONTRE O RÁDIO 2" },
-    { "id": "radio_3", "trigger": "interact", "target": "radio_3", "count": 1, "hint": "ENCONTRE O RÁDIO 3" }
+    {
+      "id": "radio_1",
+      "trigger": "interact",
+      "target": "radio_1",
+      "count": 1,
+      "hint": "ENCONTRE O RÁDIO 1"
+    },
+    {
+      "id": "radio_2",
+      "trigger": "interact",
+      "target": "radio_2",
+      "count": 1,
+      "hint": "ENCONTRE O RÁDIO 2"
+    },
+    {
+      "id": "radio_3",
+      "trigger": "interact",
+      "target": "radio_3",
+      "count": 1,
+      "hint": "ENCONTRE O RÁDIO 3"
+    }
   ],
   "rewards": [
-    { "type": "points", "amount": 500 },
-    { "type": "music", "id": "music.bunker13" }
-  ]
+    {
+      "type": "points",
+      "amount": 500
+    },
+    {
+      "type": "music",
+      "id": "music.bunker13"
+    }
+  ],
+  "map": "map.bunker13"
 }

@@ -69,7 +69,7 @@ func _ready() -> void:
 	# Lançamento direto (build smoke/CLI): `--map` ou `--auto-start` pula o menu.
 	var args := OS.get_cmdline_user_args()
 	if args.has("--map") or args.has("--auto-start"):
-		GameFlow.auto_start = true
+		GameFlow.request("", true)
 		Sfx.stop_music()
 		call_deferred("_enter_game")
 
@@ -116,28 +116,29 @@ func show_options() -> void:
 func start_map(map_id: String) -> void:
 	Sfx.play("ui", -6)
 	Sfx.stop_music()
-	GameFlow.selected_map = map_id
-	GameFlow.auto_start = true
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	GameFlow.request(map_id, true)
+	var err := get_tree().change_scene_to_file("res://scenes/main.tscn")
+	if err != OK:
+		GameFlow.reset()
+		push_error("falha ao abrir a partida: %d" % err)
 
 func play_game() -> void:
-	if GameFlow.selected_map == "":
-		show_maps()
-		return
-	start_map(GameFlow.selected_map)
+	show_maps()
 
 func _enter_game() -> void:
-	get_tree().change_scene_to_file("res://scenes/main.tscn")
+	var err := get_tree().change_scene_to_file("res://scenes/main.tscn")
+	if err != OK:
+		GameFlow.reset()
+		push_error("falha ao abrir a partida: %d" % err)
 
 func quit_game() -> void:
 	get_tree().quit()
 
-func _input(event: InputEvent) -> void:
-	if event is InputEventKey and event.pressed and not event.echo \
-			and event.keycode == KEY_ESCAPE:
-		if _options_box.visible or _map_box.visible:
-			show_menu()
-			get_viewport().set_input_as_handled()
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed(&"ui_cancel") \
+			and (_options_box.visible or _map_box.visible):
+		show_menu()
+		get_viewport().set_input_as_handled()
 
 func _style_button(button: Button) -> void:
 	button.custom_minimum_size = Vector2(340.0, 54.0)

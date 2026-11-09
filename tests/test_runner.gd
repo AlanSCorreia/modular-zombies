@@ -393,7 +393,7 @@ func _explosion() -> void:
 	rb.add_child(rcs)
 	game.add_child(rb)
 
-	var chain_center := Vector3(-5.0, 0.1, 8.0)
+	var chain_center := Vector3(0.0, 0.1, -20.0)
 	var b1 := ExplosiveBarrel.new()
 	b1.setup(data, chain_center + Vector3(0.0, 0.0, -1.0))
 	game.add_child(b1)
@@ -416,9 +416,23 @@ func _explosion() -> void:
 
 	ExplosionSystem.explode(game.get_world_3d(), get_tree(), chain_center, data, 0)
 	var chain_ok := b1.detonated and b2.detonated and not far.detonated
-	var ok: bool = falloff_ok and los_ok and impulse_ok and chain_ok
-	print("EXPLOSION_TEST near=%.1f far=%.1f los=%s impulse=%s chain=%s" % [
-		z1_dmg, z2_dmg, str(los_ok), str(impulse_ok), str(chain_ok),
+
+	var player_data := ExplosiveData.new()
+	player_data.damage = 5.0
+	player_data.radius = 2.0
+	player_data.falloff = 1.0
+	player_data.chain_depth = 0
+	game.player.global_position = center
+	await get_tree().physics_frame
+	await get_tree().physics_frame
+	game.player.health = 100.0
+	ExplosionSystem.explode(game.get_world_3d(), get_tree(), center, player_data, 0)
+	await get_tree().create_timer(0.1).timeout
+	var player_ok := game.player.health < 100.0 and not game.player.is_dead
+	var ok: bool = falloff_ok and los_ok and impulse_ok and chain_ok and player_ok
+	print("EXPLOSION_TEST near=%.1f far=%.1f hp=%.1f player=%s los=%s impulse=%s chain=%s" % [
+		z1_dmg, z2_dmg, game.player.health, str(player_ok), str(los_ok),
+		str(impulse_ok), str(chain_ok),
 	])
 	_finish("EXPLOSION_OK", ok)
 
@@ -509,6 +523,7 @@ func _barricade() -> void:
 	var weapon_cancel: bool = is_zero_approx(b.repair_progress) \
 		and b.plank_count == maxp - 2
 
+	bs.repair_tick(b, b.data.repair_time * 2.05)
 	bs.repair_tick(b, b.data.repair_time * 2.05)
 	var repaired: bool = b.plank_count == maxp and _planks_visible(b) == maxp
 	var paid: bool = game.economy.points == points0 + b.data.repair_points * 2
@@ -740,13 +755,10 @@ func _trap() -> void:
 	z.set_physics_process(false)
 	z.position = pos + Vector3(1.0, 0.1, 0.0)
 	game.add_child(z)
+	await get_tree().physics_frame
 	await get_tree().create_timer(0.4).timeout
 
 	var detonated: bool = not is_instance_valid(trap)
-	if not detonated and is_instance_valid(trap):
-		trap.detonate(0)
-		await get_tree().create_timer(0.15).timeout
-		detonated = true
 	var damaged: bool = z.is_dead or z.health < 100.0
 	var ok: bool = built and detonated and damaged
 	print("TRAP_TEST built=%s detonated=%s hp=%.1f dead=%s" % [
@@ -979,7 +991,8 @@ func _wonder() -> void:
 	await get_tree().create_timer(0.2).timeout
 	game.round.stop()
 	var data: WeaponData = Content.get_weapon("weapon.raygun")
-	var loaded: bool = data != null and data.explosive == "explosive.frag" \
+	var loaded: bool = data != null \
+		and float(data.projectile.get("explosion_radius", 0.0)) > 0.0 \
 		and data.hands == ViewmodelFactory.HANDS_PATH
 	game.player.add_weapon(data)
 	await get_tree().process_frame
@@ -1077,6 +1090,21 @@ func _save() -> void:
 		and restored_weapon.ammo_mag == 5 \
 		and restored_weapon.ammo_reserve == 20
 
+	# Round ativo, portas e energia sobrevivem ao load.
+	game.economy.set_points(5000)
+	game._start()
+	game.round.restart_at(1)
+	game._buy_door("door1")
+	game._activate_power("power_1")
+	await get_tree().process_frame
+	var saved2 := save.save_game(game, path)
+	game.ctx.doors["door1"].open = false
+	game.ctx.doors["door2"].open = false
+	game.power_on = false
+	var loaded2 := save.load_game(game, path)
+	var state_ok: bool = saved2 and loaded2 and game.ctx.doors["door1"].open \
+		and game.ctx.doors["door2"].open and game.power_on and game.round.active
+
 	var bad_path := "user://test_bad_save.json"
 	var f := FileAccess.open(bad_path, FileAccess.WRITE)
 	f.store_string('{"version": 999}\n')
@@ -1086,9 +1114,9 @@ func _save() -> void:
 		and game.economy.points == points_before
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(path))
 	DirAccess.remove_absolute(ProjectSettings.globalize_path(bad_path))
-	var ok := ok_roundtrip and bad
-	print("SAVE_TEST saved=%s loaded=%s roundtrip=%s version_guard=%s" % [
-		str(saved), str(loaded), str(ok_roundtrip), str(bad),
+	var ok := ok_roundtrip and state_ok and bad
+	print("SAVE_TEST saved=%s loaded=%s roundtrip=%s state=%s version_guard=%s" % [
+		str(saved), str(loaded), str(ok_roundtrip), str(state_ok), str(bad),
 	])
 	_finish("SAVE_OK", ok)
 
@@ -1187,7 +1215,7 @@ func _menu() -> void:
 	var pause_menu: Button = game.hud.get_node_or_null("Pause/Center/VBox/MenuButton")
 	ok = ok and over_menu != null and pause_menu != null
 	ok = ok and game.hud.is_start_visible()
-	ok = ok and not GameFlow.auto_start
+	ok = ok and not GameFlow.has_pending()
 
 	Sfx.stop_music()
 	menu.queue_free()
@@ -1267,7 +1295,9 @@ func _kino() -> void:
 
 	# Restart de verdade preserva o mapa atual.
 	game.prepare_restart()
-	ok = ok and GameFlow.selected_map == "map.kino" and GameFlow.auto_start
+	var pending := GameFlow.consume()
+	ok = ok and String(pending.get("map", "")) == "map.kino" \
+		and bool(pending.get("auto", false))
 	GameFlow.reset()
 	_finish("KINO_OK", ok)
 
@@ -1287,6 +1317,8 @@ func _soak(args: PackedStringArray) -> void:
 	var seconds := int(_arg(args, "--seconds", "60"))
 	var end := Time.get_ticks_msec() + seconds * 1000
 	var iterations := 0
+	var mem0 := Performance.get_monitor(Performance.MEMORY_STATIC) / 1048576.0
+	var obj0 := int(Performance.get_monitor(Performance.OBJECT_COUNT))
 	while Time.get_ticks_msec() < end:
 		for z in game.zombies.duplicate():
 			if not z.is_dead:
@@ -1295,10 +1327,14 @@ func _soak(args: PackedStringArray) -> void:
 			game.round.next_round()
 		await get_tree().create_timer(0.25).timeout
 		iterations += 1
-	print("SOAK_OK seconds=%d iterations=%d zombies=%d" % [
-		seconds, iterations, game.zombies.size(),
+	var mem1 := Performance.get_monitor(Performance.MEMORY_STATIC) / 1048576.0
+	var obj1 := int(Performance.get_monitor(Performance.OBJECT_COUNT))
+	var ok := iterations > 0 and (mem1 - mem0) <= 128.0 \
+		and (obj1 - obj0) <= 2000
+	print("SOAK_RESULT seconds=%d iterations=%d mem_delta=%.1f obj_delta=%d" % [
+		seconds, iterations, mem1 - mem0, obj1 - obj0,
 	])
-	_finish("SOAK_OK", true)
+	_finish("SOAK_OK", ok)
 
 func _ui() -> void:
 	await get_tree().create_timer(0.8).timeout

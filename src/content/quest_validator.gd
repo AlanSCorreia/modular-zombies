@@ -10,40 +10,22 @@ const REWARD_TYPES := ["points", "music", "weapon", "perk"]
 static func validate(quests: Dictionary, maps: Dictionary,
 		weapons: Dictionary) -> Array[String]:
 	var errors: Array[String] = []
-	var interact_ids := {}
-	var room_ids := {}
-	var power_ids := {}
-	var perk_ids := {}
-	for map_id in maps.keys():
-		var m: MapData = maps[map_id]
-		for room in m.rooms:
-			room_ids[room.id] = true
-		for door in m.doors:
-			interact_ids[door.id] = true
-		for wallbuy in m.wallbuys:
-			interact_ids[wallbuy.id] = true
-		for perk in m.perks:
-			interact_ids[perk.id] = true
-			perk_ids[perk.id] = true
-		for barricade in m.barricades:
-			interact_ids[barricade.id] = true
-		for radio in m.radios:
-			interact_ids[radio.id] = true
-		for power in m.power_switches:
-			interact_ids[power.id] = true
-			power_ids[power.id] = true
-		if m.box != null:
-			interact_ids["box"] = true
-	var enemy_ids := {}
-	for enemy_id in maps.keys():
-		var m: MapData = maps[enemy_id]
-		if m.enemy_id != "":
-			enemy_ids[m.enemy_id] = true
-
 	for quest_id in quests.keys():
 		var q: QuestData = quests[quest_id]
 		if q.id == "" or q.name == "":
 			errors.append("quest %s: id/name vazios" % quest_id)
+		var scoped := maps
+		if q.map != "":
+			if not maps.has(q.map):
+				errors.append("quest %s: mapa inexistente (%s)" % [quest_id, q.map])
+				continue
+			scoped = {q.map: maps[q.map]}
+		var ids := _collect_ids(scoped)
+		var interact_ids: Dictionary = ids["interact"]
+		var room_ids: Dictionary = ids["room"]
+		var power_ids: Dictionary = ids["power"]
+		var perk_ids: Dictionary = ids["perk"]
+		var enemy_ids: Dictionary = ids["enemy"]
 		if q.steps.is_empty():
 			errors.append("quest %s: sem passos" % quest_id)
 			continue
@@ -85,6 +67,45 @@ static func validate(quests: Dictionary, maps: Dictionary,
 				errors.append("quest %s: perk de reward inexistente (%s)" % [quest_id, reward.id])
 		_check_graph(q, errors)
 	return errors
+
+
+static func _collect_ids(maps: Dictionary) -> Dictionary:
+	var interact_ids := {}
+	var room_ids := {}
+	var power_ids := {}
+	var perk_ids := {}
+	var enemy_ids := {}
+	for map_id in maps.keys():
+		var m: MapData = maps[map_id]
+		if m == null:
+			continue
+		for room in m.rooms:
+			room_ids[room.id] = true
+		for door in m.doors:
+			interact_ids[door.id] = true
+		for wallbuy in m.wallbuys:
+			interact_ids[wallbuy.id] = true
+		for perk in m.perks:
+			interact_ids[perk.id] = true
+			perk_ids[perk.id] = true
+		for barricade in m.barricades:
+			interact_ids[barricade.id] = true
+		for radio in m.radios:
+			interact_ids[radio.id] = true
+		for power in m.power_switches:
+			interact_ids[power.id] = true
+			power_ids[power.id] = true
+		if m.box != null:
+			interact_ids["box"] = true
+		if m.enemy_id != "":
+			enemy_ids[m.enemy_id] = true
+	return {
+		"interact": interact_ids,
+		"room": room_ids,
+		"power": power_ids,
+		"perk": perk_ids,
+		"enemy": enemy_ids,
+	}
 
 static func _has_step_id(q: QuestData, id: String) -> bool:
 	for step in q.steps:

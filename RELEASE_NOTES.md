@@ -11,8 +11,10 @@ em Blender e mãos compartilhadas entre todas as armas.
 
 ## Conteúdo
 
-- 3 mapas: `slice`, `bunker13` e `depot`.
-- 9 armas autorais em escala real + faca, granada, lança-foguete e Ray Gun.
+- 3 mapas no build `etapa8`: `slice`, `bunker13` e `depot`. **Kino der Toten**
+  foi adicionado depois da tag e não está nos artefatos publicados.
+- 9 armas autorais em escala real (incluindo lança-foguete e Ray Gun), mais
+  faca e granada.
 - Menu principal com Jogar, Opções e Sair.
 - Save/load (F5/F9), settings persistentes e pausa com opções.
 - Rodadas, economia, perks, caixa, barricadas, quests e chefe Brute.

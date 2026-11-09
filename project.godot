@@ -26,6 +26,7 @@ window/size/viewport_height=900
 window/size/window_width_override=1600
 window/size/window_height_override=900
 window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
 window/vsync/vsync_mode=1
 
 [layer_names]
@@ -35,6 +36,7 @@ window/vsync/vsync_mode=1
 3d_physics/layer_3="zombies"
 3d_physics/layer_4="interact"
 3d_physics/layer_5="props"
+3d_physics/layer_6="solid_props"
 
 [physics]
 

@@ -9,6 +9,9 @@ last_reviewed: 2026-11-09
 
 # Análise negativa do projeto — 2026-11-09
 
+> **Status:** correções aplicadas em `26-analysis-fixes.md`; riscos residuais
+> listados lá.
+
 ## Método
 
 Revisão somente leitura com 7 subagentes:

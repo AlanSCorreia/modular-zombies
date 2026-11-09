@@ -12,7 +12,18 @@ echo "== docs =="
 python3 tools/check_docs.py
 
 echo "== import =="
-"$GODOT" --headless --path . --import >/tmp/bunker_import.log 2>&1
+IMPORT_LOG="${TMPDIR:-/tmp}/bunker_import_$$.log"
+if ! timeout 300 "$GODOT" --headless --path . --import >"$IMPORT_LOG" 2>&1; then
+  cat "$IMPORT_LOG"
+  echo "IMPORT_FAIL exit"
+  exit 1
+fi
+if grep -qE "SCRIPT ERROR|Parse Error|Failed to load" "$IMPORT_LOG"; then
+  cat "$IMPORT_LOG"
+  echo "IMPORT_FAIL log"
+  exit 1
+fi
+rm -f "$IMPORT_LOG"
 echo "ok"
 
 echo "== lógica =="

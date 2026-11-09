@@ -26,21 +26,25 @@ func _ready() -> void:
 	GameSettings.apply_audio()
 
 	var args := OS.get_cmdline_user_args()
-	var map_id := GameFlow.selected_map
+	var request := GameFlow.consume()
+	var map_id := String(request.get("map", ""))
+	var auto_start := bool(request.get("auto", false))
 	if map_id == "":
 		map_id = MapArgs.map_id_from_args(args)
-	GameFlow.selected_map = ""
+	if not Content.loaded:
+		_abort_to_menu("conteúdo com erros; veja o log")
+		return
 	map = Content.get_map(map_id)
 	weapon_data = Content.get_weapon(map.starting_weapon) if map != null else null
 	enemy_data = Content.get_enemy(map.enemy_id) if map != null else null
 	if map == null or weapon_data == null or enemy_data == null:
-		push_error("Conteúdo incompleto para o mapa '%s'" % map_id)
+		_abort_to_menu("conteúdo incompleto para o mapa '%s'" % map_id)
 		return
 	_setup_environment(map)
 
 	var builder := MapBuilderRegistry.create(map.builder)
 	if builder == null:
-		push_error("Builder inválido para o mapa %s: %s" % [map.id, map.builder])
+		_abort_to_menu("builder inválido para o mapa %s: %s" % [map.id, map.builder])
 		return
 	ctx = builder.build(self, map, Content.explosives)
 	nav = MapNav.new()
@@ -91,8 +95,7 @@ func _ready() -> void:
 	Events.interacted.connect(_on_interacted)
 	Events.player_died.connect(_on_player_died)
 	hud.show_start()
-	if GameFlow.auto_start:
-		GameFlow.reset()
+	if auto_start:
 		_start()
 
 
@@ -180,8 +183,10 @@ func _spawn_at(pos: Vector3, barricade_id := "", enemy_id := "") -> void:
 	z.position = pos
 	add_child(z)
 	zombies.append(z)
+	z.tree_exited.connect(_on_zombie_tree_exited.bind(z))
 	if barricade_id != "" and ctx.barricades.has(barricade_id):
-		z.setup_barricade(ctx.barricades[barricade_id], barricade_system)
+		var round_no := round.round_no if round != null else 1
+		z.setup_barricade(ctx.barricades[barricade_id], barricade_system, round_no)
 
 func _on_zombie_killed(z: ZombieEnemy, headshot: bool) -> void:
 	zombies.erase(z)
@@ -193,7 +198,14 @@ func _on_zombie_killed(z: ZombieEnemy, headshot: bool) -> void:
 func _on_zombie_hit(_z: ZombieEnemy, _damage: float, _head: bool, _pos: Vector3) -> void:
 	economy.add(10)
 
+func _on_zombie_tree_exited(z: ZombieEnemy) -> void:
+	if z != null and not z.is_dead and round != null \
+			and round.active and not round.complete and is_inside_tree():
+		round.notify_killed()
+
 func _on_round_completed() -> void:
+	if not is_inside_tree():
+		return
 	var ended := round.round_no
 	Sfx.play_music("round_end", -6)
 	Events.banner.emit("RODADA %d CONCLUÍDA" % ended, "PREPARE-SE", 2.5)
@@ -255,6 +267,10 @@ func _spend(cost: int) -> void:
 func _buy_door(id: String) -> void:
 	var door: DoorState = ctx.doors.get(id, null)
 	if door == null or door.open:
+		return
+	if door.node == null:
+		push_warning("porta sem geometria: " + id)
+		door.open = true
 		return
 	if door.requires_power and not power_on:
 		Events.banner.emit("ENERGIA DESLIGADA", "LIGUE O INTERRUPTOR NO PALCO", 1.6)
@@ -330,10 +346,11 @@ func _open_door_free(id: String) -> void:
 		door.body.queue_free()
 	if door.label != null:
 		door.label.queue_free()
-	var node: Node3D = door.node
-	var tw := create_tween()
-	tw.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
-	tw.tween_property(node, "position:y", node.position.y + 2.8, 0.7)
+	if door.node != null:
+		var node: Node3D = door.node
+		var tw := create_tween()
+		tw.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+		tw.tween_property(node, "position:y", node.position.y + 2.8, 0.7)
 
 func _use_radio(id: String) -> void:
 	var radio: RadioState = ctx.radios.get(id, null)
@@ -367,6 +384,7 @@ func _on_player_died() -> void:
 	get_tree().paused = false
 	hud.hide_pause()
 	hud.show_gameover()
+	get_tree().paused = true
 
 func _return_to_menu() -> void:
 	get_tree().paused = false
@@ -384,8 +402,19 @@ func prepare_restart() -> void:
 	get_tree().paused = false
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	if map != null:
-		GameFlow.selected_map = map.id
-		GameFlow.auto_start = true
+		GameFlow.request(map.id, true)
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_APPLICATION_FOCUS_OUT and started \
+			and not get_tree().paused and player != null and not player.is_dead:
+		_pause()
+
+func _abort_to_menu(message: String) -> void:
+	push_error(message)
+	GameFlow.reset()
+	get_tree().paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	get_tree().change_scene_to_file("res://scenes/ui/main_menu.tscn")
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:

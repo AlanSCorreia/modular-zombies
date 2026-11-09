@@ -226,6 +226,18 @@ def check_gates(write: bool) -> None:
         if doc_gates != gates:
             err("08-testing-strategy.md: gates divergem do ci.sh")
 
+    # Todo gate precisa de um emissor real em testes/ferramentas.
+    emitters = ""
+    for path in sorted((ROOT / "tests").glob("*")):
+        if path.is_file() and path.suffix in (".gd", ".sh", ".py"):
+            emitters += path.read_text(encoding="utf-8", errors="replace")
+    for path in sorted((ROOT / "tools").glob("*")):
+        if path.is_file() and path.suffix in (".gd", ".sh", ".py"):
+            emitters += path.read_text(encoding="utf-8", errors="replace")
+    for gate in gates:
+        if gate not in emitters:
+            err(f"gate sem emissor em tests/tools: {gate}")
+
 
 def check_kanban(docs: dict[Path, dict[str, str]]) -> int:
     text = KANBAN.read_text(encoding="utf-8")

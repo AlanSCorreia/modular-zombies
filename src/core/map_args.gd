@@ -8,10 +8,10 @@ const DEFAULT_MAP := "map.slice"
 const OVERRIDE_PATH := "user://playtest.cfg"
 
 static func map_id_from_args(args: PackedStringArray) -> String:
+	var override := _consume_override()
 	var i := args.find("--map")
 	if i >= 0 and i + 1 < args.size():
 		return args[i + 1]
-	var override := _consume_override()
 	if override != "":
 		return override
 	return DEFAULT_MAP

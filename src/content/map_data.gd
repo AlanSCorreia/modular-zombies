@@ -32,7 +32,8 @@ static func from_dict(d: Dictionary) -> MapData:
 	m.builder = String(d.get("builder", "scene"))
 	m.scene = String(d.get("scene", ""))
 	var p: Array = d.get("player_spawn", [0, 0.1, 0])
-	m.player_spawn = Vector3(float(p[0]), float(p[1]), float(p[2]))
+	if p.size() >= 3:
+		m.player_spawn = Vector3(float(p[0]), float(p[1]), float(p[2]))
 	m.starting_points = int(d.get("starting_points", 500))
 	m.enemy_id = String(d.get("enemy", ""))
 	m.starting_weapon = String(d.get("starting_weapon", "weapon.glock17"))
@@ -60,7 +61,8 @@ static func from_dict(d: Dictionary) -> MapData:
 	for sw in d.get("power_switches", []):
 		m.power_switches.append(PowerSwitchData.from_dict(sw))
 	for l in d.get("power_lights", []):
-		m.power_lights.append(Vector3(float(l[0]), float(l[1]), float(l[2])))
+		if l is Array and l.size() >= 3:
+			m.power_lights.append(Vector3(float(l[0]), float(l[1]), float(l[2])))
 	for e in d.get("special_enemies", []):
 		m.special_enemies.append(SpecialEnemyData.from_dict(e))
 	m.environment = d.get("environment", {})

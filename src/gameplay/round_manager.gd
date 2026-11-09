@@ -54,6 +54,18 @@ func next_round() -> void:
 func stop() -> void:
 	active = false
 
+func restart_at(p_round: int) -> void:
+	active = true
+	complete = false
+	round_no = maxi(1, p_round)
+	target_count = map.zombie_count + (round_no - 1) * 2
+	spawned = 0
+	alive = 0
+	wave_pending = false
+	special_spawned = 0
+	round_started.emit(round_no)
+	_spawn_wave()
+
 func notify_killed() -> void:
 	if not active:
 		return
