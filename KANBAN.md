@@ -44,7 +44,8 @@
 - **Etapa ativa:** 8 — Produção (concluída; nenhuma etapa em andamento).
 - **Agora (Doing):** *(vazio)*.
 - **Próximo:** dívidas opcionais pós-release (issue #44).
-- **Dívidas opcionais:** arte manual, animações, navmesh, VFX, localização, controle e mods.
+- **Dívidas opcionais:** navmesh, VFX, localização, controle, mods e escala de UI.
+- **Artes finais e animações:** serão fornecidas pelo autor.
 - **Última etapa:** 8 — Produção, concluída com a tag `etapa8`.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
@@ -319,8 +320,6 @@
 **Aceite:** 2º mapa + arma nova sem mudar o núcleo.
 
 ### Backlog
-- [ ] Terceiro mapa
-- [ ] Modo co-op
 - [ ] Teste “sem mudança no núcleo”
 
 ### Ready

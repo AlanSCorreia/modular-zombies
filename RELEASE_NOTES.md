@@ -57,7 +57,8 @@ Detalhes em `CREDITS.md` e `assets/third_party/README.md`.
 
 ## Limitações conhecidas
 
-- Modelos low-poly procedurais; o passe final de arte ainda é manual.
+- Modelos low-poly procedurais; as artes finais e animações serão fornecidas
+  posteriormente pelo autor.
 - Navmesh pré-bakeada, pool de VFX, localização, suporte a controle e mods
   ficam para o backlog pós-release.
 - Acessibilidade revisada para fonte/contraste, mas sem opção de escala de UI.

@@ -23,8 +23,8 @@ serviços e ferramentas de autoria.
 - Armas autorais em escala real (AK-74, M1911, MP5, M870, Wunder e demais),
   licenças documentadas e soak de 30 min aprovado.
 - **Release `etapa8` publicada:** binário Linux + PCK + checksums.
-- Pós-release: dívidas opcionais na #44 (arte manual, animações, navmesh, VFX,
-  localização, controle e mods).
+- Pós-release: dívidas opcionais na #44 (navmesh, VFX, localização, controle,
+  mods e escala de UI). As artes finais e animações serão fornecidas depois.
 - A geometria do mapa é autoral (GLB/`.blend`); builders antigos ficam em
   `src/maps/legacy/` apenas para exportação.
 
