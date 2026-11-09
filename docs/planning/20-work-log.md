@@ -14,6 +14,12 @@ Registro curto da etapa ativa, **mais recente primeiro**. Etapas 4–7 estão em
 Etapa 3 em
 [`archive/20-work-log-2026-11-etapa3.md`](archive/20-work-log-2026-11-etapa3.md).
 
+## 2026-11-09 — Fechamento da Etapa 8 (tag `etapa8`)
+
+- CI final verde depois das armas autorais.
+- Tag `etapa8` criada e enviada ao remoto.
+- Issue #43 aberta para o pacote de distribuição final.
+
 ## 2026-11-09 — Armas autorais no lugar dos placeholders (issue #42)
 
 - AK-74, M1911, MP5, M870 e Wunder remodeladas do zero no Blender com
@@ -76,5 +82,4 @@ Etapa 3 em
 - Teste `SAVE_OK` cobre round-trip, armas/munição e versão incompatível.
 - Próximo: settings (#38).
 
-**Próximo item:** auditoria de licenças + soak 30 min final (issue #41); depois
-aceite final.
+**Próximo item:** pacote de distribuição final (issue #43).

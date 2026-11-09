@@ -4,7 +4,7 @@ area: execution
 status: active
 stage: 8
 owner: docs
-last_reviewed: 2026-11-08
+last_reviewed: 2026-11-09
 ---
 
 # Planejamento — Bunker 13 v2
@@ -13,17 +13,17 @@ last_reviewed: 2026-11-08
 > **Decisões duráveis:** [`19-decision-log.md`](19-decision-log.md).
 > **Avanços:** [`20-work-log.md`](20-work-log.md).
 
-## Estado atual (2026-11-08)
+## Estado atual (2026-11-09)
 
 - v1 é histórico arquivado em `zombie-fps-legacy`; a v2 é reescrita do runtime.
-- **Etapas 1–7 concluídas**; **Etapa 8 — Produção em andamento**.
+- **Etapas 1–8 concluídas** (tag `etapa8`).
 - Entregue: geometria autoral, 2 slots, softlock/BFS, `MapContext`/`Interactable`,
   harness, pool/cache, HUD `.tscn`, `Economy`/`RoundManager`, projétil/melee,
   explosões, granada/foguete/barris, barricadas, janelas + IA de zumbi, mãos
   compartilhadas/`ViewmodelFactory`, faca com `knife_slash`, rodadas 1→2 e
   traps explosivas, VFX/SFX/HUD de granadas e áudio/mixagem.
 - **Próximo:** pacote de distribuição final (#43); checksums, notas e acessibilidade.
-- **Etapas 1–8 concluídas** (tag `etapa8`); dívidas opcionais no backlog.
+- **Dívidas opcionais:** navmesh, pool de VFX, localização, controle e mods.
 - Gates atuais: ver [`08-testing-strategy.md`](08-testing-strategy.md).
 
 ## Índice

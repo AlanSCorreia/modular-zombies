@@ -2,9 +2,9 @@
 kind: log
 area: execution
 status: active
-stage: 3
+stage: 8
 owner: docs
-last_reviewed: 2026-11-08
+last_reviewed: 2026-11-09
 ---
 
 # Log de decisões

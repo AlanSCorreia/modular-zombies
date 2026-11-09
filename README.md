@@ -9,18 +9,19 @@ serviços e ferramentas de autoria.
 - **Estratégia e decisões:** [`docs/planning/`](docs/planning/)
 - **Legado histórico:** `../zombie-fps-legacy` (não usar como referência de implementação)
 
-## Estado atual: Etapa 8 — Produção em andamento
+## Estado atual: Etapas 1–8 concluídas (tag `etapa8`)
 
 - Vertical slice jogável e **Bunker 13 completo em JSON + geometria autoral**
   (4 salas, 4 portas, 4 wallbuys, 3 perks, caixa, 9 barricadas, 9 spawns).
-- **6 armas em JSON**, loader/validador, testes `BUNKER13_OK`/`CONTENT_OK`.
+- **9 armas em JSON**, loader/validador, testes `BUNKER13_OK`/`CONTENT_OK`.
 - Entregue na Etapa 3: 2 slots, projétil/melee, explosões, granada/foguete/
   barris, `BarricadeSystem` com hold F, vãos de janela + IA de zumbi,
   `ViewmodelFactory` com `hands.glb` compartilhado e faca visual com
   `knife_slash`.
 - Entregue também: rodadas 1→2 com HUD e game over; traps explosivas.
-- Pendente: auditoria de licenças e soak final; a escala das armas (#16) fica
-  como dívida visual.
+- Armas autorais em escala real (AK-74, M1911, MP5, M870, Wunder e demais),
+  licenças documentadas e soak de 30 min aprovado.
+- Pendente fora do aceite: pacote de distribuição final (#43).
 - A geometria do mapa é autoral (GLB/`.blend`); builders antigos ficam em
   `src/maps/legacy/` apenas para exportação.
 
@@ -75,7 +76,7 @@ source/blender/ .blend e scripts (fora do import do Godot)
 | Etapa 5 — Ferramentas (`etapa5`) | Concluído |
 | Etapa 6 — Quests (`etapa6`) | Concluído |
 | Etapa 7 — Escala (`etapa7`) | Concluído |
-| Etapa 8 — Produção (`etapa8`) | Em andamento |
+| Etapa 8 — Produção (`etapa8`) | Concluído |
 
 ## Gestão
 

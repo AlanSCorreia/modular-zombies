@@ -4,7 +4,7 @@ area: execution
 status: active
 stage: 8
 owner: docs
-last_reviewed: 2026-11-08
+last_reviewed: 2026-11-09
 ---
 
 # Backlog — v2
@@ -12,9 +12,9 @@ last_reviewed: 2026-11-08
 Legenda: **P0** bloqueante, **P1** próxima entrega, **P2** depois.  
 Este backlog é estratégico; o status real fica no `KANBAN.md`.
 
-> **Etapas 1 e 2 concluídas:** loader/validador, 2 mapas,
-> 6 armas, Bunker 13 JSON + builder, assets autorais e testes.
-> Etapa 3 concluída; Etapa 4 — Interações em andamento (traps e UI/áudio).
+> **Etapas 1–8 concluídas:** loader/validador, 3 mapas, 9 armas autorais,
+> Bunker 13 JSON + builder, save/settings, export Linux, performance e soak.
+> Resta o pacote de distribuição final (#43) e dívidas opcionais.
 
 ## Etapa 1 — Preparação
 
@@ -178,8 +178,8 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA8.7 | Soak test 30 min (feito, issue #41) | P0 |
 | ETAPA8.8 | Auditoria de licenças/assets (feito, issue #41) | P0 |
 | ETAPA8.9 | Save/load do estado das barricadas | P1 |
-| ETAPA8.10 | Checklist de release (issue #40) | P0 |
-| ETAPA8.11 | Armas autorais no lugar dos placeholders (issue #42) | P0 |
+| ETAPA8.10 | Checklist de release (feito, issue #40) | P0 |
+| ETAPA8.11 | Armas autorais no lugar dos placeholders (feito, issue #42) | P0 |
 
 ## Transversal
 

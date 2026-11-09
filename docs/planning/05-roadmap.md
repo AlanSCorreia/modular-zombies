@@ -4,7 +4,7 @@ area: execution
 status: active
 stage: 8
 owner: docs
-last_reviewed: 2026-11-08
+last_reviewed: 2026-11-09
 ---
 
 # Roadmap — v2
@@ -158,8 +158,7 @@ QuestValidator (issue #31) e main quest de 3 passos (issue #32).
 - Save/load versionado.
 - Settings (sensibilidade, volume, qualidade).
 - Exportação Linux + smoke test.
-- Pool de áudio/efeitos.
-- Navmesh pré-bakeada.
+- Pool de áudio; pool de VFX e navmesh ficam como dívidas opcionais.
 - CI (testes + validador) e soak test.
 
 **Aceite:** build standalone abre e joga; FPS ≥ 40 na iGPU; zero softlocks.

@@ -59,7 +59,7 @@
 - *(vazio)*
 
 ### Ready
-- [ ] Pacote de distribuição final (P1) — [#43](https://github.com/AlanSCorreia/modular-zombies/issues/43)
+- *(vazio)*
 
 ### Doing
 - *(vazio)*
@@ -106,7 +106,7 @@
 - *(vazio)*
 
 ### Ready
-- [ ] Pacote de distribuição final (P1) — [#43](https://github.com/AlanSCorreia/modular-zombies/issues/43)
+- *(vazio)*
 
 ### Doing
 - *(vazio)*
@@ -146,7 +146,7 @@
 - [ ] `Effects` (sangue, decais, tracers, cápsulas)
 
 ### Ready
-- [ ] Pacote de distribuição final (P1) — [#43](https://github.com/AlanSCorreia/modular-zombies/issues/43)
+- *(vazio)*
 
 ### Doing
 - *(vazio)*
@@ -219,7 +219,7 @@
 - [ ] Teste de interação e UI
 
 ### Ready
-- [ ] Pacote de distribuição final (P1) — [#43](https://github.com/AlanSCorreia/modular-zombies/issues/43)
+- *(vazio)*
 
 ### Doing
 - *(vazio)*
@@ -291,7 +291,7 @@
 - [ ] Debug overlay
 
 ### Ready
-- [ ] Pacote de distribuição final (P1) — [#43](https://github.com/AlanSCorreia/modular-zombies/issues/43)
+- *(vazio)*
 
 ### Doing
 - *(vazio)*
@@ -324,7 +324,7 @@
 - [ ] Teste “sem mudança no núcleo”
 
 ### Ready
-- [ ] Pacote de distribuição final (P1) — [#43](https://github.com/AlanSCorreia/modular-zombies/issues/43)
+- *(vazio)*
 
 ### Doing
 - *(vazio)*
@@ -333,16 +333,13 @@
 - [x] Novo mapa jogável (`SECOND_MAP_OK`)
 - [x] Nova arma no wallbuy/caixa (`WEAPONS_OK`)
 - [x] Wonder weapon (`WONDER_OK`)
-- [ ] Nova arma no wallbuy/caixa
-- [ ] Validador e testes verdes
 
 ### Done
-- [x] Save/load versionado da run (issue #37)
-- [x] Settings de sensibilidade/volume/qualidade (issue #38)
-- [x] Exportação Linux + smoke test (issue #39)
-- [x] Performance/soak 5min + checklist de release (issue #40)
-- [x] Licenças + soak 30 min (issue #41)
-- [x] Armas autorais no lugar dos placeholders (issue #42, resolve #16)
+- [x] Segundo mapa (issue #33)
+- [x] Duas armas novas (issue #34)
+- [x] Wonder weapon (issue #35)
+- [x] Inimigo especial (issue #36)
+- [x] Teste sem mudança no núcleo (`NO_CORE_OK`)
 
 ### Blocked
 - *(vazio)*
