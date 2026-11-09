@@ -32,7 +32,7 @@ last_reviewed: 2026-11-09
 ## Conteúdo e controles
 
 - [x] 3 mapas (`slice`, `bunker13`, `depot`).
-- [x] 9 armas + faca/granada/foguete/ray gun.
+- [x] 9 armas autorais em escala real + faca/granada/foguete/ray gun.
 - [x] 2 inimigos (zumbi/brute) e quests.
 - [x] Controles WASD/mouse/1-2/R/V/G/F/ESC/F5/F9.
 - [x] `NO_CORE_OK` e `CONTENT_OK`.

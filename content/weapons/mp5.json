@@ -8,8 +8,24 @@
   "hands": "res://assets/models/hands/hands.glb",
   "grip_profile": "rifle",
   "animation_set": "",
-  "moving_parts": [],
-  "viewmodel": { "position": [0.18, -0.19, -0.55], "rotation": [0.0, 0.08, 0.0], "scale": 0.8 },
+  "moving_parts": [
+    "Bolt",
+    "Magazine",
+    "Trigger"
+  ],
+  "viewmodel": {
+    "position": [
+      0.18,
+      -0.19,
+      -0.55
+    ],
+    "rotation": [
+      0.0,
+      0.08,
+      0.0
+    ],
+    "scale": 0.8
+  },
   "stats": {
     "damage": 34,
     "head_multiplier": 2.0,
@@ -22,6 +38,12 @@
     "reload_empty": 2.4,
     "auto": true
   },
-  "reload": { "strategy": "magazine" },
-  "audio": { "fire": "gun_smg", "reload": "reload", "empty": "reload" }
+  "reload": {
+    "strategy": "magazine"
+  },
+  "audio": {
+    "fire": "gun_smg",
+    "reload": "reload",
+    "empty": "reload"
+  }
 }

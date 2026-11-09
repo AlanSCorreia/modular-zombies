@@ -67,8 +67,8 @@ last_reviewed: 2026-11-08
 ## Testes de arma
 
 - Conteúdo: schema, stats, cena, mãos, `GripSocket`, partes móveis.
-- Asset: GLB importa, escala/origem/eixos, `Muzzle`; escala real em metros é
-  pendência da issue #16.
+- Asset: GLB importa, escala/origem/eixos, `Muzzle`; escala real em metros
+  conferida contra o `reference.md` de cada arma.
 - Animações: `fire`, `fire_last`, `reload_chambered`, `reload_empty`.
 - Integração: tiro, headshot, recarga com/sem bala no cano, 2 slots.
 - Visual: arma + mãos na tela; muzzle flash e recuo.

@@ -53,8 +53,11 @@ blender -b --python source/blender/scripts/make_overview.py
 
 ## Estado
 
-- Fontes `.blend`: Glock 17, MP5, M870, AK-74, Wunder, pistol, zumbi, slice e
-  Bunker 13.
+- Fontes `.blend`: todas as armas (AK-74, M1911, Glock 17, MP5, M870, SKS,
+  Ray Gun, Wunder, faca), mãos, zumbi, props, `slice`, Bunker 13 e Depot.
+- As armas AK-74, M1911, MP5, M870 e Wunder são geradas por scripts
+  (`make_ak74.py`, `make_m1911.py`, `make_mp5.py`, `make_m870.py`,
+  `make_wunder.py`) usando `weapon_kit.py`.
 - `source/blender/overview.blend` mostra todos os modelos lado a lado.
 - Geometria do mapa autoral em `assets/models/maps/<id>/<id>.glb`; o runtime
   carrega o GLB e gera colisão a partir dos AABBs (física, não geometria visual).

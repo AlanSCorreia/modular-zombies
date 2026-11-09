@@ -8,28 +8,23 @@ projeto.
 
 - **Zumbi** — “Zombie” por **bachosoftdesign**, **CC BY 3.0**, via Poly Pizza:
   https://poly.pizza/m/xqEzosAVYX
-- **Pistola M1911** — por **dook**, **CC BY 3.0**, via Poly Pizza:
-  https://poly.pizza/m/aLbeOSoOpXN
-- **Rifle AK** — por **AdamKokrito**, **CC BY 3.0**, via Poly Pizza:
-  https://poly.pizza/m/5HaOYIsAtE
-- **SMG (MP5)** — **CC0**, via Poly Pizza: https://poly.pizza/m/0SC1d2gERM
-- **Escopeta** — **CC0**, via Poly Pizza: https://poly.pizza/m/29FXKu7G91
-- **Arma especial (Wunder)** — **CC0**, via Poly Pizza:
-  https://poly.pizza/m/1vBdqOfUNd
+  - O Brute é uma variante do mesmo modelo e mantém esta atribuição.
 
-Licenças:
-- CC BY 3.0: https://creativecommons.org/licenses/by/3.0/
-- CC0 1.0: https://creativecommons.org/publicdomain/zero/1.0/
+Licença CC BY 3.0: https://creativecommons.org/licenses/by/3.0/
 
 ## Modelos autorais
 
-Criados/adaptados para este projeto no Blender 4.5 LTS, com fonte `.blend` em
-`source/blender/`:
+Criados para este projeto no Blender 4.5 LTS, com fonte `.blend` em
+`source/blender/` e scripts em `source/blender/scripts/`:
 
-- Glock 17, `hands.glb`, faca, SKS, Ray Gun, barril, trap, rádio, interruptor
-  de energia, mapas `slice`, `bunker13` e `depot`.
-- Brute é uma variante do zumbi CC BY acima (mesma atribuição).
-- `assets/third_party/README.md` registra os packs externos.
+- Armas: AK-74, M1911, Glock 17, MP5, M870, SKS, Ray Gun, Wunder e
+  lança-foguete (reutiliza a Wunder), mais faca.
+- `hands.glb` compartilhado por todas as armas.
+- Props: barril, granada, trap, rádio, interruptor de energia.
+- Mapas: `slice`, `bunker13` e `depot`.
+- Brute: variante autoral sobre o zumbi CC BY acima.
+
+Cada arma tem `reference.md` com dimensões, sockets e partes móveis.
 
 ## Texturas PBR (Poly Haven, CC0)
 

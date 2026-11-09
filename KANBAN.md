@@ -33,19 +33,19 @@
 | `etapa5` | Etapa 5 — Ferramentas de mapa | **Concluído** | — |
 | `etapa6` | Etapa 6 — Quests e Easter Eggs | **Concluído** | — |
 | `etapa7` | Etapa 7 — Escala de conteúdo | **Concluído** | — |
-| `etapa8` | Etapa 8 — Produção | **Em andamento** | Armas autorais (#42) |
+| `etapa8` | Etapa 8 — Produção | **Concluído** | — |
 
-> **Status:** Etapas 3–7 **concluídas** (issues #1–#15 e #17–#36).
-> Gameplay, apresentação, ferramentas, quests e escala de conteúdo prontos.
-> Etapa 8 começa por save/load; a escala das armas (#16) fica como dívida visual.
+> **Status:** Etapas 1–8 **concluídas**. Build, performance, soak de 30 min,
+> licenças e armas autorais prontos. Falta apenas o pacote de distribuição
+> (checksums, notas e revisão de acessibilidade).
 
 ## Próximo item
 
-- **Etapa ativa:** 8 — Produção.
+- **Etapa ativa:** nenhuma; todas as etapas planejadas concluídas.
 - **Agora (Doing):** *(vazio)*.
-- **Próximo:** substituir armas placeholder por modelos autorais (issue #42).
-- **Depois:** aceite final e tag `etapa8`.
-- **Última etapa:** 8 — Produção, após o aceite da Etapa 7.
+- **Próximo:** pacote de distribuição (checksums, notas, acessibilidade).
+- **Dívidas opcionais:** navmesh, pool de VFX, localização, controle e mods.
+- **Última etapa:** 8 — Produção, concluída com a tag `etapa8`.
 - **Registro:** `19-decision-log.md` e `20-work-log.md`.
 
 ---
@@ -144,7 +144,6 @@
 - [ ] Substituir `get_child(0)` por referência tipada
 - [ ] `BoxBuilder`/helpers comuns
 - [ ] `Effects` (sangue, decais, tracers, cápsulas)
-- [ ] Normalizar escala/origem das armas (bottleneck visual, depois) — [#16](https://github.com/AlanSCorreia/modular-zombies/issues/16)
 
 ### Ready
 - *(vazio)*
@@ -343,6 +342,7 @@
 - [x] Exportação Linux + smoke test (issue #39)
 - [x] Performance/soak 5min + checklist de release (issue #40)
 - [x] Licenças + soak 30 min (issue #41)
+- [x] Armas autorais no lugar dos placeholders (issue #42, resolve #16)
 
 ### Blocked
 - *(vazio)*
@@ -365,7 +365,7 @@
 - *(vazio)*
 
 ### Doing
-- [ ] Armas autorais no lugar dos placeholders (P0) — [#42](https://github.com/AlanSCorreia/modular-zombies/issues/42)
+- *(vazio)*
 
 ### Review/Test
 - [x] Save/load round-trip (`SAVE_OK`)
@@ -382,6 +382,7 @@
 - [x] Exportação Linux + smoke test (issue #39)
 - [x] Performance/soak 5min + checklist de release (issue #40)
 - [x] Licenças + soak 30 min (issue #41)
+- [x] Armas autorais no lugar dos placeholders (issue #42, resolve #16)
 
 ### Blocked
 - *(vazio)*

@@ -110,6 +110,7 @@ Blender (`./blender.sh source/blender/weapons/glock17/glock17.blend`) → GLB
 `glock17.glb` → JSON `glock17.json` → animações no
 `WeaponController` → testes.
 
-> Estado atual: a Glock foi migrada para `hands.glb` + `ViewmodelFactory`
-> (issue #14). MP5 também passa pelo mesmo caminho; as demais armas usam o
-> fallback por `grip_profile` até receberem sockets próprios.
+> Estado atual: todas as armas usam `hands.glb` + `ViewmodelFactory` e têm
+> `GripSocket`/`Muzzle` próprios. As armas AK-74, M1911, MP5, M870 e Wunder
+> são geradas por `source/blender/scripts/make_*.py` com
+> `weapon_kit.py`; cada uma tem `reference.md` com dimensões e partes.

@@ -107,7 +107,7 @@ Este backlog é estratégico; o status real fica no `KANBAN.md`.
 | ETAPA3.43 | HUD em `.tscn` (feito, issue #7) | P1 |
 | ETAPA3.44 | `RoundManager`/`Economy` fora do `GameRoot` (feito) | P1 |
 | ETAPA3.45 | InputMap + validação de áudio/partes no validador | P2 |
-| ETAPA3.46 | Normalizar escala/origem das armas (issue #16, adiada) | P1 |
+| ETAPA3.46 | Normalizar escala/origem das armas (feito, issue #16) | P1 |
 | ETAPA3.47 | Bench com draw calls/frame time e baseline atualizado | P2 |
 | ETAPA3.15 | Testes de explosivos e faca (feito) | P0 |
 | ETAPA3.16 | Teste integrado do loop (feito) | P0 |

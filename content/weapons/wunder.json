@@ -8,9 +8,29 @@
   "hands": "res://assets/models/hands/hands.glb",
   "grip_profile": "wunder",
   "animation_set": "",
-  "moving_parts": [],
-  "projectile": { "speed": 28.0, "radius": 0.22, "lifetime": 4.0, "explosion_radius": 0.0 },
-  "viewmodel": { "position": [0.18, -0.19, -0.55], "rotation": [0.0, 0.08, 0.0], "scale": 0.8 },
+  "moving_parts": [
+    "Magazine",
+    "Trigger"
+  ],
+  "projectile": {
+    "speed": 28.0,
+    "radius": 0.22,
+    "lifetime": 4.0,
+    "explosion_radius": 0.0
+  },
+  "viewmodel": {
+    "position": [
+      0.18,
+      -0.19,
+      -0.55
+    ],
+    "rotation": [
+      0.0,
+      0.08,
+      0.0
+    ],
+    "scale": 0.8
+  },
   "stats": {
     "damage": 230,
     "head_multiplier": 1.0,
@@ -23,6 +43,12 @@
     "reload_empty": 3.5,
     "auto": false
   },
-  "reload": { "strategy": "magazine" },
-  "audio": { "fire": "gun_raygun", "reload": "reload", "empty": "reload" }
+  "reload": {
+    "strategy": "magazine"
+  },
+  "audio": {
+    "fire": "gun_raygun",
+    "reload": "reload",
+    "empty": "reload"
+  }
 }

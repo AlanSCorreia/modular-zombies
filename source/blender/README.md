@@ -11,6 +11,12 @@ source/blender/
   maps/<id>/<id>.blend
   hands/hands.blend
   scripts/import_glb_to_blend.py
+  scripts/weapon_kit.py
+  scripts/make_ak74.py
+  scripts/make_m1911.py
+  scripts/make_mp5.py
+  scripts/make_m870.py
+  scripts/make_wunder.py
   scripts/make_hands.py
   scripts/make_knife.py
   scripts/prepare_weapon_hands.py
@@ -53,6 +59,18 @@ blender -b source/blender/weapons/mp5/mp5.blend \
 
 Nenhum GLB de arma deve conter `HandL`/`HandR`; o `ViewmodelFactory` anexa o
 asset compartilhado no `GripSocket` da arma.
+
+Armas autorais AK-74, M1911, MP5, M870 e Wunder:
+
+```bash
+blender -b --python source/blender/scripts/make_ak74.py
+blender -b --python source/blender/scripts/make_m1911.py
+blender -b --python source/blender/scripts/make_mp5.py
+blender -b --python source/blender/scripts/make_m870.py
+blender -b --python source/blender/scripts/make_wunder.py
+```
+
+Cada pasta de arma tem `reference.md` com dimensões, sockets e partes móveis.
 
 A faca segue a mesma convenção e é gerada por:
 

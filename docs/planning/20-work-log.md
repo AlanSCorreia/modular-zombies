@@ -14,6 +14,20 @@ Registro curto da etapa ativa, **mais recente primeiro**. Etapas 4–7 estão em
 Etapa 3 em
 [`archive/20-work-log-2026-11-etapa3.md`](archive/20-work-log-2026-11-etapa3.md).
 
+## 2026-11-09 — Armas autorais no lugar dos placeholders (issue #42)
+
+- AK-74, M1911, MP5, M870 e Wunder remodeladas do zero no Blender com
+  `weapon_kit.py` + `make_*.py`; fontes `.blend` e `reference.md` em
+  `source/blender/weapons/`.
+- Escala real em metros, `+Y` frente e `+Z` cima; `GunRoot`, `GripSocket` e
+  `Muzzle` presentes em todas; `Magazine`/`Bolt`/`Pump`/`Trigger` nomeados.
+- `CREDITS.md` e `assets/third_party/README.md` sem atribuição de armas
+  externas; só o zumbi continua CC BY 3.0.
+- `overview.blend` regenerado; JSONs atualizaram `moving_parts`.
+- `VIEWMODEL_OK`, `WEAPONS_OK`, `WONDER_OK` e `KNIFE_OK` verdes.
+- Encerra a dívida de escala/origem das armas (#16).
+- Próximo: CI final e tag `etapa8`.
+
 ## 2026-11-09 — Licenças e soak de 30 min (issue #41)
 
 - Auditoria confirmou a origem das texturas e do áudio no CREDITS do legado:

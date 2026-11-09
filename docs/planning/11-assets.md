@@ -146,5 +146,5 @@ source/
 `.blend` de todas as armas, do zumbi, das mãos e dos mapas em
 `source/blender/`. `./blender.sh` abre a visão geral. `hands.glb` é único e
 compartilhado. A geometria do mapa é autoral (GLB/`.blend`) e nada de conteúdo
-fica em `.tres`. Ver `18-authored-assets.md`. Escala das armas ainda tem
-pendência na issue #16.
+fica em `.tres`. Ver `18-authored-assets.md`. Todas as armas estão em escala
+real (metros) e têm `reference.md` com dimensões e sockets.

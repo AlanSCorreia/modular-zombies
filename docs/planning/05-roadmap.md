@@ -25,7 +25,7 @@ O board operacional é `../../KANBAN.md`.
 | `etapa5` | Etapa 5 — Ferramentas | Criar/validar/testar mapas no editor | **Concluído** | M |
 | `etapa6` | Etapa 6 — Quests | QuestSystem, música, mecânica única, debug | **Concluído** | L |
 | `etapa7` | Etapa 7 — Escala | 2º mapa, armas novas, wonder weapon, inimigo | **Concluído** | L |
-| `etapa8` | Etapa 8 — Produção | Save, settings, export, pools, CI, performance | **Em andamento** | L |
+| `etapa8` | Etapa 8 — Produção | Save, settings, export, pools, CI, performance | **Concluído** | L |
 
 ## Etapa 1 — Preparação (concluída — tag `etapa1`)
 
@@ -78,17 +78,18 @@ pontos e HUD de progresso), vãos de janela autorais, IA de zumbi
 autoral com `knife_slash`.
 
 **Dívida visual (depois)**
-- Normalização de escala/origem das armas (issue #16): AK-74, M870, pistol
-  e wunder estão fora de metros.
 - `BoxBuilder` compartilhado.
 - Teste visual do Bunker 13.
+
+A normalização de escala/origem das armas (issue #16) foi resolvida na Etapa
+8 com os modelos autorais.
 
 **Transversal:** auditoria curta de redundância concluída em
 `22-redundancy-audit.md` (issue #15), docs reorganizadas em índice + archive
 (issue #18), validação automatizada com `tools/check_docs.py` (issue #19),
 pipeline de métricas com snapshot por bloco (issue #20), faca visual com
 `KNIFE_OK` (issue #17) e rodadas/game over (`ROUNDS_OK`, issue #21). A Etapa 3
-foi aceita; a escala das armas (#16) fica como dívida visual.
+foi aceita; a escala das armas (#16) foi resolvida depois na Etapa 8.
 
 **Pré-requisito atendido:** geometria do mapa autoral (ETAPA3.34–36).
 
@@ -143,14 +144,14 @@ QuestValidator (issue #31) e main quest de 3 passos (issue #32).
 
 **Aceite:** novo mapa/arma sem alterar o núcleo; validador e testes verdes.
 
-## Etapa 8 — Produção (em andamento)
+## Etapa 8 — Produção (concluída — tag `etapa8`)
 
 **Já entregue:** save/load (issue #37), settings (issue #38), exportação Linux
-(issue #39), performance/soak (issue #40) e licenças + soak de 30 min
-(issue #41).
+(issue #39), performance/soak (issue #40), licenças + soak de 30 min
+(issue #41) e armas autorais em escala real (issue #42, resolve #16).
 
-**Pendente**
-- Substituir os modelos placeholder por armas autorais (issue #42).
+**Pendente (fora do aceite)**
+- Pacote de distribuição: checksums, notas e acessibilidade.
 - Navmesh para mapas irregulares e pool de efeitos, se necessário.
 
 **Entregáveis**

@@ -170,7 +170,7 @@
     {
       "number": 16,
       "title": "Normalizar escala e origem das armas",
-      "state": "OPEN",
+      "state": "CLOSED",
       "labels": [
         "etapa:3",
         "prio:P1",
@@ -460,12 +460,23 @@
     {
       "number": 41,
       "title": "Auditoria de licenças + soak 30 min final",
-      "state": "OPEN",
+      "state": "CLOSED",
       "labels": [
         "etapa:8",
         "prio:P0",
         "area:infra",
         "area:docs"
+      ],
+      "milestone": "Etapa 8 — Produção"
+    },
+    {
+      "number": 42,
+      "title": "Armas autorais no lugar dos placeholders",
+      "state": "OPEN",
+      "labels": [
+        "etapa:8",
+        "prio:P0",
+        "area:assets"
       ],
       "milestone": "Etapa 8 — Produção"
     }
