@@ -110,6 +110,8 @@ Deve falhar em:
 4. Performance (FPS mínimo e tempo de bake).
 5. Checklist visual (spawns, portas, wallbuys, HUD, explosivos).
 6. Teste de explosivos do mapa (barris/traps) e cadeia.
+7. Restart preserva o mapa; `R` na virada de rodada não reinicia
+   (regressão em `KINO_OK`).
 
 ## Golden path do slice
 

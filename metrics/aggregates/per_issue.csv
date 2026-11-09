@@ -1,4 +1,5 @@
 number,title,state,created,closed,lead_hours,labels,milestone,commits_linked,commit_additions,commit_deletions,docs_mentions
+46,R na virada de rodada reinicia no mapa de teste,CLOSED,2026-11-09T16:12:17Z,2026-11-09T16:15:30Z,0.05,bug etapa:8 prio:P0,Etapa 8 — Produção,0,0,0,2
 45,Mapa Kino der Toten e geração de mapas variados,CLOSED,2026-11-09T15:09:07Z,2026-11-09T15:38:03Z,0.48,etapa:8 prio:P1 area:assets area:gameplay,Etapa 8 — Produção,0,0,0,3
 44,Dívidas opcionais pós-release,OPEN,2026-11-09T13:35:47Z,,,etapa:8 prio:P2 area:assets area:gameplay,Etapa 8 — Produção,0,0,0,6
 43,Pacote de distribuição final,CLOSED,2026-11-09T12:32:14Z,2026-11-09T13:35:45Z,1.06,etapa:8 prio:P1 area:infra area:docs,Etapa 8 — Produção,0,0,0,6

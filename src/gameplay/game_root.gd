@@ -377,10 +377,15 @@ func _return_to_menu() -> void:
 
 
 func _restart() -> void:
-	get_tree().paused = false
-	hud.hide_pause()
-	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	prepare_restart()
 	get_tree().reload_current_scene()
+
+func prepare_restart() -> void:
+	get_tree().paused = false
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	if map != null:
+		GameFlow.selected_map = map.id
+		GameFlow.auto_start = true
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event is InputEventKey and event.pressed and not event.echo:
@@ -391,10 +396,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			if event.keycode == KEY_F9:
 				_load_game()
 				return
-	if round != null and round.is_complete() and event is InputEventKey \
-		and event.pressed and event.keycode == KEY_R:
-		_restart()
-
 func _save_game() -> void:
 	var save := SaveGame.new()
 	if save.save_game(self):

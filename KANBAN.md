@@ -371,6 +371,7 @@
 - [x] Performance medida (`PERF_OK` + bench)
 - [x] Auditoria de licenças/assets (`CREDITS.md` + `assets/third_party/`)
 - [x] Soak de 30 min (`SOAK_OK`, 7.063 iterações)
+- [x] R não reinicia na virada; restart preserva o mapa (regressão em `KINO_OK`)
 - [x] Checklist manual de release
 
 ### Done
@@ -382,6 +383,7 @@
 - [x] Armas autorais no lugar dos placeholders (issue #42, resolve #16)
 - [x] Menu principal + pacote de release (issue #43)
 - [x] Mapa Kino der Toten + geração variada (issue #45)
+- [x] Corrigir R na virada de rodada reiniciando no mapa de teste (issue #46)
 
 ### Blocked
 - *(vazio)*

@@ -1254,6 +1254,21 @@ func _kino() -> void:
 	var after: Array[Vector3] = game.nav.path(game.player.position, Vector3(0, 0.1, 14))
 	ok = ok and not after.is_empty()
 	ok = ok and game.ctx.doors["arch_theater_hall"].open
+
+	# R durante a virada não pode reiniciar a partida.
+	game.round.complete = true
+	var restart_event := InputEventKey.new()
+	restart_event.pressed = true
+	restart_event.keycode = KEY_R
+	game._unhandled_input(restart_event)
+	ok = ok and is_instance_valid(game) and game.map != null \
+		and game.map.id == "map.kino"
+	game.round.complete = false
+
+	# Restart de verdade preserva o mapa atual.
+	game.prepare_restart()
+	ok = ok and GameFlow.selected_map == "map.kino" and GameFlow.auto_start
+	GameFlow.reset()
 	_finish("KINO_OK", ok)
 
 func _perf() -> void:

@@ -14,6 +14,15 @@ Registro curto da etapa ativa, **mais recente primeiro**. Etapas 4–7 estão em
 Etapa 3 em
 [`archive/20-work-log-2026-11-etapa3.md`](archive/20-work-log-2026-11-etapa3.md).
 
+## 2026-11-09 — R na virada de rodada reiniciava no mapa de teste (issue #46)
+
+- Removido o atalho hardcoded que tratava `R` durante `round.is_complete()` como
+  restart — ele conflitava com a recarga e caía no default `map.slice`.
+- `_restart()` agora chama `prepare_restart()`, que salva `map.id` em
+  `GameFlow.selected_map` e liga `auto_start` antes de recarregar a cena.
+- `KINO_OK` cobre a regressão: `R` na virada não reinicia e o restart preserva
+  `map.kino`.
+
 ## 2026-11-09 — Mapa Kino der Toten e geração variada (issue #45)
 
 - Fonte Blender `source/blender/maps/kino/kino.blend` gerada por
