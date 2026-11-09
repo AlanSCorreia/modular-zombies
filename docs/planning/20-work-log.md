@@ -14,7 +14,7 @@ Registro curto da etapa ativa, **mais recente primeiro**. Etapas 4–7 estão em
 Etapa 3 em
 [`archive/20-work-log-2026-11-etapa3.md`](archive/20-work-log-2026-11-etapa3.md).
 
-## 2026-11-09 — Release etapa8 publicada (issue #43)
+## 2026-11-09 — Release etapa8 publicada
 
 - Release publicada em `https://github.com/AlanSCorreia/modular-zombies/releases/tag/etapa8`
   com `bunker13.x86_64`, `bunker13.pck` e `SHA256SUMS`.
